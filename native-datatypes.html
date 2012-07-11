@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset=utf-8>
-<title>Native datatypes - Dive Into Python 3</title>
+<title>Natív adattípusok - Ugorj fejest a Python 3-ba</title>
 <!--[if IE]><script src=j/html5.js></script><![endif]-->
 <link rel=stylesheet href=dip3.css>
 <style>
@@ -9,38 +9,71 @@ body{counter-reset:h1 2}
 <link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
 <link rel=stylesheet media=print href=print.css>
 <meta name=viewport content='initial-scale=1.0'>
-<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:l5eihuescdw><input type=hidden name=ie value=UTF-8>&nbsp;<input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=root value=Search></div></form>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#native-datatypes>Dive Into Python 3</a> <span class=u>&#8227;</span>
-<p id=level>Difficulty level: <span class=u title=beginner>&#x2666;&#x2666;&#x2662;&#x2662;&#x2662;</span>
-<h1>Native Datatypes</h1>
+<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:l5eihuescdw><input type=hidden name=ie value=UTF-8>&nbsp;<input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=root value=Keresés></div></form>
+<p>Itt vagy: <a href=index.html>Kezdőlap</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#native-datatypes>Ugorj fejest a Python 3-ba</a> <span class=u>&#8227;</span>
+<p id=level>Nehézségi szint: <span class=u title=kezdő>&#x2666;&#x2666;&#x2662;&#x2662;&#x2662;</span>
+<h1>Natív adattípusok</h1>
 <blockquote class=q>
-<p><span class=u>&#x275D;</span> Wonder is the foundation of all philosophy, inquiry its progress, ignorance its end. <span class=u>&#x275E;</span><br>&mdash; Michel de Montaigne
+<p><span class=u>&#x275D;</span> A csoda minden filozófia alapja, a vizsgálódás a fejlődésük, a tudatlanság a végük. <span class=u>&#x275E;</span><br>&mdash; Michel de Montaigne
 </blockquote>
 <p id=toc>&nbsp;
-<h2 id=divingin>Diving In</h2>
-<p class=f>Datatypes. Set aside <a href=your-first-python-program.html>your first Python program</a> for just a minute, and let&#8217;s talk about datatypes. In Python, <a href=your-first-python-program.html#declaringfunctions>every value has a datatype</a>, but you don&#8217;t need to declare the datatype of variables. How does that work? Based on each variable&#8217;s original assignment, Python figures out what type it is and keeps tracks of that internally.
-<p>Python has many native datatypes. Here are the important ones:
+<h2 id=divingin>Ugorj fejest</h2>
+<p class=f>Adattípusok. Tedd félre <a href=your-first-python-program.html>az első Python programod</a> egy
+percre, és beszéljünk az adattípusokról. Pythonban <a href=your-first-python-program.html#declaringfunctions>minden értéknek van
+adattípusa</a>, de nem kell deklarálnod a változók adattípusát. Hogy
+működik ez? Az egyes változóknak eredetileg adott érték alapján a Python
+meghatározza annak értékét, és nyilvántartja azt.
+<p>A Python sok natív adattípussal rendelkezik. A fontosak az alábbiak:
 <ol>
-<li><b>Booleans</b> are either <code>True</code> or <code>False</code>.
-<li><b>Numbers</b> can be integers (<code>1</code> and <code>2</code>), floats (<code>1.1</code> and <code>1.2</code>), fractions (<code>1/2</code> and <code>2/3</code>), or even <a href=http://en.wikipedia.org/wiki/Complex_number>complex numbers</a>.
-<li><b>Strings</b> are sequences of Unicode characters, <i>e.g.</i> an <abbr>HTML</abbr> document.
-<li><b>Bytes</b> and <b>byte arrays</b>, <i>e.g.</i> a <abbr>JPEG</abbr> image file.
-<li><b>Lists</b> are ordered sequences of values.
-<li><b>Tuples</b> are ordered, immutable sequences of values.
-<li><b>Sets</b> are unordered bags of values.
-<li><b>Dictionaries</b> are unordered bags of key-value pairs.
+<li>A <b>logikai értékek</b> <code>True</code> vagy <code>False</code> értékűek lehetnek.
+<li>A <b>számok</b> lehetnek egészek (<code>1</code> és <code>2</code>),
+lebegőpontosak (<code>1.1</code> és <code>1.2</code>), törtek
+(<code>1/2</code> és <code>2/3</code>) vagy akár <a
+href=http://en.wikipedia.org/wiki/Complex_number>komplex számok</a> is.
+<li>A <b>karakterláncok</b> Unicode karakterek sorozatai, <i>például</i> egy <abbr>HTML</abbr> dokumentum.
+<li>A <b>bájtok</b> és <b>bájttömbök</b>, <i>például</i> egy <abbr>JPEG</abbr> képfájl.
+<li>A <b>listák</b> értékek rendezett sorozatai.
+<li>A <b>tuple</b>-ök értékek rendezett, nem módosítható sorozatai.
+<li>A <b>halmazok</b> értékek rendezetlen kupacai.
+<li>A <b>szótárak</b> kulcs-érték párok rendezetlen kupacai.
 </ol>
-<p>Of course, there are more types than these. <a href=your-first-python-program.html#everythingisanobject>Everything is an object</a> in Python, so there are types like <i>module</i>, <i>function</i>, <i>class</i>, <i>method</i>, <i>file</i>, and even <i>compiled code</i>. You&#8217;ve already seen some of these: <a href=your-first-python-program.html#runningscripts>modules have names</a>, <a href=your-first-python-program.html#docstrings>functions have <code>docstrings</code></a>, <i class=baa>&amp;</i>c. You&#8217;ll learn about classes in <a href=iterators.html>Classes <i class=baa>&amp;</i> Iterators</a>, and about files in <a href=files.html>Files</a>.
-<p>Strings and bytes are important enough&nbsp;&mdash;&nbsp;and complicated enough&nbsp;&mdash;&nbsp;that they get their own chapter. Let&#8217;s look at the others first.
+<p>Természetesen ezeknél több típus van. Pythonban <a
+href=your-first-python-program.html#everythingisanobject>minden
+objektum</a>, emiatt léteznek <i>modul</i>, <i>függvény</i>,
+<i>osztály</i>, <i>metódus</i>, <i>fájl</i> és még <i>lefordított kód</i>
+típusok is. Ezek közül néhányat már láttál: <a
+href=your-first-python-program.html#runningscripts>a moduloknak nevük
+van</a>, <a href=your-first-python-program.html#docstrings>a függvényeknek
+<code>docstring-jeik</code></a> <i class=baa>stb.</i> Az osztályokról az
+<a href=iterators.html>Osztályok és iterátorok</a> fejezetben, a fájlokról
+pedig a <a href=files.html>Fájlok</a> fejezetben fogsz többet megtudni.
+<p>A karakterláncok és bájtok elég fontosak&nbsp;&mdash;&nbsp;és elég
+bonyolultak&nbsp;&mdash;&nbsp;hogy saját fejezetet kapjanak. Előbb
+nézzük a többit.
 <p class=a>&#x2042;
 
-<h2 id=booleans>Booleans</h2>
-<aside>You can use virtually any expression in a boolean context.</aside>
-<p>Booleans are either true or false. Python has two constants, cleverly named <code><dfn>True</dfn></code> and <code><dfn>False</dfn></code>, which can be used to assign <dfn>boolean</dfn> values directly. Expressions can also evaluate to a boolean value. In certain places (like <code>if</code> statements), Python expects an expression to evaluate to a boolean value. These places are called <i>boolean contexts</i>. You can use virtually any expression in a boolean context, and Python will try to determine its truth value. Different datatypes have different rules about which values are true or false in a boolean context. (This will make more sense once you see some concrete examples later in this chapter.)
-<p>For example, take this snippet from <a href=your-first-python-program.html#divingin><code>humansize.py</code></a>:
+<h2 id=booleans>Logikai értékek</h2>
+<aside>Gyakorlatilag bármely kifejezést használhatod logikai kontextusban.</aside>
+<p>A logikai értékek igazak vagy hamisak lehetnek. A Python két
+konstanssal rendelkezik, amelyek közvetlenül <dfn>logikai</dfn> értékekhez
+rendelhetők, ezek a <code><dfn>True</dfn></code> és
+<code><dfn>False</dfn></code>. A kifejezések is logikai értékekké
+értékelődnek ki. Bizonyos helyeken (mint az <code>if</code> utasítások), a
+Python a kifejezés logikai értékre való kiértékelődését várja. Ezeket a
+helyeket <i>logikai kontextusoknak</i> nevezzük. Gyakorlatilag bármely
+kifejezést használhatod logikai kontextusban, és a Python megpróbálja
+meghatározni annak igazságértékét. A különböző adattípusok különböző
+szabályokkal rendelkeznek arra vonatkozóan, hogy logikai kontextusban mely
+értékek számítanak igaznak vagy hamisnak. (A fejezet későbbi konkrét
+példáinak tükrében majd jobban fogod látni ennek az értelmét.)
+<p>Vegyük például ezt a részletet a <a
+href=your-first-python-program.html#divingin><code>humansize.py</code></a>-ból:
 <pre class='nd pp'><code>if size &lt; 0:
-    raise ValueError('number must be non-negative')</code></pre>
-<p><var>size</var> is an integer, 0 is an integer, and <code>&lt;</code> is a numerical operator. The result of the expression <code>size &lt; 0</code> is always a boolean. You can test this yourself in the Python interactive shell:
+    raise ValueError('a szám nem lehet negatív')</code></pre>
+<p>A <var>size</var> egy egész, a 0 egy egész, és a <code>&lt;</code> egy
+numerikus műveleti jel. A <code>size &lt; 0</code> kifejezés eredménye
+mindig logikai érték. Ezt te is kipróbálhatod az interaktív Python
+parancsértelmezőben:
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>size = 1</kbd>
 <samp class=p>>>> </samp><kbd class=pp>size &lt; 0</kbd>
@@ -51,7 +84,9 @@ body{counter-reset:h1 2}
 <samp class=p>>>> </samp><kbd class=pp>size = -1</kbd>
 <samp class=p>>>> </samp><kbd class=pp>size &lt; 0</kbd>
 <samp class=pp>True</samp></pre>
-<p>Due to some legacy issues left over from Python 2, booleans can be treated as numbers. <code>True</code> is <code>1</code>; <code>False</code> is 0.
+<p>Bizonyos, a Python 2-ből örökölt problémák miatt a logikai értékek
+számokként kezelhetők. A <code>True</code> <code>1</code>; a
+<code>False</code> 0.
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>True + True</kbd>
 <samp class=pp>2</samp>
@@ -63,12 +98,15 @@ body{counter-reset:h1 2}
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;stdin>", line 1, in &lt;module>
 ZeroDivisionError: int division or modulo by zero</samp></pre>
-<p>Ew, ew, ew! Don&#8217;t do that. Forget I even mentioned it.
+<p>Jaj, jaj, jaj! Ezt ne csináld. Azt is felejtsd el, hogy szóba hoztam.
 
 <p class=a>&#x2042;
 
-<h2 id=numbers>Numbers</h2>
-<p>Numbers are awesome. There are so many to choose from. Python supports both <dfn>integer</dfn>s and <dfn>floating point</dfn> numbers. There&#8217;s no type declaration to distinguish them; Python tells them apart by the presence or absence of a <dfn>decimal</dfn> point.
+<h2 id=numbers>Számok</h2>
+<p>A számok izgalmasak. Olyan sok van belőlük! A Python támogatja mind az
+<dfn>egész</dfn>, mind a <dfn>lebegőpontos</dfn> számokat. A
+megkülönböztetésükhöz nincs típusdeklaráció, a Python a
+<dfn>tizedespont</dfn> jelenléte vagy hiánya alapján tesz különbséget.
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>type(1)</kbd>                 <span class=u>&#x2460;</span></a>
 <samp class=pp>&lt;class 'int'></samp>
@@ -81,13 +119,23 @@ ZeroDivisionError: int division or modulo by zero</samp></pre>
 <samp class=p>>>> </samp><kbd class=pp>type(2.0)</kbd>
 <samp class=pp>&lt;class 'float'></samp></pre>
 <ol>
-<li>You can use the <code>type()</code> function to check the type of any value or variable. As you might expect, <code>1</code> is an <code>int</code>.
-<li>Similarly, you can use the <code>isinstance()</code> function to check whether a value or variable is of a given type.
-<li>Adding an <code>int</code> to an <code>int</code> yields an <code>int</code>.
-<li>Adding an <code>int</code> to a <code>float</code> yields a <code>float</code>. Python coerces the <code>int</code> into a <code>float</code> to perform the addition, then returns a <code>float</code> as the result.
+<li>A <code>type()</code> függvény használatával ellenőrizheted
+bármely érték vagy változó típusát. Ahogy az várható, az <code>1</code>
+egy <code>int</code> (egész).
+<li>Hasonlóan az <code>isinstance()</code> függvény használatával
+ellenőrizheted, hogy egy érték vagy változó adott típusú-e.
+<li>Egy <code>int</code> és egy másik <code>int</code> összeadásának
+eredménye is egy <code>int</code>.
+<li>Egy <code>int</code> hozzáadása egy <code>float</code>-hoz
+ <code>float</code> (lebegőpontos) típust eredményez. A Python az
+<code>int</code> értéket <code>float</code>-típusúvá konvertálja az
+összeadás végrehajtásához, majd eredményként egy <code>float</code>-ot ad
+vissza.
 </ol>
-<h3 id=number-coercion>Coercing Integers To Floats And Vice-Versa</h3>
-<p>As you just saw, some operators (like addition) will coerce integers to floating point numbers as needed. You can also coerce them by yourself.
+<h3 id=number-coercion>Egészek lebegőpontossá konvertálása és fordítva</h3>
+<p>Ahogy az imént láttad, egyes operátorok (mint az összeadás) szükség
+esetén az egészeket lebegőpontos számokká konvertálja. Ezt a
+típuskényszerítést te is elvégezheted.
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>float(2)</kbd>                <span class=u>&#x2460;</span></a>
 <samp class=pp>2.0</samp>
@@ -102,18 +150,27 @@ ZeroDivisionError: int division or modulo by zero</samp></pre>
 <a><samp class=p>>>> </samp><kbd class=pp>type(1000000000000000)</kbd>  <span class=u>&#x2465;</span></a>
 <samp class=pp>&lt;class 'int'></samp></pre>
 <ol>
-<li>You can explicitly coerce an <code>int</code> to a <code>float</code> by calling the <code>float()</code> function.
-<li>Unsurprisingly, you can also coerce a <code>float</code> to an <code>int</code> by calling <code>int()</code>.
-<li>The <code>int()</code> function will truncate, not round.
-<li>The <code>int()</code> function truncates negative numbers towards 0. It&#8217;s a true truncate function, not a floor function.
-<li>Floating point numbers are accurate to 15 decimal places.
-<li>Integers can be arbitrarily large.
+<li>A <code>float()</code>  függvény hívásásával kifejezetten
+<code>float</code> típusúvá konvertálhatsz egy <code>int</code>-et.
+<li>Nem meglepő módon, az <code>int()</code> hívásával egy
+<code>float</code> <code>int</code>-té konvertálható.
+<li>Az <code>int()</code> függvény csonkol, nem kerekít.
+<li>Az <code>int()</code> függvény a negatív számokat 0 felé
+csonkolja. Ez egy valódi csonkítás függvény, nem pedig alsó egészrész.
+<li>A lebegőpontos számok 15 tizedesjegy pontosságúak.
+<li>Az egészek tetszőlegesen nagyok lehetnek.
 </ol>
 <blockquote class='note compare python2'>
-<p><span class=u>&#x261E;</span>Python 2 had separate types for <code>int</code> and <code>long</code>. The <code>int</code> datatype was limited by <code>sys.maxint</code>, which varied by platform but was usually <code>2<sup>32</sup>-1</code>. Python 3 has just one integer type, which behaves mostly like the old <code>long</code> type from Python 2. See <a href=http://www.python.org/dev/peps/pep-0237><abbr>PEP</abbr> 237</a> for details.
+<p><span class=u>&#x261E;</span>A Python 2 megkülönbözette az
+<code>int</code> és <code>long</code> egészeket. Az <code>int</code>
+adattípust a <code>sys.maxint</code> korlátozta, amely platformonként
+változott, de általában <code>2<sup>32</sup>-1</code> volt. A Python 3
+csak egy egész típussal rendelkezik, amely nagyrészt úgy viselkedik, mint
+a Python 2 régi <code>long</code> típusa. A részletekért lásd a <a
+href=http://www.python.org/dev/peps/pep-0237><abbr>PEP</abbr> 237</a>-et.
 </blockquote>
-<h3 id=common-numerical-operations>Common Numerical Operations</h3>
-<p>You can do all kinds of things with numbers.
+<h3 id=common-numerical-operations>Általános numerikus műveletek</h3>
+<p>A számokkal mindenféle dolgokat csinálhatsz.
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>11 / 2</kbd>      <span class=u>&#x2460;</span></a>
 <samp class=pp>5.5</samp>
@@ -129,18 +186,38 @@ ZeroDivisionError: int division or modulo by zero</samp></pre>
 <samp class=pp>1</samp>
 </pre>
 <ol>
-<li>The <code>/</code> operator performs floating point division. It returns a <code>float</code> even if both the numerator and denominator are <code>int</code>s.
-<li>The <code>//</code> operator performs a quirky kind of integer division. When the result is positive, you can think of it as truncating (not rounding) to 0 decimal places, but be careful with that.
-<li>When integer-dividing negative numbers, the <code>//</code> operator rounds &#8220;up&#8221; to the nearest integer. Mathematically speaking, it&#8217;s rounding &#8220;down&#8221; since <code>&minus;6</code> is less than <code>&minus;5</code>, but it could trip you up if you were expecting it to truncate to <code>&minus;5</code>.
-<li>The <code>//</code> operator doesn&#8217;t always return an integer. If either the numerator or denominator is a <code>float</code>, it will still round to the nearest integer, but the actual return value will be a <code>float</code>.
-<li>The <code>**</code> operator means &#8220;raised to the power of.&#8221;  <code>11<sup>2</sup></code> is <code>121</code>.
-<li>The <code>%</code> operator gives the remainder after performing integer division. <code>11</code> divided by <code>2</code> is <code>5</code> with a remainder of <code>1</code>, so the result here is <code>1</code>.
+<li>A <code>/</code> operátor lebegőpontos osztást végez. Akkor is
+<code>float</code> típusú eredményt ad, ha a számláló és a nevező is
+<code>int</code>.
+<li>A <code>//</code> operátor egy fura egészosztást végez. Ha az eredmény
+pozitív, akkor veheted úgy, hogy 0 tizdesjegyre csonkít (nem kerekít), de
+legyél óvatos vele.
+<li>Negatív számok egészosztásakor a <code>//</code> operátor
+&#8222;felfelé&#8221; kerekít a legközelebbi egészre. Matematikailag nézve
+&#8222;lefelé&#8221; kerekít, mivel a <code>&minus;6</code> kisebb, mint
+<code>&minus;5</code>, de becsaphat, ha azt várod, hogy
+<code>&minus;5</code>-re csonkít.
+<li>A <code>//</code> operátor nem mindig ad vissza egészet. Ha a
+számláló vagy a nevező <code>float</code>, akkor is a legközelebbi egészre
+csonkít, de a tényleges visszatérési érték egy <code>float</code> lesz.
+<li>A <code>**</code> operátor &#8222;hatványozást&#8221; jelent.
+<code>11<sup>2</sup></code> = <code>121</code>.
+<li>A <code>%</code> operátor megadja a maradékot egészosztás után. A
+<code>11</code> osztva <code>2</code>-vel <code>5</code>, a maradék
+<code>1</code>, így az eredmény <code>1</code>.
 </ol>
 <blockquote class='note compare python2'>
-<p><span class=u>&#x261E;</span>In Python 2, the <code>/</code> operator usually meant integer division, but you could make it behave like floating point division by including a special directive in your code. In Python 3, the <code>/</code> operator always means floating point division. See <a href=http://www.python.org/dev/peps/pep-0238/><abbr>PEP</abbr> 238</a> for details.
+<p><span class=u>&#x261E;</span>Python 2-ben a <code>/</code> operátor
+általában egészosztást jelentett, de egy speciális utasítás beszúrásával
+rávehető volt lebegőpontos osztásként való viselkedésre is. Python 3-ban
+a <code>/</code> operátor mindig lebegőpontos osztást jelent. A
+részletekért lásd a <a
+href=http://www.python.org/dev/peps/pep-0238/><abbr>PEP</abbr> 238</a>-at.
 </blockquote>
-<h3 id=fractions>Fractions</h3>
-<p>Python isn&#8217;t limited to integers and floating point numbers. It can also do all the fancy math you learned in high school and promptly forgot about.
+<h3 id=fractions>Törtek</h3>
+<p>A Python nem csak egész és lebegőpontos számokat kezel, de el tudja
+végezni a középiskolában tanult (és azonnal elfelejtett) elegáns
+műveleteket is.
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>import fractions</kbd>              <span class=u>&#x2460;</span></a>
 <a><samp class=p>>>> </samp><kbd class=pp>x = fractions.Fraction(1, 3)</kbd>  <span class=u>&#x2461;</span></a>
@@ -157,14 +234,18 @@ ZeroDivisionError: int division or modulo by zero</samp></pre>
     raise ZeroDivisionError('Fraction(%s, 0)' % numerator)
 ZeroDivisionError: Fraction(0, 0)</samp></pre>
 <ol>
-<li>To start using fractions, import the <code>fractions</code> module.
-<li>To define a fraction, create a <code>Fraction</code> object and pass in the numerator and denominator.
-<li>You can perform all the usual mathematical operations with fractions. Operations return a new <code>Fraction</code> object. <code>2 * (1/3) = (2/3)</code>
-<li>The <code>Fraction</code> object will automatically reduce fractions. <code>(6/4) = (3/2)</code>
-<li>Python has the good sense not to create a fraction with a zero denominator.
+<li>A törtek használatának elkezdéséhez importáld a <code>fractions</code>
+modult.
+<li>Tört definiálásához hozz létre egy <code>Fraction</code> objektumot,
+és add át a számlálót és nevezőt.
+<li>A törtekkel végrehajthatod a szokásos matematikai műveleteket. A
+műveletek egy új <code>Fraction</code> objektumot adnak vissza. <code>2 * (1/3) = (2/3)</code>
+<li>A <code>Fraction</code> objektum automatikusan egyszerűsíti a
+törteket. <code>(6/4) = (3/2)</code>
+<li>A Pythonnak van annyi esze, hogy ne hozzon létre nulla nevezőjű törteket.
 </ol>
-<h3 id=trig>Trigonometry</h3>
-<p>You can also do basic trigonometry in Python.
+<h3 id=trig>Trigonometria</h3>
+<p>Pythonban alapszintű trigonometriai számításokat is végezhetsz.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>import math</kbd>
 <a><samp class=p>>>> </samp><kbd class=pp>math.pi</kbd>                <span class=u>&#x2460;</span></a>
@@ -174,53 +255,79 @@ ZeroDivisionError: Fraction(0, 0)</samp></pre>
 <a><samp class=p>>>> </samp><kbd class=pp>math.tan(math.pi / 4)</kbd>  <span class=u>&#x2462;</span></a>
 <samp class=pp>0.99999999999999989</samp></pre>
 <ol>
-<li>The <code>math</code> module has a constant for &pi;, the ratio of a circle&#8217;s circumference to its diameter.
-<li>The <code>math</code> module has all the basic trigonometric functions, including <code>sin()</code>, <code>cos()</code>, <code>tan()</code>, and variants like <code>asin()</code>.
-<li>Note, however, that Python does not have infinite precision. <code>tan(&pi; / 4)</code> should return <code>1.0</code>, not <code>0.99999999999999989</code>.
+<li>A <code>math</code> modul rendelkezik egy &pi; konstanssal, amely a
+kör kerületének és átmérőjének aránya.
+<li>A <code>math</code> modul rendelkezik az összes alapszintű
+trigonometriai függvénnyel, beleértve a <code>sin()</code>,
+<code>cos()</code>, <code>tan()</code> és ezek változatait, mint az
+<code>asin()</code>.
+<li>Ne feledd azonban, hogy a Python pontossága nem végtelen. A
+<code>tan(&pi; / 4)</code> eredményének <code>1.0</code>-nak kellene
+lennie, nem <code>0.99999999999999989</code>-nek.
 </ol>
-<h3 id=numbers-in-a-boolean-context>Numbers In A Boolean Context</h3>
-<aside>Zero values are false, and non-zero values are true.</aside>
-<p>You can use numbers <a href=#booleans>in a boolean context</a>, such as an <code>if</code> statement. Zero values are false, and non-zero values are true.
+<h3 id=numbers-in-a-boolean-context>Számok logikai kontextusban</h3>
+<aside>A nulla értékek hamisak, a nem nulla értékek igazak. </aside>
+<p><a href=#booleans>Logikai kontextusban</a>, például <code>if</code>
+utasításokban használhatsz számokat. A nulla értékek hamisak, a
+nem-nulla értékek pedig igazak.
 <pre class=screen>
-<a><samp class=p>>>> </samp><kbd class=pp>def is_it_true(anything):</kbd>             <span class=u>&#x2460;</span></a>
-<samp class=p>... </samp><kbd class=pp>  if anything:</kbd>
-<samp class=p>... </samp><kbd class=pp>    print("yes, it's true")</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>def is_it_true(valami):</kbd>               <span class=u>&#x2460;</span></a>
+<samp class=p>... </samp><kbd class=pp>  if valami:</kbd>
+<samp class=p>... </samp><kbd class=pp>    print("igen, ez igaz")</kbd>
 <samp class=p>... </samp><kbd class=pp>  else:</kbd>
-<samp class=p>... </samp><kbd class=pp>    print("no, it's false")</kbd>
-<samp class=p>...</samp>
+<samp class=p>... </samp><kbd class=pp>    print("nem, ez hamis")</kbd> <samp class=p>...</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>is_it_true(1)</kbd>                         <span class=u>&#x2461;</span></a>
-<samp>yes, it's true</samp>
+<samp>igen, ez igaz</samp>
 <samp class=p>>>> </samp><kbd class=pp>is_it_true(-1)</kbd>
-<samp>yes, it's true</samp>
+<samp>igen, ez igaz</samp>
 <samp class=p>>>> </samp><kbd class=pp>is_it_true(0)</kbd>
-<samp>no, it's false</samp>
+<samp>nem, ez hamis</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>is_it_true(0.1)</kbd>                       <span class=u>&#x2462;</span></a>
-<samp>yes, it's true</samp>
+<samp>igen, ez igaz</samp>
 <samp class=p>>>> </samp><kbd class=pp>is_it_true(0.0)</kbd>
-<samp>no, it's false</samp>
+<samp>nem, ez hamis</samp>
 <samp class=p>>>> </samp><kbd class=pp>import fractions</kbd>
 <a><samp class=p>>>> </samp><kbd class=pp>is_it_true(fractions.Fraction(1, 2))</kbd>  <span class=u>&#x2463;</span></a>
-<samp>yes, it's true</samp>
+<samp>igen, ez igaz</samp>
 <samp class=p>>>> </samp><kbd class=pp>is_it_true(fractions.Fraction(0, 1))</kbd>
-<samp>no, it's false</samp></pre>
+<samp>nem, ez hamis</samp></pre>
 <ol>
-<li>Did you know you can define your own functions in the Python interactive shell? Just press <kbd>ENTER</kbd> at the end of each line, and <kbd>ENTER</kbd> on a blank line to finish.
-<li>In a boolean context, non-zero integers are true; 0 is false.
-<li>Non-zero floating point numbers are true; <code>0.0</code> is false. Be careful with this one! If there&#8217;s the slightest rounding error (not impossible, as you saw in the previous section) then Python will be testing <code>0.0000000000001</code> instead of 0 and will return <code>True</code>.
-<li>Fractions can also be used in a boolean context. <code>Fraction(0, n)</code> is false for all values of <var>n</var>. All other fractions are true.
+<li>Tudtad, hogy az interaktív Python parancsértelmezőben is definiálhatsz
+saját függvényeket? Csak nyomd meg az <kbd>ENTER</kbd>-t az egyes sorok
+végén, a befejezéshez pedig egy üres sorban nyomd meg az
+<kbd>ENTER</kbd>-t.
+<li>Logikai kontextusban a nem nulla egészek igazak, a 0 hamis.
+<li>A nem nulla lebegőpontos számok igazak, a <code>0.0</code> hamis. Légy
+óvatos ezzel! Ha a legkisebb kerekítési hiba is előfordul (nem lehetetlen,
+mint azt az előző szakaszban láttad), akkor a Python a
+<code>0.0000000000001</code>-et fogja tesztelni a 0 helyett, és
+<code>True</code> értéket ad.
+<li>Törtek is használhatók logikai kontextusban. A <code>Fraction(0,
+n)</code> hamis minden <var>n</var> értékre. Minden más tört igaz.
 </ol>
 <p class=a>&#x2042;
 
-<h2 id=lists>Lists</h2>
-<p>Lists are Python&#8217;s workhorse datatype. When I say &#8220;<dfn>list</dfn>,&#8221; you might be thinking &#8220;array whose size I have to declare in advance, that can only contain items of the same type, <i class=baa>&amp;</i>c.&#8221; Don&#8217;t think that. Lists are much cooler than that.
+<h2 id=lists>Listák</h2>
+<p>A list a Python igásló adattípusa. Amikor azt mondom,
+&#8222;<dfn>lista</dfn>&#8221;, azt gondolhatod: &#8222;olyan
+tömb, amelyet előre kell deklarálni, csak azonos típusú elemeket
+tartalmazhat, <i class=baa>stb</i>&#8221;. Ne gondold. A listák ennél
+sokkal menőbbek.
 <blockquote class='note compare perl5'>
-<p><span class=u>&#x261E;</span>A list in Python is like an array in Perl 5. In Perl 5, variables that store arrays always start with the <code>@</code> character; in Python, variables can be named anything, and Python keeps track of the datatype internally.
+<p><span class=u>&#x261E;</span>A lista Pythonban olyan, mint egy tömb
+Perl 5-ben. Perl 5-ben a tömböket tároló változók a <code>@</code>
+karakterrel kezdődnek, Pythonban a változók tetszőleges nevűek lehetnek,
+és a Python maga tartja nyilván az adattípust.
 </blockquote>
 <blockquote class='note compare java'>
-<p><span class=u>&#x261E;</span>A list in Python is much more than an array in Java (although it can be used as one if that&#8217;s really all you want out of life). A better analogy would be to the <code>ArrayList</code> class, which can hold arbitrary objects and can expand dynamically as new items are added.
+<p><span class=u>&#x261E;</span>Python listái sokkal többet tudnak, mint a
+Java tömbök (de úgy is használhatod, ha ez minden vágyad). Jobban hasonlít
+az <code>ArrayList</code> osztályhoz, amely tetszőleges objektumokat képes
+tárolni, és dinamikusan tud bővülni az új elemek hozzáadásakor.
 </blockquote>
-<h3 id=creatinglists>Creating A List</h3>
-<p>Creating a list is easy: use square brackets to wrap a comma-separated list of values.
+<h3 id=creatinglists>Lista létrehozása</h3>
+<p>A listák létrehozása egyszerű: tedd szögletes zárójelbe az értékek
+vesszőkkel elválasztott listáját.
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>a_list = ['a', 'b', 'mpilgrim', 'z', 'example']</kbd>  <span class=u>&#x2460;</span></a>
 <samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
@@ -234,15 +341,22 @@ ZeroDivisionError: Fraction(0, 0)</samp></pre>
 <a><samp class=p>>>> </samp><kbd class=pp>a_list[-3]</kbd>                                       <span class=u>&#x2464;</span></a>
 <samp class=pp>'mpilgrim'</samp></pre>
 <ol>
-<li>First, you define a list of five items. Note that they retain their original order. This is not an accident. A list is an ordered set of items.
-<li>A list can be used like a zero-based array. The first item of any non-empty list is always <code>a_list[0]</code>.
-<li>The last item of this five-item list is <code>a_list[4]</code>, because lists are always zero-based.
-<li>A negative index accesses items from the end of the list counting backwards. The last item of any non-empty list is always <code>a_list[-1]</code>.
-<li>If the negative index is confusing to you, think of it this way: <code>a_list[-<var>n</var>] == a_list[len(a_list) - <var>n</var>]</code>. So in this list, <code>a_list[-3] == a_list[5 - 3] == a_list[2]</code>.
+<li>Először egy öt elemű listát adsz meg. Ne feledd, hogy ezek megtartják
+az eredeti sorrendjüket. Ez nem véletlen. A lista elemek rendezett
+halmaza.
+<li>A lista használható nullával kezdődően indexelt tömbként. A nem üres lista első eleme mindig <code>a_list[0]</code>.
+<li>Ezen öt elemű lista utolsó eleme az <code>a_list[4]</code>, mert a
+listaelemek indexelése mindig nullától kezdődik.
+<li>A negatív index az elemeket a lista végétől visszafelé számolva éri
+el. A nem üres lista utolsó eleme mindig az <code>a_list[-1]</code>.
+<li>Ha negatív index zavaró, akkor képzeld el így:
+<code>a_list[-<var>n</var>] == a_list[len(a_list) - <var>n</var>]</code>. 
+Ebben a listában <code>a_list[-3] == a_list[5 - 3] == a_list[2]</code>.
 </ol>
-<h3 id=slicinglists>Slicing A List</h3>
-<aside>a_list[0] is the first item of a_list.</aside>
-<p>Once you&#8217;ve defined a list, you can get any part of it as a new list. This is called <i>slicing</i> the list.
+<h3 id=slicinglists>Lista szeletelése</h3>
+<aside>Az a_list[0] az a_list első eleme.</aside>
+<p>Miután definiáltál egy listát, bármely részét megkaphatod új listaként. Ezt
+a lista <i>szeletelésének</i> nevezzük.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
 <samp class=pp>['a', 'b', 'mpilgrim', 'z', 'example']</samp>
@@ -259,15 +373,39 @@ ZeroDivisionError: Fraction(0, 0)</samp></pre>
 <a><samp class=p>>>> </samp><kbd class=pp>a_list[:]</kbd>              <span class=u>&#x2465;</span></a>
 <samp class=pp>['a', 'b', 'mpilgrim', 'z', 'example']</samp></pre>
 <ol>
-<li>You can get a part of a list, called a &#8220;slice&#8221;, by specifying two indices. The return value is a new list containing all the items of the list, in order, starting with the first slice index (in this case <code>a_list[1]</code>), up to but not including the second slice index (in this case <code>a_list[3]</code>).
-<li>Slicing works if one or both of the slice indices is negative. If it helps, you can think of it this way: reading the list from left to right, the first slice index specifies the first item you want, and the second slice index specifies the first item you don&#8217;t want. The return value is everything in between.
-<li>Lists are zero-based, so <code>a_list[0:3]</code> returns the first three items of the list, starting at <code>a_list[0]</code>, up to but not including <code>a_list[3]</code>.
-<li>If the left slice index is 0, you can leave it out, and 0 is implied. So <code>a_list[:3]</code> is the same as <code>a_list[0:3]</code>, because the starting 0 is implied.
-<li>Similarly, if the right slice index is the length of the list, you can leave it out. So <code>a_list[3:]</code> is the same as <code>a_list[3:5]</code>, because this list has five items.  There is a pleasing symmetry here. In this five-item list, <code>a_list[:3]</code> returns the first 3 items, and <code>a_list[3:]</code> returns the last two items. In fact, <code>a_list[:<var>n</var>]</code> will always return the first <var>n</var> items, and <code>a_list[<var>n</var>:]</code> will return the rest, regardless of the length of the list.
-<li>If both slice indices are left out, all items of the list are included. But this is not the same as the original <var>a_list</var> variable. It is a new list that happens to have all the same items. <code>a_list[:]</code> is shorthand for making a complete copy of a list.
+<li>Egy lista &#8222;szeletnek&#8221; nevezett bármely részét megkaphatod
+két index megadásával. A visszatérési érték egy új lista, amely a lista
+minden elemét tartalmazza az első szeletindextől (ebben az esetben
+<code>a_list[1]</code>) kezdve a második szeletindexig (ebben az esetben
+<code>a_list[3]</code>), de azt nem beleértve.
+<li>A szeletelés akkor is működik, ha az egyik vagy mindkét szeletindex
+negatív. Ha ez segít, akkor így is tekintheted: a listát balról jobbra
+olvasva az első szeletindex megadja az első elemet, amit akarsz, a második
+szeletindex pedig megadja az első elemet, amit már nem akarsz. A
+visszatérési érték a kettő között minden.
+<li>A listák indexelése nullától kezdődik, így az <code>a_list[0:3]</code>
+a lista első három elemét adja vissza az <code>a_list[0]</code> elemtől az
+<code>a_list[3]</code> elemig, de az utóbbit már nem tartalmazza.
+<li>Ha a bal oldali szeletindex a 0, akkor kihagyható, és a Python a 0-t
+feltételezi. Így az <code>a_list[:3]</code> ugyanaz, mint az
+<code>a_list[0:3]</code> mert a kezdő 0-t a Python feltételezi.
+<li>Hasonlóan, ha a jobb oldali szeletindex az utolsó elem indexe, akkor
+kihagyható. Így az <code>a_list[3:]</code> ugyanaz, mint az
+<code>a_list[3:5]</code>, mert ez a lista öt elemű. Van itt egy kellemes
+szimmetria. Ebben az öt elemű listában az <code>a_list[:3]</code>
+visszaadja az első 3 elemet, az <code>a_list[3:]</code> pedig az utolsó
+két elemet. Tulajdonképpen az <code>a_list[:<var>n</var>]</code>
+mindig az első <var>n</var> elemet adja vissza, az
+<code>a_list[<var>n</var>:]</code> pedig a többit, a lista hosszától
+függetlenül.
+<li>Ha mindkét szeletindex kimarad, akkor a lista minden elemét
+tartalmazni fogja az új lista. De ez nem azonos az eredeti
+<var>a_list</var> változóval. Ez egy új lista, amely ugyanazokkal az
+elemekkel rendelkezik. Az <code>a_list[:]</code> a lista teljes
+lemásolására használható.
 </ol>
-<h3 id=extendinglists>Adding Items To A List</h3>
-<p>There are four ways to add items to a list.
+<h3 id=extendinglists>Elemek felvétele a listába</h3>
+<p>Négy módon lehet elemeket felvenni a listába.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>a_list = ['a']</kbd>
 <a><samp class=p>>>> </samp><kbd class=pp>a_list = a_list + [2.0, 3]</kbd>    <span class=u>&#x2460;</span></a>
@@ -276,25 +414,47 @@ ZeroDivisionError: Fraction(0, 0)</samp></pre>
 <a><samp class=p>>>> </samp><kbd class=pp>a_list.append(True)</kbd>           <span class=u>&#x2462;</span></a>
 <samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
 <samp class=pp>['a', 2.0, 3, True]</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list.extend(['four', '&Omega;'])</kbd>  <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>a_list.extend(['négy', '&Omega;'])</kbd>  <span class=u>&#x2463;</span></a>
 <samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
-<samp class=pp>['a', 2.0, 3, True, 'four', '&Omega;']</samp>
+<samp class=pp>['a', 2.0, 3, True, 'négy', '&Omega;']</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>a_list.insert(0, '&Omega;')</kbd>         <span class=u>&#x2464;</span></a>
 <samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
-<samp class=pp>['&Omega;', 'a', 2.0, 3, True, 'four', '&Omega;']</samp></pre>
+<samp class=pp>['&Omega;', 'a', 2.0, 3, True, 'négy', '&Omega;']</samp></pre>
 <ol>
-<li>The <code>+</code> operator concatenates lists to create a new list. A list can contain any number of items; there is no size limit (other than available memory). However, if memory is a concern, you should be aware that list concatenation creates a second list in memory. In this case, that new list is immediately assigned to the existing variable <var>a_list</var>. So this line of code is really a two-step process&nbsp;&mdash;&nbsp;concatenation then assignment&nbsp;&mdash;&nbsp;which can (temporarily) consume a lot of memory when you&#8217;re dealing with large lists.
-<li>A list can contain items of any datatype, and the items in a single list don&#8217;t all need to be the same type. Here we have a list containing a string, a floating point number, and an integer.
-<li>The <code>append()</code> method adds a single item to the end of the list. (Now we have <em>four</em> different datatypes in the list!)
-<li>Lists are implemented as classes.  &#8220;Creating&#8221; a list is really instantiating a class.  As such, a list has methods that operate on it. The <code>extend()</code> method takes one argument, a list, and appends each of the items of the argument to the original list.
-<li>The <code>insert()</code> method inserts a single item into a list. The first argument is the index of the first item in the list that will get bumped out of position. List items do not need to be unique; for example, there are now two separate items with the value <code>'&Omega;'</code>: the first item, <code>a_list[0]</code>, and the last item, <code>a_list[6]</code>.
+<li>A <code>+</code> operátor összefűzi a listákat, ezzel létrehozva egy
+új listát. Egy lista tetszőleges számú elemet tartalmazhat; nincs
+méretkorlát (az elérhető memórián kívül). Ha azonban a memóriahasználat
+fontos szempont, akkor tudnod kell, hogy a listaösszefűzés egy második
+listát hoz létre a memóriában. Ebben az esetben az új lista azonnal
+hozzárendelődik a meglévő <var>a_list</var> változóhoz. Így ez a kódsor
+igazából egy kétlépéses folyamat&nbsp;&mdash;&nbsp;összefűzés, majd
+hozzárendelés&nbsp;&mdash;&nbsp;amely (ideiglenesen) rengeteg memóriát tud
+használni, ha nagy listákkal dolgozol.
+<li>Egy lista tetszőleges adattípusú elemeket tartalmazhat, és egy adott
+lista elemeinek nem kell azonos típusúaknak lenniük. Ez a lista egy
+karakterláncot, egy lebegőpontos számot és egy egészet tartalmaz.
+<li>Az <code>append()</code> metódus egy elemet ad a lista végéhez. (Most
+már <em>négy</em> különböző adattípus van a listában!)
+<li>A listák osztályokként vannak megvalósítva. Egy
+lista &#8222;létrehozása&#8221; valójában egy osztály példányosítása. Mint
+ilyen, a lista rendelkezik rajta műveleteket végző metódusokkal. Az
+<code>extend()</code> metódus egy argumentumot vár, amely egy lista, és az
+argumentum minden elemét hozzáfűzi az eredeti listához.
+<li>Az <code>insert()</code> metódus egyetlen elemet szúr be a listába. Az
+első argumentum a lista első olyan elemének indexe, amely ki lesz mozdítva
+a pozícójából. A lista elemeinek nem kell egyedieknek lenniük, most például
+két külön <code>'&Omega;'</code> értékű elem van a listában: az első elem
+(<code>a_list[0]</code>) és az utolsó elem (<code>a_list[6]</code>).
 </ol>
 
 <blockquote class='note compare perl'>
-<p><span class=u>&#x261E;</span><code><var>a_list</var>.insert(0, <var>value</var>)</code> is like the <code>unshift()</code> function in Perl. It adds an item to the beginning of the list, and all the other items have their positional index bumped up to make room.
+<p><span class=u>&#x261E;</span>Az <code><var>a_list</var>.insert(0,
+<var>érték</var>)</code> olyan, mint az <code>unshift()</code> függvény
+Perlben. Felvesz egy elemet a lista elejére, és az összes többi elem
+indexe megnő eggyel, hogy helyet csináljanak az új elemnek.
 </blockquote>
 
-<p>Let&#8217;s look closer at the difference between <code>append()</code> and <code>extend()</code>.
+<p>Nézzük meg közelebbről az <code>append()</code> és <code>extend()</code> közti különbséget.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>a_list = ['a', 'b', 'c']</kbd>
@@ -313,92 +473,140 @@ ZeroDivisionError: Fraction(0, 0)</samp></pre>
 <samp class=p>>>> </samp><kbd class=pp>a_list[-1]</kbd>
 <samp class=pp>['g', 'h', 'i']</samp></pre>
 <ol>
-<li>The <code>extend()</code> method takes a single argument, which is always a list, and adds each of the items of that list to <var>a_list</var>.
-<li>If you start with a list of three items and extend it with a list of another three items, you end up with a list of six items.
-<li>On the other hand, the <code>append()</code> method takes a single argument, which can be any datatype. Here, you&#8217;re calling the <code>append()</code> method with a list of three items.
-<li>If you start with a list of six items and append a list onto it, you end up with... a list of seven items. Why seven? Because the last item (which you just appended) <em>is itself a list</em>. Lists can contain any type of data, including other lists. That may be what you want, or it may not. But it&#8217;s what you asked for, and it&#8217;s what you got.
+<li>Az <code>extend()</code> metódus egyetlen argumentumot vár, amely
+mindig egy lista, és ennek a listának minden elemét hozzáfűzi az
+<var>a_list</var> listához.
+<li>Ha egy három elemű listával indulsz, és kiterjeszted egy újabb három
+elemet tartalmazó listával, akkor egy hat elemű listát kapsz.
+<li>Másrészt, az <code>append()</code> metódus egyetlen argumentumot
+vár, amely tetszőleges adattípusú lehet. Itt az <code>append()</code>
+metódust egy három elemű listával hívod meg.
+<li>Ha egy hat elemű listával indulsz, és az append() használatával
+hozzáfűzöl egy listát, akkor... egy hét elemű listát kapsz. Miért hét? 
+Mert az imént hozzáfűzött utolsó elem <em>maga is egy lista</em>. A listák
+tetszőleges típusú adatokat tartalmazhatnak, beleértve más listákat is. 
+Lehet, hogy néha ezt akarod, lehet hogy néha nem. De ezt kérted, ezt
+kapod.
 </ol>
-<h3 id=searchinglists>Searching For Values In A List</h3>
+<h3 id=searchinglists>Értékek keresése egy listában</h3>
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_list = ['a', 'b', 'new', 'mpilgrim', 'new']</kbd>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list.count('new')</kbd>       <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>a_list = ['a', 'b', 'új', 'mpilgrim', 'új']</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>a_list.count('új')</kbd>        <span class=u>&#x2460;</span></a>
 <samp class=pp>2</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>'new' in a_list</kbd>           <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>'új' in a_list</kbd>            <span class=u>&#x2461;</span></a>
 <samp class=pp>True</samp>
 <samp class=p>>>> </samp><kbd class=pp>'c' in a_list</kbd>
 <samp class=pp>False</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>a_list.index('mpilgrim')</kbd>  <span class=u>&#x2462;</span></a>
 <samp class=pp>3</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list.index('new')</kbd>       <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>a_list.index('új')</kbd>        <span class=u>&#x2463;</span></a>
 <samp class=pp>2</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>a_list.index('c')</kbd>         <span class=u>&#x2464;</span></a>
 <samp class=traceback>Traceback (innermost last):
   File "&lt;interactive input>", line 1, in ?
 ValueError: list.index(x): x not in list</samp></pre>
 <ol>
-<li>As you might expect, the <code>count()</code> method returns the number of occurrences of a specific value in a list.
-<li>If all you want to know is whether a value is in the list or not, the <code>in</code> operator is slightly faster than using the <code>count()</code> method. The <code>in</code> operator always returns <code>True</code> or <code>False</code>; it will not tell you how many times the value appears in the list.
-<li>Neither the <code>in</code> operator nor the <code>count()</code> method will tell you <em>where</em> in the list a value appears. If you need to know where in the list a value is, call the <code>index()</code> method. By default it will search the entire list, although you can specify an optional second argument of the (0-based) index to start from, and even an optional third argument of the (0-based) index to stop searching.
-<li>The <code>index()</code> method finds the <em>first</em> occurrence of a value in the list. In this case, <code>'new'</code> occurs twice in the list, in <code>a_list[2]</code> and <code>a_list[4]</code>, but the <code>index()</code> method will return only the index of the first occurrence.
-<li>As you might <em>not</em> expect, if the value is not found in the list, the <code>index()</code> method will raise an exception.
+<li>Ahogy az várható, a <code>count()</code> metódus visszaadja egy lista
+adott értékeinek előfordulásainak számát.
+<li>Ha csak azt szeretnéd tudni, hogy egy elem szerepel-e a listában vagy
+sem, akkor az <code>in</code> operátor kicsit gyorsabb, mint a
+<code>count()</code> metódus. Az <code>in</code> operátor mindig a
+<code>True</code> vagy <code>False</code> értéket adja vissza, azt nem
+adja meg, hogy az érték hányszor jelenik meg a listában.
+<li>Az <code>in</code> operátor és a <code>count()</code> metódus sem adja
+meg, hogy az érték <em>hol</em> jelenik meg a listában. Ha szeretnéd
+tudni, hogy a listában hol van egy érték, akkor használd
+az <code>index()</code> metódust. A Python alapértelmezésben az egész
+listában keres, noha megadhatsz egy elhagyható második argumentumot, a
+keresés kezdő indexét, sőt egy elhagyható harmadik argumentumot is, a
+keresés befejező indexét (mindkettő nullától kezdődik).
+<li>Az <code>index()</code> metódus az érték <em>első</em> előfordulását
+találja meg a listában. Ebben az esetben az <code>'új'</code> kétszer
+fordul elő a listában, az <code>a_list[2]</code> és <code>a_list[4]</code>
+elemekként, de az <code>index()</code> metódus csak az első előfordulás
+indexét adja vissza.
+<li>Ahogy azt <em>nem</em> várnád, ha az elem nem található meg a
+listában, akkor az <code>index()</code> metódus kivételt dob.
 </ol>
 
-<p>Wait, what? That&#8217;s right: the <code>index()</code> method raises an exception if it doesn&#8217;t find the value in the list. This is notably different from most languages, which will return some invalid index (like <code>-1</code>). While this may seem annoying at first, I think you will come to appreciate it. It means your program will crash at the source of the problem instead of failing strangely and silently later. Remember, <a href=#creatinglists><code>-1</code> is a valid list index</a>. If the <code>index()</code> method returned <code>-1</code>, that could lead to some not-so-fun debugging sessions!
+<p>Várjunk csak? Így van: az <code>index()</code> metódus kivételt dob, ha
+nem találja az értéket a listában. Ez látványosan eltér a legtöbb
+nyelvtől, amelyek általában érvénytelen indexet (mint a <code>-1</code>)
+adnak vissza. Noha ez elsőre idegesítőnek tűnhet, szerintem idővel
+értékelni fogod. Ez azt jelenti, hogy a programod a probléma forrásánál
+fog összeomlani, nem pedig később furán és némán. Ne feledd, <a
+href=#creatinglists>a <code>-1</code> egy érvényes listaindex</a>. Ha az
+<code>index()</code> metódus <code>-1</code>-et adna vissza, az jónéhány,
+nem túl vidám hibakeresési körhöz vezethetne!
 
-<h3 id=removingfromlists>Removing Items From A List</h3>
+<h3 id=removingfromlists>Elemek eltávolítása a listából</h3>
 
-<aside>Lists never have gaps.</aside>
+<aside>A listákban soha nincsenek lyukak.</aside>
 
-<p>Lists can expand and contract automatically. You&#8217;ve seen the expansion part. There are several different ways to remove items from a list as well.
+<p>A listák képesek automatikusan bővülni és szűkülni. A bővülés
+részt már láttad. Az elemek listából való eltávolítására is számos
+különböző módszer van.
 
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_list = ['a', 'b', 'new', 'mpilgrim', 'new']</kbd>
+<samp class=p>>>> </samp><kbd class=pp>a_list = ['a', 'b', 'új', 'mpilgrim', 'új']</kbd>
 <samp class=p>>>> </samp><kbd class=pp>a_list[1]</kbd>
 <samp class=pp>'b'</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>del a_list[1]</kbd>         <span class=u>&#x2460;</span></a>
 <samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
-<samp class=pp>['a', 'new', 'mpilgrim', 'new']</samp>
+<samp class=pp>['a', 'új', 'mpilgrim', 'új']</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>a_list[1]</kbd>             <span class=u>&#x2461;</span></a>
-<samp class=pp>'new'</samp></pre>
+<samp class=pp>'új'</samp></pre>
 <ol>
-<li>You can use the <code><dfn>del</dfn></code> statement to delete a specific item from a list.
-<li>Accessing index <code>1</code> after deleting index <code>1</code> does <em>not</em> result in an error. All items after the deleted item shift their positional index to &#8220;fill the gap&#8221; created by deleting the item.
+<li>A lista adott elemének törlésére a <code><dfn>del</dfn></code>
+utasítás használható.
+<li>Az <code>1</code>-es index elérése az <code>1</code>-es index törlése
+után <em>nem</em> eredményez hibát. Minden, a törölt elem utáni elem
+eltolja a helyzeti indexét az elem törlésével létrejött &#8222;lyuk
+kitöltéséhez&#8221;.
 </ol>
 
-<p>Don&#8217;t know the positional index? Not a problem; you can remove items by value instead.
+<p>Nem ismered a helyzeti indexet? Nem gond, az elemeket érték alapján is
+eltávolíthatod.
 
 <pre class=screen>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list.remove('new')</kbd>  <span class=u>&#x2460;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>a_list.remove('új')</kbd>  <span class=u>&#x2460;</span></a>
 <samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
-<samp class=pp>['a', 'mpilgrim', 'new']</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list.remove('new')</kbd>  <span class=u>&#x2461;</span></a>
+<samp class=pp>['a', 'mpilgrim', 'új']</samp>
+<a><samp class=p>>>> </samp><kbd class=pp>a_list.remove('új')</kbd>  <span class=u>&#x2461;</span></a>
 <samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
 <samp class=pp>['a', 'mpilgrim']</samp>
-<samp class=p>>>> </samp><kbd class=pp>a_list.remove('new')</kbd>
+<samp class=p>>>> </samp><kbd class=pp>a_list.remove('új')</kbd>
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;stdin>", line 1, in &lt;module>
 ValueError: list.remove(x): x not in list</samp></pre>
 <ol>
-<li>You can also remove an item from a list with the <code>remove()</code> method. The <code>remove()</code> method takes a <em>value</em> and removes the first occurrence of that value from the list. Again, all items after the deleted item will have their positional indices bumped down to &#8220;fill the gap.&#8221; Lists never have gaps.
-<li>You can call the <code>remove()</code> method as often as you like, but it will raise an exception if you try to remove a value that isn&#8217;t in the list.
+<li>Egy elemet a listából a <code>remove()</code> metódussal is
+eltávolíthatsz. A <code>remove()</code> metódus egy <em>értéket</em> vár,
+és eltávolítja az adott érték első előfordulását a listából. Ismét, a
+törölt elem mögötti elemek helyzeti indexe csökkenni fog, hogy
+&#8222;kitöltsék a lyukat&#8221;. A listákban soha nincsenek lyukak.
+<li>A <code>remove()</code> metódust annyiszor hívhatod, ahányszor csak
+akarod, de kivételt fog dobni, ha a listában nem szereplő értéket próbálsz
+eltávolítani.
 </ol>
 
-<h3 id=popgoestheweasel>Removing Items From A List: Bonus Round</h3>
+<h3 id=popgoestheweasel>Elemek eltávolítása a listából: tiszteletkör</h3>
 
-<p>Another interesting list method is <code>pop()</code>. The <code>pop()</code> method is yet another way to <a href=#removingfromlists>remove items from a list</a>, but with a twist.
-
+<p>Egy másik érdekes metódus a <code>pop()</code>. A <code>pop()</code>
+metódus egy újabb lehetőség <a href=#removingfromlists>elemek
+eltávolítására egy listából</a>, de van benne egy csavar.
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_list = ['a', 'b', 'new', 'mpilgrim']</kbd>
+<samp class=p>>>> </samp><kbd class=pp>a_list = ['a', 'b', 'új', 'mpilgrim']</kbd>
 <a><samp class=p>>>> </samp><kbd class=pp>a_list.pop()</kbd>   <span class=u>&#x2460;</span></a>
 <samp class=pp>'mpilgrim'</samp>
 <samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
-<samp class=pp>['a', 'b', 'new']</samp>
+<samp class=pp>['a', 'b', 'új']</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>a_list.pop(1)</kbd>  <span class=u>&#x2461;</span></a>
 <samp class=pp>'b'</samp>
 <samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
-<samp class=pp>['a', 'new']</samp>
+<samp class=pp>['a', 'új']</samp>
 <samp class=p>>>> </samp><kbd class=pp>a_list.pop()</kbd>
-<samp class=pp>'new'</samp>
+<samp class=pp>'új'</samp>
 <samp class=p>>>> </samp><kbd class=pp>a_list.pop()</kbd>
 <samp class=pp>'a'</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>a_list.pop()</kbd>   <span class=u>&#x2462;</span></a>
@@ -406,129 +614,169 @@ ValueError: list.remove(x): x not in list</samp></pre>
   File "&lt;stdin>", line 1, in &lt;module>
 IndexError: pop from empty list</samp></pre>
 <ol>
-<li>When called without arguments, the <code>pop()</code> list method removes the last item in the list <em>and returns the value it removed</em>.
-<li>You can pop arbitrary items from a list. Just pass a positional index to the <code>pop()</code> method. It will remove that item, shift all the items after it to &#8220;fill the gap,&#8221; and return the value it removed.
-<li>Calling <code>pop()</code> on an empty list raises an exception.
+<li>Ha argumentumok nélkül hívod, a <code>pop()</code> listametódus
+eltávolítja a utolsó elemet a listából, <em>és visszaadja az eltávolított
+értéket</em>.
+<li>A lista tetszőleges elemére is meghívhatod a pop() metódust. Csak adj át egy helyzeti
+indexet a <code>pop()</code> metódusnak. Ekkor
+eltávolítja az elemet, az azt követő összes elemet elmozgatja &#8222;a
+lyuk kitöltéséhez&#8221;, és visszaadja az eltávolított értéket.
+<li>A <code>pop()</code> üres listán való hívásakor kivételt dob.
 </ol>
 
 <blockquote class='note compare perl'>
-<p><span class=u>&#x261E;</span>Calling the <code>pop()</code> list method without an argument is like the <code>pop()</code> function in Perl. It removes the last item from the list and returns the value of the removed item. Perl has another function, <code>shift()</code>, which removes the first item and returns its value; in Python, this is equivalent to <code><var>a_list</var>.pop(0)</code>.
+<p><span class=u>&#x261E;</span>A <code>pop()</code> listametódus
+argumentumok nélküli hívása olyan, mint a <code>pop()</code> függvény
+Perlben. Eltávolítja a lista utolsó elemét, és visszaadja az eltávolított
+elem értékét. A Perl egy másik, <code>shift()</code> nevű függvénnyel is
+rendelkezik, amely eltávolítja az első elemet, és visszaadja az értékét.
+Pythonban ez egyenlő az <code><var>a_list</var>.pop(0)</code> hívással.
 </blockquote>
 
-<h3 id=lists-in-a-boolean-context>Lists In A Boolean Context</h3>
-<aside>Empty lists are false; all other lists are true.</aside>
-<p>You can also use a list in <a href=#booleans>a boolean context</a>, such as an <code>if</code> statement.
-<pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>def is_it_true(anything):</kbd>
-<samp class=p>... </samp><kbd class=pp>  if anything:</kbd>
-<samp class=p>... </samp><kbd class=pp>    print("yes, it's true")</kbd>
+<h3 id=lists-in-a-boolean-context>Listák logikai kontextusban</h3>
+<aside>Az üres listák hamisak, minden más lista igaz.</aside>
+<p><a href=#booleans>Logikai kontextusban</a>, például <code>if</code>
+utasításokban használhatsz listákat is. <pre class=screen>
+<samp class=p>>>> </samp><kbd class=pp>def is_it_true(valami):</kbd>
+<samp class=p>... </samp><kbd class=pp>  if valami:</kbd>
+<samp class=p>... </samp><kbd class=pp>    print("igen, ez igaz")</kbd>
 <samp class=p>... </samp><kbd class=pp>  else:</kbd>
-<samp class=p>... </samp><kbd class=pp>    print("no, it's false")</kbd>
+<samp class=p>... </samp><kbd class=pp>    print("nem, ez hamis")</kbd>
 <samp class=p>...</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>is_it_true([])</kbd>             <span class=u>&#x2460;</span></a>
-<samp>no, it's false</samp>
+<samp>nem, ez hamis</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>is_it_true(['a'])</kbd>          <span class=u>&#x2461;</span></a>
-<samp>yes, it's true</samp>
+<samp>igen, ez igaz</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>is_it_true([False])</kbd>        <span class=u>&#x2462;</span></a>
-<samp>yes, it's true</samp></pre>
+<samp>igen, ez igaz</samp></pre>
 <ol>
-<li>In a boolean context, an empty list is false.
-<li>Any list with at least one item is true.
-<li>Any list with at least one item is true. The value of the items is irrelevant.
+<li>Logikai kontextusban az üres lista hamis.
+<li>Egy legalább egy elemű lista igaz.
+<li>Egy legalább egy elemű lista igaz. Az elemek értéke lényegtelen.
 </ol>
 
 <p class=a>&#x2042;
 
-<h2 id=tuples>Tuples</h2>
+<h2 id=tuples>Tuple-ök</h2>
 
-<p>A <dfn>tuple</dfn> is an immutable list.  A tuple can not be changed in any way once it is created.
+<p>A <dfn>tuple</dfn> egy megváltoztathatatlan lista. A tuple létrehozása után semmilyen módon sem módosítható.
 
 <pre class=screen>
-<a><samp class=p>>>> </samp><kbd class=pp>a_tuple = ("a", "b", "mpilgrim", "z", "example")</kbd>  <span class=u>&#x2460;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>a_tuple = ("a", "b", "mpilgrim", "z", "példa")</kbd>    <span class=u>&#x2460;</span></a>
 <samp class=p>>>> </samp><kbd class=pp>a_tuple</kbd>
-<samp class=pp>('a', 'b', 'mpilgrim', 'z', 'example')</samp>
+<samp class=pp>('a', 'b', 'mpilgrim', 'z', 'példa')</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>a_tuple[0]</kbd>                                        <span class=u>&#x2461;</span></a>
 <samp class=pp>'a'</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>a_tuple[-1]</kbd>                                       <span class=u>&#x2462;</span></a>
-<samp class=pp>'example'</samp>
+<samp class=pp>'példa'</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>a_tuple[1:3]</kbd>                                      <span class=u>&#x2463;</span></a>
 <samp class=pp>('b', 'mpilgrim')</samp></pre>
 <ol>
-<li>A tuple is defined in the same way as a list, except that the whole set of elements is enclosed in parentheses instead of square brackets.
-<li>The elements of a tuple have a defined order, just like a list. Tuple indices are zero-based, just like a list, so the first element of a non-empty tuple is always <code>a_tuple[0]</code>.
-<li>Negative indices count from the end of the tuple, just like a list.
-<li>Slicing works too, just like a list. When you slice a list, you get a new list; when you slice a tuple, you get a new tuple.
+<li>A tuple ugyanúgy definiálható, mint egy lista, kivéve hogy az elemek
+halmaza zárójelek és nem szögletes zárójelek közt van.
+<li>Egy tuple elemeinek meghatározott sorrendje van, mint a listák esetén. A
+tuple indexei nullától kezdődnek, mint a listák esetén, így egy nem üres
+tuple első eleme mindig <code>a_tuple[0]</code>.
+<li>A negatív indexek a tuple végétől számítódnak, mint a listák esetén.
+<li>A szeletelés is működik, mint a listák esetén. Lista szeletelésekor
+egy új listát kapsz, tuple szeletelésekor egy új tuple-t.
 </ol>
 
-<p>The major difference between tuples and lists is that tuples can not be changed. In technical terms, tuples are <dfn>immutable</dfn>. In practical terms, they have no methods that would allow you to change them. Lists have methods like <code>append()</code>, <code>extend()</code>, <code>insert()</code>, <code>remove()</code>, and <code>pop()</code>. Tuples have none of these methods. You can slice a tuple (because that creates a new tuple), and you can check whether a tuple contains a particular value (because that doesn&#8217;t change the tuple), and&hellip; that&#8217;s about it.
-
+<p>A tuple és a lista közti legnagyobb különbség, hogy a tuple nem
+módosítható. Technikai kifejezéssel élve a tuple-ök
+<dfn>megváltoztathatatlanok</dfn>. Gyakorlati szempontból nincsenek olyan
+metódusaik, amelyek lehetővé tennék a módosításukat. A listák rendelkeznek
+olyan metódusokkal, mint az <code>append()</code>, <code>extend()</code>,
+<code>insert()</code>, <code>remove()</code> és <code>pop()</code>. A
+tuple-ök ezek egyikével sem. A tuple szeletelhető (mert az egy új tuple-t
+hoz létre), és ellenőrizheted, hogy egy tuple tartalmaz-e egy adott
+értéket (mert ez nem változtatja meg a tuple-t), és ez minden.
 <pre class=screen>
-# continued from the previous example
+# az előző példa folytatása
 <samp class=p>>>> </samp><kbd class=pp>a_tuple</kbd>
-<samp class=pp>('a', 'b', 'mpilgrim', 'z', 'example')</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_tuple.append("new")</kbd>               <span class=u>&#x2460;</span></a>
+<samp class=pp>('a', 'b', 'mpilgrim', 'z', 'példa')</samp>
+<a><samp class=p>>>> </samp><kbd class=pp>a_tuple.append("új")</kbd>                   <span class=u>&#x2460;</span></a>
 <samp class=traceback>Traceback (innermost last):
   File "&lt;interactive input>", line 1, in ?
 AttributeError: 'tuple' object has no attribute 'append'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_tuple.remove("z")</kbd>                 <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>a_tuple.remove("z")</kbd>                    <span class=u>&#x2461;</span></a>
 <samp class=traceback>Traceback (innermost last):
   File "&lt;interactive input>", line 1, in ?
 AttributeError: 'tuple' object has no attribute 'remove'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_tuple.index("example")</kbd>            <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>a_tuple.index("példa")</kbd>                 <span class=u>&#x2462;</span></a>
 <samp class=pp>4</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>"z" in a_tuple</kbd>                      <span class=u>&#x2463;</span></a>
-<samp class=pp>True</samp></pre>
+<a><samp class=p>>>> </samp><kbd class=pp>"z" in a_tuple</kbd>                         <span class=u>&#x2463;</span></a>
+<samp class=pp>True</samp>
+</pre>
 <ol>
-<li>You can&#8217;t add elements to a tuple. Tuples have no <code>append()</code> or <code>extend()</code> method.
-<li>You can&#8217;t remove elements from a tuple. Tuples have no <code>remove()</code> or <code>pop()</code> method.
-<li>You <em>can</em> find elements in a tuple, since this doesn&#8217;t change the tuple.
-<li>You can also use the <code>in</code> operator to check if an element exists in the tuple.
+<li>Nem adhatsz elemeket a tuple-höz. A tuple-ök nem rendelkeznek
+<code>append()</code> vagy <code>extend()</code> metódussal.
+<li>Nem távolíthatsz el elemeket egy tuple-ből. A tuple-ök nem rendelkeznek
+<code>remove()</code> vagy <code>pop()</code> metódussal.
+<li><em>Megkereshetsz</em> elemeket a tuple-ben, mivel ez nem módosítja a tuple-t.
+<li>Használhatod az <code>in</code> operátort is egy elem meglétének
+ellenőrzésére a tuple-ben.
 </ol>
 
-<p>So what are tuples good for?</p> 
+<p>Akkor mire jók a tuple-ök?</p> 
 
 <ul> 
-<li>Tuples are faster than lists.  If you&#8217;re defining a constant set of values and all you&#8217;re ever going to do with it is iterate through it, use a tuple instead of a list.
-<li>It makes your code safer if you &#8220;write-protect&#8221; data that doesn&#8217;t need to be changed. Using a tuple instead of a list is like having an implied <code>assert</code> statement that shows this data is constant, and that special thought (and a specific function) is required to override that.
-<li>Some tuples can be used as dictionary keys (specifically, tuples that contain <i>immutable</i> values like strings, numbers, and other tuples). Lists can never be used as dictionary keys, because lists are not immutable.
+<li>A tuple-ök gyorsabbak a listáknál. Ha értékek konstans halmazát
+definiálod, és a végighaladáson kívül semmit sem akarsz vele csinálni,
+akkor használj tuple-t a lista helyett.
+<li>A kódot biztonságosabbá teszi, ha a nem módosítandó adatokat
+&#8222;írásvédetté&#8221; teszed. A tuple használata lista helyett olyan,
+mintha egy közvetett <code>assert</code> utasításod lenne, amely jelzi,
+hogy ezek az adatok konstansak, és külön elhatározás (és egy bizonyos
+függvény) szükséges a felülbírálásához.
+<li>Egyes tuple-ök használhatók szótárkulcsokként (konkrétan olyan tuple-ök,
+amelyek <i>megváltoztathatatlan</i> értékeket, például karakterláncokat,
+számokat és más tuple-öket tartalmaznak). A listák soha nem használhatók
+szótárkulcsokként, mivel a listák megváltoztathatók.
 </ul>
 
 <blockquote class=note>
-<p><span class=u>&#x261E;</span>Tuples can be converted into lists, and vice-versa. The built-in <code>tuple()</code> function takes a list and returns a tuple with the same elements, and the <code>list()</code> function takes a tuple and returns a list. In effect, <code>tuple()</code> freezes a list, and <code>list()</code> thaws a tuple.
+<p><span class=u>&#x261E;</span>A tuple-ök átalakíthatók listákká, és
+fordítva. A beépített <code>tuple()</code> függvény egy listát vár, és
+visszaad egy tuple-t ugyanazokkal az elemekkel, a <code>list()</code>
+függvény pedig egy tuple-t vár és listát ad vissza. Gyakorlatilag a
+<code>tuple()</code> befagyasztja a listát, a <code>list()</code> pedig
+kiolvasztja.
 </blockquote>
 
-<h3 id=tuples-in-a-boolean-context>Tuples In A Boolean Context</h3>
+<h3 id=tuples-in-a-boolean-context>Tuple-ök logikai kontextusban</h3>
 
-<p>You can use tuples in <a href=#booleans>a boolean context</a>, such as an <code>if</code> statement.
-
-<pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>def is_it_true(anything):</kbd>
-<samp class=p>... </samp><kbd class=pp>  if anything:</kbd>
-<samp class=p>... </samp><kbd class=pp>    print("yes, it's true")</kbd>
+<p><a href=#booleans>Logikai kontextusban</a>, például <code>if</code>
+utasításokban használhatsz tuple-öket is. <pre class=screen>
+<samp class=p>>>> </samp><kbd class=pp>def is_it_true(valami):</kbd>
+<samp class=p>... </samp><kbd class=pp>  if valami:</kbd>
+<samp class=p>... </samp><kbd class=pp>    print("igen, ez igaz")</kbd>
 <samp class=p>... </samp><kbd class=pp>  else:</kbd>
-<samp class=p>... </samp><kbd class=pp>    print("no, it's false")</kbd>
+<samp class=p>... </samp><kbd class=pp>    print("nem, ez hamis")</kbd>
 <samp class=p>...</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>is_it_true(())</kbd>             <span class=u>&#x2460;</span></a>
-<samp>no, it's false</samp>
+<samp>nem, ez hamis</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>is_it_true(('a', 'b'))</kbd>     <span class=u>&#x2461;</span></a>
-<samp>yes, it's true</samp>
+<samp>igen, ez igaz</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>is_it_true((False,))</kbd>       <span class=u>&#x2462;</span></a>
-<samp>yes, it's true</samp>
+<samp>igen, ez igaz</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>type((False))</kbd>              <span class=u>&#x2463;</span></a>
 <samp class=pp>&lt;class 'bool'></samp>
 <samp class=p>>>> </samp><kbd class=pp>type((False,))</kbd>
 <samp class=pp>&lt;class 'tuple'></samp></pre>
 <ol>
-<li>In a boolean context, an empty tuple is false.
-<li>Any tuple with at least one item is true.
-<li>Any tuple with at least one item is true. The value of the items is irrelevant. But what&#8217;s that comma doing there?
-<li>To create a tuple of one item, you need a comma after the value. Without the comma, Python just assumes you have an extra pair of parentheses, which is harmless, but it doesn&#8217;t create a tuple.
+<li>Logikai kontextusban az üres tuple hamis.
+<li>Egy legalább egy elemű tuple igaz.
+<li>Egy legalább egy elemű tuple igaz. Az elemek értéke lényegtelen. De mit csinál ott az a vessző?
+<li>Egy egy elemű tuple létrehozásához vesszőt kell tennie az érték után. 
+A vessző nélkül a Python azt feltételezi, hogy egy extra pár zárójelet
+tettél ki, ami ártalmatlan, de nem hoz létre tuple-t.
 </ol>
 
-<h3 id=multivar>Assigning Multiple Values At Once</h3>
+<h3 id=multivar>Több érték hozzárendelése egyszerre</h3>
 
-<p>Here&#8217;s a cool programming shortcut: in Python, you can use a tuple to assign multiple values at once.
-
+<p>Itt egy menő programozási trükk: Pythonban egy tuple használatával
+egyszerre több értéket is hozzárendelhetsz változókhoz.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>v = ('a', 2, True)</kbd>
 <a><samp class=p>>>> </samp><kbd>(x, y, z) = v</kbd>       <span class=u>&#x2460;</span></a>
@@ -539,35 +787,56 @@ AttributeError: 'tuple' object has no attribute 'remove'</samp>
 <samp class=p>>>> </samp><kbd class=pp>z</kbd>
 <samp class=pp>True</samp></pre>
 <ol>
-<li><var>v</var> is a tuple of three elements, and <code>(x, y, z)</code> is a tuple of three variables. Assigning one to the other assigns each of the values of <var>v</var> to each of the variables, in order.
+<li>A <var>v</var> egy három elemű tuple, az <code>(x, y, z)</code> pedig
+egy három változót tartalmazó tuple. Az egymáshoz rendelésükkel a
+<var>v</var> értékei a változókhoz lesznek rendelve, a megadott
+sorrendben.
 </ol>
 
-<p>This has all kinds of uses. Suppose you want to assign names to a range of values. You can use the built-in <code>range()</code> function with multi-variable assignment to quickly assign consecutive values.
-
+<p>Ezt sok mindenre fel lehet használni. Tegyük fel, hogy neveket
+szeretnél rendelni egy értéktartományhoz. A beépített <code>range()</code>
+függvényt többváltozós értékadásban az egymást követő értékek
+hozzárendeléséhez használhatod.
 <pre class=screen>
-<a><samp class=p>>>> </samp><kbd class=pp>(MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY) = range(7)</kbd>  <span class=u>&#x2460;</span></a>
-<a><samp class=p>>>> </samp><kbd class=pp>MONDAY</kbd>                                                                       <span class=u>&#x2461;</span></a>
-<samp class=pp>0</samp>
-<samp class=p>>>> </samp><kbd class=pp>TUESDAY</kbd>
-<samp class=pp>1</samp>
-<samp class=p>>>> </samp><kbd class=pp>SUNDAY</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>(HÉTFŐ, KEDD, SZERDA, CSÜTÖRTÖK, PÉNTEK, SZOMBAT, VASÁRNAP) = range(7)</kbd>  <span class=u>&#x2460;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>HÉTFŐ</kbd>                                                                   <span class=u>&#x2461;</span></a>
+ <samp class=pp>0</samp>
+<samp class=p>>>> </samp><kbd class=pp>KEDD</kbd>
+ <samp class=pp>1</samp>
+<samp class=p>>>> </samp><kbd class=pp>VASÁRNAP</kbd>
 <samp class=pp>6</samp></pre>
 <ol>
-<li>The built-in <code>range()</code> function constructs a sequence of integers. (Technically, the <code>range()</code> function returns an <a href=iterators.html>iterator</a>, not a list or a tuple, but you&#8217;ll learn about that distinction later.) <var>MONDAY</var>, <var>TUESDAY</var>, <var>WEDNESDAY</var>, <var>THURSDAY</var>, <var>FRIDAY</var>, <var>SATURDAY</var>, and <var>SUNDAY</var> are the variables you&#8217;re defining. (This example came from the <code>calendar</code> module, a fun little module that prints calendars, like the <abbr>UNIX</abbr> program <code>cal</code>. The <code>calendar</code> module defines integer constants for days of the week.)
-<li>Now each variable has its value: <var>MONDAY</var> is 0, <var>TUESDAY</var> is <code>1</code>, and so forth.
+<li>A beépített <code>range()</code> függvény egészek sorozatát állítja
+elő. (Technikailag a <code>range()</code> függvény egy <a
+href=iterators.html>iterátort</a> ad vissza, nem pedig listát vagy
+tuple-t, de erről a különbségről később fogsz tanulni.) A
+<var>HÉTFŐ</var>, <var>KEDD</var>, <var>SZERDA</var>,
+<var>CSÜTÖRTÖK</var>, <var>PÉNTEK</var>, <var>SZOMBAT</var> és
+<var>VASÁRNAP</var> a definiált változók. (Ez a példa a
+<code>calendar</code> modulból származik, amely naptárakat ír ki, mint a
+<code>cal</code> nevű <abbr>UNIX</abbr> program. A <code>calendar</code>
+modul egész konstansokat definiál a hét napjaihoz.)
+<li>Most minden változó rendelkezik egy értékkel: a <var>HÉTFŐ</var> a 0,
+a <var>KEDD</var> <code>1</code> és így tovább.
 </ol>
 
-<p>You can also use multi-variable assignment to build functions that return multiple values, simply by returning a tuple of all the values. The caller can treat it as a single tuple, or it can assign the values to individual variables. Many standard Python libraries do this, including the <code>os</code> module, which you'll learn about in <a href=comprehensions.html#os>the next chapter</a>.
-
+<p>A több érték hozzárendelése használatával olyan függvényeket építhetsz,
+amelyek több értéket adnak vissza, egyszerűen az értékeket tartalmazó
+tuple visszaadásával. A hívó ezt kezelheti egyetlen tuple-öként vagy
+értékeket rendelhet az egyes változókhoz. Sok szabványos Python
+függvénytár így tesz, beleértve az <code>os</code> modult, amelyet <a
+href=comprehensions.html#os>a következő fejezetben</a> fogsz megismerni.
 <p class=a>&#x2042;
 
-<h2 id=sets>Sets</h2>
+<h2 id=sets>Halmazok</h2>
 
-<p>A <dfn>set</dfn> is an unordered &#8220;bag&#8221; of unique values. A single set can contain values of any immutable datatype. Once you have two sets, you can do standard set operations like union, intersection, and set difference.
+<p>A <dfn>halmaz</dfn> egyedi értékek rendezetlen &#8222;kupaca&#8221;. 
+Egy halmaz tetszőleges megváltoztathatatlan adattípusú értékeket
+tartalmazhat. Ha van két halmazod, akkor végrehajthatsz rajtuk általános
+halmazműveleteket, mint az unió, metszet és különbség.
+<h3 id=creating-a-set>Halmaz létrehozása</h3>
 
-<h3 id=creating-a-set>Creating A Set</h3>
-
-<p>First things first. Creating a set is easy.
+<p>Kezdjük az elején. Egy halmazt létrehozni könnyű.
 
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>a_set = {1}</kbd>     <span class=u>&#x2460;</span></a>
@@ -579,12 +848,16 @@ AttributeError: 'tuple' object has no attribute 'remove'</samp>
 <samp class=p>>>> </samp><kbd class=pp>a_set</kbd>
 <samp class=pp>{1, 2}</samp></pre>
 <ol>
-<li>To create a set with one value, put the value in curly brackets (<code>{}</code>).
-<li>Sets are actually implemented as <a href=iterators.html#defining-classes>classes</a>, but don&#8217;t worry about that for now.
-<li>To create a set with multiple values, separate the values with commas and wrap it all up with curly brackets.
+<li>Egy egy értékkel rendelkező halmaz létrehozásához tedd az értéket
+kapcsos zárójelek (<code>{}</code>) közé.
+<li>A halmazok valójában <a
+href=iterators.html#defining-classes>osztályokként</a> vannak
+megvalósítva, de emiatt most ne aggódj.
+<li>Egy több értékkel rendelkező halmaz létrehozásához vesszőkel válaszd el
+az értékeket, és tedd az egészet kapcsos zárójelek közé.
 </ol>
 
-<p>You can also create a set out of a <a href=#lists>list</a>.
+<p>Halmazt egy <a href=#lists>listából</a> is létrehozhatsz.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>a_list = ['a', 'b', 'mpilgrim', True, False, 42]</kbd>
@@ -594,12 +867,13 @@ AttributeError: 'tuple' object has no attribute 'remove'</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>a_list</kbd>                                        <span class=u>&#x2462;</span></a>
 <samp class=pp>['a', 'b', 'mpilgrim', True, False, 42]</samp></pre>
 <ol>
-<li>To create a set from a list, use the <code>set()</code> function. (Pedants who know about how sets are implemented will point out that this is not really calling a function, but instantiating a class. I <em>promise</em> you will learn the difference later in this book. For now, just know that <code>set()</code> acts like a function, and it returns a set.)
-<li>As I mentioned earlier, a single set can contain values of any datatype. And, as I mentioned earlier, sets are <em>unordered</em>. This set does not remember the original order of the list that was used to create it. If you were to add items to this set, it would not remember the order in which you added them.
-<li>The original list is unchanged.
+<li>Egy listából halmaz létrehozásához használd a <code>set()</code> függvényt. (Azok a pedánsok, akik ismerik a halmazok megvalósítását, rá fognak mutatni, hogy ez valójában nem függvényhívás, hanem egy osztály példányosítása. <em>Megígérem</em>, hogy a könyv hátralévő részeiben meg fogod ismerni a különbséget. Egyelőre elég annyi, hogy a <code>set()</code> függvényszerűen működik, és egy halmazt ad vissza.)
+<li>Ahogyan azt korábban említettem, egy halmaz tetszőleges adattípusú értékeket
+tartalmazhat. Ahogyan még korábban említettem, a halmazok <em>rendezetlenek</em>. Ez a halmaz nem emlékszik a létrehozásához használt lista eredeti sorrendjére. Ha elemeket adsz a halmazhoz, az nem fog emlékezni a hozzáadás sorrendjére.
+<li>Az eredeti lista változatlan.
 </ol>
 
-<p id=emptyset>Don&#8217;t have any values yet? Not a problem. You can create an empty set.
+<p id=emptyset>Még nincsenek értékeid? Nem gond. Létrehozhatsz üres halmazt is.
 
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>a_set = set()</kbd>    <span class=u>&#x2460;</span></a>
@@ -613,16 +887,16 @@ AttributeError: 'tuple' object has no attribute 'remove'</samp>
 <samp class=p>>>> </samp><kbd class=pp>type(not_sure)</kbd>
 <samp class=pp>&lt;class 'dict'></samp></pre>
 <ol>
-<li>To create an empty set, call <code>set()</code> with no arguments.
-<li>The printed representation of an empty set looks a bit strange. Were you expecting <code>{}</code>, perhaps? That would denote an empty dictionary, not an empty set. You&#8217;ll learn about dictionaries later in this chapter.
-<li>Despite the strange printed representation, this <em>is</em> a set&hellip;
-<li>&hellip;and this set has no members.
-<li>Due to historical quirks carried over from Python 2, you can not create an empty set with two curly brackets. This actually creates an empty dictionary, not an empty set.
+<li>Üres halmaz létrehozásához hívd meg a <code>set()</code> függvényt argumentumok nélkül.
+<li>Az üres halmaz kiírt ábrázolása egy kicsit furcsán néz ki. Talán ezt vártad: <code>{}</code>? Az egy üres szótárat jelölne, nem pedig egy üres halmazt. A szótárakkal a fejezet későbbi részében fogsz megismerkedni.
+<li>A furcsa kiírt ábrázolás ellenére <em>ez</em> egy halmaz&hellip;
+<li>&hellip;és ennek a halmaznak nincsenek elemei.
+<li>A Python 2-ből áthozott örökség miatt nem hozhatsz létre üres halmazt két kapcsos zárójellel. Az egy üres szótárat hozna létre, nem pedig egy üres halmazt.
 </ol>
 
-<h3 id=modifying-sets>Modifying A Set</h3>
+<h3 id=modifying-sets>Halmaz módosítása</h3>
 
-<p>There are two different ways to add values to an existing set: the <code>add()</code> method, and the <code>update()</code> method.
+<p>Meglévő halmazhoz két különböző módon adhatsz értékeket: az <code>add()</code> és az <code>update()</code> metódusokkal.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>a_set = {1, 2}</kbd>
@@ -637,10 +911,10 @@ AttributeError: 'tuple' object has no attribute 'remove'</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>len(a_set)</kbd>    <span class=u>&#x2463;</span></a>
 <samp class=pp>3</samp></pre>
 <ol>
-<li>The <code>add()</code> method takes a single argument, which can be any datatype, and adds the given value to the set.
-<li>This set now has 3 members.
-<li>Sets are bags of <em>unique values</em>. If you try to add a value that already exists in the set, it will do nothing. It won&#8217;t raise an error; it&#8217;s just a no-op.
-<li>This set <em>still</em> has 3 members.
+<li>Az <code>add()</code> metódus egyetlen argumentumot vár, amely tetszőleges adattípusú lehet, és az adott értéket hozzáadja a halmazhoz.
+<li>Ez a halmaz most 3 elemmel rendelkezik.
+<li>A halmazok <em>egyedi értékek</em> kupacai. Ha egy már létező értéket próbálsz hozzáadni, akkor nem történik semmi. Nem fog kivételt dobni, csak nem csinál semmit.
+<li>A halmaznak <em>továbbra is</em> 3 eleme van.
 </ol>
 
 <pre class=screen>
@@ -657,15 +931,15 @@ AttributeError: 'tuple' object has no attribute 'remove'</samp>
 <samp class=p>>>> </samp><kbd class=pp>a_set</kbd>
 <samp class=pp>{1, 2, 3, 4, 5, 6, 8, 9, 10, 13, 20, 30}</samp></pre>
 <ol>
-<li>The <code>update()</code> method takes one argument, a set, and adds all its members to the original set. It&#8217;s as if you called the <code>add()</code> method with each member of the set.
-<li>Duplicate values are ignored, since sets can not contain duplicates.
-<li>You can actually call the <code>update()</code> method with any number of arguments. When called with two sets, the <code>update()</code> method adds all the members of each set to the original set (dropping duplicates).
-<li>The <code>update()</code> method can take objects of a number of different datatypes, including lists. When called with a list, the <code>update()</code> method adds all the items of the list to the original set.
+<li>Az <code>update()</code> metódus egy argumentumot vár, egy halmazt, és minden elemét hozzáadja az eredeti halmazhoz. Olyan, mintha a halmaz minden egyes elemére meghívtad volna az <code>add()</code> metódust.
+<li>A többször szereplő értékek figyelmen kívül maradnak, mivel a halmazok egy értéket csak egyszer tartalmazhatnak.
+<li>Az <code>update()</code> metódust ténylegesen tetszőleges számú argumentummal hívhatod meg. Két halmazzal hívva az <code>update()</code> metódus az egyes halmazok összes elemét hozzáadja az eredeti halmazhoz (a többször szereplő értékek eldobásával).
+<li>Az <code>update()</code> metódus számos különböző adattípus objektumait képes kezelni, beleértve a listákat is. Egy listával hívva az <code>update()</code> metódus a lista összes elemét hozzáadja az eredeti halmazhoz.
 </ol>
 
-<h3 id=removing-from-sets>Removing Items From A Set</h3>
+<h3 id=removing-from-sets>Elemek eltávolítása a halmazból</h3>
 
-<p>There are three ways to remove individual values from a set. The first two, <code>discard()</code> and <code>remove()</code>, have one subtle difference.
+<p>Három módon távolíthatsz el egyedi értékeket a halmazból. Az első kettő, a <code>discard()</code> és <code>remove()</code> között egy apró különbség van.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>a_set = {1, 3, 6, 10, 15, 21, 28, 36, 45}</kbd>
@@ -685,13 +959,13 @@ AttributeError: 'tuple' object has no attribute 'remove'</samp>
   File "&lt;stdin>", line 1, in &lt;module>
 KeyError: 21</samp></pre>
 <ol>
-<li>The <code>discard()</code> method takes a single value as an argument and removes that value from the set.
-<li>If you call the <code>discard()</code> method with a value that doesn&#8217;t exist in the set, it does nothing. No error; it&#8217;s just a no-op.
-<li>The <code>remove()</code> method also takes a single value as an argument, and it also removes that value from the set.
-<li>Here&#8217;s the difference: if the value doesn&#8217;t exist in the set, the <code>remove()</code> method raises a <code>KeyError</code> exception.
+<li>A <code>discard()</code> metódus egyetlen értéket vár argumentumként, és eltávolítja azt az értéket a halmazból.
+<li>Ha a <code>discard()</code> metódust a halmazban nem létező értékkel hívod, akkor nem csinál semmi. Nem fog kivételt dobni, csak nem csinál semmit.
+<li>A <code>discard()</code> metódus is egyetlen értéket vár argumentumként, és szintén eltávolítja azt az értéket a halmazból.
+<li>Itt a különbség: ha az érték nem létezik a halmazban, akkor a <code>remove()</code> metódus egy <code>KeyError</code> kivételt dob.
 </ol>
 
-<p>Like lists, sets have a <code>pop()</code> method.
+<p>A listákhoz hasonlóan a halmazoknak is van <code>pop()</code> metódusuk.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>a_set = {1, 3, 6, 10, 15, 21, 28, 36, 45}</kbd>
@@ -711,14 +985,14 @@ KeyError: 21</samp></pre>
   File "&lt;stdin>", line 1, in &lt;module>
 KeyError: 'pop from an empty set'</samp></pre>
 <ol>
-<li>The <code>pop()</code> method removes a single value from a set and returns the value. However, since sets are unordered, there is no &#8220;last&#8221; value in a set, so there is no way to control which value gets removed. It is completely arbitrary.
-<li>The <code>clear()</code> method removes <em>all</em> values from a set, leaving you with an empty set. This is equivalent to <code>a_set = set()</code>, which would create a new empty set and overwrite the previous value of the <var>a_set</var> variable.
-<li>Attempting to pop a value from an empty set will raise a <code>KeyError</code> exception.
+<li>A <code>pop()</code> metódus egyetlen értéket távolít el a halmazból, és visszaadja az értéket. Mivel azonban a halmazok rendezetlenek, nincs &#8222;utolsó&#8221; értékük, így nincs lehetőség az eltávolított érték befolyásolására. Teljesen tetszőleges.
+<li>A <code>clear()</code> metódus <em>minden</em> értéket eltávolít a halmazból, és egy üres halmazt hagy. Ez egyenértékű az <code>a_set = set()</code> hívással, amely egy új üres halmazt hoz létre, és az <var>a_set</var> változó korábbi értékét felülírja.
+<li>Üres halmazból nem lehet értéket kivenni a pop() metódussal, ez egy <code>KeyError</code> kivételt dob.
 </ol>
 
-<h3 id=common-set-operations>Common Set Operations</h3>
+<h3 id=common-set-operations>Általános halmazműveletek</h3>
 
-<p>Python&#8217;s <code>set</code> type supports several common set operations.
+<p>A Python <code>set</code> típusa számos általános halmazműveletet támogat.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>a_set = {2, 4, 5, 9, 12, 21, 30, 51, 76, 127, 195}</kbd>
@@ -736,17 +1010,17 @@ KeyError: 'pop from an empty set'</samp></pre>
 <a><samp class=p>>>> </samp><kbd class=pp>a_set.symmetric_difference(b_set)</kbd>                               <span class=u>&#x2464;</span></a>
 <samp class=pp>{1, 3, 4, 6, 8, 76, 15, 17, 18, 195, 127, 30, 51}</samp></pre>
 <ol>
-<li>To test whether a value is a member of a set, use the <code>in</code> operator. This works the same as lists.
-<li>The <code>union()</code> method returns a new set containing all the elements that are in <em>either</em> set.
-<li>The <code>intersection()</code> method returns a new set containing all the elements that are in <em>both</em> sets.
-<li>The <code>difference()</code> method returns a new set containing all the elements that are in <var>a_set</var> but not <var>b_set</var>.
-<li>The <code>symmetric_difference()</code> method returns a new set containing all the elements that are in <em>exactly one</em> of the sets.
+<li>Annak teszteléséhez, hogy egy érték eleme-e egy halmaznak, használd az <code>in</code> operátort. Ez ugyanúgy működik, mint a listák esetén.
+<li>Az <code>union()</code> metódus egy új halmazt ad vissza, amely tartalmazza az összes, <em>valamelyik</em> halmazban jelen lévő elemet.
+<li>Az <code>intersection()</code> metódus egy új halmazt ad vissza, amely tartalmazza az összes, <em>mindkét</em> halmazban jelen lévő elemet.
+<li>A <code>difference()</code> metódus egy új halmazt ad vissza, amely tartalmazza az <var>a_set</var> halmazban jelen lévő, de a <var>b_set</var> halmazban jelen nem lévő elemet.
+<li>A <code>symmetric_difference()</code> metódus egy új halmazt ad vissza, amely tartalmazza az összes, <em>pontosan egy</em> halmazban jelen lévő elemet.
 </ol>
 
-<p>Three of these methods are symmetric.
+<p>Ezen metódusok közül három szimmetrikus.
 
 <pre class=screen>
-# continued from the previous example
+# az előző példa folytatása
 <a><samp class=p>>>> </samp><kbd class=pp>b_set.symmetric_difference(a_set)</kbd>                                       <span class=u>&#x2460;</span></a>
 <samp class=pp>{3, 1, 195, 4, 6, 8, 76, 15, 17, 18, 51, 30, 127}</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>b_set.symmetric_difference(a_set) == a_set.symmetric_difference(b_set)</kbd>  <span class=u>&#x2461;</span></a>
@@ -758,14 +1032,14 @@ KeyError: 'pop from an empty set'</samp></pre>
 <a><samp class=p>>>> </samp><kbd class=pp>b_set.difference(a_set) == a_set.difference(b_set)</kbd>                      <span class=u>&#x2464;</span></a>
 <samp class=pp>False</samp></pre>
 <ol>
-<li>The symmetric difference of <var>a_set</var> from <var>b_set</var> <em>looks</em> different than the symmetric difference of <var>b_set</var> from <var>a_set</var>, but remember, sets are unordered. Any two sets that contain all the same values (with none left over) are considered equal.
-<li>And that&#8217;s exactly what happens here. Don&#8217;t be fooled by the Python Shell&#8217;s printed representation of these sets. They contain the same values, so they are equal.
-<li>The union of two sets is also symmetric.
-<li>The intersection of two sets is also symmetric.
-<li>The difference of two sets is not symmetric. That makes sense; it&#8217;s analogous to subtracting one number from another. The order of the operands matters.
+<li>Az <var>a_set</var> szimmetrikus különbsége a <var>b_set</var>-től eltérőnek <em>tűnik</em> a <var>b_set</var> és az <var>a_set</var> szimmetrikus különbségétől, de ne feledd, a halmazok rendezetlenek. Bármely két halmaz, amelyek ugyanazokat az elemeket tartalmazzák (és egyikben sincs több), egyenlőnek számít.
+<li>Itt pontosan ez történik. Ne hagyd, hogy a Python Shell becsapjon a halmazok kiírt ábrázolásával. Ugyanazokat az értékeket tartalmazzák, emiatt egyenlők.
+<li>Két halmaz uniója is szimmetrikus.
+<li>Két halmaz metszete is szimmetrikus.
+<li>Két halmaz különbsége nem szimmetrikus. Ennek van értelme, hasonló egy szám kivonásához egy másik számból. Az operandusok sorrendje számít.
 </ol>
 
-<p>Finally, there are a few questions you can ask of sets.
+<p>Végül néhány, a halmazokkal kapcsolatos kérdés.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>a_set = {1, 2, 3}</kbd>
@@ -780,92 +1054,94 @@ KeyError: 'pop from an empty set'</samp></pre>
 <samp class=p>>>> </samp><kbd class=pp>b_set.issuperset(a_set)</kbd>
 <samp class=pp>False</samp></pre>
 <ol>
-<li><var>a_set</var> is a <dfn>subset</dfn> of <var>b_set</var>&nbsp;&mdash;&nbsp;all the members of <var>a_set</var> are also members of <var>b_set</var>.
-<li>Asking the same question in reverse, <var>b_set</var> is a <dfn>superset</dfn> of <var>a_set</var>, because all the members of <var>a_set</var> are also members of <var>b_set</var>.
-<li>As soon as you add a value to <var>a_set</var> that is not in <var>b_set</var>, both tests return <code>False</code>.
+<li>Az <var>a_set</var> a <var>b_set</var> <dfn>részhalmaza</dfn>&nbsp;&mdash;&nbsp;az <var>a_set</var> minden eleme a <var>b_set</var>-nek is eleme.
+<li>A kérdést megfordítva a <var>b_set</var> az <var>a_set</var> <dfn>szülőhalmazaxxx</dfn>, mert az <var>a_set</var> elemei a<var>b_set</var>-nek is elemei.
+<li>Amint hozzáadsz egy olyan értéket az <var>a_set</var>-hez, amely nincs a <var>b_set</var>-ben, mindkét teszt <code>False</code> értéket ad vissza.
 </ol>
 
-<h3 id=sets-in-a-boolean-context>Sets In A Boolean Context</h3>
+<h3 id=sets-in-a-boolean-context>Halmazok logikai kontextusban</h3>
 
-<p>You can use sets in <a href=#booleans>a boolean context</a>, such as an <code>if</code> statement.
-
-<pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>def is_it_true(anything):</kbd>
-<samp class=p>... </samp><kbd class=pp>  if anything:</kbd>
-<samp class=p>... </samp><kbd class=pp>    print("yes, it's true")</kbd>
+<p><a href=#booleans>Logikai kontextusban</a>, például <code>if</code>
+utasításokban használhatsz halmazokat is. <pre class=screen>
+<samp class=p>>>> </samp><kbd class=pp>def is_it_true(valami):</kbd>
+<samp class=p>... </samp><kbd class=pp>  if valami:</kbd>
+<samp class=p>... </samp><kbd class=pp>    print("igen, ez igaz")</kbd>
 <samp class=p>... </samp><kbd class=pp>  else:</kbd>
-<samp class=p>... </samp><kbd class=pp>    print("no, it's false")</kbd>
+<samp class=p>... </samp><kbd class=pp>    print("nem, ez hamis")</kbd>
 <samp class=p>...</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>is_it_true(set())</kbd>          <span class=u>&#x2460;</span></a>
-<samp>no, it's false</samp>
+<samp>nem, ez hamis</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>is_it_true({'a'})</kbd>          <span class=u>&#x2461;</span></a>
-<samp>yes, it's true</samp>
+<samp>igen, ez igaz</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>is_it_true({False})</kbd>        <span class=u>&#x2462;</span></a>
-<samp>yes, it's true</samp></pre>
+<samp>igen, ez igaz</samp></pre>
 <ol>
-<li>In a boolean context, an empty set is false.
-<li>Any set with at least one item is true.
-<li>Any set with at least one item is true. The value of the items is irrelevant.
+<li>Logikai kontextusban az üres halmaz hamis.
+<li>Egy legalább egy elemű halmaz igaz.
+<li>Egy legalább egy elemű halmaz igaz. Az elemek értéke lényegtelen.
 </ol>
 
 <p class=a>&#x2042;
 
-<h2 id=dictionaries>Dictionaries</h2>
+<h2 id=dictionaries>Szótárak</h2>
 
-<p>A <dfn>dictionary</dfn> is an unordered set of key-value pairs. When you add a key to a dictionary, you must also add a value for that key. (You can always change the value later.) Python dictionaries are optimized for retrieving the value when you know the key, but not the other way around.
+<p>A <dfn>szótár</dfn> kulcs-érték párok rendezetlen halmaza. Amikor a szótárhoz hozzáadsz egy kulcsot, akkor a kulcs értékét is meg kell adnod. (Az érték később bármikor módosítható.) A Python szótárak az ismert kulcsú értékek lekérésére vannak optimalizálva, de ez nem működik fordítva.
 <blockquote class='note compare perl5'>
-<p><span class=u>&#x261E;</span>A dictionary in Python is like a hash in Perl 5. In Perl 5, variables that store hashes always start with a <code>%</code> character. In Python, variables can be named anything, and Python keeps track of the datatype internally.
+<p><span class=u>&#x261E;</span>A szótár Pythonban olyan, mint egy hash
+Perl 5-ben. Perl 5-ben a hasheket tároló változók a <code>%</code>
+karakterrel kezdődnek. Pythonban a változók tetszőleges nevűek lehetnek,
+és a Python maga tartja nyilván az adattípust.
 </blockquote>
-<h3 id=creating-dictionaries>Creating A Dictionary</h3>
-<p>Creating a dictionary is easy. The syntax is similar to <a href=#sets>sets</a>, but instead of values, you have key-value pairs. Once you have a dictionary, you can look up values by their key.
+<h3 id=creating-dictionaries>Szótár létrehozása</h3>
+<p>Egy szótárat létrehozni könnyű. A szintaxis hasonló a <a href=#sets>halmazokhoz</a>, de értékek helyett kulcs-érték párok vannak. A meglévő szótárból az értékeket a kulcsuk alapján keresheted ki.
 <pre class=screen>
-<a><samp class=p>>>> </samp><kbd class=pp>a_dict = {'server': 'db.diveintopython3.org', 'database': 'mysql'}</kbd>  <span class=u>&#x2460;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>a_dict = {'kiszolgáló': 'db.diveintopython3.org', 'adatbázis': 'mysql'}</kbd>  <span class=u>&#x2460;</span></a>
 <samp class=p>>>> </samp><kbd class=pp>a_dict</kbd>
 <samp class=pp>{'server': 'db.diveintopython3.org', 'database': 'mysql'}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_dict['server']</kbd>                                                    <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>a_dict['kiszolgáló']</kbd>                                                     <span class=u>&#x2461;</span></a>
 'db.diveintopython3.org'
-<a><samp class=p>>>> </samp><kbd class=pp>a_dict['database']</kbd>                                                  <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>a_dict['adatbázis']</kbd>                                                      <span class=u>&#x2462;</span></a>
 'mysql'
-<a><samp class=p>>>> </samp><kbd class=pp>a_dict['db.diveintopython3.org']</kbd>                                    <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>a_dict['db.diveintopython3.org']</kbd>                                         <span class=u>&#x2463;</span></a>
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;stdin>", line 1, in &lt;module>
 KeyError: 'db.diveintopython3.org'</samp></pre>
 <ol>
-<li>First, you create a new dictionary with two items and assign it to the variable <var>a_dict</var>. Each item is a key-value pair, and the whole set of items is enclosed in curly braces.
-<li><code>'server'</code> is a key, and its associated value, referenced by <code>a_dict['server']</code>, is <code>'db.diveintopython3.org'</code>.
-<li><code>'database'</code> is a key, and its associated value, referenced by <code>a_dict['database']</code>, is <code>'mysql'</code>.
-<li>You can get values by key, but you can&#8217;t get keys by value. So <code>a_dict['server']</code> is <code>'db.diveintopython3.org'</code>, but <code>a_dict['db.diveintopython3.org']</code> raises an exception, because <code>'db.diveintopython3.org'</code> is not a key.
+<li>Első lépésként létrehozol egy két elemű szótárat, és az <var>a_dict</var> változóhoz rendeled. Minden elem egy kulcs-érték pár, és az elemek halmaza kapcsos zárójelek közt van.
+<li>A <code>'kiszolgáló'</code> egy kulcs, és a hozzá tartozó érték, amelyre <code>a_dict['kiszolgáló']</code> formában hivatkozhatsz, a<code>'db.diveintopython3.org'</code>.
+<li>Az <code>'adatbázis'</code> egy kulcs, és a hozzá tartozó érték, amelyre <code>a_dict['adatbázis']</code> formában hivatkozhatsz, a<code>'mysql'</code>.
+<li>Az értékeket lekérheted kulcs alapján, de a kulcsokat nem kérheted le érték alapján. Emiatt az <code>a_dict['kiszolgáló']</code> visszatérési értéke<code>'db.diveintopython3.org'</code>, de az <code>a_dict['db.diveintopython3.org']</code> kivételt dob, mert a <code>'db.diveintopython3.org'</code> nem egy kulcs.
 </ol>
-<h3 id=modifying-dictionaries>Modifying A Dictionary</h3>
-<p>Dictionaries do not have any predefined size limit. You can add new key-value pairs to a dictionary at any time, or you can modify the value of an existing key. Continuing from the previous example:
+<h3 id=modifying-dictionaries>Szótár módosítása</h3>
+<p>A szótáraknak nincs előre meghatározott méretkorlátjuk. Bármikor hozzáadhatsz új kulcs-érték párokat egy szótárhoz, vagy módosíthatod egy meglévő kulcs értékét. Az előző példa folyatása:
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>a_dict</kbd>
-<samp class=pp>{'server': 'db.diveintopython3.org', 'database': 'mysql'}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_dict['database'] = 'blog'</kbd>  <span class=u>&#x2460;</span></a>
+<samp class=pp>{'kiszolgáló': 'db.diveintopython3.org', 'adatbázis': 'mysql'}</samp>
+<a><samp class=p>>>> </samp><kbd class=pp>a_dict['database'] = 'blog'</kbd>         <span class=u>&#x2460;</span></a>
 <samp class=p>>>> </samp><kbd class=pp>a_dict</kbd>
-<samp class=pp>{'server': 'db.diveintopython3.org', 'database': 'blog'}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_dict['user'] = 'mark'</kbd>      <span class=u>&#x2461;</span></a>
-<a><samp class=p>>>> </samp><kbd class=pp>a_dict</kbd>                       <span class=u>&#x2462;</span></a>
-<samp class=pp>{'server': 'db.diveintopython3.org', 'user': 'mark', 'database': 'blog'}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_dict['user'] = 'dora'</kbd>      <span class=u>&#x2463;</span></a>
+<samp class=pp>{'kiszolgáló': 'db.diveintopython3.org', 'adatbázis': 'blog'}</samp>
+<a><samp class=p>>>> </samp><kbd class=pp>a_dict['felhasználó'] = 'mark'</kbd>      <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>a_dict</kbd>                              <span class=u>&#x2462;</span></a>
+<samp class=pp>{'kiszolgáló': 'db.diveintopython3.org', 'felhasználó': 'mark', 'adatbázis': 'blog'}</samp>
+<a><samp class=p>>>> </samp><kbd class=pp>a_dict['felhasználó'] = 'dora'</kbd>      <span class=u>&#x2463;</span></a>
 <samp class=p>>>> </samp><kbd class=pp>a_dict</kbd>
-<samp class=pp>{'server': 'db.diveintopython3.org', 'user': 'dora', 'database': 'blog'}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_dict['User'] = 'mark'</kbd>      <span class=u>&#x2464;</span></a>
+<samp class=pp>{'kiszolgáló': 'db.diveintopython3.org', 'felhasználó': 'dora', 'adatbázis': 'blog'}</samp>
+<a><samp class=p>>>> </samp><kbd class=pp>a_dict['Felhasználó'] = 'mark'</kbd>      <span class=u>&#x2464;</span></a>
 <samp class=p>>>> </samp><kbd class=pp>a_dict</kbd>
-<samp class=pp>{'User': 'mark', 'server': 'db.diveintopython3.org', 'user': 'dora', 'database': 'blog'}</samp></pre>
+<samp class=pp>{'Felhasználó': 'mark', 'kiszolgáló': 'db.diveintopython3.org', 'felhasználó': 'dora', 'adatbázis': 'blog'}</samp></pre>
 <ol>
-<li>You can not have duplicate keys in a dictionary. Assigning a value to an existing key will wipe out the old value.
-<li>You can add new key-value pairs at any time. This syntax is identical to modifying existing values.
-<li>The new dictionary item (key <code>'user'</code>, value <code>'mark'</code>) appears to be in the middle. In fact, it was just a coincidence that the items appeared to be in order in the first example; it is just as much a coincidence that they appear to be out of order now.
-<li>Assigning a value to an existing dictionary key simply replaces the old value with the new one.
-<li>Will this change the value of the <code>user</code> key back to "mark"?  No!  Look at the key closely&nbsp;&mdash;&nbsp;that&#8217;s a capital <kbd>U</kbd> in <kbd>"User"</kbd>. Dictionary keys are case-sensitive, so this statement is creating a new key-value pair, not overwriting an existing one. It may look similar to you, but as far as Python is concerned, it&#8217;s completely different.
+<li>A szótárban nem lehetnek többször szereplő kulcsok. Egy érték meglévő kulcshoz rendelése törli a régi értéket.
+<li>Bármikor hozzáadhatsz új kulcs-érték párokat. Ez a szintaxis azonos a meglévő értékek módosításához használttal.
+<li>Az új szótárelem (kulcs: <code>'felhasználó'</code>, érték: <code>'mark'</code>) középen jelenik meg. Tulajdonképpen az csak véletlen volt, hogy az első példában az elemek sorrendben jelentek meg, ugyanannyira véletlen, hogy most nem sorrendben jelennek meg.
+<li>Egy érték meglévő szótárkulcshoz rendelése egyszerűen lecseréli a régi értéket az újra.
+<li>Vajon ez megváltoztatja a <code>felhasználó</code> kulcs értékét "mark"-ra? Nem! Nézd meg jobban a kulcsot&nbsp;&mdash;&nbsp;az egy nagy <kbd>F</kbd> a <kbd>"Felhasználó"</kbd>-ban. A szótárkulcsok megkülönböztetik a kis- és nagybetűket, így ez az utasítás egy új kulcs-érték párt hoz létre, nem pedig egy meglévőt ír felül. Számodra hasonlónak tűnhetnek, de Python szempontjából teljesen különbözők.
 </ol>
-<h3 id=mixed-value-dictionaries>Mixed-Value Dictionaries</h3>
-<p>Dictionaries aren&#8217;t just for strings. Dictionary values can be any datatype, including integers, booleans, arbitrary objects, or even other dictionaries. And within a single dictionary, the values don&#8217;t all need to be the same type; you can mix and match as needed. Dictionary keys are more restricted, but they can be strings, integers, and a few other types. You can also mix and match key datatypes within a dictionary.
-<p>In fact, you&#8217;ve already seen a dictionary with non-string keys and values, in <a href=your-first-python-program.html#divingin>your first Python program</a>.
+<h3 id=mixed-value-dictionaries>Vegyes értékű szótárak</h3>
+<p>A szótárak nem csupán karakterláncokat tárolhatnak. A szótárértékek tetszőleges adattípusúak lehetnek, beleértve az egész és logikai értékeket, tetszőleges objektumokat vagy akár más szótárakat is. Ezen túl egy szótáron belül az értékeknek nem kell azonos típusúaknak lenniük, szükség szerint keverhetők. A használható szótárkulcstípusok köre korlátozottabb, de a kulcsok lehetnek karakterláncok, egészek és még néhány egyéb típusúak. Egy szótáron belül a kulcsok adattípusai szintén keverhetők.
+<p>Tulajdonképpen már láttál egy nem-karakterlánc kulcsokat és értékeket tartalmazó szótárat az <a href=your-first-python-program.html#divingin>első Python programodban</a>.
 <pre class='nd pp'><code>SUFFIXES = {1000: ['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
             1024: ['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']}</code></pre>
-<p>Let's tear that apart in the interactive shell.
+<p>Szedjük ezt szét az interaktív parancsértelmezőben.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>SUFFIXES = {1000: ['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],</kbd>
 <samp class=p>... </samp><kbd class=pp>            1024: ['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']}</kbd>
@@ -880,35 +1156,35 @@ KeyError: 'db.diveintopython3.org'</samp></pre>
 <a><samp class=p>>>> </samp><kbd class=pp>SUFFIXES[1000][3]</kbd>  <span class=u>&#x2464;</span></a>
 <samp class=pp>'TB'</samp></pre>
 <ol>
-<li>Like <a href=#lists>lists</a> and <a href=#sets>sets</a>, the <code>len()</code> function gives you the number of keys in a dictionary.
-<li>And like lists and sets, you can use the <code>in</code> operator to test whether a specific key is defined in a dictionary.
-<li><code>1000</code> <em>is</em> a key in the <code>SUFFIXES</code> dictionary; its value is a list of eight items (eight strings, to be precise).
-<li>Similarly, <code>1024</code> is a key in the <code>SUFFIXES</code> dictionary; its value is also a list of eight items.
-<li>Since <code>SUFFIXES[1000]</code> is a list, you can address individual items in the list by their 0-based index.
+<li>A <a href=#lists>listákhoz</a> és <a href=#sets>halmazokhoz</a> hasonlóan a <code>len()</code> függvény megadja a kulcsok számát a szótárban.
+<li>A listákhoz és halmazokhoz hasonlóan az <code>in</code> operátorral tesztelheted, hogy egy adott kulcs szerepel-e a szótárban.
+<li>Az <code>1000</code> egy <em>kulcs</em> a <code>SUFFIXES</code> szótárban, az értéke egy nyolc elemet (pontosabban nyolc karakterláncot) tartalmazó lista.
+<li>Hasonlóképpen az <code>1024</code> is egy kulcs a <code>SUFFIXES</code> szótárba, az értéke szintén egy nyolc elemet tartalmazó lista.
+<li>Mivel a <code>SUFFIXES[1000]</code> egy lista, az elemeit a 0-tól kezdődő indexük alapján elérheted.
 </ol>
-<h3 id=dictionaries-in-a-boolean-context>Dictionaries In A Boolean Context</h3>
-<aside>Empty dictionaries are false; all other dictionaries are true.</aside>
-<p>You can also use a dictionary in <a href=#booleans>a boolean context</a>, such as an <code>if</code> statement.
-<pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>def is_it_true(anything):</kbd>
-<samp class=p>... </samp><kbd class=pp>  if anything:</kbd>
-<samp class=p>... </samp><kbd class=pp>    print("yes, it's true")</kbd>
+<h3 id=dictionaries-in-a-boolean-context>Szótárak logikai kontextusban</h3>
+<aside>Az üres szótárak hamisak, minden más szótár igaz.</aside>
+<p><a href=#booleans>Logikai kontextusban</a>, például <code>if</code>
+utasításokban használhatsz szótárakat is. <pre class=screen>
+<samp class=p>>>> </samp><kbd class=pp>def is_it_true(valami):</kbd>
+<samp class=p>... </samp><kbd class=pp>  if valami:</kbd>
+<samp class=p>... </samp><kbd class=pp>    print("igen, ez igaz")</kbd>
 <samp class=p>... </samp><kbd class=pp>  else:</kbd>
-<samp class=p>... </samp><kbd class=pp>    print("no, it's false")</kbd>
+<samp class=p>... </samp><kbd class=pp>    print("nem, ez hamis")</kbd>
 <samp class=p>...</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>is_it_true({})</kbd>             <span class=u>&#x2460;</span></a>
-<samp>no, it's false</samp>
+<samp>nem, ez hamis</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>is_it_true({'a': 1})</kbd>       <span class=u>&#x2461;</span></a>
-<samp>yes, it's true</samp></pre>
+<samp>igen, ez igaz</samp></pre>
 <ol>
-<li>In a boolean context, an empty dictionary is false.
-<li>Any dictionary with at least one key-value pair is true.
+<li>Logikai kontextusban az üres szótár hamis.
+<li>Egy legalább egy kulcs-érték párt tartalmazó szótár igaz.
 </ol>
 <p class=a>&#x2042;
 
 <h2 id=none><code>None</code></h2>
-<p><code><dfn>None</dfn></code> is a special constant in Python. It is a <dfn>null</dfn> value. <code>None</code> is not the same as <code>False</code>. <code>None</code> is not 0. <code>None</code> is not an empty string. Comparing <code>None</code> to anything other than <code>None</code> will always return <code>False</code>.
-<p><code>None</code> is the only null value. It has its own datatype (<code>NoneType</code>). You can assign <code>None</code> to any variable, but you can not create other <code>NoneType</code> objects. All variables whose value is <code>None</code> are equal to each other.
+<p>A <code><dfn>None</dfn></code> egy speciális konstans Pythonban. Ez egy <dfn>null</dfn> érték. A <code>None</code> nem ugyanaz, mint a <code>False</code>. A <code>None</code> nem 0. A <code>None</code> nem egy üres karakterlánc. A <code>None</code> összehasonlítása bármivel, ami nem <code>None</code> mindig <code>False</code> értéket ad.
+<p>A <code>None</code> az egyetlen nullérték. Saját adattípussal rendelkezik (<code>NoneType</code>). A <code>None</code> bármely változóhoz hozzárendelhető, de nem hozhatsz létre más <code>NoneType</code> objektumokat. Minden változó, amely értéke <code>None</code>, egyenlő egymással.
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>type(None)</kbd>
 <samp class=pp>&lt;class 'NoneType'></samp>
@@ -927,34 +1203,34 @@ KeyError: 'db.diveintopython3.org'</samp></pre>
 <samp class=p>>>> </samp><kbd class=pp>x == y</kbd>
 <samp class=pp>True</samp>
 </pre>
-<h3 id=none-in-a-boolean-context><code>None</code> In A Boolean Context</h3>
-<p>In <a href=#booleans>a boolean context</a>, <code>None</code> is false and <code>not None</code> is true.
+<h3 id=none-in-a-boolean-context><code>None</code> logikai kontextusban</h3>
+<p>A <a href=#booleans>logikai kontextusokban</a> a <code>None</code> hamis és a <code>not None</code> igaz.
 <pre class='nd screen'>
-<samp class=p>>>> </samp><kbd class=pp>def is_it_true(anything):</kbd>
-<samp class=p>... </samp><kbd class=pp>  if anything:</kbd>
-<samp class=p>... </samp><kbd class=pp>    print("yes, it's true")</kbd>
+<samp class=p>>>> </samp><kbd class=pp>def is_it_true(valami):</kbd>
+<samp class=p>... </samp><kbd class=pp>  if valami:</kbd>
+<samp class=p>... </samp><kbd class=pp>    print("igen, ez igaz")</kbd>
 <samp class=p>... </samp><kbd class=pp>  else:</kbd>
-<samp class=p>... </samp><kbd class=pp>    print("no, it's false")</kbd>
+<samp class=p>... </samp><kbd class=pp>    print("nem, ez hamis")</kbd>
 <samp class=p>...</samp>
 <samp class=p>>>> </samp><kbd class=pp>is_it_true(None)</kbd>
-<samp>no, it's false</samp>
+<samp>nem, ez hamis</samp>
 <samp class=p>>>> </samp><kbd class=pp>is_it_true(not None)</kbd>
-<samp>yes, it's true</samp></pre>
+<samp>igen, ez igaz</samp></pre>
 <p class=a>&#x2042;
 
-<h2 id=furtherreading>Further Reading</h2>
+<h2 id=furtherreading>További olvasnivaló</h2>
 <ul>
-<li><a href=http://docs.python.org/3.1/library/stdtypes.html#boolean-operations-and-or-not>Boolean operations</a>
-<li><a href=http://docs.python.org/3.1/library/stdtypes.html#numeric-types-int-float-long-complex>Numeric types</a>
-<li><a href=http://docs.python.org/3.1/library/stdtypes.html#sequence-types-str-unicode-list-tuple-buffer-xrange>Sequence types</a>
-<li><a href=http://docs.python.org/3.1/library/stdtypes.html#set-types-set-frozenset>Set types</a>
-<li><a href=http://docs.python.org/3.1/library/stdtypes.html#mapping-types-dict>Mapping types</a>
-<li><a href=http://docs.python.org/3.1/library/fractions.html><code>fractions</code> module</a>
-<li><a href=http://docs.python.org/3.1/library/math.html><code>math</code> module</a>
+<li><a href=http://docs.python.org/3.1/library/stdtypes.html#boolean-operations-and-or-not>Logikai műveletek</a>
+<li><a href=http://docs.python.org/3.1/library/stdtypes.html#numeric-types-int-float-long-complex>Numerikus típusok</a>
+<li><a href=http://docs.python.org/3.1/library/stdtypes.html#sequence-types-str-unicode-list-tuple-buffer-xrange>Sorozat típusok</a>
+<li><a href=http://docs.python.org/3.1/library/stdtypes.html#set-types-set-frozenset>Halmaz típusok</a>
+<li><a href=http://docs.python.org/3.1/library/stdtypes.html#mapping-types-dict>Leképezés típusok</a>
+<li><a href=http://docs.python.org/3.1/library/fractions.html>A <code>fractions</code> modul</a>
+<li><a href=http://docs.python.org/3.1/library/math.html>A <code>math</code> modul</a>
 <li><a href=http://www.python.org/dev/peps/pep-0237/><abbr>PEP</abbr> 237: Unifying Long Integers and Integers</a>
 <li><a href=http://www.python.org/dev/peps/pep-0238/><abbr>PEP</abbr> 238: Changing the Division Operator</a>
 </ul>
-<p class=v><a href=your-first-python-program.html rel=prev title='back to &#8220;Your First Python Program&#8221;'><span class=u>&#x261C;</span></a> <a href=comprehensions.html rel=next title='onward to &#8220;Comprehensions&#8221;'><span class=u>&#x261E;</span></a>
+<p class=v><a href=your-first-python-program.html rel=prev title='vissza &#8222;Az első Python programod&#8221; fejezetre'><span class=u>&#x261C;</span></a> <a href=comprehensions.html rel=next title='előre az &#8222;Összehasonlítások&#8221; fejezetre'><span class=u>&#x261E;</span></a>
 <p class=c>&copy; 2001&ndash;11 <a href=about.html>Mark Pilgrim</a>
 <script src=j/jquery.js></script>
 <script src=j/prettify.js></script>
