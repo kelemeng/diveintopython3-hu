@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset=utf-8>
-<title>Advanced Iterators - Dive Into Python 3</title>
+<title>Speciális iterátorok - Ugorj fejest a Python 3-ba</title>
 <!--[if IE]><script src=j/html5.js></script><![endif]-->
 <link rel=stylesheet href=dip3.css>
 <style>
@@ -10,16 +10,17 @@ mark{display:inline}
 <link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
 <link rel=stylesheet media=print href=print.css>
 <meta name=viewport content='initial-scale=1.0'>
-<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:l5eihuescdw><input type=hidden name=ie value=UTF-8>&nbsp;<input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#advanced-iterators>Dive Into Python 3</a> <span class=u>&#8227;</span>
-<p id=level>Difficulty level: <span class=u title=advanced>&#x2666;&#x2666;&#x2666;&#x2666;&#x2662;</span>
-<h1>Advanced Iterators</h1>
+<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:l5eihuescdw><input type=hidden name=ie value=UTF-8>&nbsp;<input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Keresés></div></form>
+<p>Itt vagy: <a href=index.html>Kezdőlap</a> <span
+class=u>&#8227;</span> <a href=table-of-contents.html#advanced-iterators>Ugorj fejest a Python 3-ba</a> <span class=u>&#8227;</span>
+<p id=level>Nehézségi szint: <span class=u title=advanced>&#x2666;&#x2666;&#x2666;&#x2666;&#x2662;</span>
+<h1>Speciális iterátorok</h1>
 <blockquote class=q>
-<p><span class=u>&#x275D;</span> Great fleas have little fleas upon their backs to bite &#8217;em,<br>And little fleas have lesser fleas, and so ad infinitum. <span class=u>&#x275E;</span><br>&mdash; Augustus De Morgan
+<p><span class=u>&#x275D;</span> A nagy bolhák hátán kisebb bolhák lakmároznak,<br>A kisebb bolhák hátán pedig még kisebb bolhák, és így tovább a végtelenségig. <span class=u>&#x275E;</span><br>&mdash; Augustus De Morgan
 </blockquote>
 <p id=toc>&nbsp;
-<h2 id=divingin>Diving In</h2>
-<p class=f>Just as <a href=regular-expressions.html>regular expressions</a> put <a href=strings.html>strings</a> on steroids, the <code>itertools</code> module puts <a href=iterators.html>iterators</a> on steroids. But first, I want to show you a classic puzzle.
+<h2 id=divingin>Ugorj fejest</h2>
+<p class=f>Ahogyan a <a href=regular-expressions.html>reguláris kifejezések</a> felturbózzák a <a href=strings.html>karakterláncokat</a>, az <code>itertools</code> modul az <a href=iterators.html>iterátorokat</a> turbózza fel. De előbb szeretnék mutatni egy klasszikus, angol nyelvű rejtvényt.
 
 <pre class=nd><code>HAWAII + IDAHO + IOWA + OHIO == STATES
 510199 + 98153 + 9301 + 3593 == 621246
@@ -34,13 +35,13 @@ S = 6
 T = 2
 E = 4</code></pre>
 
-<p>Puzzles like this are called <i>cryptarithms</i> or <i>alphametics</i>. The letters spell out actual words, but if you replace each letter with a digit from <code>0&ndash;9</code>, it also &#8220;spells&#8221; an arithmetic equation. The trick is to figure out which letter maps to each digit. All the occurrences of each letter must map to the same digit, no digit can be repeated, and no &#8220;word&#8221; can start with the digit 0.
+<p>Az ilyen rejtvényeket <i>kriptaritmusoknak</i> vagy <i>alfametikáknak</i> nevezik. A betűk valódi szavakká állnak össze, de ha az egyes betűket egy <code>0&ndash;9</code> közti számmal helyettesíted, akkor egy aritmetikai egyenlet áll elő. A feladat a betűkhöz tartozó számjegyek megtalálása. Az egyes betűk minden előfordulása ugyanannak a számjegynek felel meg, a számjegyek nem ismétlődhetnek, és egyik &#8222;szó&#8221; sem kezdődhet a 0 számjeggyel.
 
-<aside>The most well-known alphametic puzzle is <code>SEND + MORE = MONEY</code>.</aside>
+<aside>A legismertebb alfametikus feladvány a <code>SEND + MORE = MONEY</code>.</aside>
 
-<p>In this chapter, we&#8217;ll dive into an incredible Python program originally written by Raymond Hettinger. This program solves alphametic puzzles <em>in just 14 lines of code</em>.
+<p>Ebben a fejezetben egy hihetetlen Python programba ugrunk fejest, amelyet eredetileg Raymond Hettinger írt. Ez a program alfametikus feladatokat old meg <em>összesen 14 sor kóddal</em>.
 
-<p class=d>[<a href=examples/alphametics.py>download <code>alphametics.py</code></a>]
+<p class=d>[<a href=examples/alphametics.py>az <code>alphametics.py</code> letöltése</a>]
 <pre class=pp><code>import re
 import itertools
 
@@ -69,24 +70,24 @@ if __name__ == '__main__':
         if solution:
             print(solution)</code></pre>
 
-<p>You can run the program from the command line. On Linux, it would look like this. (These may take some time, depending on the speed of your computer, and there is no progress bar. Just be patient!)
+<p>A programot a parancssorból futtathatod. Linuxon ez így néz ki. (A program futása eltarthat egy ideig, a számítógéped sebességétől függően, és nincs folyamatjelző. Légy türelmes!)
 
 <pre class='nd screen cmdline'>
-<samp class=p>you@localhost:~/diveintopython3/examples$ </samp><kbd>python3 alphametics.py "HAWAII + IDAHO + IOWA + OHIO == STATES"</kbd>
+<samp class=p>te@localhost:~/diveintopython3/examples$ </samp><kbd>python3 alphametics.py "HAWAII + IDAHO + IOWA + OHIO == STATES"</kbd>
 <samp>HAWAII + IDAHO + IOWA + OHIO = STATES
 510199 + 98153 + 9301 + 3593 == 621246</samp>
-<samp class=p>you@localhost:~/diveintopython3/examples$ </samp><kbd>python3 alphametics.py "I + LOVE + YOU == DORA"</kbd>
+<samp class=p>te@localhost:~/diveintopython3/examples$ </samp><kbd>python3 alphametics.py "I + LOVE + YOU == DORA"</kbd>
 <samp>I + LOVE + YOU == DORA
 1 + 2784 + 975 == 3760</samp>
-<samp class=p>you@localhost:~/diveintopython3/examples$ </samp><kbd>python3 alphametics.py "SEND + MORE == MONEY"</kbd>
+<samp class=p>te@localhost:~/diveintopython3/examples$ </samp><kbd>python3 alphametics.py "SEND + MORE == MONEY"</kbd>
 <samp>SEND + MORE == MONEY
 9567 + 1085 == 10652</samp></pre>
 
 <p class=a>&#x2042;
 
-<h2 id=re-findall>Finding all occurrences of a pattern</h2>
+<h2 id=re-findall>Egy minta összes előfordulásának megkeresése</h2>
 
-<p>The first thing this alphametics solver does is find all the letters (A&ndash;Z) in the puzzle.
+<p>A program első lépésként megkeresi a feladvány összes betűjét (A&ndash;Z).
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>import re</kbd>
@@ -95,19 +96,19 @@ if __name__ == '__main__':
 <a><samp class=p>>>> </samp><kbd class=pp>re.findall('[A-Z]+', 'SEND + MORE == MONEY')</kbd>     <span class=u>&#x2461;</span></a>
 <samp class=pp>['SEND', 'MORE', 'MONEY']</samp></pre>
 <ol>
-<li>The <code>re</code> module is Python&#8217;s implementation of <a href=regular-expressions.html>regular expressions</a>. It has a nifty function called <code>findall()</code> which takes a regular expression pattern and a string, and finds all occurrences of the pattern within the string. In this case, the pattern matches sequences of numbers. The <code>findall()</code> function returns a list of all the substrings that matched the pattern.
-<li>Here the regular expression pattern matches sequences of letters. Again, the return value is a list, and each item in the list is a string that matched the regular expression pattern.
+<li>A <code>re</code> modul a Python <a href=regular-expressions.html>reguláris kifejezés</a> megvalósítása. Ez tartalmazza a <code>findall()</code> nevű függvényt, amely egy reguláris kifejezésként megadott mintát és egy karakterláncot vár, és megkeresi a minta összes előfordulását a karakterláncban. Ebben az esetben a minta számok sorozatára illeszkedik. A <code>findall()</code> függvény a mintára illeszkedő összes részkarakterlánc listáját adja vissza.
+<li>Itt a reguláris kifejezés minta betűk sorozatára illeszkedik. A visszatérési érték ismét egy lista, és minden eleme a reguláris kifejezés mintára illeszkedő karakterlánc.
 </ol>
 
-<p>Here&#8217;s another example that will stretch your brain a little.
+<p>A következő példa is egy pici gondolkodásra fog késztetni.
 
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>re.findall(' s.*? s', "The sixth sick sheikh's sixth sheep's sick.")</kbd>
 <samp class=pp>[' sixth s', " sheikh's s", " sheep's s"]</samp></pre>
 
-<aside>This is the <a href=http://en.wikipedia.org/wiki/Tongue-twister>hardest tongue twister</a> in the English language.</aside>
+<aside>Ez az angol nyelv <a href=http://en.wikipedia.org/wiki/Tongue-twister>legkeményebb nyelvtörője</a>.</aside>
 
-<p>Surprised? The regular expression looks for a space, an <code>s</code>, and then the shortest possible series of any character (<code>.*?</code>), then a space, then another <code>s</code>. Well, looking at that input string, I see five matches:
+<p>Meglepődtél? A reguláris kifejezés egy szóközt, egy <code>s</code> betűt, majd tetszőleges karakterek lehetséges legrövidebb sorozatát (<code>.*?</code>), majd egy szóközt, és egy újabb <code>s</code> betűt keres. Nos, a bemeneti karakterláncra nézve, öt találatot látok:
 
 <ol>
 <li><code>The<mark> sixth s</mark>ick sheikh's sixth sheep's sick.</code>
@@ -117,15 +118,15 @@ if __name__ == '__main__':
 <li><code>The sixth sick sheikh's sixth<mark> sheep's s</mark>ick.</code>
 </ol>
 
-<p>But the <code>re.findall()</code> function only returned three matches. Specifically, it returned the first, the third, and the fifth. Why is that? Because <em>it doesn&#8217;t return overlapping matches</em>. The first match overlaps with the second, so the first is returned and the second is skipped. Then the third overlaps with the fourth, so the third is returned and the fourth is skipped. Finally, the fifth is returned. Three matches, not five.
+<p>Azonban a <code>re.findall()</code> függvény csak három találatot adott vissza. Ezen belül az első, harmadik és ötödik találatot adta vissza. Miért van ez így? Mert <em>nem adja vissza az egymást átfedő találatokat</em>. Az első találat átfedi a másodikat, így az első visszaadásra kerül, a második pedig kimarad. Ezután a harmadik átfedi a negyediket, így a harmadik visszaadásra kerül, a negyedik pedig kimarad. Végül az ötödik is visszaadásra kerül. Három találat, nem öt.
 
-<p>This has nothing to do with the alphametics solver; I just thought it was interesting.
+<p>Ennek semmi köze az alfametikus megoldóhoz, csak érdekesnek találom.
 
 <p class=a>&#x2042;
 
-<h2 id=unique-items>Finding the unique items in a sequence</h2>
+<h2 id=unique-items>Egy sorozat egyedi elemeinek megkeresése</h2>
 
-<p><a href=native-datatypes.html#sets>Sets</a> make it trivial to find the unique items in a sequence.
+<p>A <a href=native-datatypes.html#sets>halmazok</a> triviálissá teszik egy sorozat egyedi elemeinek megtalálását.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>a_list = ['The', 'sixth', 'sick', "sheik's", 'sixth', "sheep's", 'sick']</kbd>
@@ -140,23 +141,21 @@ if __name__ == '__main__':
 <a><samp class=p>>>> </samp><kbd class=pp>set(''.join(words))</kbd>              <span class=u>&#x2463;</span></a>
 <samp class=pp>{'E', 'D', 'M', 'O', 'N', 'S', 'R', 'Y'}</samp></pre>
 <ol>
-<li>Given a list of several strings, the <code>set()</code> function will return a set of unique strings from the list. This makes sense if you think of it like a <code>for</code> loop. Take the first item from the list, put it in the set. Second. Third. Fourth. Fifth&nbsp;&mdash;&nbsp;wait, that&#8217;s in the set already, so it only gets listed once, because Python sets don&#8217;t allow duplicates. Sixth. Seventh&nbsp;&mdash;&nbsp;again, a duplicate, so it only gets listed once. The end result? All the unique items in the original list, without any duplicates. The original list doesn&#8217;t even need to be sorted first.
-<li>The same technique works with strings, since a string is just a sequence of characters.
-<li>Given a list of strings, <code>''.join(<var>a_list</var>)</code> concatenates all the strings together into one.
-<li>So, given a list of strings, this line of code returns all the unique characters across all the strings, with no duplicates.
+<li>Egy több karakterláncból álló lista esetén a <code>set()</code> függvény visszaadja a lista egyedi karakterláncainak halmazát. Ennek van értelme, ha úgy gondolsz rá, mint egy <code>for</code> ciklusra. Vegyük a lista első elemét, tegyük be a halmazba. A másodikat. A harmadikat. A negyediket. Az ötödiket&nbsp;&mdash;&nbsp;várj, ilyen már van a halmazban, így most kimarad, mert a Python nem engedélyezi a másodpéldányokat. A hatodikat. A hetediket&nbsp;&mdash;&nbsp;újra egy másodpéldány, ismét kimarad. A végeredmény? Az eredeti lista összes egyedi eleme másodpéldányok nélkül. Az eredeti listát nem is kell rendezni előtte.
+<li>Ugyanez a módszer működik karakterláncokkal is, mert a karakterlánc csak karakterek sorozata.
+<li>Karakterláncok listáját véve a <code>''.join(<var>a_list</var>)</code> összefésüli az összes karakterláncot egyetlen eggyé.
+<li>Karakterláncok egy listáját átadva, ez a kódsor visszaadja a karakterláncok összes egyedi karakterét, másodpéldányok nélkül.
 </ol>
 
-<p>The alphametics solver uses this technique to build a set of all the unique characters in the puzzle.
-
+<p>Az alfametikus megoldó ezt a módszert használja a feladvány összes egyedi karakterét tartalmazó halmaz felépítéséhez.
 <pre class='nd pp'><code>unique_characters = set(''.join(words))</code></pre>
 
-<p>This list is later used to assign digits to characters as the solver iterates through the possible solutions.
-
+<p>Ez a lista később a számjegyek karakterekhez rendelésénél lesz felhasználva, amikor a megoldó végigjárja a lehetséges megoldásokat.
 <p class=a>&#x2042;
 
-<h2 id=assert>Making assertions</h2>
+<h2 id=assert>Kijelentések tétele</h2>
 
-<p>Like many programming languages, Python has an <code>assert</code> statement. Here&#8217;s how it works.
+<p>Sok programozási nyelvhez hasonlóan a Python is rendelkezik egy <code>assert</code> utasítással. Így működik:
 
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>assert 1 + 1 == 2</kbd>                                     <span class=u>&#x2460;</span></a>
@@ -164,32 +163,31 @@ if __name__ == '__main__':
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;stdin>", line 1, in &lt;module>
 AssertionError</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>assert 2 + 2 == 5, "Only for very large values of 2"</kbd>  <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>assert 2 + 2 == 5, "Csak a 2 nagyon nagy értékeihez"</kbd>  <span class=u>&#x2462;</span></a>
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;stdin>", line 1, in &lt;module>
-AssertionError: Only for very large values of 2</samp></pre>
+AssertionError: Csak a 2 nagyon nagy értékeihez</samp></pre>
 <ol>
-<li>The <code>assert</code> statement is followed by any valid Python expression. In this case, the expression <code>1 + 1 == 2</code> evaluates to <code>True</code>, so the <code>assert</code> statement does nothing.
-<li>However, if the Python expression evaluates to <code>False</code>, the <code>assert</code> statement will raise an <code>AssertionError</code>.
-<li>You can also include a human-readable message that is printed if the <code>AssertionError</code> is raised.
+<li>Az <code>assert</code> utasítást tetszőleges érvényes Python kifejezés követheti. Ebben az esetben az <code>1 + 1 == 2</code> kifejezés <code>True</code>-ra értékelődik ki, így az <code>assert</code> utasítás nem csinál semmit.
+<li>Ha azonban a Python kifejezés <code>False</code>-ra értékelődik ki, akkor az <code>assert</code> utasítás <code>AssertionError</code> kivételt dob.
+<li>Megadhatsz egy emberek által olvasható üzenetet is, amely az <code>AssertionError</code> dobásakor kiírásra kerül.
 </ol>
 
-<p>Therefore, this line of code:
+<p>Emiatt ez a sor kód:
 
-<pre class='nd pp'><code>assert len(unique_characters) &lt;= 10, 'Too many letters'</code></pre>
+<pre class='nd pp'><code>assert len(unique_characters) &lt;= 10, 'Túl sok betű'</code></pre>
 
-<p>&hellip;is equivalent to this:
+<p>&hellip;ezzel egyenértékű:
 
 <pre class='nd pp'><code>if len(unique_characters) > 10:
-    raise AssertionError('Too many letters')</code></pre>
+    raise AssertionError('Túl sok betű')</code></pre>
 
-<p>The alphametics solver uses this exact <code>assert</code> statement to bail out early if the puzzle contains more than ten unique letters. Since each letter is assigned a unique digit, and there are only ten digits, a puzzle with more than ten unique letters can not possibly have a solution.
-
+<p>Az alfametikus megoldó pontosan ezt az <code>assert</code> utasítást használja, hogy időben megálljon, ha a feladvány tíz egyedi betűnél többet tartalmazna. Mivel minden betűhöz egyedi számjegy kerül hozzárendelésre, és csak tíz számjegy van, a tíz betűnél többet tartalmazó feladványoknak nem lehet megoldásuk.
 <p class=a>&#x2042;
 
-<h2 id=generator-expressions>Generator expressions</h2>
+<h2 id=generator-expressions>Generátorkifejezések</h2>
 
-<p>A generator expression is like a <a href=generators.html>generator function</a> without the function.
+<p>A generátorkifejezés olyan, mint egy függvény nélküli <a href=generators.html>generátorfüggvény</a>.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>unique_characters = {'E', 'D', 'M', 'O', 'N', 'S', 'R', 'Y'}</kbd>
@@ -203,17 +201,17 @@ AssertionError: Only for very large values of 2</samp></pre>
 <a><samp class=p>>>> </samp><kbd class=pp>tuple(ord(c) for c in unique_characters)</kbd>   <span class=u>&#x2463;</span></a>
 <samp class=pp>(69, 68, 77, 79, 78, 83, 82, 89)</samp></pre>
 <ol>
-<li>A generator expression is like an anonymous function that yields values. The expression itself looks like a <a href=comprehensions.html#listcomprehension>list comprehension</a>, but it&#8217;s wrapped in parentheses instead of square brackets.
-<li>The generator expression returns&hellip; an iterator.
-<li>Calling <code>next(<var>gen</var>)</code> returns the next value from the iterator.
-<li>If you like, you can iterate through all the possible values and return a tuple, list, or set, by passing the generator expression to <code>tuple()</code>, <code>list()</code>, or <code>set()</code>. In these cases, you don&#8217;t need an extra set of parentheses&nbsp;&mdash;&nbsp;just pass the &#8220;bare&#8221; expression <code>ord(c) for c in unique_characters</code> to the <code>tuple()</code> function, and Python figures out that it&#8217;s a generator expression.
+<li>Egy generátorkifejezés olyan, mint egy névtelen függvény, amely értékeket ad vissza. Maga a kifejezés úgy néz ki, mint egy <a href=comprehensions.html#listcomprehension>listafeldolgozó</a>, de szögletes zárójelek helyett zárójelek közt van.
+<li>A generátorkifejezés egy&hellip; iterátort ad vissza.
+<li>A <code>next(<var>gen</var>)</code> hívása az iterátorból származó következő értéket adja vissza.
+<li>Ha szeretnéd, végiglépkedhetsz az összes lehetséges értéken, és visszaadhatsz egy tuplet, listát vagy halmazt a generátorkifejezés átadásával a <code>tuple()</code>, <code>list()</code> vagy <code>set()</code> függvénynek. Ezekben az esetekben nincs szükséged extra zárójelekre&nbsp;&mdash;&nbsp;csak add át a &#8222;nyers&#8221; <code>ord(c) for c in unique_characters</code> kifejezést a <code>tuple()</code> függvénynek, és a Python megállapítja, hogy ez egy generátorkifejezés.
 </ol>
 
 <blockquote class=note>
-<p><span class=u>&#x261E;</span>Using a generator expression instead of a list comprehension can save both <abbr>CPU</abbr> and <abbr>RAM</abbr>. If you&#8217;re building an list just to throw it away (<i>e.g.</i> passing it to <code>tuple()</code> or <code>set()</code>), use a generator expression instead!
+<p><span class=u>&#x261E;</span>Listafeldolgozó helyett generátorkifejezést használva egyaránt spórolhatsz a <abbr>CPU</abbr> és a <abbr>RAM</abbr> használatán is. Ha csak azért építesz egy listát, hogy rögtön eldobhasd (<i>például</i> a <code>tuple()</code> vagy <code>set()</code> függvénynek átadva), használj generátorkifejezést.
 </blockquote>
 
-<p>Here&#8217;s another way to accomplish the same thing, using a <a href=generators.html>generator function</a>:
+<p>Ugyanezt máshogy is elérheted egy <a href=generators.html>generátorfüggvény</a> használatával:
 
 <pre class='nd pp'><code>def ord_map(a_string):
     for c in a_string:
@@ -221,16 +219,14 @@ AssertionError: Only for very large values of 2</samp></pre>
 
 gen = ord_map(unique_characters)</code></pre>
 
-<p>The generator expression is more compact but functionally equivalent.
-
+<p>A generátorkifejezés tömörebb, de funkcionálisan egyenértékű.
 <p class=a>&#x2042;
 
-<h2 id=permutations>Calculating Permutations&hellip; The Lazy Way!</h2>
+<h2 id=permutations>Permutációk kiszámítása&hellip; lusta módra!</h2>
 
-<p>First of all, what the heck are permutations? Permutations are a mathematical concept. (There are actually several definitions, depending on what kind of math you&#8217;re doing. Here I&#8217;m talking about combinatorics, but if that doesn&#8217;t mean anything to you, don&#8217;t worry about it. As always, <a href=http://en.wikipedia.org/wiki/Permutation>Wikipedia is your friend</a>.)
+<p>Először is, mi a csuda az a permutáció? A permutáció egy matematikai fogalom. (Valójában több meghatározás van, az épp használt matematikai rendszertől függően. Itt a kombinatorikáról van szó, de ha ez nem jelent neked semmit, akkor se aggódj. Mint mindig, a <a href=http://hu.wikipedia.org/wiki/Permut%C3%A1ci%C3%B3>Wikipédia a barátod</a>.)
 
-<p>The idea is that you take a list of things (could be numbers, could be letters, could be dancing bears) and find all the possible ways to split them up into smaller lists. All the smaller lists have the same size, which can be as small as 1 and as large as the total number of items. Oh, and nothing can be repeated. Mathematicians say things like &#8220;let&#8217;s find the permutations of 3 different items taken 2 at a time,&#8221; which means you have a sequence of 3 items and you want to find all the possible ordered pairs.
-
+<p>Az alapötlet a következő: veszed elemek (számok, betűk, táncoló medvék) listáját, és az összes lehetséges módon felosztod kisebb listákra. Az összes kisebb lista azonos méretű, akár egy eleműek is lehetnek, de az elemek teljes számával egyenlő méretűek is. Ja és egyáltalán nem lehetnek ismétlődések. A matematikusok olyanokat mondanak, mint például &#8222;keressük meg 3 különböző elem permutációit egyszerre kettőt véve&#8221;, ami azt jelenti, hogy egy 3 elemből álló listád van, és meg akarod találni az összes lehetséges rendezett párt.
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>import itertools</kbd>                              <span class=u>&#x2460;</span></a>
 <a><samp class=p>>>> </samp><kbd class=pp>perms = itertools.permutations([1, 2, 3], 2)</kbd>  <span class=u>&#x2461;</span></a>
@@ -251,16 +247,16 @@ gen = ord_map(unique_characters)</code></pre>
   File "&lt;stdin>", line 1, in &lt;module>
 StopIteration</samp></pre>
 <ol>
-<li>The <code>itertools</code> module has all kinds of fun stuff in it, including a <code>permutations()</code> function that does all the hard work of finding permutations.
-<li>The <code>permutations()</code> function takes a sequence (here a list of three integers) and a number, which is the number of items you want in each smaller group. The function returns an iterator, which you can use in a <code>for</code> loop or any old place that iterates. Here I&#8217;ll step through the iterator manually to show all the values.
-<li>The first permutation of <code>[1, 2, 3]</code> taken 2 at a time is <code>(1, 2)</code>.
-<li>Note that permutations are ordered: <code>(2, 1)</code> is different than <code>(1, 2)</code>.
-<li>That&#8217;s it! Those are all the permutations of <code>[1, 2, 3]</code> taken 2 at a time. Pairs like <code>(1, 1)</code> and <code>(2, 2)</code> never show up, because they contain repeats so they aren&#8217;t valid permutations. When there are no more permutations, the iterator raises a <code>StopIteration</code> exception.
+<li>Az <code>itertools</code> modul mindenféle jópofa dolgot tartalmaz, beleértve egy <code>permutations()</code> függvényt, amely elvégzi a permutációk keresésének fáradtságos munkáját.
+<li>A <code>permutations()</code> függvény egy sorozatot (itt egy három számból álló listát) és egy számot vár, amely a kisebb csoportokba beosztandó elemek száma. A függvény egy iterátort ad vissza, amelyet felhasználhatsz egy <code>for</code> ciklusban vagy bármely más helyen, ami iterál. Itt saját kezűleg lépkedek végig az iterátoron az értékek megjelenítéséhez.
+<li>Az <code>[1, 2, 3]</code> első permutációja egyszerre 2 elemet véve az <code>(1, 2)</code>.
+<li>Figyeld meg, hogy a permutációk rendezettek: a <code>(2, 1)</code> eltér az <code>(1, 2)</code>-től.
+<li>Ennyi az egész! Ez az <code>[1, 2, 3]</code> összes permutációja egyszerre két elemet véve. Az <code>(1, 1)</code> és <code>(2, 2)</code> párok soha nem jelennek meg, mert ismétléseket tartalmaznak, így nem érvényes permutációk. Ha nincs több permutáció, akkor az iterátor egy <code>StopIteration</code> kivételt dob.
 </ol>
 
-<aside>The <code>itertools</code> module has all kinds of fun stuff.</aside>
+<aside>Az <code>itertools</code> modul mindenféle jópofa dolgot tartalmaz.</aside>
 
-<p>The <code>permutations()</code> function doesn&#8217;t have to take a list. It can take any sequence&nbsp;&mdash;&nbsp;even a string.
+<p>A <code>permutations()</code> függvénynek nem kötelező listát átadni. Tetszőleges sorozatot kaphat&nbsp;&mdash;&nbsp;akár egy karakterláncot is.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>import itertools</kbd>
@@ -286,14 +282,14 @@ StopIteration</samp>
  ('B', 'A', 'C'), ('B', 'C', 'A'),
  ('C', 'A', 'B'), ('C', 'B', 'A')]</samp></pre>
 <ol>
-<li>A string is just a sequence of characters. For the purposes of finding permutations, the string <code>'ABC'</code> is equivalent to the list <code>['A', 'B', 'C']</code>.
-<li>The first permutation of the 3 items <code>['A', 'B', 'C']</code>, taken 3 at a time, is <code>('A', 'B', 'C')</code>. There are five other permutations&nbsp;&mdash;&nbsp;the same three characters in every conceivable order.
-<li>Since the <code>permutations()</code> function always returns an iterator, an easy way to debug permutations is to pass that iterator to the built-in <code>list()</code> function to see all the permutations immediately.
+<li>Egy karakterlánc csupán karakterek sorozata. A permutációk keresése szempontjából az <code>'ABC'</code> egyenértékű a <code>['A', 'B', 'C']</code> listával.
+<li>A 3 elem első permutációja <code>['A', 'B', 'C']</code> egyszerre 3 elemet véve <code>('A', 'B', 'C')</code>. Öt másik permutáció is van&nbsp;&mdash;&nbsp;ugyanaz a három karakter minden elképzelhető sorrendben.
+<li>Mivel a <code>permutations()</code> függvény mindig egy iterátort ad vissza, a permutációk hibakeresése egyszerűen megoldható az iterátor átadásával a beépített <code>list()</code> függvénynek, így az összes permutáció azonnal megjeleníthető.
 </ol>
 
 <p class=a>&#x2042;
 
-<h2 id=more-itertools>Other Fun Stuff in the <code>itertools</code> Module</h2>
+<h2 id=more-itertools>További menő dolgok az <code>itertools</code> modulban</h2>
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>import itertools</kbd>
 <a><samp class=p>>>> </samp><kbd class=pp>list(itertools.product('ABC', '123'))</kbd>   <span class=u>&#x2460;</span></a>
@@ -303,11 +299,11 @@ StopIteration</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>list(itertools.combinations('ABC', 2))</kbd>  <span class=u>&#x2461;</span></a>
 <samp class=pp>[('A', 'B'), ('A', 'C'), ('B', 'C')]</samp></pre>
 <ol>
-<li>The <code>itertools.product()</code> function returns an iterator containing the Cartesian product of two sequences.
-<li>The <code>itertools.combinations()</code> function returns an iterator containing all the possible combinations of the given sequence of the given length. This is like the <code>itertools.permutations()</code> function, except combinations don&#8217;t include items that are duplicates of other items in a different order. So <code>itertools.permutations('ABC', 2)</code> will return both <code>('A', 'B')</code> and <code>('B', 'A')</code> (among others), but <code>itertools.combinations('ABC', 2)</code> will not return <code>('B', 'A')</code> because it is a duplicate of <code>('A', 'B')</code> in a different order.
+<li>Az <code>itertools.product()</code> függvény a két sorozat Descartes-szorzatát tartalmazó iterátort ad vissza.
+<li>Az <code>itertools.combinations()</code> függvény az adott sorozat összes adott hosszú kombinációját adja vissza. Ez olyan, mint az <code>itertools.permutations()</code> függvény, csak a kombinációk nem tartalmaznak olyan elemeket, amelyek ugyanazon elemek más sorrendben lévő másodpéldányai. Így az <code>itertools.permutations('ABC', 2)</code> visszaadja mind az <code>('A', 'B')</code> és <code>('B', 'A')</code> elemeket (többek közt), de az <code>itertools.combinations('ABC', 2)</code> nem adja vissza a <code>('B', 'A')</code> elemet, mert az az <code>('A', 'B')</code> másodpéldánya más sorrendben.
 </ol>
 
-<p class=d>[<a href=examples/favorite-people.txt>download <code>favorite-people.txt</code></a>]
+<p class=d>[<a href=examples/favorite-people.txt>a <code>favorite-people.txt</code> letöltése</a>]
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>names = list(open('examples/favorite-people.txt', encoding='utf-8'))</kbd>  <span class=u>&#x2460;</span></a>
 <samp class=p>>>> </samp><kbd class=pp>names</kbd>
@@ -326,16 +322,15 @@ StopIteration</samp>
 <samp class=pp>['Alex', 'Anne', 'Dora', 'John', 'Mike',
 'Chris', 'Ethan', 'Sarah', 'Lizzie', 'Wesley']</samp></pre>
 <ol>
-<li>This idiom returns a list of the lines in a text file.
-<li>Unfortunately (for this example), the <code>list(open(<var>filename</var>))</code> idiom also includes the carriage returns at the end of each line. This list comprehension uses the <code>rstrip()</code> string method to strip trailing whitespace from each line. (Strings also have an <code>lstrip()</code> method to strip leading whitespace, and a <code>strip()</code> method which strips both.)
-<li>The <code>sorted()</code> function takes a list and returns it sorted. By default, it sorts alphabetically.
-<li>But the <code>sorted()</code> function can also take a function as the <var>key</var> parameter, and it sorts by that key. In this case, the sort function is <code>len()</code>, so it sorts by <code>len(<var>each item</var>)</code>. Shorter names come first, then longer, then longest.
+<li>Ez a kifejezés a szövegfájl sorainak listáját adja vissza.
+<li>Sajnos (jelen példa szempontjából) a <code>list(open(<var>filename</var>))</code> kifejezés tartalmazza a sorok végén lévő kocsivissza karaktert is. Ez a listafeldolgozó az <code>rstrip()</code> karakterlánc-metódust használja a záró üres hely eltávolítására a karakterláncok végéről. (A karakterláncok rendelkeznek egy <code>lstrip()</code> metódussal is a kezdő üres hely eltávolításához, és egy <code>strip()</code> metódussal mindkettő eltávolításához.)
+<li>A <code>sorted()</code> függvény egy listát vár, és rendezve adja vissza. Alapértelmezésben ábécérendbe rendez.
+<li>De a <code>sorted()</code> függvény kaphat függvényt is a <var>key</var> paraméteren keresztül, ekkor aszerint rendez. Ebben az esetben a rendezési függvény a <code>len()</code>, így a <code>len(<var>minden elem</var>)</code> szerint rendez. A rövidebb nevek jönnek előre, aztán a hosszabbak, végül a leghosszabbak.
 </ol>
 
-<p>What does this have to do with the <code>itertools</code> module? I&#8217;m glad you asked.
-
+<p>Mi köze van ennek az <code>itertools</code> modulhoz? Örülök, hogy megkérdezted!
 <pre class=screen>
-&hellip;continuing from the previous interactive shell&hellip;
+&hellip;folytatás az előző interaktív parancsértelmezőből&hellip;
 <samp class=p>>>> </samp><kbd class=pp>import itertools</kbd>
 <a><samp class=p>>>> </samp><kbd class=pp>groups = itertools.groupby(names, len)</kbd>  <span class=u>&#x2460;</span></a>
 <samp class=p>>>> </samp><kbd class=pp>groups</kbd>
@@ -346,35 +341,34 @@ StopIteration</samp>
  (6, &lt;itertools._grouper object at 0x00BB4030>)]</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>groups = itertools.groupby(names, len)</kbd>   <span class=u>&#x2461;</span></a>
 <a><samp class=p>>>> </samp><kbd class=pp>for name_length, name_iter in groups:</kbd>    <span class=u>&#x2462;</span></a>
-<samp class=p>... </samp><kbd class=pp>    print('Names with {0:d} letters:'.format(name_length))</kbd>
+<samp class=p>... </samp><kbd class=pp>    print('{0:d} betűs nevek:'.format(name_length))</kbd>
 <samp class=p>... </samp><kbd class=pp>    for name in name_iter:</kbd>
 <samp class=p>... </samp><kbd class=pp>        print(name)</kbd>
 <samp class=p>... </samp>
-<samp>Names with 4 letters:
+<samp>4 betűs nevek:
 Alex
 Anne
 Dora
 John
 Mike
-Names with 5 letters:
+5 betűs nevek:
 Chris
 Ethan
 Sarah
-Names with 6 letters:
+6 betűs nevek:
 Lizzie
 Wesley</samp></pre>
 <ol>
-<li>The <code>itertools.groupby()</code> function takes a sequence and a key function, and returns an iterator that generates pairs. Each pair contains the result of <code>key_function(<var>each item</var>)</code> and another iterator containing all the items that shared that key result.
-<li>Calling the <code>list()</code> function &#8220;exhausted&#8221; the iterator, <i>i.e.</i> you&#8217;ve already generated every item in the iterator to make the list. There&#8217;s no &#8220;reset&#8221; button on an iterator; you can&#8217;t just start over once you&#8217;ve exhausted it. If you want to loop through it again (say, in the upcoming <code>for</code> loop), you need to call <code>itertools.groupby()</code> again to create a new iterator.
-<li>In this example, given a list of names <em>already sorted by length</em>, <code>itertools.groupby(names, len)</code> will put all the 4-letter names in one iterator, all the 5-letter names in another iterator, and so on. The <code>groupby()</code> function is completely generic; it could group strings by first letter, numbers by their number of factors, or any other key function you can think of.
+<li>Az <code>itertools.groupby()</code> függvény egy sorozatot és egy kulcsfüggvényt vár, és visszaad egy iterátort, amely párokat generál. Minden pár a <code>kulcsfüggvény(<var>minden elem</var>)</code> eredményét, és egy másik iterátort tartalmaz, amely az összes azonos kulcsú elemet tartalmazza.
+<li>A <code>list()</code> függvény hívása &#8222;kimerítette&#8221; az iterátort, <i>azaz</i> előállítottad az iterátor minden elemét a lista létrehozásához. Nincs &#8222;újraindítás&#8221; gomb az iterátorokon, az egyszer már kimerített iterátoron nem kezdhetsz újra végigjárni. Ha újra végig szeretnél rajta járni (mondjuk a soron következő <code>for</code> ciklusban), akkor újra meg kell hívnod az <code>itertools.groupby()</code> metódust egy új iterátor létrehozásához.
+<li>Ebben a példában a <em>már hossz szerint rendezett</em> névlistát tekintve az <code>itertools.groupby(names, len)</code> az összes 4 betűs nevet egy iterátorba teszi, az összes 5 betűset egy másikba és így tovább. A <code>groupby()</code> függvény teljesen általános, csoportosíthatja a karakterláncokat az első betű szerint, a számokat a tényezőik száma szerint vagy tetszőleges kulcsfüggvény szerint, amit csak el tudsz képzelni.
 </ol>
 <!-- YO DAWG, WE HEARD YOU LIKE LOOPING, SO WE PUT AN ITERATOR IN YOUR ITERATOR SO YOU CAN LOOP WHILE YOU LOOP. -->
 
 <blockquote class=note>
-<p><span class=u>&#x261E;</span>The <code>itertools.groupby()</code> function only works if the input sequence is already sorted by the grouping function. In the example above, you grouped a list of names by the <code>len()</code> function. That only worked because the input list was already sorted by length.
-</blockquote>
+<p><span class=u>&#x261E;</span>Az <code>itertools.groupby()</code> függvény csak akkor működik, ha a bemeneti sorozat már rendezve van a csoportosító függvény által. A fenti példában a nevek listáját a <code>len()</code> függvénnyel csoportosítottad. Ez csak azért működött, mert a bemenet már rendezve volt hossz szerint. </blockquote>
 
-<p>Are you watching closely?
+<p>Nagyon figyelsz?
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>list(range(0, 3))</kbd>
 <samp class=pp>[0, 1, 2]</samp>
@@ -389,13 +383,13 @@ Wesley</samp></pre>
 <a><samp class=p>>>> </samp><kbd class=pp>list(itertools.zip_longest(range(0, 3), range(10, 14)))</kbd>  <span class=u>&#x2463;</span></a>
 <samp class=pp>[(0, 10), (1, 11), (2, 12), (None, 13)]</samp></pre>
 <ol>
-<li>The <code>itertools.chain()</code> function takes two iterators and returns an iterator that contains all the items from the first iterator, followed by all the items from the second iterator. (Actually, it can take any number of iterators, and it chains them all in the order they were passed to the function.)
-<li>The <code>zip()</code> function does something prosaic that turns out to be extremely useful: it takes any number of sequences and returns an iterator which returns tuples of the first items of each sequence, then the second items of each, then the third, and so on.
-<li>The <code>zip()</code> function stops at the end of the shortest sequence. <code>range(10, 14)</code> has 4 items (10, 11, 12, and 13), but <code>range(0, 3)</code> only has 3, so the <code>zip()</code> function returns an iterator of 3 items.
-<li>On the other hand, the <code>itertools.zip_longest()</code> function stops at the end of the <em>longest</em> sequence, inserting <code>None</code> values for items past the end of the shorter sequences.
+<li>Az <code>itertools.chain()</code> függvény két iterátort vár, és egy olyan iterátort ad vissza, amely az első elemeit, majd azok után a második elemeit tartalmazza. (Valójában tetszőleges számú iterátort át lehet neki adni, hogy aztán a függvénynek való átadásuk sorrendjében összefűzze azokat.)
+<li>A <code>zip()</code> függvény egy teljesen hétköznapi dolgot tesz, amely azonban különösen hasznosnak fog bizonyulni: tetszőleges számú sorozatot vár, és visszaad egy iterátort, amely az egyes sorozatokból az első, második, harmadik stb. elemeket tartalmazó tuple-kat ad vissza.
+<li>A <code>zip()</code> függvény a legrövidebb sorozat végén áll meg. A <code>range(10, 14)</code> 4 elemet (10, 11, 12 és 13) tartalmaz, de a <code>range(0, 3)</code> csak hármat, így a <code>zip()</code> függvény egy 3 elemű iterátort ad vissza.
+<li>Másrészről az <code>itertools.zip_longest()</code> függvény a <em>leghosszabb</em> sorozat végén áll meg, <code>None</code> értékeket szúrva be a rövidebb sorozatok vége utáni elemekhez.
 </ol>
 
-<p id=dict-zip>OK, that was all very interesting, but how does it relate to the alphametics solver? Here&#8217;s how:
+<p id=dict-zip>Oké, ez mind nagyon érdekes, de mi köze van az alfametikus megoldóhoz? A következő:
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>characters = ('S', 'M', 'E', 'D', 'O', 'N', 'R', 'Y')</kbd>
@@ -407,12 +401,11 @@ Wesley</samp></pre>
 <samp class=pp>{'E': '0', 'D': '3', 'M': '2', 'O': '4',
  'N': '5', 'S': '1', 'R': '6', 'Y': '7'}</samp></pre>
 <ol>
-<li>Given a list of letters and a list of digits (each represented here as 1-character strings), the <code>zip</code> function will create a pairing of letters and digits, in order.
-<li>Why is that cool? Because that data structure happens to be exactly the right structure to pass to the <code>dict()</code> function to create a dictionary that uses letters as keys and their associated digits as values. (This isn&#8217;t the only way to do it, of course. You could use a <a href=comprehensions.html#dictionarycomprehension>dictionary comprehension</a> to create the dictionary directly.) Although the printed representation of the dictionary lists the pairs in a different order (dictionaries have no &#8220;order&#8221; per se), you can see that each letter is associated with the digit, based on the ordering of the original <var>characters</var> and <var>guess</var> sequences.
+<li>Ha adva van egy betűkből és egy számokból álló lista (itt mindkettő 1 karakterből álló karakterláncként jelenik meg), akkor a <code>zip</code> függvény létrehozza a betűk és számjegyek sorba rendezett párjait.
+<li>Miért menő ez? Mert ez az adatszerkezet pontosan megfelel a <code>dict()</code> függvénynek való átadáshoz, hogy az létrehozzon egy szótárat, amelynek kulcsai betűk, értékei pedig számjegyek. (Ez természetesen nem az egyetlen megoldás. Használhatnál <a href=comprehensions.html#dictionarycomprehension>szótárfeldolgozót</a> is a szótár közvetlen létrehozásához.) Noha a szótár kiírt ábrázolása a párokat eltérő sorrendben sorolja fel (a szótárak maguk nem rendelkeznek &#8222;sorrenddel&#8221;), azért láthatod, hogy minden betű egy számjegyhez tartozik, az eredeti <var>characters</var> és <var>guess</var> sorozatok sorrendje alapján.
 </ol>
 
-<p id=guess>The alphametics solver uses this technique to create a dictionary that maps letters in the puzzle to digits in the solution, for each possible solution.
-
+<p id=guess>Az alfametikus megoldó ezt a módszert használja egy szótár létrehozásához, amely a feladvány betűit leképezi a megoldás számjegyeire, minden lehetséges megoldás esetén.
 <pre class='nd pp'><code>characters = tuple(ord(c) for c in sorted_characters)
 digits = tuple(ord(c) for c in '0123456789')
 ...
@@ -420,14 +413,13 @@ for guess in itertools.permutations(digits, len(characters)):
     ...
 <mark>    equation = puzzle.translate(dict(zip(characters, guess)))</mark></code></pre>
 
-<p>But what is this <code>translate()</code> method? Ah, now you&#8217;re getting to the <em>really</em> fun part.
+<p>De mi az a <code>translate()</code> metódus? Ó, most jutunk el az <em>igazán</em> vidám részhez.
 
 <p class=a>&#x2042;
 
-<h2 id=string-translate>A New Kind Of String Manipulation</h2>
+<h2 id=string-translate>Egy új karakterlánc-manipulálási módszer</h2>
 
-<p>Python strings have many methods. You learned about some of those methods in <a href=strings.html>the Strings chapter</a>: <code>lower()</code>, <code>count()</code>, and <code>format()</code>. Now I want to introduce you to a powerful but little-known string manipulation technique: the <code>translate()</code> method.
-
+<p>A Python karakterláncok sok metódussal rendelkeznek. Ezen metódusok némelyikével a <a href=strings.html>Karakterláncok fejezetben</a> már megismerkedtél: <code>lower()</code>, <code>count()</code> és <code>format()</code>. Most szeretnék megmutatni egy hatékony, de kevéssé ismert karakterlánc-manipulálási módszert: a <code>translate()</code> metódust.
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>translation_table = {ord('A'): ord('O')}</kbd>  <span class=u>&#x2460;</span></a>
 <a><samp class=p>>>> </samp><kbd class=pp>translation_table</kbd>                         <span class=u>&#x2461;</span></a>
@@ -435,14 +427,16 @@ for guess in itertools.permutations(digits, len(characters)):
 <a><samp class=p>>>> </samp><kbd class=pp>'MARK'.translate(translation_table)</kbd>       <span class=u>&#x2462;</span></a>
 <samp class=pp>'MORK'</samp></pre>
 <ol>
-<li>String translation starts with a translation table, which is just a dictionary that maps one character to another. Actually, &#8220;character&#8221; is incorrect&nbsp;&mdash;&nbsp;the translation table really maps one <em>byte</em> to another.
-<li>Remember, bytes in Python 3 are integers. The <code>ord()</code> function returns the <abbr>ASCII</abbr> value of a character, which, in the case of A&ndash;Z, is always a byte from 65 to 90.
-<li>The <code>translate()</code> method on a string takes a translation table and runs the string through it. That is, it replaces all occurrences of the keys of the translation table with the corresponding values. In this case, &#8220;translating&#8221; <code>MARK</code> to <code>MORK</code>.
+<li>A karakterláncok lefordítása egy fordítási táblával kezdődik, ez egy szótár, amely egy karaktert egy másikra képez le. Valójában a &#8222;karakter&#8221; kifejezés helytelen&nbsp;&mdash;&nbsp;a fordítási tábla egy <em>bájtot</em> képez le egy másikra.
+<li>Emlékezz, a bájtok a Python 3-ban egész számok. Az <code>ord()</code> függvény visszaadja egy karakter <abbr>ASCII</abbr> értékét, amely az A&ndash;Z esetén mindig egy 65 és 90 közti bájt.
+<li>Egy karakterlánc <code>translate()</code> metódusa egy fordítási táblát vár, és átfuttatja rajta a karakterláncot. Azaz a fordítási tábla kulcsainak minden előfordulását lecseréli a megfelelő értékre. Ebben az esetben &#8222;lefordítja&#8221; a <code>MARK</code> szót <code>MORK</code>-ra.
 </ol>
 
-<aside>Now you&#8217;re getting to the <em>really</em> fun part.</aside>
+<aside>Most jutunk el az <em>igazán</em> vidám részhez.
 
-<p>What does this have to do with solving alphametic puzzles? As it turns out, everything.
+</aside>
+
+<p>Mi köze van ennek az alfametikus feladványok megoldásához? Amint kiderül, rengeteg.
 
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>characters = tuple(ord(c) for c in 'SMEDONRY')</kbd>       <span class=u>&#x2460;</span></a>
@@ -457,19 +451,18 @@ for guess in itertools.permutations(digits, len(characters)):
 <a><samp class=p>>>> </samp><kbd class=pp>'SEND + MORE == MONEY'.translate(translation_table)</kbd>  <span class=u>&#x2463;</span></a>
 <samp class=pp>'9567 + 1085 == 10652'</samp></pre>
 <ol>
-<li>Using a <a href=#generator-expressions>generator expression</a>, we quickly compute the byte values for each character in a string. <var>characters</var> is an example of the value of <var>sorted_characters</var> in the <code>alphametics.solve()</code> function.
-<li>Using another generator expression, we quickly compute the byte values for each digit in this string. The result, <var>guess</var>, is of the form <a href=#guess>returned by the <code>itertools.permutations()</code> function</a> in the <code>alphametics.solve()</code> function.
-<li>This translation table is generated by <a href=#dict-zip>zipping <var>characters</var> and <var>guess</var> together</a> and building a dictionary from the resulting sequence of pairs. This is exactly what the <code>alphametics.solve()</code> function does inside the <code>for</code> loop.
-<li>Finally, we pass this translation table to the <code>translate()</code> method of the original puzzle string. This converts each letter in the string to the corresponding digit (based on the letters in <var>characters</var> and the digits in <var>guess</var>). The result is a valid Python expression, as a string.
+<li>Egy <a href=#generator-expressions>generátorkifejezés</a> használatával gyorsan kiszámítjuk a karakterlánc minden egyes karakterének bájtértékét. A <var>characters</var> tuple a <var>sorted_characters</var> értékét példázza az <code>alphametics.solve()</code> függvényben.
+<li>Egy másik generátorkifejezés használatával gyorsan kiszámítjuk a karakterlánc számjegyeinek bájtértékeit. Az eredményként kapott <var>guess</var> tuple az <code>alphametics.solve()</code> függvényben az <a href=#guess><code>itertools.permutations()</code> függvény</a> által visszaadott formátumú.
+<li>Ezt a fordítási táblát a <a href=#dict-zip><var>characters</var> és <var>guess</var> zip metódussal való egyesítése</a> és az eredményül kapott párok sorozatából egy szótár összeállításával kapjuk. Ez pontosan ugyanaz, mint amit az <code>alphametics.solve()</code> függvény csinál a <code>for</code> cikluson belül.
+<li>Végül átadjuk ezt a fordítási táblát az eredeti feladvány karakterlánc <code>translate()</code> metódusának. Ez a karakterlánc minden betűjét átalakítja a megfelelő számjeggyé (a <var>characters</var> betűi és a <var>guess</var> számjegyei alapján). Az eredmény egy érvényes Python kifejezés, karakterláncként.
 </ol>
 
-<p>That&#8217;s pretty impressive. But what can you do with a string that happens to be a valid Python expression?
-
+<p>Ez meglehetősen meggyőző. De mit lehet kezdeni egy karakterlánccal, amely egyúttal érvényes Python kifejezés is?
 <p class=a>&#x2042;
 
-<h2 id=eval>Evaluating Arbitrary Strings As Python Expressions</h2>
+<h2 id=eval>Tetszőleges karakterláncok kiértékelése Python kifejezésekként</h2>
 
-<p>This is the final piece of the puzzle (or rather, the final piece of the puzzle solver). After all that fancy string manipulation, we&#8217;re left with a string like <code>'9567 + 1085 == 10652'</code>. But that&#8217;s a string, and what good is a string? Enter <code>eval()</code>, the universal Python evaluation tool.
+<p>Ez a feladvány utolsó darabja (vagy inkább a feladványmegoldó utolsó darabja). A rengeteg karakterlánc-manipuláció után egy ilyen karakterláncot kapsz: <code>'9567 + 1085 == 10652'</code>. De ez egy karakterlánc, és mire jó egy karakterlánc? Most lép színre az <code>eval()</code>, az univerzális Python kiértékelési eszköz.
 
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>eval('1 + 1 == 2')</kbd>
@@ -479,7 +472,7 @@ for guess in itertools.permutations(digits, len(characters)):
 <samp class=p>>>> </samp><kbd class=pp>eval('9567 + 1085 == 10652')</kbd>
 <samp class=pp>True</samp></pre>
 
-<p>But wait, there&#8217;s more! The <code>eval()</code> function isn&#8217;t limited to boolean expressions. It can handle <em>any</em> Python expression and returns <em>any</em> datatype.
+<p>De várj, van még más is! Az <code>eval()</code> függvény nincs logikai kifejezésekre korlátozva. Képes kezelni <em>bármely</em> Python kifejezést és <em>tetszőleges</em> adattípust adhat vissza.
 
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>eval('"A" + "B"')</kbd>
@@ -491,7 +484,7 @@ for guess in itertools.permutations(digits, len(characters)):
 <samp class=p>>>> </samp><kbd class=pp>eval('["*"] * 5')</kbd>
 <samp class=pp>['*', '*', '*', '*', '*']</samp></pre>
 
-<p>But wait, that&#8217;s not all!
+<p>De várj, ez nem minden!
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>x = 5</kbd>
@@ -503,38 +496,37 @@ for guess in itertools.permutations(digits, len(characters)):
 <a><samp class=p>>>> </samp><kbd class=pp>eval("math.sqrt(x)")</kbd>  <span class=u>&#x2462;</span></a>
 <samp class=pp>2.2360679774997898</samp></pre>
 <ol>
-<li>The expression that <code>eval()</code> takes can reference global variables defined outside the <code>eval()</code>. If called within a function, it can reference local variables too.
-<li>And functions.
-<li>And modules.
+<li>Az <code>eval()</code> által kapott kifejezés az <code>eval()</code> híváson kívül definiált globális változókra is hivatkozhat. Ha függvényen belül hívod, akkor helyi változókra is hivatkozhat.
+<li>És függvényekre is.
+<li>És modulokra is.
 </ol>
 
-<p>Hey, wait a minute&hellip;
+<p>Hé, várj egy percet&hellip;
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>import subprocess</kbd>
 <a><samp class=p>>>> </samp><kbd class=pp>eval("subprocess.getoutput('ls ~')")</kbd>                  <span class=u>&#x2460;</span></a>
-<samp class=pp>'Desktop         Library         Pictures \
- Documents       Movies          Public   \
- Music           Sites'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>eval("subprocess.getoutput('rm /some/random/file')")</kbd>  <span class=u>&#x2461;</span></a></pre>
+<samp class=pp>'Asztal         Gyűjtemény         Képek \
+ Dokumentumok       Videók          Nyilvános   \
+ Zenék           Oldalak'</samp>
+<a><samp class=p>>>> </samp><kbd class=pp>eval("subprocess.getoutput('rm /valami/véletlen/fájl')")</kbd>  <span class=u>&#x2461;</span></a></pre>
 <ol>
-<li>The <code>subprocess</code> module allows you to run arbitrary shell commands and get the result as a Python string.
-<li>Arbitrary shell commands can have permanent consequences.
+<li>A <code>subprocess</code> modul lehetővé teszi a parancsértelmező tetszőleges parancsainak futtatását, és az eredmény lekérését Python karakterláncként.
+<li>A parancsértelmező bizonyos parancsainak futtatása végzetes következményekkel járhat.
 </ol>
 
-<p>It&#8217;s even worse than that, because there&#8217;s a global <code>__import__()</code> function that takes a module name as a string, imports the module, and returns a reference to it. Combined with the power of <code>eval()</code>, you can construct a single expression that will wipe out all your files:
-
+<p>Ennél is rosszabb a helyzet, mert van egy globális <code>__import__()</code> függvény, amely egy modulnevet vár karakterláncként, importálja a modult, és visszaad egy hivatkozást rá. Az <code>eval()</code> erejével egyesítve előállíthatsz egy olyan kifejezést, amely letörli az összes fájlod:
 <pre class=screen>
-<a><samp class=p>>>> </samp><kbd class=pp>eval("__import__('subprocess').getoutput('rm /some/random/file')")</kbd>  <span class=u>&#x2460;</span></a></pre>
+<a><samp class=p>>>> </samp><kbd class=pp>eval("__import__('subprocess').getoutput('rm /valami/véletlen/fájl')")</kbd>  <span class=u>&#x2460;</span></a></pre>
 <ol>
-<li>Now imagine the output of <code>'rm -rf ~'</code>. Actually there wouldn&#8217;t be any output, but you wouldn&#8217;t have any files left either.
+<li>Most képzeld el az <code>'rm -rf ~'</code> kimenetét. Valójában nem lenne kimenete, de fájljaid sem maradnának.
 </ol>
 
-<p class=xxxl>eval() is EVIL
+<p class=xxxl>Az eval() GONOSZ
 
-<p>Well, the evil part is evaluating arbitrary expressions from untrusted sources. You should only use <code>eval()</code> on trusted input. Of course, the trick is figuring out what&#8217;s &#8220;trusted.&#8221; But here&#8217;s something I know for certain: you should <b>NOT</b> take this alphametics solver and put it on the internet as a fun little web service. Don&#8217;t make the mistake of thinking, &#8220;Gosh, the function does a lot of string manipulation before getting a string to evaluate; <em>I can&#8217;t imagine</em> how someone could exploit that.&#8221; Someone <b>WILL</b> figure out how to sneak nasty executable code past all that string manipulation (<a href=http://www.securityfocus.com/blogs/746>stranger things have happened</a>), and then you can kiss your server goodbye.
+<p>A gonosz rész a megbízhatatlan forrásokból származó tetszőleges kifejezések kiértékelése. Az <code>eval()</code> függvényt csak megbízható bemeneten szabad használni. Természetesen a trükk a &#8222;megbízható&#8221; bemenet meghatározása. De van egy dolog, amiben biztos vagyok: ezt az alfametikus megoldót <b>NEM</b> szabad kitenni az internetre egy vicces kis webszolgáltatásként. Ne kövesd el azt a hibát, hogy úgy gondolod: &#8222;Ugyan már, a függvény rengeteg karakterlánc-manipulációt végez, mielőtt megkapja a kiértékelendő karakterláncot, <em>nem tudom elképzelni</em>, hogyan lehetne ezt kihasználni.&#8221; Valaki ki <b>FOGJA</b> találni, hogyan lehet megadni a karakterlánc-manipulációkat túlélő rosszindulatú végrehajtható kódot (<a href=http://www.securityfocus.com/blogs/746>furább dolgok is történtek már</a>), és akkor elköszönhetsz a kiszolgálódtól.
 
-<p>But surely there&#8217;s <em>some</em> way to evaluate expressions safely? To put <code>eval()</code> in a sandbox where it can&#8217;t access or harm the outside world? Well, yes and no.
+<p>De biztos van <em>valami</em> lehetőség a kifejezések biztonságos kiértékelésére, nem? Az <code>eval()</code> nem tehető be egy homokozóba, ahol nem tudja elérni vagy károsítani a külvilágot? Hát, igen is meg nem is.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>x = 5</kbd>
@@ -552,12 +544,12 @@ NameError: name 'x' is not defined</samp>
   File "&lt;string>", line 1, in &lt;module>
 NameError: name 'math' is not defined</samp></pre>
 <ol>
-<li>The second and third parameters passed to the <code>eval()</code> function act as the global and local namespaces for evaluating the expression. In this case, they are both empty, which means that when the string <code>"x * 5"</code> is evaluated, there is no reference to <var>x</var> in either the global or local namespace, so <code>eval()</code> throws an exception.
-<li>You can selectively include specific values in the global namespace by listing them individually. Then those&nbsp;&mdash;&nbsp;and only those&nbsp;&mdash;&nbsp;variables will be available during evaluation.
-<li>Even though you just imported the <code>math</code> module, you didn&#8217;t include it in the namespace passed to the <code>eval()</code> function, so the evaluation failed.
+<li>Az <code>eval()</code> függvénynek átadott második és harmadik paraméter a kifejezés kiértékeléséhez használandó globális és helyi névterekként működnek. Ebben az esetben mindkettő üres, ami azt jelenti, hogy az <code>"x * 5"</code> karakterlánc kiértékelésekor nincs hivatkozás az <var>x</var>-re a globális vagy helyi névtérben, így az <code>eval()</code> kivételt dob.
+<li>A globális névtérbe felvehetsz egyedi értékeket azok egyenkénti felsorolásával. Ezután azok&nbsp;&mdash;&nbsp;és csak azok&nbsp;&mdash;&nbsp;elérhetők lesznek a kiértékelés során.
+<li>Noha importáltad a <code>math</code> modult, nem vetted fel az <code>eval()</code> függvénynek átadott névtérbe, így a kiértékelés meghiúsult.
 </ol>
 
-<p>Gee, that was easy. Lemme make an alphametics web service now!
+<p>Hát, ez könnyű volt. Hadd csináljam meg most azt az alfametikus webszolgáltatást!
 
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>eval("pow(5, 2)", {}, {})</kbd>                   <span class=u>&#x2460;</span></a>
@@ -565,15 +557,14 @@ NameError: name 'math' is not defined</samp></pre>
 <a><samp class=p>>>> </samp><kbd class=pp>eval("__import__('math').sqrt(5)", {}, {})</kbd>  <span class=u>&#x2461;</span></a>
 <samp class=pp>2.2360679774997898</samp></pre>
 <ol>
-<li>Even though you&#8217;ve passed empty dictionaries for the global and local namespaces, all of Python&#8217;s built-in functions are still available during evaluation. So <code>pow(5, 2)</code> works, because <code>5</code> and <code>2</code> are literals, and <code>pow()</code> is a built-in function.
-<li>Unfortunately (and if you don&#8217;t see why it&#8217;s unfortunate, read on), the <code>__import__()</code> function is also a built-in function, so it works too.
+<li>Noha csak üres szótárakat adtál át a globális és helyi névtereknek, a Python összes beépített függvénye továbbra is elérhető a kiértékelés során. Így a <code>pow(5, 2)</code> működik, mert az <code>5</code> és a <code>2</code> literálok, a <code>pow()</code> pedig beépített függvény.
+<li>Sajnos (és ha nem látod miért sajnos, olvass tovább) az <code>__import__()</code> függvény szintén beépített, így ez is működik.
 </ol>
 
-<p>Yeah, that means you can still do nasty things, even if you explicitly set the global and local namespaces to empty dictionaries when calling <code>eval()</code>:
+<p>Igen, ez azt jelenti, hogy továbbra is lehet huncut dolgokat csinálni, még ha a globális és helyi névtereket kifejezetten üres szótárakra is állítottad az <code>eval()</code> hívásakor:
+<pre class='nd screen'><samp class=p>>>> </samp><kbd class=pp>eval("__import__('subprocess').getoutput('rm /valami/véletlen/fájl')", {}, {})</kbd></pre>
 
-<pre class='nd screen'><samp class=p>>>> </samp><kbd class=pp>eval("__import__('subprocess').getoutput('rm /some/random/file')", {}, {})</kbd></pre>
-
-<p>Oops. I&#8217;m glad I didn&#8217;t make that alphametics web service. Is there <em>any</em> way to use <code>eval()</code> safely? Well, yes and no.
+<p>Hoppá. Örülök, hogy nem csináltam meg azt az alfametikus webszolgáltatást. Létezik <em>valami</em> módszer az <code>eval()</code> biztonságos használatára? Hát, igen is meg nem is.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>eval("__import__('math').sqrt(5)",</kbd>
@@ -589,58 +580,57 @@ NameError: name '__import__' is not defined</samp>
   File "&lt;string>", line 1, in &lt;module>
 NameError: name '__import__' is not defined</samp></pre>
 <ol>
-<li>To evaluate untrusted expressions safely, you need to define a global namespace dictionary that maps <code>"__builtins__"</code> to <code>None</code>, the Python null value. Internally, the &#8220;built-in&#8221; functions are contained within a pseudo-module called <code>"__builtins__"</code>. This pseudo-module (<i>i.e.</i> the set of built-in functions) is made available to evaluated expressions unless you explicitly override it.
-<li>Be sure you&#8217;ve overridden <code>__builtins__</code>. Not <code>__builtin__</code>, <code>__built-ins__</code>, or some other variation that will work just fine but expose you to catastrophic risks.
+<li>Megbízhatatlan kifejezések biztonságos kiértékeléséhez definiálnod kell egy globális névtérszótárat, amely leképezi a <code>"__builtins__"</code> modulnevet a Python null értékére, a <code>None</code>-ra. A felszín alatt a &#8222;beépített&#8221; függvényeket egy <code>"__builtins__"</code> nevű álmodul tartalmazza. Ez az álmodul (<i>azaz</i> a beépített függvények halmaza) elérhető a kiértékelt kifejezések számára, hacsak nem bírálod felül kifejezetten.
+<li>Győződj meg róla, hogy a <code>__builtins__</code> modult bírálod felül. Nem a <code>__builtin__</code>, <code>__built-ins__</code> vagy valami más változatot, amely működni épp működik, de katasztrofális kockázatoknak tesz ki.
 </ol>
 
-<p>So <code>eval()</code> is safe now? Well, yes and no.
+<p>Akkor az <code>eval()</code> végre már biztonságos? Hát, igen is meg nem is.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>eval("2 ** 2147483647",</kbd>
 <a><samp class=p>... </samp><kbd class=pp>    {"__builtins__":None}, {})</kbd>          <span class=u>&#x2460;</span></a>
 </pre>
 <ol>
-<li>Even without access to <code>__builtins__</code>, you can still launch a denial-of-service attack. For example, trying to raise <code>2</code> to the <code>2147483647</code><sup>th</sup> power will spike your server&#8217;s <abbr>CPU</abbr> utilization to 100% for quite some time. (If you&#8217;re trying this in the interactive shell, press <kbd>Ctrl-C</kbd> a few times to break out of it.) Technically this expression <em>will</em> return a value eventually, but in the meantime your server will be doing a whole lot of nothing.
+<li>Még a <code>__builtins__</code> elérése nélkül is indíthatsz egy szolgáltatás megbénításával járó támadást. Például a <code>2</code> <code>2147483647</code>. hatványra emelése a kiszolgálód <abbr>CPU</abbr>-kihasználtságát meglehetősen hosszú időre 100%-ra tornázza fel. (Ha ezt az interaktív parancsértelmezőben próbáltad ki, akkor nyomd meg párszor a <kbd>Ctrl-C</kbd> kombinációt a megszakításához.) Technikailag ez a kifejezés idővel vissza <em>fog</em> adni egy értéket, de addig a kiszolgálód rengeteg értelmetlen számolást fog végezni.
 </ol>
 
-<p>In the end, it <em>is</em> possible to safely evaluate untrusted Python expressions, for some definition of &#8220;safe&#8221; that turns out not to be terribly useful in real life. It&#8217;s fine if you&#8217;re just playing around, and it&#8217;s fine if you only ever pass it trusted input. But anything else is just asking for trouble.
+<p>Végső soron <em>lehetséges</em> biztonságosan kiértékelni megbízhatatlan Python kifejezéseket, a &#8222;biztonságos&#8221; bizonyos definíciója mellett, amely a való életben nem bizonyul annyira hasznosnak. Ez rendben van, ha csak játszol, és rendben van, ha mindig csak megbízható bemenetet adsz át. De minden más csak felhívás keringőre.
 
 <p class=a>&#x2042;
 
-<h2 id=alphametics-finale>Putting It All Together</h2>
+<h2 id=alphametics-finale>Mindent összerakva</h2>
 
-<p>To recap: this program solves alphametic puzzles by brute force, <i>i.e.</i> through an exhaustive search of all possible solutions. To do this, it&hellip;
-
+<p>Ismételjünk: ez a program alfametikus feladványokat old meg nyers erő használatával, <i>azaz</i> az összes lehetséges megoldás kimerítő keresése útján. Ehhez&hellip;
 <ol>
-<li><a href=#re-findall>Finds all the letters in the puzzle</a> with the <code>re.findall()</code> function
-<li><a href=#unique-items>Find all the <em>unique</em> letters in the puzzle</a> with sets and the <code>set()</code> function
-<li><a href=#assert>Checks if there are more than 10 unique letters</a> (meaning the puzzle is definitely unsolvable) with an <code>assert</code> statement
-<li><a href=#generator-objects>Converts the letters to their ASCII equivalents</a> with a generator object
-<li><a href=#permutations>Calculates all the possible solutions</a> with the <code>itertools.permutations()</code> function
-<li><a href=#string-translate>Converts each possible solution to a Python expression</a> with the <code>translate()</code> string method
-<li><a href=#eval>Tests each possible solution by evaluating the Python expression</a> with the <code>eval()</code> function
-<li>Returns the first solution that evaluates to <code>True</code>
+<li><a href=#re-findall>Megkeresi a feladvány összes betűjét</a> a <code>re.findall()</code> függvénnyel
+<li><a href=#unique-items>Megkeresi a feladvány összes <em>egyedi</em> betűjét</a> halmazokkal és <code>set()</code> függvénnyel
+<li><a href=#assert>Ellenőrzi, hogy 10 egyedi betűnél több van-e</a> (ez azt jelentené, hogy a feladvány biztosan megoldhatatlan) egy <code>assert</code> utasítással
+<li><a href=#generator-objects>A betűket átalakítja az ASCII megfelelőikre</a> egy generátorobjektummal
+<li><a href=#permutations>Kiszámítja az összes lehetséges megoldást</a> az <code>itertools.permutations()</code> függvénnyel
+<li><a href=#string-translate>Minden lehetséges megoldást átalakít Python kifejezéssé</a> a <code>translate()</code> karakterlánc-metódussal
+<li><a href=#eval>Teszteli az összes lehetséges megoldást a Python kifejezést kiértékelve</a> az <code>eval()</code> függvénnyel
+<li>Visszaadja az első megoldást, amely <code>True</code>-ra értékelődött ki
 </ol>
 
-<p>&hellip;in just 14 lines of code.
+<p>&hellip;mindössze 14 sor kódban.
 
 <p class=a>&#x2042;
 
-<h2 id=furtherreading>Further Reading</h2>
+<h2 id=furtherreading>További olvasnivaló</h2>
 
 <ul>
-<li><a href=http://docs.python.org/3.1/library/itertools.html><code>itertools</code> module</a>
+<li><a href=http://docs.python.org/3.1/library/itertools.html>Az <code>itertools</code> modul</a>
 <li><a href=http://www.doughellmann.com/PyMOTW/itertools/><code>itertools</code>&nbsp;&mdash;&nbsp;Iterator functions for efficient looping</a>
-<li><a href=http://blip.tv/file/1947373/>Watch Raymond Hettinger&#8217;s &#8220;Easy AI with Python&#8221; talk</a> at PyCon 2009
-<li><a href=http://code.activestate.com/recipes/576615/>Recipe 576615: Alphametics solver</a>, Raymond Hettinger&#8217;s original alphametics solver for Python 2
-<li><a href=http://code.activestate.com/recipes/users/178123/>More of Raymond Hettinger&#8217;s recipes</a> in the ActiveState Code repository
-<li><a href=http://en.wikipedia.org/wiki/Verbal_arithmetic>Alphametics on Wikipedia</a>
-<li><a href=http://www.tkcs-collins.com/truman/alphamet/index.shtml>Alphametics Index</a>, including <a href=http://www.tkcs-collins.com/truman/alphamet/alphamet.shtml>lots of puzzles</a> and <a href=http://www.tkcs-collins.com/truman/alphamet/alpha_gen.shtml>a generator to make your own</a>
+<li><a href=http://blip.tv/file/1947373/>Nézd meg Raymond Hettinger &#8222;Easy AI with Python&#8221; előadását</a> a PyCon 2009-en
+<li><a href=http://code.activestate.com/recipes/576615/>Recipe 576615: Alphametics solver</a>, Raymond Hettinger eredeti alfametikus megoldója a Python 2-höz
+<li><a href=http://code.activestate.com/recipes/users/178123/>Több recept Raymond Hettingertől</a> az ActiveState kódtárolóban
+<li><a href=http://en.wikipedia.org/wiki/Verbal_arithmetic>Alfametika a Wikipédián</a>
+<li><a href=http://www.tkcs-collins.com/truman/alphamet/index.shtml>Alfametikus index</a>, amely <a href=http://www.tkcs-collins.com/truman/alphamet/alphamet.shtml>rengeteg feladványt</a> és <a href=http://www.tkcs-collins.com/truman/alphamet/alpha_gen.shtml>egy saját feladványok készítéséhez használható generátort</a> tartalmaz
 </ul>
 
-<p>Many thanks to Raymond Hettinger for agreeing to relicense his code so I could port it to Python 3 and use it as the basis for this chapter.
+<p>Hatalmas köszönet Raymond Hettingernek, amiért beleegyezett kódja újralicencelésébe, így át tudtam portolni Python 3-ra, és felhasználhattam ezen fejezet alapjául.
 
-<p class=v><a href=iterators.html rel=prev title='back to &#8220;Classes &amp; Iterators&#8221;'><span class=u>&#x261C;</span></a> <a href=unit-testing.html rel=next title='onward to &#8220;Unit Testing&#8221;'><span class=u>&#x261E;</span></a>
+<p class=v><a href=iterators.html rel=prev title='vissza az &#8222;Osztályok és iterátorokra&#8221;'><span class=u>&#x261C;</span></a> <a href=unit-testing.html rel=next title='tovább az &#8222;Egységtesztelésre&#8221;'><span class=u>&#x261E;</span></a>
 
 <p class=c>&copy; 2001&ndash;11 <a href=about.html>Mark Pilgrim</a>
 <script src=j/jquery.js></script>
