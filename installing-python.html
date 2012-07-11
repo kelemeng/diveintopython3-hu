@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset=utf-8>
-<title>Installing Python - Dive Into Python 3</title>
+<title>A Python telepítése - Ugorj fejest a Python 3-ba</title>
 <!--[if IE]><script src=j/html5.js></script><![endif]-->
 <link rel=stylesheet href=dip3.css>
 <style>
@@ -13,23 +13,36 @@ h2,.i>li{clear:both}
 <link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
 <link rel=stylesheet media=print href=print.css>
 <meta name=viewport content='initial-scale=1.0'>
-<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:l5eihuescdw><input type=hidden name=ie value=UTF-8>&nbsp;<input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#installing-python>Dive Into Python 3</a> <span class=u>&#8227;</span>
-<p id=level>Difficulty level: <span class=u title=novice>&#x2666;&#x2662;&#x2662;&#x2662;&#x2662;</span>
-<h1>Installing Python</h1>
+<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:l5eihuescdw><input type=hidden name=ie value=UTF-8>&nbsp;<input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Keresés></div></form>
+<p>Itt vagy: <a href=index.html>Kezdőlap</a> <span class=u>&#8227;</span>
+<a href=table-of-contents.html#installing-python>Ugorj fejest a Python
+3-ba</a> <span class=u>&#8227;</span>
+<p id=level>Nehézségi szint: <span class=u title=újonc>&#x2666;&#x2662;&#x2662;&#x2662;&#x2662;</span>
+<h1>A Python telepítése</h1>
 <blockquote class=q>
-<p><span class=u>&#x275D;</span> <i lang=la>Tempora mutantur nos et mutamur in illis.</i> (Times change, and we change with them.) <span class=u>&#x275E;</span><br>&mdash; ancient Roman proverb
+<p><span class=u>&#x275D;</span> <i lang=la>Tempora mutantur nos et mutamur in illis.</i> (Az idők változnak, és mi változunk velük.) <span class=u>&#x275E;</span><br>&mdash; régi római közmondás
 </blockquote>
 <p id=toc>&nbsp;
-<h2 id=divingin>Diving In</h2>
-<p class=f>Before you can start programming in Python 3, you need to install it. Or do you?
+<h2 id=divingin>Ugorj fejest</h2>
+<p class=f>Mielőtt elkezdenél a Python 3-ban programozni, telepítened kell azt. De valóban kell? <h2 id=which>Melyik Python illik hozzád?</h2>
 
-<h2 id=which>Which Python Is Right For You?</h2>
+<p>Ha egy <abbr>ISP</abbr> által működtetett fiókot használsz, akkor lehet hogy a
+szolgáltató már telepítette a Python 3-at. A legtöbb népszerű GNU/Linux
+disztribúció az alaptelepítésben a Python 2-t tartalmazza, de egyre több a
+Python 3-at is elérhetővé teszi. A Mac OS X tartalmazza a Python 2
+parancssori változatát, de ezen írás készítésekor nem tartalmazza a Python
+3-at. A Microsoft Windows nem tartalmazza a Python egyik verzióját sem. De
+ne ess kétségbe! Függetlenül az operációs rendszertől, kattintgatva
+felteheted a Pythont.
 
-<p>If you're using an account on a hosted server, your <abbr>ISP</abbr> may have already installed Python 3. If you&#8217;re running Linux at home, you may already have Python 3, too. Most popular GNU/Linux distributions come with Python 2 in the default installation; a small but growing number of distributions also include Python 3. Mac OS X includes a command-line version of Python 2, but as of this writing it does not include Python 3. Microsoft Windows does not come with any version of Python. But don&#8217;t despair! You can point-and-click your way through installing Python, regardless of what operating system you have.
-
-<p>The easiest way to check for Python 3 on your Linux or Mac OS X system is <a href=troubleshooting.html#getting-to-the-command-line>from the command line</a>. Once you&#8217;re at a command line prompt, just type <kbd>python3</kbd> (all lowercase, no spaces), press <kbd>ENTER</kbd>, and see what happens. On my home Linux system, Python 3.1 is already installed, and this command gets me into the <i>Python <dfn>interactive shell</dfn></i>.
-
+<p>A Python 3 megléte a legegyszerűbb módon Linux vagy Mac OS X rendszeren
+a <a
+href=troubleshooting.html#getting-to-the-command-line>parancssorból</a>
+ellenőrizhető. A parancssor megnyitása után add ki a
+<kbd>python3</kbd> (kisbetűkkel, szóköz nélkül) parancsot, nyomd meg az
+<kbd>ENTER</kbd>-t, és figyeld az eredményt. Az otthoni Linux rendszeremen
+a Python 3.1 már telepítve van, és ez a parancs a <i>Python
+<dfn>interaktív parancsértelmezőjébe</dfn></i> juttat.
 <pre class='nd screen cmdline'>
 <samp class=p>mark@atlantis:~$ </samp><kbd>python3</kbd>
 <samp>Python 3.1 (r31:73572, Jul 28 2009, 06:52:23) 
@@ -37,263 +50,417 @@ h2,.i>li{clear:both}
 Type "help", "copyright", "credits" or "license" for more information.
 >>></samp></pre>
 
-<p>(Type <kbd>exit()</kbd> and press <kbd>ENTER</kbd> to exit the Python interactive shell.)
+<p>(A Python interaktív parancsértelmezőből való kilépéshez írd be az
+<kbd>exit()</kbd> parancsot, és nyomd meg az <kbd>ENTER</kbd>-t.)
 
-<p>My <a href=http://cornerhost.com/>web hosting provider</a> also runs Linux and provides command-line access, but my server does not have Python 3 installed. (Boo!)
+<p>A <a href=http://cornerhost.com/>webszolgáltatóm</a> Linuxot futtat, és
+parancssori hozzáférést is biztosít, de a kiszolgálóra a Python 3 nincs
+telepítve. (Fúj!)
 
 <pre class='nd screen cmdline'>
 <samp class=p>mark@manganese:~$ </samp><kbd>python3</kbd>
 <samp>bash: python3: command not found</samp></pre>
 
-<p>So back to the question that started this section, &#8220;Which Python is right for you?&#8221;  Whichever one runs on the computer you already have.
-
-<p>[Read on for Windows instructions, or skip to <a href=#macosx>Installing on Mac OS X</a>, <a href=#ubuntu>Installing on Ubuntu Linux</a>, or <a href=#other>Installing on Other Platforms</a>.]
-
+<p>Vissza a részt indító kérdésre:  &#8222;Melyik Python illik
+hozzád?&#8221; Az, amelyik a meglévő számítógépeden fut. <p>[Olvasd tovább
+a Windows utasításokért, vagy ugorj a <a href=#macosx>Telepítés Mac OS
+X-en</a>, <a href=#ubuntu>Telepítés Ubuntu Linuxon</a> vagy a <a
+href=#other>Telepítés más rendszerekre</a> részre.]
 <p class=a>&#x2042;
 
-<h2 id=windows>Installing on Microsoft Windows</h2>
+<h2 id=windows>Telepítés Microsoft Windowson</h2>
 
-<p>Windows comes in two architectures these days: 32-bit and 64-bit. Of course, there are lots of different <i>versions</i> of Windows&nbsp;&mdash;&nbsp;XP, Vista, Windows 7&nbsp;&mdash;&nbsp;but Python runs on all of them. The more important distinction is 32-bit v. 64-bit. If you have no idea what architecture you&#8217;re running, it&#8217;s probably 32-bit.
+<p>A Windows manapság két architektúrát támogat: ezek a 32 bites és 64
+bites. Természetesen számos különböző <i>verzió</i> létezik a
+Windowsból&nbsp;&mdash;&nbsp;XP, Vista, Windows 7&nbsp;&mdash;&nbsp;de a
+Python mindegyiken fut. A fontosabb megkülönböztetés a 32 bit és 64 bit
+közt van. Ha nem tudod, milyen architektúrád van, akkor az valószínűleg 32
+bites.
 
-<p>Visit <a href=http://python.org/download/><code>python.org/download/</code></a> and download the appropriate Python 3 Windows installer for your architecture. Your choices will look something like this:
+<p>Nyisd meg a <a
+href=http://python.org/download/><code>python.org/download/</code></a>
+oldalt, és töltsd le az architektúrának megfelelő Python 3 Windows
+telepítőt. A lehetőségek valahogy így néznek ki:
 
 <ul>
-<li><b>Python 3.1 Windows installer</b> (Windows binary&nbsp;&mdash;&nbsp;does not include source)
-<li><b>Python 3.1 Windows AMD64 installer</b> (Windows AMD64 binary&nbsp;&mdash;&nbsp;does not include source)
+<li><b>Python 3.2.2 Windows x86 MSI Installer</b> (Windows binary&nbsp;&mdash;&nbsp;does not include source)
+<li><b>Python 3.2.2 Windows X86-64 MSI Installer</b> (Windows AMD64 / Intel 64 / X86-64 binary [1] -- does not include source)
 </ul>
 
-<p>I don&#8217;t want to include direct download links here, because minor updates of Python happen all the time and I don&#8217;t want to be responsible for you missing important updates. You should always install the most recent version of Python 3.x unless you have some esoteric reason not to.
+<p>Ide nem akarok közvetlen letöltési linkeket bemásolni, mert a Python
+folyamatosan kap kisebb frissítéseket, és nem akarom, hogy miattam maradj
+le fontos frissítésekről. Mindig a legújabb Python 3.x verziót
+töltsd le, hacsak nincs valami ezoterikus indokod.
 
 <ol class=i>
 <li>
-<p class='ss nm'><img src=i/win-install-0-security-warning.png width=409 height=309 alt='[Windows dialog: open file security warning]'>
-<p>Once your download is complete, double-click the <code>.msi</code> file. Windows will pop up a security alert, since you&#8217;re about to be running executable code. The official Python installer is digitally signed by the <a href=http://www.python.org/psf/>Python Software Foundation</a>, the non-profit corporation that oversees Python development. Don&#8217;t accept imitations!
-<p>Click the <code>Run</code> button to launch the Python 3 installer.
+<p class='ss nm'><img src=i/win-install-0-security-warning.png width=409 height=309 alt='[Windows ablak: fájl megnyitása biztonsági figyelmeztetés]'>
+<p>Miután a letöltés befejeződött, kattintson duplán az <code>.msi</code>
+fájlra. A Windows megjelenít egy biztonsági figyelmeztetést, mivel
+végrehajtható kód futtatására készülsz. A hivatalos Python telepítőt a <a
+href=http://www.python.org/psf/>Python Software Foundation</a> írja alá, a
+Python fejlesztését felügyelő non-profit szervezet. Ne fogadj el
+utánzatokat!
+<p>A Python 3 telepítő futtatásához kattints a <code>Futtatás</code> gombra.
 
 <li>
-<p class='ss nm'><img src=i/win-install-1-all-users-or-just-me.png width=499 height=432 alt='[Python installer: select whether to install Python 3.1 for all users of this computer]'>
-<p>The first question the installer will ask you is whether you want to install Python 3 for all users or just for you. The default choice is &#8220;install for all users,&#8221; which is the best choice unless you have a good reason to choose otherwise. (One possible reason why you would want to &#8220;install just for me&#8221; is that you are installing Python on your company&#8217;s computer and you don&#8217;t have administrative rights on your Windows account. But then, why are you installing Python without permission from your company&#8217;s Windows administrator? Don&#8217;t get me in trouble here!)
-<p>Click the <code>Next</code> button to accept your choice of installation type.
+<p class='ss nm'><img src=i/win-install-1-all-users-or-just-me.png width=499 height=432 alt='[Python telepítő: válaszd ki, hogy a Python 3.2-t a számítógép minden felhasználója számára telepíted-e]'>
+<p>A telepítő első kérdése arra vonatkozik, hogy a Python 3-at minden
+felhasználó számára, vagy csak magadnak szeretnéd telepíteni. Az
+alapértelmezett beállítás az &#8222;install for all users,&#8221; amely a
+lehető legjobb választás, hacsak nincs nyomós okod másként dönteni. (Az
+egyik lehetséges ok, ami miatt az &#8222;install just for me&#8221; lehet
+szükséges, hogy a Pythont a céges gépedre telepíted, és nincs
+rendszergazdai jogosultságod a Windowshoz. De akkor miért telepítesz
+Pythont a cég windowsos rendszergazdájának engedélye nélkül? Ne keverj
+bajba!)
+<p>Kattints a <code>Next</code> gombra a telepítési típus elfogadásához.
 
 <li>
-<p class='ss nm'><img src=i/win-install-2-destination-directory.png width=499 height=432 alt='[Python installer: select destination directory]'>
-<p>Next, the installer will prompt you to choose a destination directory. The default for all versions of Python 3.1.x is <code>C:\Python31\</code>, which should work well for most users unless you have a specific reason to change it. If you maintain a separate drive letter for installing applications, you can browse to it using the embedded controls, or simply type the pathname in the box below. You are not limited to installing Python on the <code>C:</code> drive; you can install it on any drive, in any folder.
-<p>Click the <code>Next</code> button to accept your choice of destination directory.
+<p class='ss nm'><img src=i/win-install-2-destination-directory.png width=499 height=432 alt='[Python telepítő: cél könyvtár kiválasztása]'>
+<p>A telepítő ezután megkér egy cél könyvtár kiválasztására. A Python
+3.2.x minden verziójának alapértelmezése a <code>C:\Python32\</code>,
+amely a legtöbb felhasználónak megfelelően fog működni, hacsak nincs
+egyedi okod megváltoztatni. Ha külön meghajtó betűjelet tartasz fent
+alkalmazások telepítéséhez, akkor a beépített verzérlőelemek használatával
+kitallózhatod, vagy beírhatod az elérési út nevét a megfelelő mezőbe. A
+Python nem csak a <code>C:</code> meghajtóra telepíthető, bármely
+meghajtó bármely mappája megfelel.
+<p>Kattints a <code>Next</code> gombra a cél könyvtár elfogadásához.
 
 <li>
-<p class='ss nm'><img src=i/win-install-3-customize.png width=499 height=432 alt='[Python installer: customize Python 3.1]'>
-<p>The next page looks complicated, but it&#8217;s not really. Like many installers, you have the option not to install every single component of Python 3. If disk space is especially tight, you can exclude certain components.
+<p class='ss nm'><img src=i/win-install-3-customize.png width=499 height=432 alt='[Python telepítő: a Python 3.2 személyre szabása]'>
+<p>A következő oldal bonyolultnak tűnik, de igazából nem az. Sok más
+telepítőhöz hasonlóan lehetőséged van a Python 3 néhány összetevőjének
+kihagyására. Ha a lemezterület különösen szűkös, akkor bizonyos összetevők
+elhagyhatók.
 <ul>
-<li><b>Register Extensions</b> allows you to double-click Python scripts (<code>.py</code> files) and run them. Recommended but not required. (This option doesn&#8217;t require any disk space, so there is little point in excluding it.)
-<li><b>Tcl/Tk</b> is the graphics library used by the Python Shell, which you will use throughout this book. I strongly recommend keeping this option.
-<li><b>Documentation</b> installs a help file that contains much of the information on <a href=http://docs.python.org/><code>docs.python.org</code></a>. Recommended if you are on dialup or have limited Internet access.
-<li><b>Utility Scripts</b> includes the <code>2to3.py</code> script which you&#8217;ll learn about <a href=case-study-porting-chardet-to-python-3.html>later in this book</a>. Required if you want to learn about migrating existing Python 2 code to Python 3. If you have no existing Python 2 code, you can skip this option.
-<li><b>Test Suite</b> is a collection of scripts used to test the Python interpreter itself. We will not use it in this book, nor have I ever used it in the course of programming in Python. Completely optional.
+<li>A <b>Register Extensions</b> lehetővé teszi a Python parancsfájlokra
+(<code>.py</code> fájlok) való dupla kattintást és a futtatásukat. 
+Ajánlott, de nem kötelező. (Ez a lehetőség nem igényel lemezterületet, így
+nincs sok értelme kihagyni.)
+<li>A <b>Tcl/Tk</b> a Python Shell által használt grafikus függvénytár,
+amelyet ebben a könyvben használni fogunk. Kifejezetten javaslom ezen
+beállítás megtartását.
+<li>A <b>Documentation</b> egy olyan súgófájlt telepít, amely a <a
+href=http://docs.python.org/><code>docs.python.org</code></a> oldalon
+található információk jó részét tartalmazza. Javasolt, ha
+betárcsázós, mobilnetes vagy korlátozott internet-hozzáférést használsz.
+<li>A <b>Utility Scripts</b> tartalmazza a <code>2to3.py</code>
+parancsfájlt, amelyről <a
+href=case-study-porting-chardet-to-python-3.html>a könyv későbbi
+részében</a> lesz szó. Akkor kell, ha meglévő Python 2 kód Python 3-ra
+migrálásáról szeretnél olvasni. Ha nincs meglévő Python 2 kódod, akkor ezt
+kihagyhatod.
+<li>A <b>Test Suite</b> magának a Python értelmezőnek a teszeléséhez
+használt parancsfájlok gyűjteménye. A könyvben nem használjuk, és a Python
+programozás során én sem használtam. Teljesen elhagyható.
 </ul>
 
 <li>
-<p class='ss nm'><img src=i/win-install-3a-disk-usage.png width=499 height=432 alt='[Python installer: disk space requirements]'>
-<p>If you&#8217;re unsure how much disk space you have, click the <code>Disk Usage</code> button. The installer will list your drive letters, compute how much space is available on each drive, and calculate how much would be left after installation.
-<p>Click the <code>OK</code> button to return to the &#8220;Customizing Python&#8221; page.
+<p class='ss nm'><img src=i/win-install-3a-disk-usage.png width=499 height=432 alt='[Python telepítő: lemezhely-igények]'>
+<p>Ha nem tudod, mennyi lemezterületed van, nyomd meg a <code>Disk
+Usage</code> gombot. A telepítő felsorolja a meghajtó betűjeleket,
+kiszámolja mennyi terület érhető el az egyes meghajtókon, és kiszámítja
+mennyi marad a telepítés után.
+<p>Nyomd meg az <code>OK</code> gombot a &#8222;Customizing Python&#8221; oldalra való visszatéréshez.
 
 <li>
-<p class='ss nm'><img src=i/win-install-3b-test-suite.png width=499 height=432 alt='[Python installer: removing Test Suite option will save 7908KB on your hard drive]'>
-<p>If you decide to exclude an option, select the drop-down button before the option and select &#8220;Entire feature will be unavailable.&#8221; For example, excluding the test suite will save you a whopping 7908<abbr>KB</abbr> of disk space.
-<p>Click the <code>Next</code> button to accept your choice of options.
+<p class='ss nm'><img src=i/win-install-3b-test-suite.png width=499 height=432 alt='[Python telepítő: a Test Suite lehetőség eltávolítása 9812 KB lemezterületet spórol meg]'>
+<p>Ha egy lehetőséget ki akarsz hagyni, akkor kattints az előtte lévő
+legördülő gombra, és válaszd az &#8222;Entire feature will be
+unavailable&#8221; lehetőséget. A Test Suite kihagyásával például komoly
+9812<abbr>KB</abbr> lemezterületet spórolhatsz.
+<p>Kattints a <code>Next</code> gombra a telepítési beállítások elfogadásához.
 
 <li>
-<p class='ss nm'><img src=i/win-install-4-copying.png width=499 height=432 alt='[Python installer: progress meter]'>
-<p>The installer will copy all the necessary files to your chosen destination directory. (This happens so quickly, I had to try it three times to even get a screenshot of it!)
+<p class='ss nm'><img src=i/win-install-4-copying.png width=499 height=432 alt='[Python telepítő: folyamatjelző]'>
+<p>A telepítő átmásolja az összes szükséges fájlt a kiválasztott cél
+könyvtárba. (Ez olyan gyorsan történik, hogy háromszor kellett próbálkoznom, hogy képernyőképet készíthessek róla!) 
 
 <li>
-<p class='ss nm'><img src=i/win-install-5-finish.png width=499 height=432 alt='[Python installer: installation completed. Special Windows thanks to Mark Hammond, without whose years of freely shared Windows expertise, Python for Windows would still be Python for DOS.]'>
-<p>Click the <code>Finish</code> button to exit the installer.
+<p class='ss nm'><img src=i/win-install-5-finish.png width=499 height=432 alt='[Python telepítő: a telepítés kész. Special Windows thanks to Mark Hammond, without whose years of freely shared Windows expertise, Python for Windows would still be Python for DOS.]'>
+<p>Nyomd meg a <code>Finish</code> gombot a telepítőből való kilépéshez.
 
 <li>
-<p class='ss nm'><img src=i/win-interactive-shell.png width=677 height=715 alt='[Windows Python Shell, a graphical interactive shell for Python]'>
-<p>In your <code>Start</code> menu, there should be a new item called <code>Python 3.1</code>. Within that, there is a program called <abbr>IDLE</abbr>. Select this item to run the interactive Python Shell.
+<p class='ss nm'><img src=i/win-interactive-shell.png width=677 height=715 alt='[Windows Python Shell, grafikus interaktív parancsértelmező Pythonhoz]'>
+<p>A <code>Start</code> menüben lennie kell egy új, <code>Python
+3.2</code> nevű elemnek. Ezen belül van egy <abbr>IDLE</abbr> nevű
+program. Válaszd ki ezt az elemet az interaktív Python parancsértelmező futtatásához.
 
 </ol>
 
-<p>[Skip to <a href=#idle>using the Python Shell</a>]
+<p>[Ugrás a <a href=#idle>Python Shell használatára</a>]
 
 <p class=a>&#x2042;
 
-<h2 id=macosx>Installing on Mac OS X</h2>
+<h2 id=macosx>Telepítés Mac OS X-en</h2>
 
-<p>All modern Macintosh computers use the Intel chip (like most Windows PCs). Older Macs used PowerPC chips. You don&#8217;t need to understand the difference, because there&#8217;s just one Mac Python installer for all Macs.
+<p>Minden modern Macintosh számítógép az Intel processzort használja (a
+legtöbb windowsos PC-hez hasonlóan). A régebbi Macek a PowerPC
+processzorokat használták. Nem kell értened a különbséget, mert csak egy
+Mac Python telepítő van minden Machez.
 
-<p>Visit <a href=http://python.org/download/><code>python.org/download/</code></a> and download the Mac installer. It will be called something like <b>Python 3.1 Mac Installer Disk Image</b>, although the version number may vary. Be sure to download version 3.x, not 2.x.
+<p>Keresd fel a <a
+href=http://python.org/download/><code>python.org/download/</code></a>
+oldalt, és töltsd le a Mac telepítőt. A neve nagyjából ez:
+<b>Python 3.2.2 Mac OS X 64-bit/32-bit x86-64/i386 Installer (for Mac OS X
+10.6 and 10.7 [2])</b>, bár a verziószám változhat. Mindenképp a
+3.x, és ne a 2.x verziót töltsd le.
 
 <ol class=i>
 
 <li>
-<p class='ss nm'><img src=i/mac-install-0-dmg-contents.png width=752 height=438 alt='[contents of Python installer disk image]'>
-<p>Your browser should automatically mount the disk image and open a Finder window to show you the contents. (If this doesn&#8217;t happen, you&#8217;ll need to find the disk image in your downloads folder and double-click to mount it. It will be named something like <code>python-3.1.dmg</code>.) The disk image contains a number of text files (<code>Build.txt</code>, <code>License.txt</code>, <code>ReadMe.txt</code>), and the actual installer package, <code>Python.mpkg</code>.
-<p>Double-click the <code>Python.mpkg</code> installer package to launch the Mac Python installer.
+<p class='ss nm'><img src=i/mac-install-0-dmg-contents.png width=752 height=438 alt='[a Python telepítő lemezkép tartalma]'>
+<p>A böngésző automatikusan csatolja a lemezképet, és megnyit egy
+Finder ablakot a tartalom megjelenítéséhez. (Ha ez nem történik meg, akkor
+keresd meg a lemezképet a letöltések mappában, és kattints duplán a
+csatolásához. A neve nagyjából <code>python-3.2.dmg</code> lesz.) A
+lemezkép számos szövegfájlt tartalmaz (<code>Build.txt</code>,
+<code>License.txt</code>, <code>ReadMe.txt</code>), és a tényleges
+telepítőcsomagot, a <code>Python.mpkg</code>-t.
+<p>Kattints duplán a <code>Python.mpkg</code> telepítőcsomagra a Mac Python telepítő elindításához.
 
 <li>
-<p class='ss nm'><img src=i/mac-install-1-welcome.png width=622 height=442 alt='[Python installer: welcome screen]'>
-<p>The first page of the installer gives a brief description of Python itself, then refers you to the <code>ReadMe.txt</code> file (which you didn&#8217;t read, did you?) for more details.
-<p>Click the <code>Continue</code> button to move along.
+<p class='ss nm'><img src=i/mac-install-1-welcome.png width=622 height=442 alt='[Python telepítő: üdvözlőképernyő]'>
+<p>A telepítő első oldala röviden leírja magát a Pythont, majd további
+részletekért a <code>ReadMe.txt</code> fájl elolvasására utasít (amit
+nem olvastál el, ugye?).
+<p>Kattints a <code>Continue</code> gombra a folytatáshoz.
 
 <li>
-<p class='ss nm'><img src=i/mac-install-2-information.png width=622 height=442 alt='[Python installer: information about supported architectures, disk space, and acceptable destination folders]'>
-<p>The next page actually contains some important information: Python requires Mac OS X 10.3 or later. If you are still running Mac OS X 10.2, you should really upgrade. Apple no longer provides security updates for your operating system, and your computer is probably at risk if you ever go online. Also, you can&#8217;t run Python 3.
-<p>Click the <code>Continue</code> button to advance.
+<p class='ss nm'><img src=i/mac-install-2-information.png width=622 height=442 alt='[Python telepítő: információk a támogatott architektúrákról, lemezterületről és az elfogadható cél mappákról]'>
+<p>A következő oldal néhány tényleg fontos információt tartalmaz: a Python
+a Mac OS X 10.3 vagy újabb verziót igényel. Ha még mindig a Mac
+OS X 10.2-t használod, akkor igazán ideje frissíteni. Az Apple már nem
+biztosít biztonsági frissítéseket az operációs rendszeredhez, és
+számítógéped valószínűleg veszélybe kerül, valahányszor kapcsolódsz az
+internetre. Ráadásul a Python 3-at sem futtathatod.
+<p>Kattints a <code>Continue</code> gombra a folytatáshoz.
 
 <li>
-<p class='ss nm'><img src=i/mac-install-3-license.png width=622 height=442 alt='[Python installer: software license agreement]'>
-<p>Like all good installers, the Python installer displays the software license agreement. Python is open source, and its license is <a href=http://opensource.org/licenses/>approved by the Open Source Initiative</a>. Python has had a number of owners and sponsors throughout its history, each of which has left its mark on the software license. But the end result is this: Python is open source, and you may use it on any platform, for any purpose, without fee or obligation of reciprocity.
-<p>Click the <code>Continue</code> button once again.
+<p class='ss nm'><img src=i/mac-install-3-license.png width=622 height=442 alt='[Python telepítő: szoftver licencszerződés]'>
+<p>Mint minden jó telepítő, a Python telepítő is megjeleníti a
+szoftver licencszerződést. A Python nyílt forrású, és licencét <a
+href=http://opensource.org/licenses/>jóváhagyta az Open Source
+Initiative</a>. A Pythonnak története során számos tulajdonosa és
+támogatója volt, és mind rajta hagyta a nyomát a szoftverlicencen. A
+végeredmény azonban ez: a Python nyílt forrás, és bármely platformon
+tetszőleges célra felhasználhatod bármilyen díj vagy ellentételezési
+kötelezettség nélkül.
+<p>Kattints újra a <code>Continue</code> gombra a folytatáshoz.
 
 <li>
-<p class='ss nm'><img src=i/mac-install-4-license-dialog.png width=622 height=442 alt='[Python installer: dialog to accept license agreement]'>
-<p>Due to quirks in the standard Apple installer framework, you must &#8220;agree&#8221; to the software license in order to complete the installation. Since Python is open source, you are really &#8220;agreeing&#8221; that the license is granting you additional rights, rather than taking them away.
-<p>Click the <code>Agree</code> button to continue.
+<p class='ss nm'><img src=i/mac-install-4-license-dialog.png width=622  height=442 alt='[Python telepítő: a licencszerződés elfogadása]'>
+<p>Az általános Apple telepítő-keretrendszer miatt el kell
+&#8222;fogadnod&#8221; a szoftverlicencet a telepítés befejezéséhez. Mivel
+a Python nyílt forrású, valójában abba &#8222;egyezel bele&#8221;, hogy a
+licenc további jogokat ad, nem pedig elvesz azokból.
+<p>Kattints az <code>Agree</code> gombra a folytatáshoz.
 
 <li>
-<p class='ss nm'><img src=i/mac-install-5-standard-install.png width=622 height=442 alt='[Python installer: standard install screen]'>
-<p>The next screen allows you to change your install location. You <strong>must</strong> install Python on your boot drive, but due to limitations of the installer, it does not enforce this. In truth, I have never had the need to change the install location.
-<p>From this screen, you can also customize the installation to exclude certain features. If you want to do this, click the <code>Customize</code> button; otherwise click the <code>Install</code> button.
+<p class='ss nm'><img src=i/mac-install-5-standard-install.png width=622 height=442 alt='[Python telepítő: szabványos telepítőképernyő]'>
+<p>A következő képernyő lehetővé teszi a telepítés helynek módosítását. A
+Pythont a rendszerindító meghajtóra <strong>kell</strong> telepítened,
+de a telepítő a korlátozásai miatt ezt nem kényszeríti ki. Igazából
+nekem soha nem kellett a telepítés helyét módosítanom.
+<p>Erről a képernyőről személyre szabhatod a telepítendő összetevőket,
+azok némelyikét kihagyhatod. Ehhez kattints a <code>Customize</code> gombra, egyébként kattints az <code>Install</code> gombra.
 
 <li>
-<p class='ss nm'><img src=i/mac-install-6-custom-install.png width=622 height=442 alt='[Python installer: custom install screen]'>
-<p>If you choose a Custom Install, the installer will present you with the following list of features:
+<p class='ss nm'><img src=i/mac-install-6-custom-install.png width=622 height=442 alt='[Python telepítő: egyéni telepítés képernyő]'>
+<p>Ha az egyéni telepítést választod, akkor a telepítő a következő összetevők listáját jeleníti meg:
+
 <ul>
-<li><b>Python Framework</b>. This is the guts of Python, and is both selected and disabled because it must be installed.
-<li><b>GUI Applications</b> includes IDLE, the graphical Python Shell which you will use throughout this book. I strongly recommend keeping this option selected.
-<li><b>UNIX command-line tools</b> includes the command-line <code>python3</code> application. I strongly recommend keeping this option, too.
-<li><b>Python Documentation</b> contains much of the information on <a href=http://docs.python.org/><code>docs.python.org</code></a>. Recommended if you are on dialup or have limited Internet access.
-<li><b>Shell profile updater</b> controls whether to update your shell profile (used in <code>Terminal.app</code>) to ensure that this version of Python is on the search path of your shell. You probably don&#8217;t need to change this.
-<li><b>Fix system Python</b> should not be changed. (It tells your Mac to use Python 3 as the default Python for all scripts, including built-in system scripts from Apple. This would be very bad, since most of those scripts are written for Python 2, and they would fail to run properly under Python 3.)
+<li><b>Python Framework</b>. Ez a Python váza, ki van jelölve és le van tiltva, mert telepíteni kell.
+<li>A <b>GUI Applications</b> tartalmazza az IDLE-t, a grafikus Python
+Shellt, amelyet a könyvben mindenütt használni fogsz. Kifejezetten
+javaslom ezen beállítás megtartását.
+<li>A <b>UNIX command-line tools</b> tartalmazza a parancssori
+<code>python3</code> alkalmazást. Kifejezetten javaslom ezen beállítás
+megtartását is.
+<li>A <b>Python Documentation</b> a <a
+href=http://docs.python.org/><code>docs.python.org</code></a> oldalon
+található információk jó részét tartalmazza. Javasolt, ha betárcsázós,
+mobilnetes vagy korlátozott internet-hozzáférést használsz.
+<li>A <b>Shell profile updater</b> vezérli, hogy a
+<code>Terminal.app</code>-ban használt parancsértelmező-profilodat kell-e
+frissíteni annak biztosításához, hogy a Python ezen verziója benne legyen
+a parancsértelmező keresési útvonalában. Ezt inkább ne módosítsd.
+<li>A <b>Fix system Python</b> beállítást ne módosítsd. (Ez azt mondja meg
+a Macnek, hogy a Python 3-at használja alapértelmezett Pythonként minden
+parancsfájlhoz, beleértve az Apple beépített rendszer-parancsfájljait is. 
+Ez nagyon rossz lenne, mivel azon parancsfájlok zöme a Python 2-höz
+készült, és nem futnának megfelelően Python 3 alatt.)
 </ul>
-<p>Click the <code>Install</code> button to continue.
+<p>Kattints az <code>Install</code> gombra a folytatáshoz.
 
 <li>
-<p class='ss nm'><img src=i/mac-install-7-admin-password.png width=622 height=457 alt='[Python installer: dialog to enter administrative password]'>
-<p>Because it installs system-wide frameworks and binaries in <code>/usr/local/bin/</code>, the installer will ask you for an administrative password. There is no way to install Mac Python without administrator privileges.
-<p>Click the <code>OK</code> button to begin the installation.
+<p class='ss nm'><img src=i/mac-install-7-admin-password.png width=622 height=457 alt='[Python telepítő: rendszergazdai jelszó megadása ablak]'>
+<p>Mivel rendszerszintű keretrendszereket és binárisokat telepít a
+<code>/usr/local/bin/</code> alá, a telepítő bekéri a rendszergazdai
+jelszót. A Mac Python nem telepíthető rendszergazdai jogosultságok
+nélkül.
+<p>Kattints az <code>OK</code> gombra a telepítés megkezdéséhez.
 
 <li>
-<p class='ss nm'><img src=i/mac-install-8-progress.png width=622 height=442 alt='[Python installer: progress meter]'>
-<p>The installer will display a progress meter while it installs the features you&#8217;ve selected.
+<p class='ss nm'><img src=i/mac-install-8-progress.png width=622 height=442 alt='[Python telepítő: folyamatjelző]'>
+<p>A telepítő megjelenít egy folyamatjelzőt, mialatt a kiválasztott
+összetevőket telepíti.
+<li>
+<p class='ss nm'><img src=i/mac-install-9-succeeded.png width=622 height=442 alt='[Python telepítő: a telepítés sikerült]'>
+<p>Ha minden jól ment, a telepítő egy nagy zöld pipát jelenít meg, ezzel
+jelzi a telepítés sikeres befejeződését.
+<p>Nyomd meg a <code>Close</code> gombot a telepítőből való kilépéshez.
 
 <li>
-<p class='ss nm'><img src=i/mac-install-9-succeeded.png width=622 height=442 alt='[Python installer: install succeeded]'>
-<p>Assuming all went well, the installer will give you a big green checkmark to tell you that the installation completed successfully.
-<p>Click the <code>Close</code> button to exit the installer.
+<p class='ss nm'><img src=i/mac-install-10-application-folder.png width=488 height=482 alt='[az /Applications/Python 3.2/ mappa tartalma]'>
+<p>Feltételezve, hogy nem változtattad meg a telepítés helyét, az újonnan
+telepített fájlokat a <code>Python 3.2</code> mappában találod az
+<code>/Applications</code> mappán belül. A legfontosabb része az
+<abbr>IDLE</abbr>, a grafikus Python Shell.
+<p>Kattints duplán az <abbr>IDLE</abbr> elemre a Python Shell elindításához.
 
 <li>
-<p class='ss nm'><img src=i/mac-install-10-application-folder.png width=488 height=482 alt='[contents of /Applications/Python 3.1/ folder]'>
-<p>Assuming you didn&#8217;t change the install location, you can find the newly installed files in the <code>Python 3.1</code> folder within your <code>/Applications</code> folder. The most important piece is <abbr>IDLE</abbr>, the graphical Python Shell.
-<p>Double-click <abbr>IDLE</abbr> to launch the Python Shell.
-
-<li>
-<p class='ss nm'><img src=i/mac-interactive-shell.png width=522 height=538 alt='[Mac Python Shell, a graphical interactive shell for Python]'>
-<p>The Python Shell is where you will spend most of your time exploring Python. Examples throughout this book will assume that you can find your way into the Python Shell.
+<p class='ss nm'><img src=i/mac-interactive-shell.png width=522 height=538 alt='[Mac Python Shell, grafikus interaktív parancsértelmező Pythonhoz]'>
+<p>A Python Shellben fogod a legtöbb időt eltölteni a Python
+felfedezésével. A könyv példái feltételezik, hogy el tudsz jutni a Python
+Shellbe.
 
 </ol>
 
-<p>[Skip to <a href=#idle>using the Python Shell</a>]
+<p>[Ugrás a <a href=#idle>Python Shell használatára</a>]
 
 <p class=a>&#x2042;
 
-<h2 id=ubuntu>Installing on Ubuntu Linux</h2>
+<h2 id=ubuntu>Telepítés Ubuntu Linuxon</h2>
 
-<p>Modern Linux distributions are backed by vast repositories of precompiled applications, ready to install. The exact details vary by distribution. In Ubuntu Linux, the easiest way to install Python 3 is through the <code>Add/Remove</code> application in your <code>Applications</code> menu.
-
+<p>A korszerű Linux disztribúciókat előre lefordított, telepítésre kész
+alkalmazások hatalmas tárolói támogatják. A pontos részletek
+disztribúciónként eltérők. Ubuntu Linuxon a Python 3 telepítésének
+legegyszerűbb módja a <code>Szoftverközpont</code> ikon az
+<code>Indítón</code>.
 <ol class=i>
 <li>
-<p class='ss nm'><img src=i/ubu-install-0-add-remove-programs.png width=920 height=473 alt='[Add/Remove: Canonical-maintained applications]'>
-<p>When you first launch the <code>Add/Remove</code> application, it will show you a list of preselected applications in different categories. Some are already installed; most are not. Because the repository contains over 10,000 applications, there are different filters you can apply to see small parts of the repository. The default filter is &#8220;Canonical-maintained applications,&#8221; which is a small subset of the total number of applications that are officially supported by Canonical, the company that creates and maintains Ubuntu Linux.
+<p class='ss nm'><img src=i/ubu-install-0-software-center.png width=850 height=530 alt='[Szoftverközpont: a Canonical által karbantartott alkalmazások]'>
+<p>A <code>Szoftverközpont</code> indításakor előre kiválasztott,
+különböző kategóriákban lévő alkalmazások listáját jeleníti meg. Néhány
+már telepítve van, a legtöbb nincs.
+<li>
+<li>
+<p class='ss nm'><img src=i/ubu-install-2-search-python-3.png width=854 height=536 alt='[Szoftverközpont: a Python 3 keresése]'>
+<p>Használd a jobb felső Keresés mezőt a <kbd>python3</kbd> megkeresésére.
 
 <li>
-<p class='ss nm'><img src=i/ubu-install-1-all-open-source-applications.png width=920 height=473 alt='[Add/Remove: all open source applications]'>
-<p>Python 3 is not maintained by Canonical, so the first step is to drop down this filter menu and select &#8220;All Open Source applications.&#8221;
-
+<p class='ss nm'><img src=i/ubu-install-3-install-python3.png width=853 height=531 alt='[Szoftverközpont: válaszd ki a Python 3.2 csomagot]'>
+<p>Az alkalmazások listája leszűkült a <kbd>Python 3-ra</kbd>. Két
+csomagra lesz szükséged. Az első a <code>python3</code>. Ez magát a Python értelmezőt tartalmazza.
 <li>
-<p class='ss nm'><img src=i/ubu-install-2-search-python-3.png width=920 height=473 alt='[Add/Remove: search for Python 3]'>
-<p>Once you&#8217;ve widened the filter to include all open source applications, use the Search box immediately after the filter menu to search for <kbd>Python 3</kbd>.
-
+<p class='ss nm'><img src=i/ubu-install-4-install-idle.png width=852 height=534 alt='[Szoftverközpont: válaszd ki az IDLE for Python 3.2 csomagot]'>
+<p>A második csomag is közvetlenül a közelben van:
+<code>IDLE (a Python-3.2 használatával)</code>. Ez egy grafikus Python
+Shell, amelyet a könyvben mindenütt használni fogsz.
+<p>A két csomag bejelölése után nyomd meg a <code>Változtatások végrehajtása</code> gombot.
 <li>
-<p class='ss nm'><img src=i/ubu-install-3-select-python-3.png width=920 height=473 alt='[Add/Remove: select Python 3.0 package]'>
-<p>Now the list of applications narrows to just those matching <kbd>Python 3</kbd>. You&#8217;re going to check two packages. The first is <code>Python (v3.0)</code>. This contains the Python interpreter itself.
+<p class='ss nm'><img src=i/ubu-install-5-apply-changes.png width=640 height=246 alt='[Szoftverközpont: hitelesítés a szoftver telepítéséhez]'>
+<p>A <code>Szoftverközpont</code> bekéri a rendszergazdai jelszót.
+<p>Nyomd meg a <code>Hitelesítés</code> gombot a folytatáshoz.
 <li>
-<p class='ss nm'><img src=i/ubu-install-4-select-idle.png width=920 height=473 alt='[Add/Remove: select IDLE for Python 3.0 package]'>
-<p>The second package you want is immediately above: <code>IDLE (using Python-3.0)</code>. This is a graphical Python Shell that you will use throughout this book.
-<p>After you&#8217;ve checked those two packages, click the <code>Apply Changes</code> button to continue.
-
+<p class='ss nm'><img src=i/ubu-install-6-install-progress.png width=855 height=538 alt='[Szoftverközpont: letöltési folyamatjelző]'>
+<p>A <code>Szoftverközpont</code> a <code>Telepítés</code> gomb felett, illetve az <code>Állapot</code> eszköztárgomb alatt megjelenít egy folyamatjelzőt, mialatt letölti a
+szükséges csomagokat a Canonical internetes tárolójából, és telepíti azokat.
 <li>
-<p class='ss nm'><img src=i/ubu-install-5-apply-changes.png width=635 height=364 alt='[Add/Remove: apply changes]'>
-<p>The package manager will ask you to confirm that you want to add both <code>IDLE (using Python-3.0)</code> and <code>Python (v3.0)</code>.
-<p>Click the <code>Apply</code> button to continue.
-
 <li>
-<p class='ss nm'><img src=i/ubu-install-6-download-progress.png width=287 height=211 alt='[Add/Remove: download progress meter]'>
-<p>The package manager will show you a progress meter while it downloads the necessary packages from Canonical&#8217;s Internet repository.
-
+<p class='ss nm'><img src=i/ubu-install-8-success.png width=909 height=526 alt='[Szoftverközpont: az új alkalmazások telepítve]'>
+<p>Ha minden jól ment, akkor a <code>Szoftverközpont</code> egy zöld pipát 
+jelenít meg a frissen telepített alkalmazás ikonjának jobb alsó sarkában. 
+Ekkor a telepítéssel kész vagy, bezárhatod a <code>Szoftverközpontot</code>.
+<p>A Python Shellt a Dashból, a Fejlesztés alkalmazáskategória alatt, az
+<abbr>IDLE</abbr> kiválasztásával, vagy a keresőmezőbe való begépelésével
+érheted el.
 <li>
-<p class='ss nm'><img src=i/ubu-install-7-install-progress.png width=486 height=258 alt='[Add/Remove: installation progress meter]'>
-<p>Once the packages are downloaded, the package manager will automatically begin installing them.
-
-<li>
-<p class='ss nm'><img src=i/ubu-install-8-success.png width=591 height=296 alt='[Add/Remove: new applications have been installed]'>
-<p>If all went well, the package manager will confirm that both packages were successfully installed. From here, you can double-click <abbr>IDLE</abbr> to launch the Python Shell, or click the <code>Close</code> button to exit the package manager.
-<p>You can always relaunch the Python Shell by going to your <code>Applications</code> menu, then the <code>Programming</code> submenu, and selecting <abbr>IDLE</abbr>.
-
-<li>
-<p class='ss nm'><img src=i/ubu-interactive-shell.png width=679 height=687 alt='[Linux Python Shell, a graphical interactive shell for Python]'>
-<p>The Python Shell is where you will spend most of your time exploring Python. Examples throughout this book will assume that you can find your way into the Python Shell.
-
+<p class='ss nm'><img src=i/ubu-interactive-shell.png width=653 height=501 alt='[Linux Python Shell, grafikus interaktív parancsértelmező Pythonhoz]'>
+<p>A Python Shellben fogod a legtöbb időt eltölteni a Python
+felfedezésével. A könyv példái feltételezik, hogy el tudsz jutni a Python
+Shellbe.
 </ol>
 
-<p>[Skip to <a href=#idle>using the Python Shell</a>]
+<p>[Ugrás a <a href=#idle>Python Shell használatára</a>]
 
 <p class=a>&#x2042;
 
-<h2 id=other>Installing on Other Platforms</h2>
+<h2 id=other>Telepítés más rendszerekre
+</h2>
 
-<p>Python 3 is available on a number of different platforms. In particular, it is available in virtually every Linux, <abbr>BSD</abbr>, and Solaris-based distribution. For example, RedHat Linux uses the <code>yum</code> package manager. FreeBSD has its <a href=http://www.freebsd.org/ports/>ports and packages collection</a>, <abbr>SUSE</abbr> has <code>zypper</code>, and Solaris has <code>pkgadd</code>. A quick web search for <code>Python 3</code> + <i>your operating system</i> should tell you whether a Python 3 package is available, and if so, how to install it.
+<p>A Python 3 számos különböző platformon érhető el. Konkrétabban elérhető
+gyakorlatilag minden Linux, <abbr>BSD</abbr> és Solaris-alapú
+disztribúcióban. A Red Hat Linux például a <code>yum</code>
+csomagkezelőt használja. A FreeBSD saját <a
+href=http://www.freebsd.org/ports/>port- és csomaggyűjteménnyel
+rendelkezik</a>, a <abbr>SUSE</abbr> a <code>zypper</code>, a Solaris
+pedig a <code>pkgadd</code> csomagkezelőt használja. Egy gyors webes
+keresés a <code>Python 3</code> + <i>az operációs rendszered nevére</i>
+megmondja, hogy elérhető-e a Python 3 csomag, és hogyan kell
+telepíteni.
 
 <p class=a>&#x2042;
 
-<h2 id=idle>Using The Python Shell</h2>
+<h2 id=idle>A Python Shell használata
+</h2>
 
-<p>The Python Shell is where you can explore Python syntax, get interactive help on commands, and debug short programs. The graphical Python Shell (named <abbr>IDLE</abbr>) also contains a decent text editor that supports Python syntax coloring and integrates with the Python Shell. If you don&#8217;t already have a favorite text editor, you should give <abbr>IDLE</abbr> a try.
+<p>A Python Shell az, ahol felfedezheted a Python szintaxisát, interaktív
+segítséget kaphatsz a parancsokhoz, és megkeresheted rövid programok
+hibáit. A grafikus Python Shell (<abbr>IDLE</abbr>) is tartalmaz egy
+tisztességes szövegszerkesztőt, amely támogatja a Python
+szintaxiskiemelést, és integrálódik a Python Shellbe. Ha még nincs
+kedvenc szövegszerkesztőd, akkor adj egy esélyt az <abbr>IDLE</abbr>-nek.
 
-<p>First things first. The Python Shell itself is an amazing interactive playground. Throughout this book, you&#8217;ll see examples like this:
-
+<p>Kezdjük az elején. A Python Shell önmagában egy lenyűgöző
+interaktív játszótér. Ebben a könyvben a következőhöz hasonló
+példákat fogsz látni:
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>1 + 1</kbd>
 <samp class=pp>2</samp></pre>
 
-<p>The three angle brackets, <samp class=p>>>></samp>, denote the Python Shell prompt. Don&#8217;t type that part. That&#8217;s just to let you know that this example is meant to be followed in the Python Shell.
-
-<p><kbd class=pp>1 + 1</kbd> is the part you type. You can type any valid Python expression or command in the Python Shell. Don&#8217;t be shy; it won&#8217;t bite! The worst that will happen is you&#8217;ll get an error message. Commands get executed immediately (once you press <kbd>ENTER</kbd>); expressions get evaluated immediately, and the Python Shell prints out the result.
-
-<p><samp class=pp>2</samp> is the result of evaluating this expression. As it happens, <kbd class=pp>1 + 1</kbd> is a valid Python expression. The result, of course, is <samp class=pp>2</samp>.
-
-<p>Let&#8217;s try another one.
+<p>A három hegyes zárójel (<samp class=p>>>></samp>) a Python Shell
+promptját jelzi. Ezt a részt ne gépeld be. Ez csak azt jelzi,
+hogy az utána következő részt a Python Shellbe kell írni.
+<p>Az <kbd class=pp>1 + 1</kbd> a begépelendő rész. A Python Shellbe
+bármilyen érvényes Python kifejezést vagy parancsot beírhatsz. Ne
+félj, nem harap! A legrosszabb esetben egy hibaüzenetet kapsz. A parancsok
+azonnal végrehajtásra kerülnek (amint megnyomod az <kbd>ENTER</kbd>-t); a
+kifejezések azonnal kiértékelésre kerülnek, és a Python Shell kiírja az
+eredményt.
+<p>A <samp class=pp>2</samp> a kifejezés kiértékelésével kapott eredmény. Úgy
+tűnik, az <kbd class=pp>1 + 1</kbd> egy érvényes Python kifejezés. Az
+eredmény természetesen <samp class=pp>2</samp>.
+<p>Próbáljunk ki egy másikat.
 
 <pre class='nd screen'>
-<samp class=p>>>> </samp><kbd class=pp>print('Hello world!')</kbd>
-<samp>Hello world!</samp>
+<samp class=p>>>> </samp><kbd class=pp>print('Szia világ!')</kbd>
+<samp>Szia világ!</samp>
 </pre>
 
-<p>Pretty simple, no? But there&#8217;s lots more you can do in the Python shell. If you ever get stuck&nbsp;&mdash;&nbsp;you can&#8217;t remember a command, or you can&#8217;t remember the proper arguments to pass a certain function&nbsp;&mdash;&nbsp;you can get interactive help in the Python Shell. Just type <kbd>help</kbd> and press <kbd>ENTER</kbd>.
+<p>Elég egyszerű, ugye? De a Python Shellben egy csomó minden mást is
+csinálhatsz. Ha bármikor elakadsz&nbsp;&mdash;&nbsp;nem emlékszel egy
+parancsra, vagy hogy egy adott függvény milyen argumentumokat
+vár&nbsp;&mdash;&nbsp;akkor interaktív segítségét kérhetsz a Python
+Shellben. Írd be a <kbd>help</kbd> parancsot, és nyomd meg az <kbd>ENTER</kbd>-t.
 
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd>help</kbd>
 <samp>Type help() for interactive help, or help(object) for help about object.</samp></pre>
 
-<p>There are two modes of help. You can get help about a single object, which just prints out the documentation and returns you to the Python Shell prompt. You can also enter <i>help mode</i>, where instead of evaluating Python expressions, you just type keywords or command names and it will print out whatever it knows about that command.
-
-<p>To enter the interactive help mode, type <kbd>help()</kbd> and press <kbd>ENTER</kbd>.
+<p>A súgónak két módja van. Kérhetsz segítséget egy adott objektumról,
+amely kiírja (angolul) a dokumentációt, és visszajuttat a Python Shell prompthoz. 
+Ezen kívül beléphetsz a <i>súgó módba</i> is, ahol a Python kifejezések
+kiértékelése helyett csak kulcsszavakat vagy parancsneveket írhatsz be, és
+a parancsértelmező (angolul) kiír mindent, amit az adott parancsról tud.
+<p>Az interaktív súgó módba való belépéshez írd be a <kbd>help()</kbd> kifejezést, és nyomd meg az <kbd>ENTER</kbd>-t.
 
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>help()</kbd>
-<samp>Welcome to Python 3.0!  This is the online help utility.
+<samp>Welcome to Python 3.2!  This is the online help utility.
 
 If this is your first time using Python, you should definitely check out
 the tutorial on the Internet at http://docs.python.org/tutorial/.
@@ -309,8 +476,11 @@ such as "spam", type "modules spam".
 </samp>
 <samp class=p>help> </samp></pre>
 
-<p>Note how the prompt changes from <samp class=p>>>></samp> to <samp class=p>help></samp>. This reminds you that you&#8217;re in the interactive help mode. Now you can enter any keyword, command, module name, function name&nbsp;&mdash;&nbsp;pretty much anything Python understands&nbsp;&mdash;&nbsp;and read documentation on it.
-
+<p>Figyeld meg, hogy a prompt hogyan változik: <samp class=p>>>></samp> ->
+<samp class=p>help></samp>. Ez emlékeztet, hogy az interaktív súgó
+módban vagy. Most megadhatsz egy tetszőleges kulcsszót, parancsot,
+modulnevet, függvénynevet&nbsp;&mdash;&nbsp;gyakorlatilag bármit, amit a
+Python megért&nbsp;&mdash;&nbsp;és elolvashatod a dokumentációját (angolul).
 <pre class=screen>
 <a><samp class=p>help> </samp><kbd class=pp>print</kbd>                                                                 <span class=u>&#x2460;</span></a>
 <samp>Help on built-in function print in module builtins:
@@ -335,28 +505,56 @@ interpreter, you can type "help(object)".  Executing "help('string')"
 has the same effect as typing a particular string at the help> prompt.</samp>
 <a><samp class=p>>>> </samp>                                                                        <span class=u>&#x2463;</span></a></pre>
 <ol>
-<li>To get documentation on the <code>print()</code> function, just type <kbd>print</kbd> and press <kbd>ENTER</kbd>. The interactive help mode will display something akin to a man page: the function name, a brief synopsis, the function&#8217;s arguments and their default values, and so on. If the documentation seems opaque to you, don&#8217;t panic. You&#8217;ll learn more about all these concepts in the next few chapters.
-<li>Of course, the interactive help mode doesn&#8217;t know everything. If you type something that isn&#8217;t a Python command, module, function, or other built-in keyword, the interactive help mode will just shrug its virtual shoulders.
-<li>To quit the interactive help mode, type <kbd>quit</kbd> and press <kbd>ENTER</kbd>.
-<li>The prompt changes back to <samp class=p>>>></samp> to signal that you&#8217;ve left the interactive help mode and returned to the Python Shell.
+<li>A <code>print()</code> függvénnyel kapcsolatos dokumentáció
+kiírásához írd be a <kbd>print</kbd> kifejezést, és nyomd meg az
+<kbd>ENTER</kbd>-t. Az interaktív súgómód egy man oldalhoz hasonló
+tartalmat jelenít meg: a függvény nevét, rövid leírását, a függvény
+argumentumait és azok alapértelmezett értékeit stb. Ha a dokumentáció
+átláthatatlannak tűnik, ne ess pánikba. A következő
+fejezetek elolvasása után már többet fogsz tudni ezekről a fogalmakról.
+<li>Természtesen az interaktív súgó sem tud mindent. Ha valami olyat írsz
+be, ami nem egy Python parancs, modul, függvény vagy egyéb beépített
+kulcsszó, akkor az interaktív súgó mód csak megrántja virtuális vállait.
+<li>Az interaktív súgó módból való kilépéshez írd be a <kbd>quit</kbd>
+kifejezést, és nyomd meg az <kbd>ENTER</kbd>-t.
+<li>A prompt visszavált a <samp class=p>>>></samp> sorozatra, jelezve hogy
+elhagytad az interaktív súgómódot, és visszatértél a Python Shellbe.
 </ol>
 
-<p><abbr>IDLE</abbr>, the graphical Python Shell, also includes a Python-aware text editor.
+<p>Az <abbr>IDLE</abbr>, a grafikus Python Shell is tartalmaz egy
+Python-képes szövegszerkesztőt.
 
 <p class=a>&#x2042;
 
-<h2 id=editors>Python Editors and IDEs</h2>
+<h2 id=editors>Python szerkesztők és IDE-k</h2>
 
-<p><abbr>IDLE</abbr> is not the only game in town when it comes to writing programs in Python. While it&#8217;s useful to get started with learning the language itself, many developers prefer other text editors or Integrated Development Environments (<abbr>IDE</abbr>s). I won&#8217;t cover them here, but the Python community maintains <a href=http://wiki.python.org/moin/PythonEditors>a list of Python-aware editors</a> that covers a wide range of supported platforms and software licenses.
+<p>Az <abbr>IDLE</abbr> nem az egyetlen játékos, ha Python programozásról
+van szó. Míg igen hasznos a nyelv tanulása során, sok fejlesztő más
+szövegszerkesztőket vagy integrált fejlesztői környezeteket
+(<abbr>IDE</abbr>-k) kedvel. Ezekről itt most nem lesz szó, de a Python
+közösség karbantartja a <a
+href=http://wiki.python.org/moin/PythonEditors>Python-képes szerkesztők
+listáját</a>, amely támogatott platformok és szoftverlicencek széles
+körét fedi le.
+<p>Megnézheted a <a
+href=http://wiki.python.org/moin/IntegratedDevelopmentEnvironments>Python-képes
+<abbr>IDE</abbr>-k listáját</a> is, noha ezek közül még csak néhány
+támogatja a Python 3-at. Az egyik ilyen a <a
+href=http://pydev.sourceforge.net/>PyDev</a>, egy <a
+href=http://eclipse.org/>Eclipse</a> bővítmény, amely az Eclipse-t egy
+teljes felszereltségű Python <abbr>IDE</abbr>-vé alakítja. Mind az
+Eclipse, mind a PyDev keresztplatformosak és nyílt forrásúak.
+<p>A kereskedelmi fronton az ActiveState <a
+href=http://www.activestate.com/komodo/>Komodo <abbr>IDE</abbr>-je</a>
+érdemel figyelmet. Felhasználónként kell licencelni, de a diákoknak
+kedvezmény jár, és elérhető egy időkorlátos ingyenes próbaváltozat.
+<p>Kilenc éve programozok Pythonban, és saját Python programjaimat <a
+href=http://www.gnu.org/software/emacs/>GNU Emacs</a>-ben szerkesztem,
+a hibakeresést pedig a parancssoros Python Shellben végzem. A
+Pythonban való fejlesztésnek nincs jó vagy rossz módja. Találd meg a
+neked megfelelőt!
 
-<p>You might also want to check out the <a href=http://wiki.python.org/moin/IntegratedDevelopmentEnvironments>list of Python-aware <abbr>IDE</abbr>s</a>, although few of them support Python 3 yet. One that does is <a href=http://pydev.sourceforge.net/>PyDev</a>, a plugin for <a href=http://eclipse.org/>Eclipse</a> that turns Eclipse into a full-fledged Python <abbr>IDE</abbr>. Both Eclipse and PyDev are cross-platform and open source.
-
-<p>On the commercial front, there is ActiveState&#8217;s <a href=http://www.activestate.com/komodo/>Komodo <abbr>IDE</abbr></a>. It has per-user licensing, but students can get a discount, and a free time-limited trial version is available.
-
-<p>I&#8217;ve been programming in Python for nine years, and I edit my Python programs in <a href=http://www.gnu.org/software/emacs/>GNU Emacs</a> and debug them in the command-line Python Shell. There&#8217;s no right or wrong way to develop in Python. Find a way that works for you!
-
-<p class=v><a href=whats-new.html rel=prev title='back to &#8220;What&#8217;s New In Dive Into Python 3&#8221;'><span class=u>&#x261C;</span></a> <a href=your-first-python-program.html rel=next title='onward to &#8220;Your First Python Program&#8221;'><span class=u>&#x261E;</span></a>
-
+<p class=v><a href=whats-new.html rel=prev title='vissza &#8222;Az „Ugorj fejest a Python 3-ba” újdonságai&#8221; fejezetre'><span class=u>&#x261C;</span></a> <a href=your-first-python-program.html rel=next title='előre &#8222;Az első Python programod&#8221; fejezetre'><span class=u>&#x261E;</span></a>
 <p class=c>&copy; 2001&ndash;11 <a href=about.html>Mark Pilgrim</a>
 <script src=j/jquery.js></script>
 <script src=j/prettify.js></script>
