@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset=utf-8>
-<title>Your first Python program - Dive Into Python 3</title>
+<title>Az első Python programod - Ugorj fejest a Python 3-ba</title>
 <!--[if IE]><script src=j/html5.js></script><![endif]-->
 <link rel=stylesheet href=dip3.css>
 <style>
@@ -13,33 +13,42 @@ mark{display:inline}
 <link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
 <link rel=stylesheet media=print href=print.css>
 <meta name=viewport content='initial-scale=1.0'>
-<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:l5eihuescdw><input type=hidden name=ie value=UTF-8>&nbsp;<input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#your-first-python-program>Dive Into Python 3</a> <span class=u>&#8227;</span>
-<p id=level>Difficulty level: <span class=u title=novice>&#x2666;&#x2662;&#x2662;&#x2662;&#x2662;</span>
-<h1>Your First Python Program</h1>
+<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:l5eihuescdw><input type=hidden name=ie value=UTF-8>&nbsp;<input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Keresés></div></form>
+<p>Itt vagy: <a href=index.html>Kezdőlap</a> <span class=u>&#8227;</span>
+<a href=table-of-contents.html#your-first-python-program>Ugorj fejest a
+Python 3-ba</a> <span class=u>&#8227;</span>
+<p id=level>Nehézségi szint: <span class=u
+title=újonc>&#x2666;&#x2662;&#x2662;&#x2662;&#x2662;</span>
+<h1>Az első Python programod</h1>
 <blockquote class=q>
-<p><span class=u>&#x275D;</span> Don&#8217;t bury your burden in saintly silence. You have a problem?  Great. Rejoice, dive in, and investigate. <span class=u>&#x275E;</span><br>&mdash; <a href=http://en.wikiquote.org/wiki/Buddhism>Ven. Henepola Gunaratana</a>
+<p><span class=u>&#x275D;</span> Ne temesd terhed a szentek némaságába. Problémád
+van? Nagyszerű. Örvendj, merülj el, és vizsgálódj. <span class=u>&#x275E;</span><br>&mdash; <a href=http://en.wikiquote.org/wiki/Buddhism>Ven. Henepola Gunaratana</a>
 </blockquote>
 <p id=toc>&nbsp;
-<h2 id=divingin>Diving In</h2>
-<p class=f>Convention dictates that I should bore you with the fundamental building blocks of programming, so we can slowly work up to building something useful. Let&#8217;s skip all that. Here is a complete, working Python program. It probably makes absolutely no sense to you. Don&#8217;t worry about that, because you&#8217;re going to dissect it line by line. But read through it first and see what, if anything, you can make of it.
-<p class=d>[<a href=examples/humansize.py>download <code>humansize.py</code></a>]
+<h2 id=divingin>Ugorj fejest</h2>
+<p class=f>A megállapodás előírja, hogy a programozás alapvető
+építőköveivel kell untassalak, hogy lassan felépíthessünk valami
+hasznosat. Hagyjuk ezt ki. Ez itt egy teljes, működő Python program. Valószínűleg
+semmi értelme nincs számodra. Ne aggódj emiatt, hamarosan sorról
+sorra felboncoljuk. De előtte olvasd el, és próbálj meglátni benne valami
+értelmet.
+<p class=d>[<a href=examples/humansize.py>a <code>humansize.py</code> letöltése</a>]
 <pre class=pp><code>SUFFIXES = {1000: ['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
             1024: ['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']}
 
 def approximate_size(size, a_kilobyte_is_1024_bytes=True):
-    '''Convert a file size to human-readable form.
+    '''Egy fájlméret emberek által olvasható formába konvertálása.
 
-    Keyword arguments:
-    size -- file size in bytes
-    a_kilobyte_is_1024_bytes -- if True (default), use multiples of 1024
-                                if False, use multiples of 1000
+    Kulcsszó argumentumok:
+    size -- a fájlméret bájtban
+    a_kilobyte_is_1024_bytes -- ha True (alapértelmezett), akkor az 1024 többszöröseit használja
+                                ha False, akkor az 1000 többszöröseit használja
 
-    Returns: string
+    Visszaad: karakterláncot
 
     '''
     if size &lt; 0:
-        raise ValueError('number must be non-negative')
+        raise ValueError('a szám nem lehet negatív')
 
     multiple = 1024 if a_kilobyte_is_1024_bytes else 1000
     for suffix in SUFFIXES[multiple]:
@@ -47,65 +56,128 @@ def approximate_size(size, a_kilobyte_is_1024_bytes=True):
         if size &lt; multiple:
             return '{0:.1f} {1}'.format(size, suffix)
 
-    raise ValueError('number too large')
+    raise ValueError('a szám túl nagy')
 
 if __name__ == '__main__':
     print(approximate_size(1000000000000, False))
     print(approximate_size(1000000000000))</code></pre>
-<p>Now let&#8217;s run this program on the command line. On Windows, it will look something like this:
+<p>Most futtassuk ezt a programot a parancssorban. Windowson ez valahogy így néz ki:
 <pre class='nd screen'>
-<samp class=p>c:\home\diveintopython3\examples> </samp><kbd>c:\python31\python.exe humansize.py</kbd>
-<samp>1.0 TB
+<samp class=p>c:\Documents and Settings\te\diveintopython3\examples> </samp><kbd>c:\python32\python.exe humansize.py</kbd> <samp>1.0 TB
 931.3 GiB</samp></pre>
-<p>On Mac OS X or Linux, it would look something like this:
+<p>Mac OS X vagy Linux alatt valahogy így fog kinézni:
 <pre class='nd screen cmdline'>
-<samp class=p>you@localhost:~/diveintopython3/examples$ </samp><kbd>python3 humansize.py</kbd>
+<samp class=p>te@localhost:~/diveintopython3/examples$ </samp><kbd>python3 humansize.py</kbd>
 <samp>1.0 TB
 931.3 GiB</samp></pre>
 
-<p>What just happened? You executed your first Python program. You called the Python interpreter on the command line, and you passed the name of the script you wanted Python to execute. The script defines a single function, the <code>approximate_size()</code> function, which takes an exact file size in bytes and calculates a &#8220;pretty&#8221; (but approximate) size. (You&#8217;ve probably seen this in Windows Explorer, or the Mac OS X Finder, or Nautilus or Dolphin or Thunar on Linux. If you display a folder of documents as a multi-column list, it will display a table with the document icon, the document name, the size, type, last-modified date, and so on. If the folder contains a 1093-byte file named <code>TODO</code>, your file manager won&#8217;t display <code>TODO 1093 bytes</code>; it&#8217;ll say something like <code>TODO 1 KB</code> instead. That&#8217;s what the <code>approximate_size()</code> function does.)
+<p>Mi történt? Végrehajtottad az első Python
+programod. Meghívtad a Python parancsértelmezőt a parancssorból, és
+átadtad neki annak a parancsfájlnak a nevét, amelyet a Pythonnal futtatni
+akartál. A parancsfájl egyetlen függvényt, az
+<code>approximate_size()</code> függvényt hívja meg, amely egy bájtban
+megadott pontos fájlméretet kap, és kiszámít egy &#8222;szép&#8221;
+(de közelítő) méretet. (Ezt valószínűleg láttad már a Windows Intézőben,
+vagy a Mac OS X Finderben, vagy Linuxon a Nautilusban, a Dolphinban vagy a
+ Thunarban. Ha egy dokumentumokat tartalmazó mappát többoszlopos listaként
+jelenít meg, akkor a táblázatban a dokumentum ikonja, neve, mérete,
+típusa, legutóbbi módosítás dátuma stb. jelenik meg. Ha a mappa egy 1093
+bájtos <code>TODO</code> nevű fájlt tartalmaz, akkor a fájlkezelő a
+<code>TODO 1093 bájt</code> helyett valami olyasmit fog kiírni, hogy
+<code>TODO 1 KB</code>. Ezt csinálja az <code>approximate_size()</code>
+függvény is.)
 
-<p>Look at the bottom of the script, and you&#8217;ll see two calls to <code>print(approximate_size(<var>arguments</var>))</code>. These are function calls&nbsp;&mdash;&nbsp;first calling the <code>approximate_size()</code> function and passing a number of arguments, then taking the return value and passing it straight on to the <code>print()</code> function. The <code>print()</code> function is built-in; you&#8217;ll never see an explicit declaration of it. You can just use it, anytime, anywhere. (There are lots of built-in functions, and lots more functions that are separated into <i>modules</i>. Patience, grasshopper.)
+<p>Nézd meg a parancsfájl alját, itt a <code>print(approximate_size(<var>argumentumok</var>))</code> függvény két hívását láthatod. 
+Ezek függvényhívások&nbsp;&mdash;&nbsp;először az
+<code>approximate_size()</code> függvényt hívják meg, átadva néhány
+argumentumot, majd a visszatérési értéket azonnal átadják a
+<code>print()</code> függvénynek. A <code>print()</code> függvény
+beépített, soha nem fogod az explicit deklarációját látni. Egyszerűen
+használhatod, bármikor, bárhol. (Rengeteg beépített függvény van, és
+annál is több van <i>modulokba</i> szervezve. Türelem, prücsök.)
 
-<p>So why does running the script on the command line give you the same output every time? We&#8217;ll get to that. First, let&#8217;s look at that <code>approximate_size()</code> function.
+<p>Miért adja a parancssorból futtatott parancsfájl mindig ugyanazt a
+kimenetet? Azt is megnézzük. Először nézzük azonban az
+<code>approximate_size()</code> függvényt.
 
 <p class=a>&#x2042;
 
-<h2 id=declaringfunctions>Declaring Functions</h2>
-<p>Python has functions like most other languages, but it does not have separate header files like <abbr>C++</abbr> or <code>interface</code>/<code>implementation</code> sections like Pascal. When you need a function, just declare it, like this:
+<h2 id=declaringfunctions>Függvények deklarálása</h2>
+<p>A Python a legtöbb nyelvhez hasonlóan rendelkezik függvényekkel, de
+nincsenek önálló fejlécfájlok, mint a <abbr>C++</abbr>-ban vagy
+<code>interfész</code>/<code>megvalósítás</code> szakaszok, mint a
+Pascalban. Ha egy függvényre van szükséged, egyszerűen csak deklaráld, így:
 <pre class='nd pp'><code>def approximate_size(size, a_kilobyte_is_1024_bytes=True):</code></pre>
-<aside>When you need a function, just declare it.</aside>
-<p>The keyword <code>def</code> starts the function declaration, followed by the function name, followed by the arguments in parentheses. Multiple arguments are separated with commas.
-<p>Also note that the function doesn&#8217;t define a return datatype. Python functions do not specify the datatype of their return value; they don&#8217;t even specify whether or not they return a value. (In fact, every Python function returns a value; if the function ever executes a <code>return</code> statement, it will return that value, otherwise it will return <code>None</code>, the Python null value.)
+<aside>Ha egy függvényre van szükséged, egyszerűen csak deklaráld.</aside>
+<p>A <code>def</code> kulcsszó elindítja a függvénydeklarációt, amelyet
+a függvény neve és zárójelek közt a paraméterek követnek. Több
+paraméter vesszőkkel választható el.
+<p>Vedd észre, hogy a függvény nem definiál visszatérési adattípust. A
+Python függvények nem adják meg a visszatérési értékük adattípusát, sőt
+azt sem, hogy egyáltalán visszaadnak-e értéket. (Valójában minden Python
+függvény visszaad egy értéket; ha a függvény végrehajt egy
+<code>return</code> utasítást, akkor annak értékét adja vissza, ellenkező
+esetben a <code>None</code> értéket, a Python nullértékét.
 <blockquote class=note>
-<p><span class=u>&#x261E;</span>In some languages, functions (that return a value) start with <code>function</code>, and subroutines (that do not return a value) start with <code>sub</code>. There are no subroutines in Python. Everything is a function, all functions return a value (even if it&#8217;s <code>None</code>), and all functions start with <code>def</code>.
+<p><span class=u>&#x261E;</span>Egyes nyelvekben (az értéket visszaadó)
+függvények a <code>function</code>, míg a szubrutinok (amelyek nem adnak
+vissza értéket) a <code>sub</code> kulcsszóval kezdődnek. Pythonban
+nincsenek szubrutinok. Minden függvény, minden funkció visszaad egy
+értéket (még ha az a <code>None</code> is), és minden függvény a
+<code>def</code> kulcsszóval kezdődik.
 </blockquote>
-<p>The <code>approximate_size()</code> function takes the two arguments&nbsp;&mdash;&nbsp;<var>size</var> and <var>a_kilobyte_is_1024_bytes</var>&nbsp;&mdash;&nbsp;but neither argument specifies a datatype. In Python, variables are never explicitly typed. Python figures out what type a variable is and keeps track of it internally.
+<p>Az <code>approximate_size()</code> függvény két&nbsp;&mdash;&nbsp;a
+<var>size</var> és
+<var>a_kilobyte_is_1024_bytes</var>&nbsp;&mdash;&nbsp;paramétert vár, de
+egyik paraméter sem ad meg adattípust. Pythonban a változók soha
+nem kifejezetten típusosak. A Python meghatározza a változó típusát, és
+azt saját maga tartja nyilván.
 <blockquote class='note compare java'>
-<p><span class=u>&#x261E;</span>In Java and other statically-typed languages, you must specify the datatype of the function return value and each function argument. In Python, you never explicitly specify the datatype of anything. Based on what value you assign, Python keeps track of the datatype internally.
+<p><span class=u>&#x261E;</span>Java és más statikusan típusos nyelveknél
+meg kell adnod a függvény visszatérési értékének és minden egyes
+függvényparaméter adattípusát. Pythonban soha nem kell
+kifejezetten megadni semminek az adattípusát. A hozzárendelt érték alapján
+a Python saját maga tartja nyilván az adattípust.
 </blockquote>
 
-<h3 id=optional-arguments>Optional and Named Arguments</h3>
+<h3 id=optional-arguments>Elhagyható és nevesített argumentumok</h3>
 
-<p>Python allows function arguments to have default values; if the function is called without the argument, the argument gets its default value. Furthermore, arguments can be specified in any order by using named arguments.
+<p>A Python lehetővé teszi, hogy a függvényparaméterek alapértelmezett
+értékkel rendelkezzenek, ha a függvény argumentum nélkül kerül meghívásra,
+akkor az argumentum az alapértelmezett értéket kapja. Ezen kívül
+az argumentumok tetszőleges sorrendben is megadhatók nevesített
+argumentumok használatával.
 
-<p>Let&#8217;s take another look at that <code>approximate_size()</code> function declaration:
+<p>Vessünk egy újabb pillantást az
+<code>approximate_size()</code> függvény deklarációjára:
 
 <pre class='nd pp'><code>def approximate_size(size, a_kilobyte_is_1024_bytes=True):</code></pre>
 
-<p>The second argument, <var>a_kilobyte_is_1024_bytes</var>, specifies a default value of <code>True</code>. This means the argument is <i>optional</i>; you can call the function without it, and Python will act as if you had called it with <code>True</code> as a second parameter.
+<p>A második paraméter, az <var>a_kilobyte_is_1024_bytes</var> megad egy
+alapértelmezett értéket, ez a <code>True</code>. Ez azt jelenti, hogy
+a paraméter <i>elhagyható</i>; a függvény meghívható nélküle is, és a
+Python úgy fog viselkedni, mintha a második paramétere a <code>True</code>
+lett volna.
 
-<p>Now look at the bottom of the script:
+<p>Most nézd meg a parancsfájl alját:
 
 <pre class=pp><code>if __name__ == '__main__':
 <a>    print(approximate_size(1000000000000, False))  <span class=u>&#x2460;</span></a>
 <a>    print(approximate_size(1000000000000))         <span class=u>&#x2461;</span></a></code></pre>
 <ol>
-<li>This calls the <code>approximate_size()</code> function with two arguments. Within the <code>approximate_size()</code> function, <var>a_kilobyte_is_1024_bytes</var> will be <code>False</code>, since you explicitly passed <code>False</code> as the second argument.
-<li>This calls the <code>approximate_size()</code> function with only one argument. But that&#8217;s OK, because the second argument is optional! Since the caller doesn&#8217;t specify, the second argument defaults to <code>True</code>, as defined by the function declaration.
+<li>Ez az <code>approximate_size()</code> függvényt két argumentummal
+hívja meg. Az <code>approximate_size()</code> függvényen belül az
+<var>a_kilobyte_is_1024_bytes</var> értéke <code>False</code> lesz, mivel
+második argumentumként a <code>False</code> értéket adjuk át.
+<li>Ez az <code>approximate_size()</code> függvényt csak egy argumentummal
+hívja meg. De ez nem gond, mivel a második argumentum elhagyható! Mivel a
+hívó nem adja meg, a második argumentum az alapértelmezett
+<code>True</code> értéket kapja meg, ahogyan az a függvény deklarációjában
+meg van határozva.
+
 </ol>
 
-<p>You can also pass values into a function by name.
+<p>A függvénynek név szerint is átadhatsz értékeket.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>from humansize import approximate_size</kbd>
@@ -122,113 +194,222 @@ SyntaxError: non-keyword arg after keyword arg</samp>
 <samp class=traceback>  File "&lt;stdin>", line 1
 SyntaxError: non-keyword arg after keyword arg</samp></pre>
 <ol>
-<li>This calls the <code>approximate_size()</code> function with <code>4000</code> for the first argument (<var>size</var>) and <code>False</code> for the argument named <var>a_kilobyte_is_1024_bytes</var>. (That happens to be the second argument, but doesn&#8217;t matter, as you&#8217;ll see in a minute.)
-<li>This calls the <code>approximate_size()</code> function with <code>4000</code> for the argument named <var>size</var> and <code>False</code> for the argument named <var>a_kilobyte_is_1024_bytes</var>. (These named arguments happen to be in the same order as the arguments are listed in the function declaration, but that doesn&#8217;t matter either.)
-<li>This calls the <code>approximate_size()</code> function with <code>False</code> for the argument named <var>a_kilobyte_is_1024_bytes</var> and <code>4000</code> for the argument named <var>size</var>. (See? I told you the order didn&#8217;t matter.)
-<li>This call fails, because you have a named argument followed by an unnamed (positional) argument, and that never works. Reading the argument list from left to right, once you have a single named argument, the rest of the arguments must also be named.
-<li>This call fails too, for the same reason as the previous call. Is that surprising? After all, you passed <code>4000</code> for the argument named <code>size</code>, then &#8220;obviously&#8221; that <code>False</code> value was meant for the <var>a_kilobyte_is_1024_bytes</var> argument. But Python doesn&#8217;t work that way. As soon as you have a named argument, all arguments to the right of that need to be named arguments, too.
+<li>Ez az <code>approximate_size()</code> függvényt a <code>4000</code>
+első argumentummal (<var>size</var>) hívja meg, és a <code>False</code>
+értékkel az <var>a_kilobyte_is_1024_bytes</var> paraméterhez. (Ez most a
+második argumentum, de nem számít, ahogy mindjárt látni fogod.)
+<li>Ez az <code>approximate_size()</code> függvényt a <code>4000</code>
+argumentummal hívja meg a <var>size</var> paraméterhez, és a
+<code>False</code> értékkel az <var>a_kilobyte_is_1024_bytes</var>
+paraméterhez.
+(Ezek a nevesített argumentumok ugyanabban a sorrendben vannak felsorolva,
+mint a függvénydeklarációban, de ez sem számít.)
+<li>Ez az <code>approximate_size()</code> függvényt a
+<code>False</code> értékkel hívja meg az
+<var>a_kilobyte_is_1024_bytes</var> nevű paraméterhez, és a
+<code>4000</code> értékkel a <var>size</var> nevű paraméterhez. (Látod? Megmondtam, hogy a sorrend nem számít.)
+<li>Ez a hívás meghiúsul, mert egy nevesített argumentumot egy nem
+nevesített (helyzeti) argumentum követ, és ez soha nem működik. Ha az
+argumentumlistát balról jobbra olvasod, akkor egy nevesített argumentumot
+követően a többi argumentumnak is nevesítettnek kell lennie.
+<li>Ez a hívás is meghiúsul, ugyanazért, amiért az előző. Meglepő? Végül
+is, a <code>4000</code> értéket a <code>size</code> nevű paraméternek
+adtad át, &#8222;nyilvánvaló&#8221;, hogy a <code>False</code> értéket az
+<var>a_kilobyte_is_1024_bytes</var> paraméternek szántad. De a Python
+nem így működik. Amint van egy nevesített argumentumod, attól jobbra
+minden argumentumnak nevesítettnek kell lennie.
 </ol>
 
 <p class=a>&#x2042;
 
-<h2 id=readability>Writing Readable Code</h2>
-<p>I won&#8217;t bore you with a long finger-wagging speech about the importance of documenting your code. Just know that code is written once but read many times, and the most important audience for your code is yourself, six months after writing it (<i>i.e.</i> after you&#8217;ve forgotten everything but need to fix something). Python makes it easy to write readable code, so take advantage of it. You&#8217;ll thank me in six months.
-<h3 id=docstrings>Documentation Strings</h3>
-<p>You can document a Python function by giving it a documentation string (<code>docstring</code> for short). In this program, the <code>approximate_size()</code> function has a <code>docstring</code>:
+<h2 id=readability>Olvasható kód írása</h2>
+<p>Nem foglak hosszú hegyibeszéddel untatni a kódod dokumentálásának
+fontosságáról. Azt tartsd észben, hogy a kódot egyszer írják, de sokszor
+olvassák, és a kódod legfontosabb közönsége te vagy, hat hónappal a
+megírása után (<i>azaz</i> amikor már mindent elfelejtettél, de valamit ki
+kell javítanod). A Python egyszerűvé teszi az olvasható kód írását,
+használd ezt ki. Hat hónap múlva meg fogod köszönni.
+<h3 id=docstrings>Dokumentációs karakterláncok</h3>
+<p>A Python függvényeket egy dokumentációs karakterlánc
+(röviden és angolul <code>docstring</code>) megadásával dokumentálhatod. 
+Ebben a programban az <code>approximate_size()</code> függvénynek van
+<code>docstring</code>-je:
 <pre class='nd pp'><code>def approximate_size(size, a_kilobyte_is_1024_bytes=True):
-    '''Convert a file size to human-readable form.
-
-    Keyword arguments:
-    size -- file size in bytes
-    a_kilobyte_is_1024_bytes -- if True (default), use multiples of 1024
-                                if False, use multiples of 1000
-
-    Returns: string
+    '''Egy fájlméret emberek által olvasható formába konvertálása.
+    Kulcsszó argumentumok:
+    size -- a fájlméret bájtban
+    a_kilobyte_is_1024_bytes -- ha True (alapértelmezett), akkor az 1024 többszöröseit használja
+                                ha False, akkor az 1000 többszöröseit használja
+    Visszaad: karakterláncot
 
     '''</code></pre>
-<aside>Every function deserves a decent docstring.</aside>
-<p>Triple quotes signify a multi-line string. Everything between the start and end quotes is part of a single string, including carriage returns, leading white space, and other quote characters. You can use them anywhere, but you&#8217;ll see them most often used when defining a <code>docstring</code>.
+<aside>Minden függvény megérdemel egy rendes docstringet.</aside>
+<p>A három idézőjel többsoros karakterláncot jelez. A kezdő és záró
+idézőjelek között minden egyetlen karakterlánc része, beleértve a
+sortöréseket, a kezdő üres helyeket és más idézőjel karaktereket. Ezeket
+bárhol használhatod, de leggyakrabban a <code>docstring</code> megadásakor
+láthatod őket.
 <blockquote class='note compare perl5'>
-<p><span class=u>&#x261E;</span>Triple quotes are also an easy way to define a string with both single and double quotes, like <code>qq/.../</code> in Perl 5.
+<p><span class=u>&#x261E;</span>A három idézőjel segítségével egyszerűen
+adhatsz meg olyan karakterláncot, amely egyszeres és dupla idézőjelet is
+tartalmaz, a Perl 5 <code>qq/.../</code> kulcsszavához hasonlóan.
 </blockquote>
-<p>Everything between the triple quotes is the function&#8217;s <code>docstring</code>, which documents what the function does. A <code>docstring</code>, if it exists, must be the first thing defined in a function (that is, on the next line after the function declaration). You don&#8217;t technically need to give your function a <code>docstring</code>, but you always should. I know you&#8217;ve heard this in every programming class you&#8217;ve ever taken, but Python gives you an added incentive: the <code>docstring</code> is available at runtime as an attribute of the function.
+<p>A három idézőjelen belül minden a függvény <code>docstring</code>-je,
+amely a függvény működését dokumentálja. A <code>docstring</code>-et, ha
+van, a függvényben elsőként kell megadni (azaz a függvénydeklaráció utáni
+sorban). Technikailag nem kötelező a függvényhez <code>docstring</code>-et
+megadnod, de jobban jársz a megadásával. Tudom, hogy ezt minden
+programozás órán elmondták, de a Python további motivációt ad: a
+<code>docstring</code> futás közben a függvény attribútumaként is elérhető.
 <blockquote class=note>
-<p><span class=u>&#x261E;</span>Many Python <abbr>IDE</abbr>s use the <code>docstring</code> to provide context-sensitive documentation, so that when you type a function name, its <code>docstring</code> appears as a tooltip. This can be incredibly helpful, but it&#8217;s only as good as the <code>docstring</code>s you write.
+<p><span class=u>&#x261E;</span>Sok Python <abbr>IDE</abbr> a
+<code>docstring</code>-et használja helyzetérzékeny dokumentáció
+biztosítására, így amikor beírod egy függvény nevét, a hozzá tartozó
+<code>docstring</code> megjelenik a buboréksúgóban. Ez hihetetlenül
+hasznos tud lenni, de csak annyira, amennyire az általad írt
+<code>docstring</code>-ek.
 </blockquote>
 <p class=a>&#x2042;
 
-<h2 id=importsearchpath>The <code>import</code> Search Path</h2>
-<p>Before this goes any further, I want to briefly mention the library search path. Python looks in several places when you try to import a module. Specifically, it looks in all the directories defined in <code>sys.path</code>. This is just a list, and you can easily view it or modify it with standard list methods. (You&#8217;ll learn more about lists in <a href=native-datatypes.html#lists>Native Datatypes</a>.)
+<h2 id=importsearchpath>Az <code>import</code> keresési útvonala</h2>
+<p>Mielőtt továbbmegyünk, röviden szeretném megemlíteni a függvénytárak
+keresési útvonalát. A Python több helyen is keresi az importálni kívánt
+modulokat. Pontosabban, a <code>sys.path</code> által meghatározott
+könyvtárakban. Ez csak egy lista, és egyszerűen megjelenítheted vagy
+módosíthatod a szabványos listakezelési módszerekkel. (A listákról a <a
+href=native-datatypes.html#lists>Natív adattípusok</a> fejezetben tudhatsz
+meg többet.)
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>import sys</kbd>                                                 <span class=u>&#x2460;</span></a>
 <a><samp class=p>>>> </samp><kbd class=pp>sys.path</kbd>                                                   <span class=u>&#x2461;</span></a>
-<samp class=pp>['', 
- '/usr/lib/python31.zip', 
- '/usr/lib/python3.1',
- '/usr/lib/python3.1/plat-linux2@EXTRAMACHDEPPATH@', 
- '/usr/lib/python3.1/lib-dynload', 
- '/usr/lib/python3.1/dist-packages', 
- '/usr/local/lib/python3.1/dist-packages']</samp>
+<samp class=pp>['',
+ '/usr/lib/python32.zip',
+ '/usr/lib/python3.2',
+ '/usr/lib/python3.2/plat-linux2@EXTRAMACHDEPPATH@',
+ '/usr/lib/python3.2/lib-dynload',
+ '/usr/lib/python3.2/dist-packages',
+ '/usr/local/lib/python3.2/dist-packages']</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>sys</kbd>                                                        <span class=u>&#x2462;</span></a>
 <samp class=pp>&lt;module 'sys' (built-in)></samp>
 <a><samp class=p>>>> </samp><kbd class=pp>sys.path.insert(0, '/home/mark/diveintopython3/examples')</kbd>  <span class=u>&#x2463;</span></a>
 <a><samp class=p>>>> </samp><kbd class=pp>sys.path</kbd>                                                   <span class=u>&#x2464;</span></a>
-<samp class=pp>['/home/mark/diveintopython3/examples', 
- '', 
- '/usr/lib/python31.zip', 
- '/usr/lib/python3.1', 
- '/usr/lib/python3.1/plat-linux2@EXTRAMACHDEPPATH@', 
- '/usr/lib/python3.1/lib-dynload', 
- '/usr/lib/python3.1/dist-packages', 
- '/usr/local/lib/python3.1/dist-packages']</samp></pre>
+<samp class=pp>['/home/mark/diveintopython3/examples',
+ '',
+ '/usr/lib/python32.zip',
+ '/usr/lib/python3.2',
+ '/usr/lib/python3.2/plat-linux2@EXTRAMACHDEPPATH@',
+ '/usr/lib/python3.2/lib-dynload',
+ '/usr/lib/python3.2/dist-packages',
+ '/usr/local/lib/python3.2/dist-packages']</samp></pre>
 <ol>
-<li>Importing the <code>sys</code> module makes all of its functions and attributes available.
-<li><code>sys.path</code> is a list of directory names that constitute the current search path. (Yours will look different, depending on your operating system, what version of Python you&#8217;re running, and where it was originally installed.)  Python will look through these directories (in this order) for a <code>.py</code> file whose name matches what you&#8217;re trying to import.
-<li>Actually, I lied; the truth is more complicated than that, because not all modules are stored as <code>.py</code> files. Some are <i>built-in modules</i>; they are actually baked right into Python itself. Built-in modules behave just like regular modules, but their Python source code is not available, because they are not written in Python! (Like Python itself, these built-in modules are written in C.)
-<li>You can add a new directory to Python&#8217;s search path at runtime by adding the directory name to <code>sys.path</code>, and then Python will look in that directory as well, whenever you try to import a module. The effect lasts as long as Python is running.
-<li>By using <code>sys.path.insert(0, <var>new_path</var>)</code>, you inserted a new directory as the first item of the <code>sys.path</code> list, and therefore at the beginning of Python&#8217;s search path. This is almost always what you want. In case of naming conflicts (for example, if Python ships with version 2 of a particular library but you want to use version 3), this ensures that your modules will be found and used instead of the modules that came with Python.
+<li>A <code>sys</code> modul importálása minden függvényét és attribútumát elérhetővé teszi.
+<li>A <code>sys.path</code> könyvtárnevek listája, amelyek az aktuális
+keresési útvonalat alkotják. (A tiéd másképp fog kinézni, függően az
+operációs rendszeredtől, a Python verziójától, és annak eredeti
+telepítési helyétől.) A Python ezekben a könyvtárakban fogja keresni
+(ebben a sorrendben) azt a <code>.py</code> fájlt, amelynek neve
+megegyezik azzal, amit importálni próbálsz.
+<li>Valójában hazudtam. Az igazság ennél bonyolultabb, mert nem minden
+modul van <code>.py</code> fájlokként tárolva. Egyes modulok
+<i>beépítettek</i>; valójában bele vannak drótozva magába a Pythonba. A
+beépített modulok úgy viselkednek, mint a normális modulok, de a Python
+forráskódjuk nem érhető el, mivel nem Pythonban vannak írva! (Mint
+maga a Python, ezek a beépített modulok is C-ben íródtak.)
+<li>Futási időben új könyvtárat adhatsz a Python keresési útvonalához a
+könyvtárnév <code>sys.path</code>-hoz adásával, ezután a Python abban a
+könyvtárban is keresni fogja az importált modulokat. Ennek hatása addig
+tart, amíg a Python értelmező fut.
+<li>A <code>sys.path.insert(0, <var>új_útvonal</var>)</code> használatával
+beszúrtál egy új könyvtárat a <code>sys.path</code> lista első elemeként,
+emiatt a Python keresési útvonalának elejére. Majdnem mindig ezt
+szeretnéd. Elnevezési ütközések esetén (ha például a Python egy adott
+függvénytár 2-es verzióját szállítja, de a 3-as verziót szeretnéd
+használni), akkor ez biztosítja, hogy a moduljaidat a Python a beépített
+modulok előtt találja meg és használja.
 </ol>
 
 <p class=a>&#x2042;
 
-<h2 id=everythingisanobject>Everything Is An Object</h2>
-<p>In case you missed it, I just said that Python functions have attributes, and that those attributes are available at runtime. A function, like everything else in Python, is an object.
-<p>Run the interactive Python shell and follow along:
+<h2 id=everythingisanobject>Minden objektum</h2>
+<p>Ha elsiklottál volna fölötte, akkor az előbb azt mondtam, hogy a Python
+függvényeknek attribútumaik vannak, és azok az attribútumok futás
+közben elérhetők. A függvények, mint minden más is Pythonban, objektumok.
+<p>Indítsd el az interaktív Python parancsértelmezőt, és próbáld ki ezt:
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>import humansize</kbd>                               <span class=u>&#x2460;</span></a>
 <a><samp class=p>>>> </samp><kbd class=pp>print(humansize.approximate_size(4096, True))</kbd>  <span class=u>&#x2461;</span></a>
 <samp class=pp>4.0 KiB</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>print(humansize.approximate_size.__doc__)</kbd>      <span class=u>&#x2462;</span></a>
-<samp>Convert a file size to human-readable form.
+<samp>Egy fájlméret emberek által olvasható formába konvertálása.
 
-    Keyword arguments:
-    size -- file size in bytes
-    a_kilobyte_is_1024_bytes -- if True (default), use multiples of 1024
-                                if False, use multiples of 1000
-
-    Returns: string
+    Kulcsszó argumentumok:
+    size -- a fájlméret bájtban
+    a_kilobyte_is_1024_bytes -- ha True (alapértelmezett), akkor az 1024 többszöröseit használja
+                                ha False, akkor az 1000 többszöröseit használja
+    Visszaad: karakterláncot
 
 </samp></pre>
 <ol>
-<li>The first line imports the <code>humansize</code> program as a module&nbsp;&mdash;&nbsp;a chunk of code that you can use interactively, or from a larger Python program. Once you import a module, you can reference any of its public functions, classes, or attributes. Modules can do this to access functionality in other modules, and you can do it in the Python interactive shell too. This is an important concept, and you&#8217;ll see a lot more of it throughout this book.
-<li>When you want to use functions defined in imported modules, you need to include the module name. So you can&#8217;t just say <code>approximate_size</code>; it must be <code>humansize.approximate_size</code>. If you&#8217;ve used classes in Java, this should feel vaguely familiar.
-<li>Instead of calling the function as you would expect to, you asked for one of the function&#8217;s attributes, <code>__doc__</code>.
+<li>Az első sor a <code>humansize</code> programot modulként
+importálja&nbsp;&mdash;&nbsp;ez egy olyan kóddarab, amelyet interaktívan vagy
+egy nagyobb Python programból is használhatsz. Egy modul importálása után
+bármely nyilvános függvényére, osztályára vagy attribútumára
+hivatkozhatsz. A modulok ezzel elérhetik más modulok funkcionalitását, és
+ezt a Python interaktív parancsértelmezőjéből te is megteheted. Ez egy
+fontos fogalom, és rengetegszer fogod látni ebben a könyvben.
+<li>Amikor az importált modulokban definiált függvényeket akarod
+használni, akkor a modulnevet is használnod kell. Emiatt nem hivatkozhatsz
+az <code>approximate_size</code> függvényre; hanem csak a
+<code>humansize.approximate_size</code> függvényre. Ha használtál
+osztályokat Javaban, akkor ez nagyjából ismerős kell legyen.
+<li>A függvény hívása helyett az egyik attribútumát, a
+<code>__doc__</code>-ot kéred le.
 </ol>
 <blockquote class='note compare perl5'>
-<p><span class=u>&#x261E;</span><code>import</code> in Python is like <code>require</code> in Perl. Once you <code>import</code> a Python module, you access its functions with <code><var>module</var>.<var>function</var></code>; once you <code>require</code> a Perl module, you access its functions with <code><var>module</var>::<var>function</var></code>.
+<p><span class=u>&#x261E;</span>Az <code>import</code> Pythonban olyan,
+mint a <code>require</code> Perlben. Az <code>import</code> használatával
+beágyazott Python modult függvényeit
+<code><var>modul</var>.<var>függvény</var></code> formában érheted el; a
+<code>require</code> használatával beágyazott Perl modul függvényeit a
+<code><var>modul</var>::<var>függvény</var></code> formában érheted el.
 </blockquote>
-<h3 id=whatsanobject>What&#8217;s An Object?</h3>
-<p>Everything in Python is an object, and everything can have attributes and methods. All functions have a built-in attribute <code>__doc__</code>, which returns the <var>docstring</var> defined in the function&#8217;s source code. The <code>sys</code> module is an object which has (among other things) an attribute called <var>path</var>. And so forth.
-<p>Still, this doesn&#8217;t answer the more fundamental question: what is an object?  Different programming languages define &#8220;object&#8221; in different ways. In some, it means that <em>all</em> objects <em>must</em> have attributes and methods; in others, it means that all objects are subclassable. In Python, the definition is looser. Some objects have neither attributes nor methods, <em>but they could</em>. Not all objects are subclassable. But everything is an object in the sense that it can be assigned to a variable or passed as an argument to a function.
-<p>You may have heard the term &#8220;first-class object&#8221; in other programming contexts. In Python, functions are <i>first-class objects</i>. You can pass a function as an argument to another function. Modules are <i>first-class objects</i>. You can pass an entire module as an argument to a function. Classes are first-class objects, and individual instances of a class are also first-class objects.
-<p>This is important, so I&#8217;m going to repeat it in case you missed it the first few times: <em>everything in Python is an object</em>. Strings are objects. Lists are objects. Functions are objects. Classes are objects. Class instances are objects. Even modules are objects.
+<h3 id=whatsanobject>Mi az az objektum?</h3>
+<p>Pythonban minden objektum, és mindennek lehetnek attribútumai és
+metódusai. Minden függvénynek van egy beépített <code>__doc__</code> nevű
+attribútuma, amely a függvény forráskódjában definiált
+<var>docstring</var> értékét adja vissza. A <code>sys</code> modul egy
+objektum, amely rendelkezik (többek között) egy <var>path</var> nevű
+attribútummal. És így tovább.
+<p>Ez azonban még mindig nem válaszolja meg az alapkérdést: mi az az
+objektum? A különböző programozási nyelvek különbözőképpen definiálják az
+&#8222;objektum&#8221; fogalmát. Egyesekben ez azt jelenti, hogy
+<em>minden</em> objektumnak rendelkeznie <em>kell</em> attribútumokkal és
+metódusokkal, másokban azt jelenti, hogy minden objektumból származtatható
+osztály. Pythonban a definíció lazább. Egyes objektumoknak nincsenek sem
+attribútumai, sem metódusai, <em>de lehetne nekik</em>. Nem minden
+objektumból származtathatók osztályok. De minden objektum abban az
+értelemben, hogy változóhoz rendelhetők, vagy átadhatók egy függvény
+argumentumaként.
+<p>Más programozási nyelvek kapcsán hallhattad az &#8222;első osztályú
+objektum&#8221; kifejezést. Pythonban a függvények <i>első
+osztályú objektumok</i>. Egy függvény átadható argumentumként egy másik
+függvénynek. A modulok <i>első osztályú objektumok</i>. Egy egész modult
+átadhatsz argumentumként egy függvénynek. Az osztályok első osztályú
+objektumok, és az osztályok egyes példányai is első osztályú objektumok.
+<p>Ez fontos, ezért megismétlem, ha az első néhány alkalommal
+lemaradtál róla: <em>Pythonban minden objektum</em>. A karakterláncok
+objektumok. A listák objektumok. A függvények objektumok. Az osztályok
+objektumok. Az osztálypéldányok objektumok. Még a modulok is objektumok.
 <p class=a>&#x2042;
 
-<h2 id=indentingcode>Indenting Code</h2>
-<p>Python functions have no explicit <code>begin</code> or <code>end</code>, and no curly braces to mark where the function code starts and stops. The only delimiter is a colon (<code>:</code>) and the indentation of the code itself.
+<h2 id=indentingcode>Kódbehúzás</h2>
+<p>A Python függvények nem rendelkeznek explicit <code>kezdettel</code>
+vagy <code>véggel</code>, és nem jelöli kapcsos zárójel a függvények
+kezdetét és végét. Az egyetlen határoló a kettőspont (<code>:</code>) és
+maga a kódbehúzás.
 <pre class=pp><code><a>def approximate_size(size, a_kilobyte_is_1024_bytes=True):  <span class=u>&#x2460;</span></a>
 <a>    if size &lt; 0:                                            <span class=u>&#x2461;</span></a>
-<a>        raise ValueError('number must be non-negative')     <span class=u>&#x2462;</span></a>
+<a>        raise ValueError('a szám nem lehet negatív')     <span class=u>&#x2462;</span></a>
 <a>                                                            <span class=u>&#x2463;</span></a>
     multiple = 1024 if a_kilobyte_is_1024_bytes else 1000
 <a>    for suffix in SUFFIXES[multiple]:                       <span class=u>&#x2464;</span></a>
@@ -236,83 +417,188 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
         if size &lt; multiple:
             return '{0:.1f} {1}'.format(size, suffix)
 
-    raise ValueError('number too large')</code></pre>
+    raise ValueError('a szám túl nagy')</code></pre>
 <ol>
-<li>Code blocks are defined by their indentation. By &#8220;code block,&#8221; I mean functions, <code>if</code> statements, <code>for</code> loops, <code>while</code> loops, and so forth. Indenting starts a block and unindenting ends it. There are no explicit braces, brackets, or keywords. This means that whitespace is significant, and must be consistent. In this example, the function code is indented four spaces. It doesn&#8217;t need to be four spaces, it just needs to be consistent. The first line that is not indented marks the end of the function.
-<li>In Python, an <code>if</code> statement is followed by a code block. If the <code>if</code> expression evaluates to true, the indented block is executed, otherwise it falls to the <code>else</code> block (if any). Note the lack of parentheses around the expression.
-<li>This line is inside the <code>if</code> code block. This <code>raise</code> statement will raise an exception (of type <code>ValueError</code>), but only if <code>size &lt; 0</code>.
-<li>This is <em>not</em> the end of the function. Completely blank lines don&#8217;t count. They can make the code more readable, but they don&#8217;t count as code block delimiters. The function continues on the next line.
-<li>The <code>for</code> loop also marks the start of a code block. Code blocks can contain multiple lines, as long as they are all indented the same amount. This <code>for</code> loop has three lines of code in it. There is no other special syntax for multi-line code blocks. Just indent and get on with your life.
+<li>A kódblokkokat a behúzásuk határozza meg. A &#8222;kódblokk&#8221;
+alatt függvényeket, <code>if</code> utasításokat, <code>for</code>
+ciklusokat, <code>while</code> ciklusokat és hasonlókat értek. A
+behúzás elkezdi a blokkot, és a behúzás vége befejezi. Nincsenek explicit
+kapcsos zárójelek, szögletes zárójelek vagy kulcsszavak. Ez azt jelenti,
+hogy az üres helynek jelentősége van, és konzisztensnek kell lennie. Ebben
+a példában a függvény kódját négy szóköz húzza be. Nem kell mindig négy
+szóköznek lennie, csak konzisztensnek. Az első sor, amely nincs behúzva,
+jelzi a függvény végét.
+<li>Pythonban az <code>if</code> utasítást egy kódblokk követi. Ha az
+<code>if</code> kifejezés értéke igaz, akkor a behúzott blokk kerül
+végrehajtásra, ellenkező esetben az <code>else</code> blokk (ha van). Vedd
+észre a zárójelek hiányát a kifejezés körül.
+<li>Ez a sor az <code>if</code> kódblokkon belül van. Ez a
+<code>raise</code> utasítás egy (<code>ValueError</code> típusú) kivételt fog
+dobni, de csak ha a <code>size &lt; 0</code>.
+<li>Ez <em>nem</em> a függvény vége. A teljesen üres sorok nem számítanak. Ezek
+olvashatóbbá tehetik a kódot, de nem számítanak kódblokkhatárolónak. A
+függvény a következő sorban folytatódik.
+<li>A <code>for</code> ciklus is a kódblokk kezdetét jelzi. A kódblokkok
+több sort is tartalmazhatnak, amíg ugyanannyival vannak behúzva. Ez a
+<code>for</code> ciklus három sort tartalmaz. A többsoros
+kódblokkoknak nincs speciális szintaxisuk. Csak húzd be őket, és haladj.
 </ol>
-<p>After some initial protests and several snide analogies to Fortran, you will make peace with this and start seeing its benefits. One major benefit is that all Python programs look similar, since indentation is a language requirement and not a matter of style. This makes it easier to read and understand other people&#8217;s Python code.
+<p>Némi kezdeti tiltakozás és rosszindulatú Fortranhoz hasonlítgatás után
+meg fogsz ezzel békülni, és elkezded látni az előnyeit. Az egyik nagy előnye,
+hogy minden Python program hasonlóan néz ki, mert a behúzás a nyelv
+követelménye, és nem stílus kérdése. Ez egyszerűbbé teszi mások Python
+kódjának olvasását és megértését.
 <blockquote class='note compare java'>
-<p><span class=u>&#x261E;</span>Python uses carriage returns to separate statements and a colon and indentation to separate code blocks. <abbr>C++</abbr> and Java use semicolons to separate statements and curly braces to separate code blocks.
+<p><span class=u>&#x261E;</span>A Python sortöréseket használ az
+utasítások elválasztására, és kettőspontot és behúzást a kódblokkok
+elválasztására. A <abbr>C++</abbr> és Java pontosvesszőket használnak az
+utasítások elválasztására, és kapcsos zárójeleket a kódblokkok
+elválasztására.
 </blockquote>
 <p class=a>&#x2042;
 
-<h2 id=exceptions>Exceptions</h2>
+<h2 id=exceptions>Kivételek</h2>
 
-<p>Exceptions are everywhere in Python. Virtually every module in the standard Python library uses them, and Python itself will raise them in a lot of different circumstances. You&#8217;ll see them repeatedly throughout this book.
+<p>A Python tele van kivételekkel. Gyakorlatilag a szabványos függvénytár
+minden modulja használja ezeket, és maga a Python is rengeteg különböző
+helyzetben dob kivételeket. A könyvben újra és újra találkozni fogsz velük.
 
-<p>What is an exception? Usually it&#8217;s an error, an indication that something went wrong. (Not all exceptions are errors, but never mind that for now.) Some programming languages encourage the use of error return codes, which you <em>check</em>. Python encourages the use of exceptions, which you <em>handle</em>.
+<p>Mi az a kivétel? Általában egy hiba, azt jelzi, hogy valami nem
+sikerült. (Nem minden kivétel hiba, de egyelőre ezzel ne foglalkozz.) Egyes
+programozási nyelvek a visszatérési kódok használatát bátorítják,
+amelyeket <em>ellenőrizhetsz</em>. A Python a kivételek használatát
+bátorítja, amelyeket <em>kezelhetsz</em>.
 
-<p>When an error occurs in the Python Shell, it prints out some details about the exception and how it happened, and that&#8217;s that. This is called an <em>unhandled</em> exception. When the exception was raised, there was no code to explicitly notice it and deal with it, so it bubbled its way back up to the top level of the Python Shell, which spits out some debugging information and calls it a day. In the shell, that's no big deal, but if that happened while your actual Python program was running, the entire program would come to a screeching halt if nothing handles the exception. Maybe that&#8217;s what you want, maybe it isn&#8217;t.
+<p>Amikor hiba történik a Python parancsértelmezőben, akkor kiír néhány
+részletet a kivételről és a bekövetkezésének körülményeiről, és ennyi. Ezt
+<em>kezeletlen</em> kivételnek hívjuk. A kivétel dobásakor nem volt jelen
+kód az észrevételéhez és kezeléséhez, így az feljutott a Python
+parancsértelmező felső szintjére, amely kiköp némi hibakeresési
+információt, és ennyivel megoldottnak tekinti a problémát. A
+parancsértelmezőben ez nem gond, de ha egy tényleges Python program futása
+közben történt volna, akkor - hacsak valami nem kezeli a kivételt - az
+egész program összeomlott volna. Lehet,
+hogy ezt akarod, lehet, hogy nem.
 
 <blockquote class='note compare java'>
-<p><span class=u>&#x261E;</span>Unlike Java, Python functions don&#8217;t declare which exceptions they might raise. It&#8217;s up to you to determine what possible exceptions you need to catch.
+<p><span class=u>&#x261E;</span>A Javaval ellentétben a Python függvények
+nem deklarálják, hogy milyen kivételeket dobhatnak. Rád van bízva,
+hogy meghatározd, milyen esetleg bekövetkező kivételeket kell elkapnod.
 </blockquote>
 
-<p>An exception doesn&#8217;t need to result in a complete program crash, though. Exceptions can be <em>handled</em>. Sometimes an exception is really because you have a bug in your code (like accessing a variable that doesn&#8217;t exist), but sometimes an exception is something you can anticipate. If you&#8217;re opening a file, it might not exist. If you&#8217;re importing a module, it might not be installed. If you&#8217;re connecting to a database, it might be unavailable, or you might not have the correct security credentials to access it. If you know a line of code may raise an exception, you should handle the exception using a <code>try...except</code> block.
+<p>Egy kivétel azonban nem okozza szükségszerűen a teljes program
+összeomlását. A kivételek <em>kezelhetők</em>. Néha egy kivétel csak a
+kódod hibáját jelzi (például nem létező változót próbálsz elérni), de néha
+a kivétel egy várható dolog. Amikor megnyitsz egy fájlt, akkor
+előfordulhat, hogy az nem létezik. Amikor importálsz egy modult, akkor
+előfordulhat, hogy az nincs telepítve. Amikor egy adatbázishoz
+csatlakozol, akkor előfordulhat, hogy az nem érhető el, vagy nincsenek
+megadva az eléréséhez szükséges hitelesítési adatok. Ha tudod, hogy egy
+kódsor kivételt dobhat, akkor azt a kivételt kezelned kell egy
+<code>try...except</code> blokkal.
 
 <blockquote class='note compare java'>
-<p><span class=u>&#x261E;</span>Python uses <code>try...except</code> blocks to handle exceptions, and the <code>raise</code> statement to generate them. Java and <abbr>C++</abbr> use <code>try...catch</code> blocks to handle exceptions, and the <code>throw</code> statement to generate them.
+<p><span class=u>&#x261E;</span>A Python a <code>try...except</code>
+blokkokat használja a kivételek kezelésére, és a <code>raise</code>
+utasítást az előállításukra. A Java és a <abbr>C++</abbr> a
+<code>try...catch</code> blokkokat használják a kivételek kezelésére, és a
+<code>throw</code> utasítást az előállításukra.
+
 </blockquote>
 
-<p>The <code>approximate_size()</code> function raises exceptions in two different cases: if the given <var>size</var> is larger than the function is designed to handle, or if it&#8217;s less than zero.
+<p>Az <code>approximate_size()</code> függvény két különböző esetben dob
+kivételt: ha a megadott <var>size</var> értéke nagyobb, mint aminek a
+kezelésére a függvény tervezve van, vagy ha az kisebb, mint nulla.
 
 <pre class='nd pp'><code>if size &lt; 0:
-    raise ValueError('number must be non-negative')</code></pre>
+    raise ValueError('a szám nem lehet negatív'')</code></pre>
 
-<p>The syntax for raising an exception is simple enough. Use the <code>raise</code> statement, followed by the exception name, and an optional human-readable string for debugging purposes. The syntax is reminiscent of calling a function. (In reality, exceptions are implemented as classes, and this <code>raise</code> statement is actually creating an instance of the <code>ValueError</code> class and passing the string <code>'number must be non-negative'</code> to its initialization method. But <a href=iterators.html#defining-classes>we&#8217;re getting ahead of ourselves</a>!)
+<p>A kivétel dobásának szintaxisa elég egyszerű. Add meg a
+<code>raise</code> utasítást, majd a kivétel nevét, és egy elhagyható,
+emberek által olvasható karakterláncot hibakeresési célokra. A szintaxis
+hasonlít egy függvény hívásához. (A valóságban a kivételek osztályokként
+vannak megvalósítva, és ez a <code>raise</code> utasítás példányosítja a
+<code>ValueError</code> osztályt, és átadja neki az <code>'a szám nem
+lehet negatív''</code> karakterláncot az inicializálási metódusában. De <a
+href=iterators.html#defining-classes>ezzel most előre szaladtam</a>!)
 
 <blockquote class=note>
-<p><span class=u>&#x261E;</span>You don&#8217;t need to handle an exception in the function that raises it. If one function doesn&#8217;t handle it, the exception is passed to the calling function, then that function&#8217;s calling function, and so on &#8220;up the stack.&#8221; If the exception is never handled, your program will crash, Python will print a &#8220;traceback&#8221; to standard error, and that&#8217;s the end of that. Again, maybe that&#8217;s what you want; it depends on what your program does.
+<p><span class=u>&#x261E;</span>A kivételt nem kötelező abban a
+függvényben kezelned, amely dobja. Ha egy függvény nem kezeli, akkor a
+kivétel átadásra kerül a hívó függvénynek, ezután annak a hívó
+függvényének és így tovább a &#8222;hívási láncon.&#8221; Ha a kivétel
+soha nem kerül kezelésre, akkor a program összeomlik, és a Python kiír egy
+&#8222;visszakövetést&#8221; a szabványos hibakimenetre, és ezzel vége. Ismétlem,
+lehet, hogy ezt akarod, attól függ, hogy mit csinál a programod.
+
 </blockquote>
 
-<h3 id=importerror>Catching Import Errors</h3>
+<h3 id=importerror>Importálási hibák elkapása</h3>
 
-<p>One of Python&#8217;s built-in exceptions is <code>ImportError</code>, which is raised when you try to import a module and fail. This can happen for a variety of reasons, but the simplest case is when the module doesn&#8217;t exist in your <a href=#importsearchpath>import search path</a>. You can use this to include optional features in your program. For example, <a href=case-study-porting-chardet-to-python-3.html>the <code>chardet</code> library</a> provides character encoding auto-detection. Perhaps your program wants to use this library <em>if it exists</em>, but continue gracefully if the user hasn&#8217;t installed it. You can do this with a <code>try..except</code> block.
+<p>A Python egyik beépített kivétele az <code>ImportError</code>, amelyet
+akkor dob, amikor megpróbálsz importálni egy modult, de az nem sikerül. 
+Ez rengeteg okból bekövetkezhet, de a legegyszerűbb, hogy a modul nem
+létezik az <a href=#importsearchpath>import keresési útvonalán</a>. Ezt
+elhagyható szolgáltatások felvételére használhatod a programodba. Például
+<a href=case-study-porting-chardet-to-python-3.html>a <code>chardet</code>
+függvénytár</a> a karakterkódolás automatikus felismerését nyújtja. Lehet,
+hogy a programod használni akarja ezt a könyvtárat, <em>ha létezik</em>,
+de akkor is elegánsan folytatódik, ha a felhasználó nem telepítette. Ezt
+egy <code>try..except</code> blokkal oldhatod meg.
 
 <pre class='nd pp'><code><mark>try</mark>:
   import chardet
 <mark>except</mark> ImportError:
   chardet = None</code></pre>
 
-<p>Later, you can check for the presence of the <code>chardet</code> module with a simple <code>if</code> statement:
+<p>Később a <code>chardet</code> modul jelenlétét egy egyszerű
+<code>if</code> utasítással ellenőrizheted:
 
 <pre class='nd pp'><code>if chardet:
-  # do something
+  # csinál valamit
 else:
-  # continue anyway</code></pre>
+  # így is folytatódik</code></pre>
 
-<p>Another common use of the <code>ImportError</code> exception is when two modules implement a common <abbr>API</abbr>, but one is more desirable than the other. (Maybe it&#8217;s faster, or it uses less memory.) You can try to import one module but fall back to a different module if the first import fails. For example, <a href=xml.html>the XML chapter</a> talks about two modules that implement a common <abbr>API</abbr>, called the <code>ElementTree</code> <abbr>API</abbr>. The first, <code>lxml</code>, is a third-party module that you need to download and install yourself. The second, <code>xml.etree.ElementTree</code>, is slower but is part of the Python 3 standard library.
+<p>Az <code>ImportError</code> kivétel másik gyakori használati módja,
+amikor két modul valósít meg egy közös <abbr>API</abbr>-t, de az egyik
+valamiért jobb, mint a másik. (Például gyorsabb vagy kevesebb memóriát
+használ.) Megpróbálhatod importálni az egyik modult, de használhatsz egy
+másik modult, ha az első importálás meghiúsul. Az <a href=xml.html>XML
+fejezet</a> például két modulról beszél, amelyek megvalósítanak egy közös
+<abbr>API</abbr>-t, az <code>ElementTree</code> nevű <abbr>API</abbr>-t. 
+Az első, az <code>lxml</code> egy külső modul, amelyet saját magadnak kell
+letöltened és telepítened. A második, az
+<code>xml.etree.ElementTree</code> lassabb, de része a Python 3 szabványos
+függvénytárának.
 
 <pre class='nd pp'><code>try:
     from lxml import etree
 except ImportError:
     import xml.etree.ElementTree as etree</code></pre>
 
-<p>By the end of this <code>try..except</code> block, you have imported <em>some</em> module and named it <var>etree</var>. Since both modules implement a common <abbr>API</abbr>, the rest of your code doesn&#8217;t need to keep checking which module got imported. And since the module that <em>did</em> get imported is always called <var>etree</var>, the rest of your code doesn&#8217;t need to be littered with <code>if</code> statements to call differently-named modules.
+<p>Ennek a <code>try..except</code> blokknak a végére importáltál
+<em>egy</em> modult, amit <var>etree</var>-nek nevezel. Mivel mindkét
+modul egy közös <abbr>API</abbr>-t valósít meg, a kódod többi részének nem
+kell folyton ellenőriznie, hogy melyik modul lett importálva. Mivel a
+<em>ténylegesen</em> importált modul neve mindig <var>etree</var>, a kódot
+nem kell teleszemetelni <code>if</code> utasításokkal, hogy más-más nevű
+modulokat hívjanak.
 
 <p class=a>&#x2042;
 
-<h2 id=nameerror>Unbound Variables</h2>
+<h2 id=nameerror>Nem kötött változók</h2>
 
-<p>Take another look at this line of code from the <code>approximate_size()</code> function:
+<p>Vessünk egy újabb pillantást az <code>approximate_size()</code>
+függvény ezen sorára:
 
 <pre class='nd pp'><code>multiple = 1024 if a_kilobyte_is_1024_bytes else 1000</code></pre>
 
-<p>You never declare the variable <var>multiple</var>, you just assign a value to it. That&#8217;s OK, because Python lets you do that. What Python will <em>not</em> let you do is reference a variable that has never been assigned a value. Trying to do so will raise a <code>NameError</code> exception.
+<p>A <var>multiple</var> változót sehol nem deklarálod, csak hozzárendelsz
+egy értéket. Ez rendben van, mert a Python lehetővé teszi. Amit a Python
+<em>nem</em> fog lehetővé tenni, az egy olyan változóra hivatkozás,
+amelyhez soha nem rendeltél értéket. Ha megpróbálod, akkor a Python egy
+<code>NameError</code> kivételt fog dobni.
+
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>x</kbd>
 <samp class=traceback>Traceback (most recent call last):
@@ -322,67 +608,89 @@ NameError: name 'x' is not defined</samp>
 <samp class=p>>>> </samp><kbd class=pp>x</kbd>
 <samp class=pp>1</samp></pre>
 
-<p>You will thank Python for this one day.
+<p>Egy napon ezt meg fogod köszönni a Pythonnak.
 
 <p class=a>&#x2042;
 
-<h2 id=case>Everything is Case-Sensitive</h2>
+<h2 id=case>Minden megkülönbözteti a kis- és nagybetűket</h2>
 
-<p>All names in Python are case-sensitive: variable names, function names, class names, module names, exception names. If you can get it, set it, call it, construct it, import it, or raise it, it&#8217;s case-sensitive.
+<p>A Pythonban minden név megkülönbözteti a kis- és nagybetűket:
+változónevek, függvénynevek, osztálynevek, modulnevek, kivételnevek. Ha le
+tudod kérdezni, be tudod állítani, meg tudod hívni, létre tudod hozni,
+importálni vagy dobni tudod, akkor megkülönbözteti a kis- és nagybetűket.
 
 <pre class='nd screen'>
-<samp class=p>>>> </samp><kbd class=pp>an_integer = 1</kbd>
-<samp class=p>>>> </samp><kbd class=pp>an_integer</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_változó = 1</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_változó</kbd>
 <samp class=pp>1</samp>
-<samp class=p>>>> </samp><kbd>AN_INTEGER</kbd>
+<samp class=p>>>> </samp><kbd>EGY_VÁLTOZÓ</kbd>
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;stdin>", line 1, in &lt;module>
-NameError: name 'AN_INTEGER' is not defined</samp>
-<samp class=p>>>> </samp><kbd>An_Integer</kbd>
+NameError: name 'EGY_VÁLTOZÓ' is not defined</samp>
+<samp class=p>>>> </samp><kbd>Egy_Változó</kbd>
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;stdin>", line 1, in &lt;module>
-NameError: name 'An_Integer' is not defined</samp>
-<samp class=p>>>> </samp><kbd>an_inteGer</kbd>
+NameError: name 'Egy_Változó' is not defined</samp>
+<samp class=p>>>> </samp><kbd>egy_válTozó</kbd>
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;stdin>", line 1, in &lt;module>
-NameError: name 'an_inteGer' is not defined</samp>
+NameError: name 'egy_válTozó' is not defined</samp>
 </pre>
 
-<p>And so on.
+<p>És így tovább.
 
 <p class=a>&#x2042;
 
-<h2 id=runningscripts>Running Scripts</h2>
-<aside>Everything in Python is an object.</aside>
-<p>Python modules are objects and have several useful attributes. You can use this to easily test your modules as you write them, by including a special block of code that executes when you run the Python file on the command line. Take the last few lines of <code>humansize.py</code>:
+<h2 id=runningscripts>Parancsfájlok futtatása</h2>
+<aside>Pythonban minden objektum.</aside>
+<p>A Python modulok objektumok, és számos hasznos attribútummal
+rendelkeznek. Ezt a moduljaid egyszerű tesztelésére használhatod azok
+írása közben. Csak vegyél fel egy speciális blokkot, amely lefut a Python
+fájl parancssorban való futtatásakor. Vegyük a <code>humansize.py</code>
+utolsó néhány sorát:
+
 <pre class='nd pp'><code>
 if __name__ == '__main__':
     print(approximate_size(1000000000000, False))
     print(approximate_size(1000000000000))</code></pre>
 <blockquote class='note compare clang'>
-<p><span class=u>&#x261E;</span>Like <abbr>C</abbr>, Python uses <code>==</code> for comparison and <code>=</code> for assignment. Unlike <abbr>C</abbr>, Python does not support in-line assignment, so there&#8217;s no chance of accidentally assigning the value you thought you were comparing.
+<p><span class=u>&#x261E;</span>A <abbr>C</abbr>-hez hasonlóan a Python is
+az <code>==</code> operátort használja az összehasonlításra, és az
+<code>=</code> operátort az értékadásra. A <abbr>C</abbr>-vel szemben a
+Python nem támogatja a beágyazott értékadást, így nem tudod véletlenül
+hozzárendelni azt az értéket, amelyet össze akartál hasonlítani.
 </blockquote>
-<p>So what makes this <code>if</code> statement special?  Well, modules are objects, and all modules have a built-in attribute <code>__name__</code>. A module&#8217;s <code>__name__</code> depends on how you&#8217;re using the module. If you <code>import</code> the module, then <code>__name__</code> is the module&#8217;s filename, without a directory path or file extension.
+<p>Akkor mi teszi ezt az <code>if</code> utasítást olyan különlegessé? 
+Nos, a modulok objektumok, és minden modulnak van egy beépített
+<code>__name__</code> attribútuma. A modul <code>__name__</code>
+attribútumának értéke attól függ, hogyan használod a modult. Ha
+<code>import</code> utasítással importálod a modult, akkor a
+<code>__name__</code> értéke a modul fájlneve lesz, könyvtárelérési út
+vagy fájlkiterjesztés nélkül.
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>import humansize</kbd>
 <samp class=p>>>> </samp><kbd class=pp>humansize.__name__</kbd>
 <samp class=pp>'humansize'</samp></pre>
-<p>But you can also run the module directly as a standalone program, in which case <code>__name__</code> will be a special default value, <code>__main__</code>. Python will evaluate this <code>if</code> statement, find a true expression, and execute the <code>if</code> code block. In this case, to print two values.
+<p>A modult azonban közvetlenül is futtathatod önálló programként, ebben
+az esetben a <code>__name__</code> egy speciális alapértelmezett
+értéket kap, ez a <code>__main__</code>. A Python kiértékeli ezt az
+<code>if</code> utasítást, igaz kifejezést talál, és végrehajtja az
+<code>if</code> kódblokkját. Ebben az esetben két értéket ír ki.
 <pre class='nd screen'>
-<samp class=p>c:\home\diveintopython3> </samp><kbd>c:\python31\python.exe humansize.py</kbd>
-<samp>1.0 TB
+<samp class=p>c:\home\diveintopython3> </samp><kbd>c:\python32\python.exe
+humansize.py</kbd> <samp>1.0 TB
 931.3 GiB</samp></pre>
-<p>And that&#8217;s your first Python program!
+<p>És ez volt az első Python programod!
 <p class=a>&#x2042;
 
-<h2 id=furtherreading>Further Reading</h2>
+<h2 id=furtherreading>További olvasnivaló</h2>
 <ul>
-<li><a href=http://www.python.org/dev/peps/pep-0257/>PEP 257: Docstring Conventions</a> explains what distinguishes a good <code>docstring</code> from a great <code>docstring</code>.
-<li><a href=http://docs.python.org/3.1/tutorial/controlflow.html#documentation-strings>Python Tutorial: Documentation Strings</a> also touches on the subject.
-<li><a href=http://www.python.org/dev/peps/pep-0008/>PEP 8: Style Guide for Python Code</a> discusses good indentation style.
-<li><a href=http://docs.python.org/3.1/reference/><cite>Python Reference Manual</cite></a> explains what it means to say that <a href=http://docs.python.org/3.1/reference/datamodel.html#objects-values-and-types>everything in Python is an object</a>, because some people are <a href=http://www.douglasadams.com/dna/pedants.html>pedants</a> and like to discuss that sort of thing at great length.
+<li>A <a href=http://www.python.org/dev/peps/pep-0257/>PEP 257: Docstring Conventions</a> elmagyarázza, mi különbözteti meg a jó <code>docstring</code>-et a nagyszerű <code>docstring</code>-től.
+<li>A <a href=http://docs.python.org/3.1/tutorial/controlflow.html#documentation-strings>Python Tutorial: Documentation Strings</a> szintén érinti a témát.
+<li>A <a href=http://www.python.org/dev/peps/pep-0008/>PEP 8: Style Guide for Python Code</a> a jó behúzási stílust ismerteti.
+<li>A <a href=http://docs.python.org/3.1/reference/><cite>Python Reference Manual</cite></a> elmagyarázza, hogy mit jelent azt mondani, hogy <a href=http://docs.python.org/3.1/reference/datamodel.html#objects-values-and-types>Pythonban minden objektum</a>, mert él köztünk néhány <a href=http://www.douglasadams.com/dna/pedants.html>pedáns</a>, akik szeretnek az ilyen dolgokról hosszan értekezni.
 </ul>
-<p class=v><a rel=prev href=installing-python.html title='back to &#8220;Installing Python&#8221;'><span class=u>&#x261C;</span></a> <a rel=next href=native-datatypes.html title='onward to &#8220;Native Datatypes&#8221;'><span class=u>&#x261E;</span></a>
+<p class=v><a rel=prev href=installing-python.html title='vissza &#8222;A Python telepítése&#8221; fejezetre'><span class=u>&#x261C;</span></a> <a rel=next href=native-datatypes.html title='előre a &#8222;Natív adattípusok&#8221; fejezetre'><span class=u>&#x261E;</span></a>
 <p class=c>&copy; 2001&ndash;11 <a href=about.html>Mark Pilgrim</a>
 <script src=j/jquery.js></script>
 <script src=j/prettify.js></script>
