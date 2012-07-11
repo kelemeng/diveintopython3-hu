@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset=utf-8>
-<title>Classes &amp; Iterators - Dive Into Python 3</title>
+<title>Osztályok és iterátorok - Ugorj fejest a Python 3-ba</title>
 <!--[if IE]><script src=j/html5.js></script><![endif]-->
 <link rel=stylesheet href=dip3.css>
 <style>
@@ -9,22 +9,23 @@ body{counter-reset:h1 7}
 <link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
 <link rel=stylesheet media=print href=print.css>
 <meta name=viewport content='initial-scale=1.0'>
-<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:l5eihuescdw><input type=hidden name=ie value=UTF-8>&nbsp;<input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#iterators>Dive Into Python 3</a> <span class=u>&#8227;</span>
-<p id=level>Difficulty level: <span class=u title=intermediate>&#x2666;&#x2666;&#x2666;&#x2662;&#x2662;</span>
-<h1>Classes <i class=baa>&amp;</i> Iterators</h1>
+<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:l5eihuescdw><input type=hidden name=ie value=UTF-8>&nbsp;<input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Keresés></div></form>
+<p>Itt vagy: <a href=index.html>Kezdőlap</a> <span
+class=u>&#8227;</span> <a href=table-of-contents.html#iterators>Ugorj fejest a Python 3-ba</a> <span class=u>&#8227;</span>
+<p id=level>Nehézségi szint: <span class=u title=közepes>&#x2666;&#x2666;&#x2666;&#x2662;&#x2662;</span>
+<h1>Osztályok és iterátorok</h1>
 <blockquote class=q>
-<p><span class=u>&#x275D;</span> East is East, and West is West, and never the twain shall meet. <span class=u>&#x275E;</span><br>&mdash; <a href=http://en.wikiquote.org/wiki/Rudyard_Kipling>Rudyard Kipling</a>
+<p><span class=u>&#x275D;</span> A kelet kelet és a nyugat nyugat, és e kettő soha nem találkozhat. <span class=u>&#x275E;</span><br>&mdash; <a href=http://en.wikiquote.org/wiki/Rudyard_Kipling>Rudyard Kipling</a>
 </blockquote>
 <p id=toc>&nbsp;
-<h2 id=divingin>Diving In</h2>
-<p class=f>Iterators are the &#8220;secret sauce&#8221; of Python 3. They&#8217;re everywhere, underlying everything, always just out of sight. <a href=comprehensions.html>Comprehensions</a> are just a simple form of <i>iterators</i>. Generators are just a simple form of <i>iterators</i>. A function that <code>yield</code>s values is a nice, compact way of building an iterator without building an iterator. Let me show you what I mean by that.
+<h2 id=divingin>Ugorj fejest</h2>
+<p class=f>Az iterátorok a Python 3 &#8222;titkos hozzávalói&#8221;. Mindenütt ott vannak, mindennek alapjául szolgálnak, de soha nincsenek szem előtt. A <a href=comprehensions.html>feldolgozók</a> csupán az <i>iterátorok</i> egyszerűbb formái. A generátorok csupán az <i>iterátorok</i> egyszerűbb formái. Egy értékeket a <code>yield</code> használatával visszaadó függvény csupán egy elegáns, tömör módszer iterátor készítésére, iterátor készítése nélkül. Hadd mutassam meg, mit értek ez alatt.
 
-<p>Remember <a href=generators.html#a-fibonacci-generator>the Fibonacci generator</a>? Here it is as a built-from-scratch iterator:
+<p>Emlékszel <a href=generators.html#a-fibonacci-generator>a Fibonacci generátorra</a>? Itt van egy nulláról felépített iterátorként:
 
-<p class=d>[<a href=examples/fibonacci2.py>download <code>fibonacci2.py</code></a>]
+<p class=d>[<a href=examples/fibonacci2.py>a <code>fibonacci2.py</code> letöltése</a>]
 <pre class=pp><code>class Fib:
-    '''iterator that yields numbers in the Fibonacci sequence'''
+    '''a Fibonacci sorozat számait eredményező iterátor'''
 
     def __init__(self, max):
         self.max = max
@@ -41,57 +42,57 @@ body{counter-reset:h1 7}
         self.a, self.b = self.b, self.a + self.b
         return fib</code></pre>
 
-<p>Let&#8217;s take that one line at a time.
+<p>Nézzük meg soronként.
 
 <pre class='nd pp'><code>class Fib:</code></pre>
 
-<p><code>class</code>? What&#8217;s a class?
+<p><code>class</code>? Mi az a class?
 
 <p class=a>&#x2042;
 
-<h2 id=defining-classes>Defining Classes</h2>
+<h2 id=defining-classes>Osztályok definiálása</h2>
 
-<p>Python is fully object-oriented: you can define your own classes, inherit from your own or built-in classes, and instantiate the classes you&#8217;ve defined.
+<p>A Python teljesen objektumorientált: saját osztályokat definiálhatsz, örököltethetsz saját vagy beépített osztályokból, és példányosíthatod az általad definiált osztályokat.
 
-<p>Defining a class in Python is simple. As with functions, there is no separate interface definition. Just define the class and start coding. A Python class starts with the reserved word <code>class</code>, followed by the class name. Technically, that&#8217;s all that&#8217;s required, since a class doesn&#8217;t need to inherit from any other class.
+<p>Pythonban egyszerűen lehet osztályokat definiálni. A függvényekhez hasonlóan itt sincs önálló felületdefiníció. Csak definiáld az osztályt, és kezdj kódolni. A Python osztály a <code>class</code> foglalt szóval kezdődik, amelyet az osztálynév követ. Technikailag ez minden ami kell, mivel az osztály nem egy másik osztályból öröklődik.
 
 <pre class=pp><code><a>class PapayaWhip:  <span class=u>&#x2460;</span></a>
 <a>    pass           <span class=u>&#x2461;</span></a></code></pre>
 <ol>
-<li>The name of this class is <code>PapayaWhip</code>, and it doesn&#8217;t inherit from any other class. Class names are usually capitalized, <code>EachWordLikeThis</code>, but this is only a convention, not a requirement.
-<li>You probably guessed this, but everything in a class is indented, just like the code within a function, <code>if</code> statement, <code>for</code> loop, or any other block of code. The first line not indented is outside the class.
+<li>Ennek az osztálynak a neve <code>PapayaWhip</code>, és nem egy másik osztályból öröklődik. Az osztálynevek általában nagybetűsek<code>MindenSzótNagybetűvelKezdve</code>, de ez csak megállapodás, nem követelmény.
+<li>Már valószínűleg rájöttél, de az osztályon belül minden be van húzva, mint a függvényeken, az <code>if</code> utasításon, a <code>for</code> cikluson vagy bármely más kódblokkon belüli kód. Az első be nem húzott sor már kívül van az osztályon.
 </ol>
 
-<p>This <code>PapayaWhip</code> class doesn&#8217;t define any methods or attributes, but syntactically, there needs to be something in the definition, thus the <code>pass</code> statement. This is a Python reserved word that just means &#8220;move along, nothing to see here&#8221;. It&#8217;s a statement that does nothing, and it&#8217;s a good placeholder when you&#8217;re stubbing out functions or classes.
+<p>Ez a <code>PapayaWhip</code> osztály nem definiál metódusokat vagy attribútumokat, de szintaktikailag kell valaminek lennie a definícióban, így jön a képbe a <code>pass</code> utasítás. Ez a Python egyik foglalt szava, és azt jelenti: „haladj tovább, nincs itt semmi látnivaló”. Ez az utasítás nem csinál semmit, és remek helykitöltő, amikor függvények vagy osztályok vázát hozod létre.
 
 <blockquote class='note compare java'>
-<p><span class=u>&#x261E;</span>The <code>pass</code> statement in Python is like a empty set of curly braces (<code>{}</code>) in Java or C.
+<p><span class=u>&#x261E;</span>A <code>pass</code> utasítás Pythonban olyan, mint egy üres pár kapcsos zárójel (<code>{}</code>) Java-ban vagy C-ben.
 </blockquote>
 
-<p>Many classes are inherited from other classes, but this one is not. Many classes define methods, but this one does not. There is nothing that a Python class absolutely must have, other than a name. In particular, C++ programmers may find it odd that Python classes don&#8217;t have explicit constructors and destructors. Although it&#8217;s not required, Python classes <em>can</em> have something similar to a constructor: the <code>__init__()</code> method.
+<p>Sok osztály más osztályokból öröklődik, de ez nem. Sok osztály definiál metódusokat, de ez nem. Nincs semmi, amit egy Python osztálynak feltétlenül tartalmaznia kell, a nevén kívül. Különösen a C++ programozók találhatják furának, hogy a Python osztályok nem rendelkeznek explicit konstruktorokkal és destruktorokkal. Noha nem kötelező, a Python osztályok <em>rendelkezhetnek</em> a konstruktorhoz hasonló dologgal: ez az <code>__init__()</code> metódus.
 
-<h3 id=init-method>The <code>__init__()</code> Method</h3>
+<h3 id=init-method>Az <code>__init__()</code> metódus</h3>
 
-<p>This example shows the initialization of the <code>Fib</code> class using the <code>__init__</code> method.
+<p>Ez a példa bemutatja a <code>Fib</code> osztály inicializálását az <code>__init__</code> metódus használatával.
 
 <pre class=pp><code>class Fib:
-<a>    '''iterator that yields numbers in the Fibonacci sequence'''  <span class=u>&#x2460;</span></a>
+<a>    '''a Fibonacci sorozat számait eredményező iterátor'''  <span class=u>&#x2460;</span></a>
 
 <a>    def __init__(self, max):                                      <span class=u>&#x2461;</span></a></code></pre>
 <ol>
-<li>Classes can (and should) have <code>docstring</code>s too, just like modules and functions.
-<li>The <code>__init__()</code> method is called immediately after an instance of the class is created. It would be tempting&nbsp;&mdash;&nbsp;but technically incorrect&nbsp;&mdash;&nbsp;to call this the &#8220;constructor&#8221; of the class. It&#8217;s tempting, because it looks like a C++ constructor (by convention, the <code>__init__()</code> method is the first method defined for the class), acts like one (it&#8217;s the first piece of code executed in a newly created instance of the class), and even sounds like one. Incorrect, because the object has already been constructed by the time the <code>__init__()</code> method is called, and you already have a valid reference to the new instance of the class.
+<li>Az osztályok rendelkezhetnek (és kell is rendelkezniük) <code>docstring</code>-ekkel is, mint a modulok és függvények.
+<li>Az <code>__init__()</code> metódus az osztály minden példányának létrehozása után azonnal meghívásra kerül. Csábító &nbsp;&mdash;&nbsp;de technikailag helytelen&nbsp;&mdash;&nbsp; lenne ezt az osztály „konstruktorának” nevezni. Csábító, mert úgy néz ki, mint egy C++ konstruktor (megállapodás szerint az osztályhoz először az <code>__init__()</code> metódus kerül definiálásra), úgy is működik (az osztály új példányában ez az elsőként lefutó kód), és még úgy is hangzik. De ez tévedés, mert az objektum már kész van, amikor az <code>__init__()</code> metódus meghívásra kerül, és már rendelkezel érvényes hivatkozással az osztály új példányára.
 </ol>
 
-<p>The first argument of every class method, including the <code>__init__()</code> method, is always a reference to the current instance of the class. By convention, this argument is named <var>self</var>. This argument fills the role of the reserved word <code>this</code> in <abbr>C++</abbr> or Java, but <var>self</var> is not a reserved word in Python, merely a naming convention. Nonetheless, please don&#8217;t call it anything but <var>self</var>; this is a very strong convention.
+<p>Minden osztálymetódus első argumentuma, beleértve az <code>__init__()</code> metódust is, mindig egy hivatkozás az osztály aktuális példányára. Megállapodás szerint ennek az argumentumnak a neve <var>self</var>. Ez az argumentum tölti ki a <abbr>C++</abbr> vagy Java <code>this</code> foglalt szavának szerepét, de a <var>self</var> nem foglalt szó a Pythonban, csupán elnevezési megállapodás. Ezzel együtt ne nevezd másnak, csak <var>self</var>-nek; ez egy nagyon erős megállapodás.
 
-<p>In all class methods, <var>self</var> refers to the instance whose method was called. But in the specific case of the <code>__init__()</code> method, the instance whose method was called is also the newly created object. Although you need to specify <var>self</var> explicitly when defining the method, you do <em>not</em> specify it when calling the method; Python will add it for you automatically.
+<p>Minden osztálymetódusban, a <var>self</var> arra a példányra vonatkozik, amelynek metódusa meghívásra került. De az <code>__init__()</code> metódus egyedi esetében az a példány, amelynek metódusa meghívásra került, egyben az újonnan létrehozott objektum is. Noha a metódus definiálásakor explicit módon meg kell adnod a <var>self</var>-et, a metódus hívásakor <em>nem</em> kell megadnod: a Python automatikusan felveszi helyetted.
 
 <p class=a>&#x2042;
 
-<h2 id=instantiating-classes>Instantiating Classes</h2>
+<h2 id=instantiating-classes>Osztályok példányosítása</h2>
 
-<p>Instantiating classes in Python is straightforward. To instantiate a class, simply call the class as if it were a function, passing the arguments that the <code>__init__()</code> method requires. The return value will be the newly created object.
+<p>Az osztályok példányosítása Pythonban magától érthetődő. Egy osztály példányosításához egyszerűen hívd meg azt, mintha függvény lenne, átadva az <code>__init__()</code> metódus által igényelt argumentumokat. A visszatérési érték az újonnan létrehozott objektum lesz.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>import fibonacci2</kbd>
 <a><samp class=p>>>> </samp><kbd class=pp>fib = fibonacci2.Fib(100)</kbd>  <span class=u>&#x2460;</span></a>
@@ -100,29 +101,29 @@ body{counter-reset:h1 7}
 <a><samp class=p>>>> </samp><kbd class=pp>fib.__class__</kbd>              <span class=u>&#x2462;</span></a>
 <samp class=pp>&lt;class 'fibonacci2.Fib'></samp>
 <a><samp class=p>>>> </samp><kbd class=pp>fib.__doc__</kbd>                <span class=u>&#x2463;</span></a>
-<samp class=pp>'iterator that yields numbers in the Fibonacci sequence'</samp></pre>
+<samp class=pp>'a Fibonacci sorozat számait eredményező iterátor'</samp></pre>
 <ol>
-<li>You are creating an instance of the <code>Fib</code> class (defined in the <code>fibonacci2</code> module) and assigning the newly created instance to the variable <var>fib</var>. You are passing one parameter, <code>100</code>, which will end up as the <var>max</var> argument in <code>Fib</code>&#8217;s <code>__init__()</code> method.
-<li><var>fib</var> is now an instance of the <code>Fib</code> class.
-<li>Every class instance has a built-in attribute, <code>__class__</code>, which is the object&#8217;s class. Java programmers may be familiar with the <code>Class</code> class, which contains methods like <code>getName()</code> and <code>getSuperclass()</code> to get metadata information about an object. In Python, this kind of metadata is available through attributes, but the idea is the same.
-<li>You can access the instance&#8217;s <code>docstring</code> just as with a function or a module. All instances of a class share the same <code>docstring</code>.
+<li>Itt létrehozol egy példányt a <code>Fib</code> osztályból (amely a <code>fibonacci2</code> modulban van definiálva), és hozzárendeled az újonnan létrehozott példányt a <var>fib</var> változóhoz. Egy paramétert adsz át: a <code>100</code> a <code>Fib</code> <code>__init__()</code> metódusának <var>max</var> argumentuma lesz.
+<li>A <var>fib</var> most a <code>Fib</code> osztály egy példánya.
+<li>Minden osztálypéldány rendelkezik egy beépített attribútummal: a <code>__class__</code> az objektum osztályát tartalmazza. A Java programozóknak ismerős lehet a <code>Class</code> osztály, amely olyan metódusokat tartalmaz, mint a <code>getName()</code> és <code>getSuperclass()</code> az objektum metaadatainak lekéréséhez. A Pythonban az ilyen metaadatok attribútumokon keresztül érhetők el, de az ötlet ugyanaz.
+<li>A példány <code>docstring</code>-jét ugyanúgy érheted el, mint egy függvényét vagy modulét. Egy osztály minden példánya ugyanazzal a <code>docstring</code>-gel rendelkezik.
 </ol>
 
 <blockquote class='note compare java'>
-<p><span class=u>&#x261E;</span>In Python, simply call a class as if it were a function to create a new instance of the class. There is no explicit <code>new</code> operator like there is in <abbr>C++</abbr> or Java.
+<p><span class=u>&#x261E;</span>Pythonban egyszerűen hívd meg az osztályt a példányosításhoz, mintha csak egy függvény lenne. Nincs explicit <code>new</code> operátor, mint <abbr>C++</abbr>-ban vagy Java-ban.
 </blockquote>
 
 <p class=a>&#x2042;
 
-<h2 id=instance-variables>Instance Variables</h2>
+<h2 id=instance-variables>Példányváltozók</h2>
 
-<p>On to the next line:
+<p>Folytassuk a következő sorral:
 
 <pre class=pp><code>class Fib:
     def __init__(self, max):
 <a>        self.max = max        <span class=u>&#x2460;</span></a></code></pre>
 <ol>
-<li>What is <var>self.max</var>? It&#8217;s an instance variable. It is completely separate from <var>max</var>, which was passed into the <code>__init__()</code> method as an argument. <var>self.max</var> is &#8220;global&#8221; to the instance. That means that you can access it from other methods.
+<li>Mi az a <var>self.max</var>? Ez egy példányváltozó. Teljesen elkülönül az <code>__init__()</code> metódusnak argumentumként átadott <var>max</var> értéktől. A <var>self.max</var> „globális” a példányra vonatkozóan. Ez azt jelenti, hogy más metódusokból is elérheted.
 </ol>
 
 <pre class=pp><code>class Fib:
@@ -135,11 +136,11 @@ body{counter-reset:h1 7}
         fib = self.a
 <a>        if fib > self.max:    <span class=u>&#x2461;</span></a></code></pre>
 <ol>
-<li><var>self.max</var> is defined in the <code>__init__()</code> method&hellip;
-<li>&hellip;and referenced in the <code>__next__()</code> method.
+<li>A <var>self.max</var> az <code>__init__()</code> metódusban van definiálva&hellip;
+<li>&hellip;és a <code>__next__()</code> metódus hivatkozik rá.
 </ol>
 
-<p>Instance variables are specific to one instance of a class. For example, if you create two <code>Fib</code> instances with different maximum values, they will each remember their own values.
+<p>A példányváltozók egy osztály egy példányára jellemzők. Ha például két <code>Fib</code> példányt hozol létre eltérő maximális értékekkel, akkor mindkettő megjegyzi a saját értékeit.
 
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>import fibonacci2</kbd>
@@ -152,15 +153,14 @@ body{counter-reset:h1 7}
 
 <p class=a>&#x2042;
 
-<h2 id=a-fibonacci-iterator>A Fibonacci Iterator</h2>
+<h2 id=a-fibonacci-iterator>Egy Fibonacci iterátor</h2>
 
-<p><em>Now</em> you&#8217;re ready to learn how to build an iterator. An iterator is just a class that defines an <code>__iter__()</code> method.
-
+<p><em>Most</em> már készen állsz az iterátorok felépítésének megtanulására. Az iterátor csupán egy olyan osztály, amely egy<code>__iter__()</code> metódust is definiál.
 <aside class=ots>
-All three of these class methods, <code>__init__</code>, <code>__iter__</code>, and <code>__next__</code>, begin and end with a pair of underscore (<code>_</code>) characters. Why is that? There&#8217;s nothing magical about it, but it usually indicates that these are &#8220;<dfn>special methods</dfn>.&#8221; The only thing &#8220;special&#8221; about special methods is that they aren&#8217;t called directly; Python calls them when you use some other syntax on the class or an instance of the class. <a href=special-method-names.html>More about special methods</a>.
+Ezen osztálymetódusok közül mind a három, az <code>__init__</code>, <code>__iter__</code> és a <code>__next__</code> is két aláhúzással (<code>_</code>) kezdődik és végződik. Mi ez? Semmi varázslat nincs benne, de általában azt jelzik, hogy ezek „<dfn>speciális metódusok</dfn>”. A speciális metódusok egyetlen „specialitása”, hogy ezeket nem közvetlenül hívod, hanem a Python akkor hívja őket, amikor egy bizonyos szintaxisú utasítást hívsz az osztályon vagy az osztály egy példányán. <a href=special-method-names.html>Több információ a speciális metódusokról</a>.
 </aside>
 
-<p class=d>[<a href=examples/fibonacci2.py>download <code>fibonacci2.py</code></a>]
+<p class=d>[<a href=examples/fibonacci2.py>a <code>fibonacci2.py</code> letöltése</a>]
 <pre class=pp><code><a>class Fib:                                        <span class=u>&#x2460;</span></a>
 <a>    def __init__(self, max):                      <span class=u>&#x2461;</span></a>
         self.max = max
@@ -177,15 +177,15 @@ All three of these class methods, <code>__init__</code>, <code>__iter__</code>, 
         self.a, self.b = self.b, self.a + self.b
 <a>        return fib                                <span class=u>&#x2465;</span></a></code></pre>
 <ol>
-<li>To build an iterator from scratch, <code>Fib</code> needs to be a class, not a function.
-<li>&#8220;Calling&#8221; <code>Fib(max)</code> is really creating an instance of this class and calling its <code>__init__()</code> method with <var>max</var>. The <code>__init__()</code> method saves the maximum value as an instance variable so other methods can refer to it later.
-<li>The <code>__iter__()</code> method is called whenever someone calls <code>iter(fib)</code>. (As you&#8217;ll see in a minute, a <code>for</code> loop will call this automatically, but you can also call it yourself manually.) After performing beginning-of-iteration initialization (in this case, resetting <code>self.a</code> and <code>self.b</code>, our two counters), the <code>__iter__()</code> method can return any object that implements a <code>__next__()</code> method. In this case (and in most cases), <code>__iter__()</code> simply returns <var>self</var>, since this class implements its own <code>__next__()</code> method.
-<li>The <code>__next__()</code> method is called whenever someone calls <code>next()</code> on an iterator of an instance of a class. That will make more sense in a minute.
-<li>When the <code>__next__()</code> method raises a <code>StopIteration</code> exception, this signals to the caller that the iteration is exhausted. Unlike most exceptions, this is not an error; it&#8217;s a normal condition that just means that the iterator has no more values to generate. If the caller is a <code>for</code> loop, it will notice this <code>StopIteration</code> exception and gracefully exit the loop. (In other words, it will swallow the exception.) This little bit of magic is actually the key to using iterators in <code>for</code> loops.
-<li>To spit out the next value, an iterator&#8217;s <code>__next__()</code> method simply <code>return</code>s the value. Do not use <code>yield</code> here; that&#8217;s a bit of syntactic sugar that only applies when you&#8217;re using generators. Here you&#8217;re creating your own iterator from scratch; use <code>return</code> instead.
+<li>Egy iterátor nulláról való felépítéséhez a <code>Fib</code>-nek osztálynak (class), és nem függvénynek kell lennie.
+<li>A <code>Fib(max)</code> „hívása” valójában egy példányt hoz létre az osztályból, és meghívja az <code>__init__()</code> metódusát a <var>max</var> értékkel. Az <code>__init__()</code> metódus példányváltozóként elmenti a maximális értéket, így más metódusok később hivatkozhatnak rá.
+<li>Az <code>__iter__()</code> metódus az <code>iter(fib)</code> hívásakor kerül meghívásra. (Amint azt egy percen belül látni fogod, egy <code>for</code> ciklus automatikusan meghívja ezt, de saját kezűleg is hívhatod.) Az iterációt kezdő inicializálás végrehajtása (ebben az esetben a <code>self.a</code> és a <code>self.b</code>, a két számlálónk alaphelyzetbe állítása) után az <code>__iter__()</code> metódus tetszőleges olyan objektumot adhat vissza, amely megvalósít egy <code>__next__()</code> metódust. Ebben az esetben (és a legtöbb esetben) az <code>__iter__()</code> egyszerűen a <var>self</var> objektumot adja vissza, mivel ez az osztály megvalósítja a saját <code>__next__()</code> metódusát.
+<li>A <code>__next__()</code> metódus mindig meghívásra kerül, amikor valami a <code>next()</code> metódust hívja egy osztálypéldány iterátorán. Ennek egy percen belül több értelme lesz.
+<li>Amikor a <code>__next__()</code> metódus <code>StopIteration</code> kivételt dob, ez jelzi a hívónak, hogy az iteráció kimerült. A legtöbb kivétellel ellentétben ez nem hiba: egy normális helyzet, amely azt jelenti, hogy az iterátor kifogyott az előállítható értékekből. Ha a hívó egy <code>for</code> ciklus, akkor észlelni fogja ezt a <code>StopIteration</code> kivételt, és elegánsan kilép a ciklusból. (Más szóval, lenyeli a kivételt.) Ez az apró varázslat valójában az iterátorok <code>for</code> ciklusokban való használatának a kulcsa.
+<li>A következő érték kiköpéséhez az iterátor <code>__next__()</code> metódusa egyszerűen visszaadja az értéket a <code>return</code> utasítással. Ne használd itt a <code>yield</code> utasítást, ez egy olyan szintaktikai máz, amely csak generátorok használatakor érvényes. Itt saját iterátort hozol létre a nulláról, így használd helyette a <code>return</code> utasítást.
 </ol>
 
-<p>Thoroughly confused yet? Excellent. Let&#8217;s see how to call this iterator:
+<p>Rendesen összezavarodtál már? Kitűnő. Lássuk, hogyan hívhatod meg ezt az iterátort:
 
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>from fibonacci2 import Fib</kbd>
@@ -193,25 +193,25 @@ All three of these class methods, <code>__init__</code>, <code>__iter__</code>, 
 <samp class=p>... </samp><kbd class=pp>    print(n, end=' ')</kbd>
 <samp class=pp>0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987</samp></pre>
 
-<p>Why, it&#8217;s exactly the same! Byte for byte identical to how you called <a href=generators.html#a-fibonacci-generator>Fibonacci-as-a-generator</a> (modulo one capital letter). But how?
+<p>Hogyan, hisz ez pontosan ugyanaz! Bájtról bájtra egyezik a <a href=generators.html#a-fibonacci-generator>Fibonacci, mint generátor</a> hívásával (mínusz egy nagybetű). De hogyan?
 
-<p>There&#8217;s a bit of magic involved in <code>for</code> loops. Here&#8217;s what happens:
+<p>A <code>for</code> ciklusokban egy kis varázslat történik. A következő megy végbe:
 
 <ul>
-<li>The <code>for</code> loop calls <code>Fib(1000)</code>, as shown. This returns an instance of the <code>Fib</code> class. Call this <var>fib_inst</var>.
-<li>Secretly, and quite cleverly, the <code>for</code> loop calls <code>iter(fib_inst)</code>, which returns an iterator object. Call this <var>fib_iter</var>. In this case, <var>fib_iter</var> == <var>fib_inst</var>, because the <code>__iter__()</code> method returns <var>self</var>, but the <code>for</code> loop doesn&#8217;t know (or care) about that.
-<li>To &#8220;loop through&#8221; the iterator, the <code>for</code> loop calls <code>next(fib_iter)</code>, which calls the <code>__next__()</code> method on the <code>fib_iter</code> object, which does the next-Fibonacci-number calculations and returns a value. The <code>for</code> loop takes this value and assigns it to <var>n</var>, then executes the body of the <code>for</code> loop for that value of <var>n</var>.
-<li>How does the <code>for</code> loop know when to stop? I&#8217;m glad you asked! When <code>next(fib_iter)</code> raises a <code>StopIteration</code> exception, the <code>for</code> loop will swallow the exception and gracefully exit. (Any other exception will pass through and be raised as usual.) And where have you seen a <code>StopIteration</code> exception? In the <code>__next__()</code> method, of course!
+<li>A <code>for</code> ciklus meghívja a <code>Fib(1000)</code> osztályt, ahogy az látható. Ez visszaadja a <code>Fib</code> osztály egy példányát. Nevezzük ezt <var>fib_pld</var>-nek.
+<li>Titokban, és meglehetősen okosan a <code>for</code> ciklus meghívja az <code>iter(fib_pld)</code>-t, amely egy iterátorobjektumot ad vissza. Nevezzük ezt <var>fib_iter</var>-nek. Ebben az esetben <var>fib_iter</var> == <var>fib_pld</var>, mivel az <code>__iter__()</code> metódus a <var>self</var> objektumot adja vissza, de a <code>for</code> ciklus erről nem tud (vagy nem érdekli).
+<li>Az iterátor „végigjárásához” a <code>for</code> ciklus meghívja a <code>next(fib_iter)</code> metódust, amely meghívja a <code>fib_iter</code> objektum <code>__next__()</code> metódusát, amely végrehajtja a következő Fibonacci szám kiszámítását, és visszaad egy értéket. A <code>for</code> ciklus veszi ezt az értéket, és hozzárendeli az <var>n</var>-hez, majd végrehajtja a <code>for</code> ciklus törzsét az <var>n</var> ezen értékére.
+<li>Honnan tudja a <code>for</code> ciklus, hogy mikor kell leállnia? Örülök, hogy megkérdezted! Amikor a <code>next(fib_iter)</code> egy <code>StopIteration</code> kivételt dob, a <code>for</code> ciklus lenyeli a kivételt, és elegánsan kilép. (Minden más kivétel átjut, és a szokásos módon továbbadódik.) És hol láttál <code>StopIteration</code> kivételt? A <code>__next__()</code> metódusban, természetesen!
 </ul>
 
 <p class=a>&#x2042;
 
-<h2 id=a-plural-rule-iterator>A Plural Rule Iterator</h2>
+<h2 id=a-plural-rule-iterator>Egy többesszámszabály-iterátor</h2>
 
-<aside>iter(f) calls f.__iter__<br>next(f) calls f.__next__</aside>
-<p>Now it&#8217;s time for the finale. Let&#8217;s rewrite the <a href=generators.html>plural rules generator</a> as an iterator.
+<aside>Az iter(f) az f.__iter__-t hívja<br>A next(f) az f.__next__-et hívja</aside>
+<p>Eljött a finálé ideje. Írjuk újra a <a href=generators.html>többesszámszabály-generátort</a> iterátorként.
 
-<p class=d>[<a href=examples/plural6.py>download <code>plural6.py</code></a>]
+<p class=d>[<a href=examples/plural6.py>a <code>plural6.py</code> letöltése</a>]
 <pre class=pp><code>class LazyRules:
     rules_filename = 'plural6-rules.txt'
 
@@ -244,9 +244,9 @@ All three of these class methods, <code>__init__</code>, <code>__iter__</code>, 
 
 rules = LazyRules()</code></pre>
 
-<p>So this is a class that implements <code>__iter__()</code> and <code>__next__()</code>, so it can be used as an iterator. Then, you instantiate the class and assign it to <var>rules</var>. This happens just once, on import.
+<p>Ez tehát egy olyan osztály, amely megvalósítja az <code>__iter__()</code> és <code>__next__()</code> metódusokat, így használható iterátorként. Ezután példányosítod az osztályt, és hozzárendeled a <var>rules</var> változóhoz. Ez csak egyszer történik, az importáláskor.
 
-<p>Let&#8217;s take the class one bite at a time.
+<p>Nézzük meg az osztályt, apró falatonként.
 
 <pre class=pp><code>class LazyRules:
     rules_filename = 'plural6-rules.txt'
@@ -255,12 +255,11 @@ rules = LazyRules()</code></pre>
 <a>        self.pattern_file = open(self.rules_filename, encoding='utf-8')  <span class=u>&#x2460;</span></a>
 <a>        self.cache = []                                                  <span class=u>&#x2461;</span></a></code></pre>
 <ol>
-<li>When we instantiate the <code>LazyRules</code> class, open the pattern file but don&#8217;t read anything from it. (That comes later.)
-<li>After opening the patterns file, initialize the cache. You&#8217;ll use this cache later (in the <code>__next__()</code> method) as you read lines from the pattern file.
+<li>Amikor példányosítjuk a <code>LazyRules</code> osztályt, megnyitjuk a mintafájlt, de nem olvasunk belőle semmit. (Ez később jön.)
+<li>A mintafájl megnyitása után inicializáljuk a gyorsítótárat. Ezt a gyorsítótárat később fogod használni (a <code>__next__()</code> metódusban), ahogy kiolvasod a sorokat a mintafájlból.
 </ol>
 
-<p>Before we continue, let&#8217;s take a closer look at <var>rules_filename</var>. It&#8217;s not defined within the <code>__iter__()</code> method. In fact, it&#8217;s not defined within <em>any</em> method. It&#8217;s defined at the class level. It&#8217;s a <i>class variable</i>, and although you can access it just like an instance variable (<var>self.rules_filename</var>), it is shared across all instances of the <code>LazyRules</code> class.
-
+<p>Mielőtt folytatjuk, vessünk egy közelebbi pillantást a <var>rules_filename</var>-re. Ez nem az <code>__iter__()</code> metóduson belül van definiálva. Tulajdonképpen <em>egyik</em> metódusban sincs definiálva. Az osztály szintjén van definiálva. Ez egy <i>osztályváltozó</i>, és noha úgy érheted el, mint egy példányváltozót (<var>self.rules_filename</var>), meg van osztva a <code>LazyRules</code> osztály minden példánya között.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>import plural6</kbd>
 <samp class=p>>>> </samp><kbd class=pp>r1 = plural6.LazyRules()</kbd>
@@ -282,22 +281,22 @@ rules = LazyRules()</code></pre>
 <a><samp class=p>>>> </samp><kbd class=pp>r2.rules_filename</kbd>                               <span class=u>&#x2464;</span></a>
 <samp class=pp>'r2-overridetxt'</samp></pre>
 <ol>
-<li>Each instance of the class inherits the <var>rules_filename</var> attribute with the value defined by the class.
-<li>Changing the attribute&#8217;s value in one instance does not affect other instances&hellip;
-<li>&hellip;nor does it change the class attribute. You can access the class attribute (as opposed to an individual instance&#8217;s attribute) by using the special <code>__class__</code> attribute to access the class itself.
-<li>If you change the class attribute, all instances that are still inheriting that value (like <var>r1</var> here) will be affected.
-<li>Instances that have overridden that attribute (like <var>r2</var> here) will not be affected.
+<li>Az osztály minden példánya örökli a <var>rules_filename</var> attribútumot, az osztály által meghatározott értékkel.
+<li>Az attribútum értékének módosítása az egyik példányban nem befolyásolja a többi példányt&hellip;
+<li>&hellip;és az osztályattribútumot sem módosítja. Az osztályattribútumot (szemben az egyedi példányok attribútumaival) az osztály elérésére használt speciális <code>__class__</code> attribútumon keresztül érheted el.
+<li>Az osztályattribútum módosítása az összes olyan példányt (mint itt az <var>r1</var>) befolyásolja, amely még mindig az adott örökölt értékkel rendelkezik.
+<li>Azon példányokat (mint itt az <var>r2</var>), amelyek az attribútumot felülbírálták, ez nem befolyásolja.
 </ol>
 
-<p>And now back to our show.
+<p>Most pedig vissza a műsorunkhoz.
 
 <pre class=pp><code><a>    def __iter__(self):       <span class=u>&#x2460;</span></a>
         self.cache_index = 0
 <a>        return self           <span class=u>&#x2461;</span></a>
 </code></pre>
 <ol>
-<li>The <code>__iter__()</code> method will be called every time someone&nbsp;&mdash;&nbsp;say, a <code>for</code> loop&nbsp;&mdash;&nbsp;calls <code>iter(rules)</code>.
-<li>The one thing that every <code>__iter__()</code> method must do is return an iterator. In this case, it returns <var>self</var>, which signals that this class defines a <code>__next__()</code> method which will take care of returning values throughout the iteration.
+<li>Az <code>__iter__()</code> metódus meghívásra kerül minden alkalommal, amikor valami&nbsp;&mdash;&nbsp;mondjuk egy <code>for</code> ciklus&nbsp;&mdash;&nbsp;meghívja az <code>iter(rules)</code> metódust.
+<li>Az egyetlen dolog, amit minden <code>__iter__()</code> metódusnak meg kell tennie, az egy iterátor visszaadása. Ebben az esetben a <var>self</var>-et adja vissza, ami azt jelzi, hogy ez az osztály definiál egy <code>__next__()</code> metódust, amely elvégzi az értékek visszaadását az iteráció során.
 </ol>
 
 <pre class=pp><code><a>    def __next__(self):                                 <span class=u>&#x2460;</span></a>
@@ -310,12 +309,12 @@ rules = LazyRules()</code></pre>
 <a>        self.cache.append(funcs)                        <span class=u>&#x2462;</span></a>
         return funcs</code></pre>
 <ol>
-<li>The <code>__next__()</code> method gets called whenever someone&nbsp;&mdash;&nbsp;say, a <code>for</code> loop&nbsp;&mdash;&nbsp;calls <code>next(rules)</code>. This method will only make sense if we start at the end and work backwards. So let&#8217;s do that.
-<li>The last part of this function should look familiar, at least. The <code>build_match_and_apply_functions()</code> function hasn&#8217;t changed; it&#8217;s the same as it ever was.
-<li>The only difference is that, before returning the match and apply functions (which are stored in the tuple <var>funcs</var>), we&#8217;re going to save them in <code>self.cache</code>.
+<li>A <code>__next__()</code> metódus meghívásra kerül, amikor valami&nbsp;&mdash;&nbsp;mondjuk egy <code>for</code> ciklus&nbsp;&mdash;&nbsp;meghívja a <code>next(rules)</code>-t. Ez a metódus csak akkor nyeri el értelmét, ha visszafelé haladva kezdjük megfejteni. Tegyünk így.
+<li>A függvény utolsó része mindenképp ismerős kell legyen. A <code>build_match_and_apply_functions()</code> függvény nem változott, ugyanaz mint volt.
+<li>Az egyetlen különbség, hogy a (<var>funcs</var> tuple-ben tárolt) illesztési és alkalmazási függvények visszaadása előtt ezeket elmentjük a <code>self.cache</code>-ben.
 </ol>
 
-<p>Moving backwards&hellip;
+<p>Visszafelé haladva&hellip;
 
 <pre class=pp><code>    def __next__(self):
         .
@@ -329,12 +328,12 @@ rules = LazyRules()</code></pre>
         .
         .</code></pre>
 <ol>
-<li>A bit of advanced file trickery here. The <code>readline()</code> method (note: singular, not the plural <code>readlines()</code>) reads exactly one line from an open file. Specifically, the next line. (<em>File objects are iterators too! It&#8217;s iterators all the way down&hellip;</em>)
-<li>If there was a line for <code>readline()</code> to read, <var>line</var> will not be an empty string. Even if the file contained a blank line, <var>line</var> would end up as the one-character string <code>'\n'</code> (a carriage return). If <var>line</var> is really an empty string, that means there are no more lines to read from the file.
-<li>When we reach the end of the file, we should close the file and raise the magic <code>StopIteration</code> exception. Remember, we got to this point because we needed a match and apply function for the next rule. The next rule comes from the next line of the file&hellip; but there is no next line! Therefore, we have no value to return. The iteration is over. (<span class=u>&#x266B;</span> The party&#8217;s over&hellip; <span class=u>&#x266B;</span>)
+<li>Ez itt némi haladó fájltrükközés. A <code>readline()</code> metódus (figyelj: ez egyes számban van, nem a többes számú <code>readlines()</code>) pontosan egy sort olvas egy megnyitott fájlból. Egész pontosan a következő sort. (<em>A fájlobjektumok is iterátorok! Itt végig iterátorokkal dolgozunk&hellip;</em>)
+<li>Ha a <code>readline()</code> be tudott olvasni egy sort, akkor a <var>line</var> egy nem üres karakterlánc lesz. Ha a fájl csak egy üres sort tartalmazna, a <var>line</var> egy <code>'\n'</code> (kocsivissza) karakterből álló sor lenne. Ha a <var>line</var> egy ténylegesen üres karakterlánc, akkor elfogytak a beolvasható sorok a fájlból.
+<li>A fájl végének elérésekor bezárjuk a fájlt, és a bűvös <code>StopIteration</code> kivételt dobjuk. Ne feledd, azért jutottunk ide, mert egy illesztés és alkalmazás függvényre volt szükség a következő szabályhoz. A következő szabály a fájl következő sorából jön&hellip; de nincs következő sor! Emiatt nincs visszaadható érték. Az iterációnak vége. (<span class=u>&#x266B;</span> Vége a dalnak&hellip; <span class=u>&#x266B;</span>)
 </ol>
 
-<p>Moving backwards all the way to the start of the <code>__next__()</code> method&hellip;
+<p>Visszafelé haladva egészen a <code>__next__()</code> metódus elejéig&hellip;
 
 <pre class=pp><code>    def __next__(self):
         self.cache_index += 1
@@ -347,46 +346,47 @@ rules = LazyRules()</code></pre>
         .
         .</code></pre>
 <ol>
-<li><code>self.cache</code> will be a list of the functions we need to match and apply individual rules. (At least <em>that</em> should sound familiar!) <code>self.cache_index</code> keeps track of which cached item we should return next. If we haven&#8217;t exhausted the cache yet (<i>i.e.</i> if the length of <code>self.cache</code> is greater than <code>self.cache_index</code>), then we have a cache hit! Hooray! We can return the match and apply functions from the cache instead of building them from scratch.
-<li>On the other hand, if we don&#8217;t get a hit from the cache, <em>and</em> the file object has been closed (which could happen, further down the method, as you saw in the previous code snippet), then there&#8217;s nothing more we can do. If the file is closed, it means we&#8217;ve exhausted it&nbsp;&mdash;&nbsp;we&#8217;ve already read through every line from the pattern file, and we&#8217;ve already built and cached the match and apply functions for each pattern. The file is exhausted; the cache is exhausted; I&#8217;m exhausted. Wait, what? Hang in there, we&#8217;re almost done.
+<li>A <code>self.cache</code> az egyes szabályok illesztéséhez és alkalmazásához szükséges függvények listája lesz. (Ha másnak nem, <em>ennek</em> ismerősen kell hangzania!) A <code>self.cache_index</code> nyilvántartja, hogy melyik gyorsítótárazott elemet kell legközelebb visszaadni. Ha még nem ürítettük ki a gyorsítótárat (<i>azaz</i> ha a <code>self.cache</code> hossza nagyobb, mint a <code>self.cache_index</code>), akkor találat van a gyorsítótárban! Hurrá! Visszaadhatjuk az illesztési és alkalmazási függvényeket a gyorsítótárból, azok nulláról való felépítése helyett.
+<li>Másrészről, ha nincs találat a gyorsítótárból, <em>és</em> a fájlobjektum le lett zárva (ami megtörténhet, a metódus későbbi részében, ahogy az előző kóddarabban láthattad), akkor nincs mit tenni. Ha a fájl le van zárva, akkor kimerítettük&nbsp;&mdash;&nbsp;már beolvastuk a mintafájl összes sorát, valamint felépítettük és gyorsítótáraztuk az illesztési és alkalmazási függvényeket minden mintához. A fájl kimerült, a gyorsítótár kimerült, én is kimerültem. Várjunk csak? Maradj még, már majdnem kész vagyunk.
 </ol>
 
-<p>Putting it all together, here&#8217;s what happens when:
+<p>Összegezve a következők történnek:
 
 <ul>
-<li>When the module is imported, it creates a single instance of the <code>LazyRules</code> class, called <var>rules</var>, which opens the pattern file but does not read from it.
-<li>When asked for the first match and apply function, it checks its cache but finds the cache is empty. So it reads a single line from the pattern file, builds the match and apply functions from those patterns, and caches them.
-<li>Let&#8217;s say, for the sake of argument, that the very first rule matched. If so, no further match and apply functions are built, and no further lines are read from the pattern file.
-<li>Furthermore, for the sake of argument, suppose that the caller calls the <code>plural()</code> function <em>again</em> to pluralize a different word. The <code>for</code> loop in the <code>plural()</code> function will call <code>iter(rules)</code>, which will reset the cache index but will not reset the open file object.
-<li>The first time through, the <code>for</code> loop will ask for a value from <var>rules</var>, which will invoke its <code>__next__()</code> method. This time, however, the cache is primed with a single pair of match and apply functions, corresponding to the patterns in the first line of the pattern file. Since they were built and cached in the course of pluralizing the previous word, they&#8217;re retrieved from the cache. The cache index increments, and the open file is never touched.
-<li>Let&#8217;s say, for the sake of argument, that the first rule does <em>not</em> match this time around. So the <code>for</code> loop comes around again and asks for another value from <var>rules</var>. This invokes the <code>__next__()</code> method a second time. This time, the cache is exhausted&nbsp;&mdash;&nbsp;it only contained one item, and we&#8217;re asking for a second&nbsp;&mdash;&nbsp;so the <code>__next__()</code> method continues. It reads another line from the open file, builds match and apply functions out of the patterns, and caches them.
-<li>This read-build-and-cache process will continue as long as the rules being read from the pattern file don&#8217;t match the word we&#8217;re trying to pluralize. If we do find a matching rule before the end of the file, we simply use it and stop, with the file still open. The file pointer will stay wherever we stopped reading, waiting for the next <code>readline()</code> command. In the meantime, the cache now has more items in it, and if we start all over again trying to pluralize a new word, each of those items in the cache will be tried before reading the next line from the pattern file.
+<li>A modul importálásakor az létrehoz egy példányt a <code>LazyRules</code> osztályból, ennek neve <var>rules</var>, amely megnyitja a mintafájlt, de nem olvas belőle.
+<li>Az illesztési és alkalmazási függvények első lekérésekor ez ellenőrzi a gyorsítótárat, de az üres. Így beolvas egy sort a mintafájlból, felépíti az illesztési és alkalmazási függvényeket ezekből a mintákból, és gyorsítótárazza az eredményt.
+<li>Tegyük fel, hogy a legelső szabály illeszkedett. Ebben az esetben nem kerülnek felépítésre további illesztési és akalmazási függvények, és a mintafájlból sem kerülnek beolvasásra további sorok.
+<li>Tegyük fel továbbá, hogy a hívó <em>újra</em> meghívja a <code>plural()</code> függvényt, hogy egy másik szót is többes számba tegyen. A <code>plural()</code> függvény <code>for</code> ciklusa meghívja az <code>iter(rules)</code>-t, ami visszaállítja a gyorsítótár indexét, de nem állítja vissza a nyitott fájlobjektumot.
+<li>Az első futása során a <code>for</code> ciklus lekér egy értéket a <var>rules</var> objektumtól, amely meghívja a <code>__next__()</code> metódusát. Ez alkalommal azonban a gyorsítótárban már van egy illesztési és alkalmazási függvénypár, amely megfelel a mintafájl első sorában lévő mintáknak. Mivel ezek az előző szó többes számba tétele során már felépítésre és gyorsítótárazásra kerültek, a gyorsítótárból lesznek lekérve. A gyorsítótár indexe nő, a megnyitott fájlhoz semmi nem nyúl hozzá.
+
+<li>Tegyük fel, hogy a legelső szabály most <em>nem</em> illeszkedik. Így a <code>for</code> ciklus újra lefut, és újabb értéket kér a <var>rules</var> objektumtól. Ez másodszor is meghívja a <code>__next__()</code> metódust. Ez alkalommal a gyorsítótár kimerült&nbsp;&mdash;&nbsp;csak egy elemet tartalmazott, és most egy másodikat kérünk&nbsp;&mdash;&nbsp;így a <code>__next__()</code> metódus folytatódik. Így beolvas egy újabb sort a nyitott fájlból, felépíti az illesztési és alkalmazási függvényeket, és gyorsítótárazza az eredményt.
+<li>Ez az olvasás-felépítés-gyorsítótárazás folyamat addig folytatódik, amíg a mintafájlból olvasott szabályok nem illeszkednek a többes számba tenni próbált szóra. Ha a fájl vége előtt találunk egy illeszkedő szabályt, akkor egyszerűen használjuk azt és leállunk, a fájl pedig továbbra is nyitva marad. A fájlmutató ott marad, ahol az olvasást leállítottuk, a következő <code>readline()</code> parancsra várakozva. Ezalatt a gyorsítótár már több elemet tartalmaz, és ha a program újra elkezdődik, és megpróbál egy új szót többes számba tenni, akkor a gyorsítótár minden elemét végigpróbálja, mielőtt beolvasná a következő sort a mintafájlból.
 </ul>
 
-<p>We have achieved pluralization nirvana.
+<p>Elértük a többes számok nirvánáját.
 
 <ol>
-<li><strong>Minimal startup cost.</strong> The only thing that happens on <code>import</code> is instantiating a single class and opening a file (but not reading from it).
-<li><strong>Maximum performance.</strong> The previous example would read through the file and build functions dynamically every time you wanted to pluralize a word. This version will cache functions as soon as they&#8217;re built, and in the worst case, it will only read through the pattern file once, no matter how many words you pluralize.
-<li><strong>Separation of code and data.</strong> All the patterns are stored in a separate file. Code is code, and data is data, and never the twain shall meet.
+<li><strong>Minimális indítási költség.</strong> Az <code>import</code> hívásakor egyetlen osztály példányosítása és egy fájl megnyitása történik (de nem olvasunk belőle).
+<li><strong>Maximális teljesítmény.</strong> Az előző példa végigolvassa a fájlt, és dinamikusan felépíti a függvényeket minden alkalommal, amikor többes számba szeretnél tenni egy szót. Ez a verzió azonnal gyorsítótárazza a függvényeket, amint azok elkészülnek, és a legrosszabb esetben is csak egyszer olvassa végig a mintafájlt, akárhány szót is próbálsz többes számba tenni.
+<li><strong>A kód és adatok elkülönítése.</strong> Minden minta egy önálló fájlban kerül tárolásra. A kód kód, az adat adat, és e kettő soha nem találkozhat.
 </ol>
 
 <blockquote class=note>
-<p><span class=u>&#x261E;</span>Is this really nirvana? Well, yes and no. Here&#8217;s something to consider with the <code>LazyRules</code> example: the pattern file is opened (during <code>__init__()</code>), and it remains open until the final rule is reached. Python will eventually close the file when it exits, or after the last instantiation of the <code>LazyRules</code> class is destroyed, but still, that could be a <em>long</em> time. If this class is part of a long-running Python process, the Python interpreter may never exit, and the <code>LazyRules</code> object may never get destroyed.
-<p>There are ways around this. Instead of opening the file during <code>__init__()</code> and leaving it open while you read rules one line at a time, you could open the file, read all the rules, and immediately close the file. Or you could open the file, read one rule, save the file position with the <a href=files.html#read><code>tell()</code> method</a>, close the file, and later re-open it and use the <a href=files.html#read><code>seek()</code> method</a> to continue reading where you left off. Or you could not worry about it and just leave the file open, like this example code does. Programming is design, and design is all about trade-offs and constraints. Leaving a file open too long might be a problem; making your code more complicated might be a problem. Which one is the bigger problem depends on your development team, your application, and your runtime environment.
+<p><span class=u>&#x261E;</span>Tényleg ez a nirvána? Hát igen is, meg nem is. Egy dolgot szem előtt kell tartani a <code>LazyRules</code> példával kapcsolatban: a mintafájl megnyitásra kerül (az <code>__init__()</code> során), és az utolsó szabály eléréséig nyitva marad. A Python végül bezárja a fájlt amikor kilép, vagy miután a <code>LazyRules</code> osztály utolsó példánya is megsemmisült, de akkor is, ez <em>sokáig</em> tarthat. Ha ez az osztály egy sokáig futó Python folyamat része, akkor a Python értelmező lehet, hogy soha nem lép ki, és a <code>LazyRules</code> objektum soha nem kerül megsemmisítésre.
+<p>Ezt el lehet kerülni. A fájl <code>__init__()</code> alatti megnyitása és nyitva hagyása helyett a szabályok egyenkénti beolvasása alatt, megnyithatod a fájlt, beolvashatod az összes szabályt, és azonnal bezárhatod a fájlt. Vagy megnyithatod a fájlt, beolvashatsz egy szabályt, elmentheted a fájlon belüli pozíciót a <a href=files.html#read><code>tell()</code> metódussal</a>, bezárhatod a fájlt, és később újranyithatod a <a href=files.html#read><code>seek()</code> metódussal</a> az olvasás folytatásához onnan, ahol abbahagytad. Vagy dönthetsz úgy, hogy nem aggódsz emiatt, és egyszerűen nyitva hagyhatod a fájlt, ahogy ez a példakód teszi. A programozás tervezés, és a tervezés a kompromisszumokról és megszorításokról szól. Egy fájlt túl sokáig nyitva hagyni gondot jelenthet, de a kódot bonyolultabbá tenni is gondot jelenthet. Hogy melyik a nagyobb probléma, az a fejlesztői csapattól, az alkalmazástól és a futási környezettől függ.
 </blockquote>
 
 <p class=a>&#x2042;
 
-<h2 id=furtherreading>Further Reading</h2>
+<h2 id=furtherreading>További olvasnivaló</h2>
 <ul>
-<li><a href=http://docs.python.org/3.1/library/stdtypes.html#iterator-types>Iterator types</a>
-<li><a href=http://www.python.org/dev/peps/pep-0234/>PEP 234: Iterators</a>
-<li><a href=http://www.python.org/dev/peps/pep-0255/>PEP 255: Simple Generators</a>
-<li><a href=http://www.dabeaz.com/generators/>Generator Tricks for Systems Programmers</a>
+<li><a href=http://docs.python.org/3.1/library/stdtypes.html#iterator-types>Iterátortípusok</a>
+<li><a href=http://www.python.org/dev/peps/pep-0234/>PEP 234: Iterátorok</a>
+<li><a href=http://www.python.org/dev/peps/pep-0255/>PEP 255: Egyszerű generátorok</a>
+<li><a href=http://www.dabeaz.com/generators/>Generátortrükkök rendszerprogramozóknak</a>
 </ul>
 
-<p class=v><a href=generators.html rel=prev title='back to &#8220;Closures &amp; Generators&#8221;'><span class=u>&#x261C;</span></a> <a href=advanced-iterators.html rel=next title='onward to &#8220;Advanced Iterators&#8221;'><span class=u>&#x261E;</span></a>
+<p class=v><a href=generators.html rel=prev title='vissza a „Closure-ök és generátorokra”'><span class=u>&#x261C;</span></a> <a href=advanced-iterators.html rel=next title='előre a „Speciális iterátorokra”'><span class=u>&#x261E;</span></a>
 
 <p class=c>&copy; 2001&ndash;11 <a href=about.html>Mark Pilgrim</a>
 <script src=j/jquery.js></script>
