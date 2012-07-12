@@ -1,4 +1,9 @@
-/*
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+    <pre>/*
 
 "Dive Into Python 3" stylesheet
 
@@ -301,7 +306,7 @@ h1 {
   counter-reset: h2;
 }
 h1:before {
-  content: "Chapter " counter(h1) ". ";
+  content: counter(h1)". fejezet ";
 }
 h2:before {
   counter-increment: h2;
@@ -319,7 +324,7 @@ h3:before {
 }
 #appa h1:before {
   counter-increment: h1;
-  content: 'Appendix A. '
+  content: 'A. függelék '
 }
 #appa h2:before {
   counter-increment: h2;
@@ -331,7 +336,7 @@ h3:before {
 }
 #appb h1:before {
   counter-increment: h1;
-  content: 'Appendix B. '
+  content: 'B. függelék '
 }
 #appb h2:before {
   counter-increment: h2;
@@ -343,7 +348,7 @@ h3:before {
 }
 #appc h1:before {
   counter-increment: h1;
-  content: 'Appendix C. '
+  content: 'C. függelék '
 }
 #appc h2:before {
   counter-increment: h2;
@@ -355,7 +360,7 @@ h3:before {
 }
 #appd h1:before {
   counter-increment: h1;
-  content: 'Appendix D. '
+  content: 'D. függelék '
 }
 #appd h2:before {
   counter-increment: h2;
@@ -425,3 +430,6 @@ aside code {
 .atn { color: #606; }
 .atv { color: #080; }
 .dec { color: #606; }
+</pre><br>
+  </body>
+</html>
