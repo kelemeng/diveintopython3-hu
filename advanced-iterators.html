@@ -16,7 +16,7 @@ class=u>&#8227;</span> <a href=table-of-contents.html#advanced-iterators>Ugorj f
 <p id=level>Nehézségi szint: <span class=u title=advanced>&#x2666;&#x2666;&#x2666;&#x2666;&#x2662;</span>
 <h1>Speciális iterátorok</h1>
 <blockquote class=q>
-<p><span class=u>&#x275D;</span> A nagy bolhák hátán kisebb bolhák lakmároznak,<br>A kisebb bolhák hátán pedig még kisebb bolhák, és így tovább a végtelenségig. <span class=u>&#x275E;</span><br>&mdash; Augustus De Morgan
+<p><span class=u>&#x275D;</span> A nagy bolhák hátán kisebb bolhák lakmároznak,<br>A kisebb bolhák hátán pedig még kisebb bolhák, és így tovább a végtelenségig. <span class=u>&#x275E;</span><br>&ndash; Augustus De Morgan
 </blockquote>
 <p id=toc>&nbsp;
 <h2 id=divingin>Ugorj fejest</h2>
@@ -141,7 +141,7 @@ if __name__ == '__main__':
 <a><samp class=p>>>> </samp><kbd class=pp>set(''.join(words))</kbd>              <span class=u>&#x2463;</span></a>
 <samp class=pp>{'E', 'D', 'M', 'O', 'N', 'S', 'R', 'Y'}</samp></pre>
 <ol>
-<li>Egy több karakterláncból álló lista esetén a <code>set()</code> függvény visszaadja a lista egyedi karakterláncainak halmazát. Ennek van értelme, ha úgy gondolsz rá, mint egy <code>for</code> ciklusra. Vegyük a lista első elemét, tegyük be a halmazba. A másodikat. A harmadikat. A negyediket. Az ötödiket&nbsp;&mdash;&nbsp;várj, ilyen már van a halmazban, így most kimarad, mert a Python nem engedélyezi a másodpéldányokat. A hatodikat. A hetediket&nbsp;&mdash;&nbsp;újra egy másodpéldány, ismét kimarad. A végeredmény? Az eredeti lista összes egyedi eleme másodpéldányok nélkül. Az eredeti listát nem is kell rendezni előtte.
+<li>Egy több karakterláncból álló lista esetén a <code>set()</code> függvény visszaadja a lista egyedi karakterláncainak halmazát. Ennek van értelme, ha úgy gondolsz rá, mint egy <code>for</code> ciklusra. Vegyük a lista első elemét, tegyük be a halmazba. A másodikat. A harmadikat. A negyediket. Az ötödiket&nbsp;&ndash;&nbsp;várj, ilyen már van a halmazban, így most kimarad, mert a Python nem engedélyezi a másodpéldányokat. A hatodikat. A hetediket&nbsp;&ndash;&nbsp;újra egy másodpéldány, ismét kimarad. A végeredmény? Az eredeti lista összes egyedi eleme másodpéldányok nélkül. Az eredeti listát nem is kell rendezni előtte.
 <li>Ugyanez a módszer működik karakterláncokkal is, mert a karakterlánc csak karakterek sorozata.
 <li>Karakterláncok listáját véve a <code>''.join(<var>a_list</var>)</code> összefésüli az összes karakterláncot egyetlen eggyé.
 <li>Karakterláncok egy listáját átadva, ez a kódsor visszaadja a karakterláncok összes egyedi karakterét, másodpéldányok nélkül.
@@ -204,7 +204,7 @@ AssertionError: Csak a 2 nagyon nagy értékeihez</samp></pre>
 <li>Egy generátorkifejezés olyan, mint egy névtelen függvény, amely értékeket ad vissza. Maga a kifejezés úgy néz ki, mint egy <a href=comprehensions.html#listcomprehension>listafeldolgozó</a>, de szögletes zárójelek helyett zárójelek közt van.
 <li>A generátorkifejezés egy&hellip; iterátort ad vissza.
 <li>A <code>next(<var>gen</var>)</code> hívása az iterátorból származó következő értéket adja vissza.
-<li>Ha szeretnéd, végiglépkedhetsz az összes lehetséges értéken, és visszaadhatsz egy tuplet, listát vagy halmazt a generátorkifejezés átadásával a <code>tuple()</code>, <code>list()</code> vagy <code>set()</code> függvénynek. Ezekben az esetekben nincs szükséged extra zárójelekre&nbsp;&mdash;&nbsp;csak add át a &#8222;nyers&#8221; <code>ord(c) for c in unique_characters</code> kifejezést a <code>tuple()</code> függvénynek, és a Python megállapítja, hogy ez egy generátorkifejezés.
+<li>Ha szeretnéd, végiglépkedhetsz az összes lehetséges értéken, és visszaadhatsz egy tuplet, listát vagy halmazt a generátorkifejezés átadásával a <code>tuple()</code>, <code>list()</code> vagy <code>set()</code> függvénynek. Ezekben az esetekben nincs szükséged extra zárójelekre&nbsp;&ndash;&nbsp;csak add át a &#8222;nyers&#8221; <code>ord(c) for c in unique_characters</code> kifejezést a <code>tuple()</code> függvénynek, és a Python megállapítja, hogy ez egy generátorkifejezés.
 </ol>
 
 <blockquote class=note>
@@ -256,7 +256,7 @@ StopIteration</samp></pre>
 
 <aside>Az <code>itertools</code> modul mindenféle jópofa dolgot tartalmaz.</aside>
 
-<p>A <code>permutations()</code> függvénynek nem kötelező listát átadni. Tetszőleges sorozatot kaphat&nbsp;&mdash;&nbsp;akár egy karakterláncot is.
+<p>A <code>permutations()</code> függvénynek nem kötelező listát átadni. Tetszőleges sorozatot kaphat&nbsp;&ndash;&nbsp;akár egy karakterláncot is.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>import itertools</kbd>
@@ -283,7 +283,7 @@ StopIteration</samp>
  ('C', 'A', 'B'), ('C', 'B', 'A')]</samp></pre>
 <ol>
 <li>Egy karakterlánc csupán karakterek sorozata. A permutációk keresése szempontjából az <code>'ABC'</code> egyenértékű a <code>['A', 'B', 'C']</code> listával.
-<li>A 3 elem első permutációja <code>['A', 'B', 'C']</code> egyszerre 3 elemet véve <code>('A', 'B', 'C')</code>. Öt másik permutáció is van&nbsp;&mdash;&nbsp;ugyanaz a három karakter minden elképzelhető sorrendben.
+<li>A 3 elem első permutációja <code>['A', 'B', 'C']</code> egyszerre 3 elemet véve <code>('A', 'B', 'C')</code>. Öt másik permutáció is van&nbsp;&ndash;&nbsp;ugyanaz a három karakter minden elképzelhető sorrendben.
 <li>Mivel a <code>permutations()</code> függvény mindig egy iterátort ad vissza, a permutációk hibakeresése egyszerűen megoldható az iterátor átadásával a beépített <code>list()</code> függvénynek, így az összes permutáció azonnal megjeleníthető.
 </ol>
 
@@ -427,7 +427,7 @@ for guess in itertools.permutations(digits, len(characters)):
 <a><samp class=p>>>> </samp><kbd class=pp>'MARK'.translate(translation_table)</kbd>       <span class=u>&#x2462;</span></a>
 <samp class=pp>'MORK'</samp></pre>
 <ol>
-<li>A karakterláncok lefordítása egy fordítási táblával kezdődik, ez egy szótár, amely egy karaktert egy másikra képez le. Valójában a &#8222;karakter&#8221; kifejezés helytelen&nbsp;&mdash;&nbsp;a fordítási tábla egy <em>bájtot</em> képez le egy másikra.
+<li>A karakterláncok lefordítása egy fordítási táblával kezdődik, ez egy szótár, amely egy karaktert egy másikra képez le. Valójában a &#8222;karakter&#8221; kifejezés helytelen&nbsp;&ndash;&nbsp;a fordítási tábla egy <em>bájtot</em> képez le egy másikra.
 <li>Emlékezz, a bájtok a Python 3-ban egész számok. Az <code>ord()</code> függvény visszaadja egy karakter <abbr>ASCII</abbr> értékét, amely az A&ndash;Z esetén mindig egy 65 és 90 közti bájt.
 <li>Egy karakterlánc <code>translate()</code> metódusa egy fordítási táblát vár, és átfuttatja rajta a karakterláncot. Azaz a fordítási tábla kulcsainak minden előfordulását lecseréli a megfelelő értékre. Ebben az esetben &#8222;lefordítja&#8221; a <code>MARK</code> szót <code>MORK</code>-ra.
 </ol>
@@ -545,7 +545,7 @@ NameError: name 'x' is not defined</samp>
 NameError: name 'math' is not defined</samp></pre>
 <ol>
 <li>Az <code>eval()</code> függvénynek átadott második és harmadik paraméter a kifejezés kiértékeléséhez használandó globális és helyi névterekként működnek. Ebben az esetben mindkettő üres, ami azt jelenti, hogy az <code>"x * 5"</code> karakterlánc kiértékelésekor nincs hivatkozás az <var>x</var>-re a globális vagy helyi névtérben, így az <code>eval()</code> kivételt dob.
-<li>A globális névtérbe felvehetsz egyedi értékeket azok egyenkénti felsorolásával. Ezután azok&nbsp;&mdash;&nbsp;és csak azok&nbsp;&mdash;&nbsp;elérhetők lesznek a kiértékelés során.
+<li>A globális névtérbe felvehetsz egyedi értékeket azok egyenkénti felsorolásával. Ezután azok&nbsp;&ndash;&nbsp;és csak azok&nbsp;&ndash;&nbsp;elérhetők lesznek a kiértékelés során.
 <li>Noha importáltad a <code>math</code> modult, nem vetted fel az <code>eval()</code> függvénynek átadott névtérbe, így a kiértékelés meghiúsult.
 </ol>
 
@@ -620,7 +620,7 @@ NameError: name '__import__' is not defined</samp></pre>
 
 <ul>
 <li><a href=http://docs.python.org/3.1/library/itertools.html>Az <code>itertools</code> modul</a>
-<li><a href=http://www.doughellmann.com/PyMOTW/itertools/><code>itertools</code>&nbsp;&mdash;&nbsp;Iterator functions for efficient looping</a>
+<li><a href=http://www.doughellmann.com/PyMOTW/itertools/><code>itertools</code>&nbsp;&ndash;&nbsp;Iterator functions for efficient looping</a>
 <li><a href=http://blip.tv/file/1947373/>Nézd meg Raymond Hettinger &#8222;Easy AI with Python&#8221; előadását</a> a PyCon 2009-en
 <li><a href=http://code.activestate.com/recipes/576615/>Recipe 576615: Alphametics solver</a>, Raymond Hettinger eredeti alfametikus megoldója a Python 2-höz
 <li><a href=http://code.activestate.com/recipes/users/178123/>Több recept Raymond Hettingertől</a> az ActiveState kódtárolóban
