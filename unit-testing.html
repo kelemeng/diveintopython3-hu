@@ -15,7 +15,7 @@ class=u>&#8227;</span> <a href=table-of-contents.html#unit-testing>Ugorj fejest 
 <p id=level>Nehézségi szint: <span class=u title=kezdő>&#x2666;&#x2666;&#x2662;&#x2662;&#x2662;</span>
 <h1>Egységtesztelés</h1>
 <blockquote class=q>
-<p><span class=u>&#x275D;</span> A bizonyosság nem egyenlő a bizonysággal. Rengeteg dologban voltunk halálosan biztosak, amelyek másképp voltak. <span class=u>&#x275E;</span><br>&mdash; <a href=http://en.wikiquote.org/wiki/Oliver_Wendell_Holmes,_Jr.>Oliver Wendell Holmes, Jr.</a>
+<p><span class=u>&#x275D;</span> A bizonyosság nem egyenlő a bizonysággal. Rengeteg dologban voltunk halálosan biztosak, amelyek másképp voltak. <span class=u>&#x275E;</span><br>&ndash; <a href=http://en.wikiquote.org/wiki/Oliver_Wendell_Holmes,_Jr.>Oliver Wendell Holmes, Jr.</a>
 </blockquote>
 <p id=toc>&nbsp;
 <h2 id=divingin>(Ne) ugorj fejest</h2>
@@ -33,7 +33,7 @@ class=u>&#8227;</span> <a href=table-of-contents.html#unit-testing>Ugorj fejest 
 </ol>
 <p>Kezdjük el feltérképezni, mit kell egy <code>roman.py</code> modulnak csinálnia. Két fő függvénye lesz, a <code>to_roman()</code> és a <code>from_roman()</code>. A <code>to_roman()</code> függvény egy <code>1</code> és <code>3999</code> közti egészet vár, és visszaadja a római számokkal írt változatát karakterláncként&hellip;
 <p>Itt álljunk meg. Csináljunk valami enyhén váratlant: írjunk egy tesztesetet, amely ellenőrzi, hogy a <code>to_roman()</code> függvény azt csinálja-e, amit vársz tőle. Jól olvastad: olyan kódot fogsz írni, amely a még meg sem írt kódodat teszteli.
-<p>Ezt <i>tesztvezérelt fejlesztésnek</i> vagy <abbr>TDD</abbr>-nek hívják. A két átalakítási függvény&nbsp;&mdash;&nbsp;<code>to_roman()</code> és később a <code>from_roman()</code>&nbsp;&mdash;&nbsp;megírható és tesztelhető egy egységként, függetlenül bármely nagyobb programtól, amely importálja. A Python rendelkezik egy keretrendszerrel az egységteszteléshez, ezt a <code>unittest</code> modul tartalmazza.
+<p>Ezt <i>tesztvezérelt fejlesztésnek</i> vagy <abbr>TDD</abbr>-nek hívják. A két átalakítási függvény&nbsp;&ndash;&nbsp;<code>to_roman()</code> és később a <code>from_roman()</code>&nbsp;&ndash;&nbsp;megírható és tesztelhető egy egységként, függetlenül bármely nagyobb programtól, amely importálja. A Python rendelkezik egy keretrendszerrel az egységteszteléshez, ezt a <code>unittest</code> modul tartalmazza.
 <p>Az egységtesztelés a tesztközpontú fejlesztési stratégia fontos része. Ha egységteszteket írsz, akkor fontos azokat időben megírni, és a követelmények változásával együtt frissíteni. Sokan népszerűsítik a tesztek megírását a tesztelendő kód megírása előtt, és ezt a stílus mutatom be ebben a fejezetben. De az egységtesztek hasznosak, akármikor is írod meg azokat.
 <ul>
 <li>Az egységteszteknek a kód megírása előtti megírása a követelmények hasznos formában való részletezésére kényszerít.
@@ -241,7 +241,7 @@ OK</samp></pre>
 <a><samp class=p>>>> </samp><kbd class=pp>roman1.to_roman(9000)</kbd>  <span class=u>&#x2460;</span></a>
 <samp class=pp>'MMMMMMMMM'</samp></pre>
 <ol>
-<li>Ez határozottan nem az, amit akartál&nbsp;&mdash;&nbsp;ez még csak nem is érvényes római szám! Valójában ezen számok mind kívül esnek az elfogadható bemenet tartományán, de a függvény így is visszaad egy hibás értéket. A hibás értékek szó nélküli visszaadása <em>rooooossz</em>; ha egy program futása sikertelen lesz, akkor jobb, ha ez gyorsan és zajosan következik be. &#8222;Állj meg, és dobj el mindent&#8221;, ahogy mondani szoktuk. A megállás és mindent eldobás pythonos módja a kivételdobás.</ol>
+<li>Ez határozottan nem az, amit akartál&nbsp;&ndash;&nbsp;ez még csak nem is érvényes római szám! Valójában ezen számok mind kívül esnek az elfogadható bemenet tartományán, de a függvény így is visszaad egy hibás értéket. A hibás értékek szó nélküli visszaadása <em>rooooossz</em>; ha egy program futása sikertelen lesz, akkor jobb, ha ez gyorsan és zajosan következik be. &#8222;Állj meg, és dobj el mindent&#8221;, ahogy mondani szoktuk. A megállás és mindent eldobás pythonos módja a kivételdobás.</ol>
 <p>A kérdés, amit fel kell tenned magadnak: &#8222;Hogyan fejezhetem ki ezt tesztelhető követelményként?&#8221; Kezdésnek mit szólnál ehhez:
 <blockquote>
 <p>A <code>to_roman()</code> függvénynek <code>OutOfRangeError</code> kivételt kell dobnia, ha a kapott egész szám nagyobb, mint <code>3999</code>.
@@ -281,14 +281,14 @@ Ran 2 tests in 0.000s
 
 FAILED (errors=1)</samp></pre>
 <ol>
-<li>Számítanod kellett rá, hogy ez nem fog sikerülni, (mivel még nem írtál kódot, amely átmenne a teszten), de... ez nem &#8222;sikertelen&#8221; volt, hanem &#8222;hibát&#8221; adott. Ez egy apró, ám fontos különbség. Egy egységtesztnek valójában <em>három</em> visszatérési értéke van: sikeres, sikertelen és hiba. A sikeres természetesen azt jelenti, hogy átment a teszten&nbsp;&mdash;&nbsp;a kód azt csinálta, amit vártál. A &#8222;sikertelen&#8221; az, amilyen az előző teszteset volt (amíg nem írtad meg azt a kódot, ami átment)&nbsp;&mdash;&nbsp;a kód végre lett hajtva, de az eredmény nem az lett, amit vártál. A &#8222;hiba&#8221; azt jelenti, hogy a kód nem is hajtódott végre megfelelően.
+<li>Számítanod kellett rá, hogy ez nem fog sikerülni, (mivel még nem írtál kódot, amely átmenne a teszten), de... ez nem &#8222;sikertelen&#8221; volt, hanem &#8222;hibát&#8221; adott. Ez egy apró, ám fontos különbség. Egy egységtesztnek valójában <em>három</em> visszatérési értéke van: sikeres, sikertelen és hiba. A sikeres természetesen azt jelenti, hogy átment a teszten&nbsp;&ndash;&nbsp;a kód azt csinálta, amit vártál. A &#8222;sikertelen&#8221; az, amilyen az előző teszteset volt (amíg nem írtad meg azt a kódot, ami átment)&nbsp;&ndash;&nbsp;a kód végre lett hajtva, de az eredmény nem az lett, amit vártál. A &#8222;hiba&#8221; azt jelenti, hogy a kód nem is hajtódott végre megfelelően.
 <li>Miért nem hajtódott végre megfelelően a kód? A visszakövetés mindent elmond. A tesztelt modul nem rendelkezik <code>OutOfRangeError</code> nevű kivétellel. Emlékezz, ezt a kivételt átadtad az <code>assertRaises()</code> metódusnak, mert ez az a kivétel, amelyet a függvénnyel dobatni szeretnél, ha tartományon kívüli bemenetet kap. Azonban a kivétel nem létezik, így az <code>assertRaises()</code> metódus hívása nem sikerült. Soha nem volt lehetősége a <code>to_roman()</code> függvény tesztelésére, nem jutott el addig.
 </ol>
 <p>A probléma megoldásához definiálnod kell az <code>OutOfRangeError</code> kivételt a <code>roman2.py</code> fájlban.
 <pre class=pp><code><a>class OutOfRangeError(ValueError):  <span class=u>&#x2460;</span></a>
 <a>    pass                            <span class=u>&#x2461;</span></a></code></pre>
 <ol>
-<li>A kivételek osztályok. A &#8222;tartományon kívüli érték&#8221; hiba egy fajta értékhiba&nbsp;&mdash;&nbsp;az argumentum értéke kívül esik az elfogadható tartományon. Így ez a kivétel a beépített <code>ValueError</code> (értékhiba) kivételből származik. Ez nem kötelező (származhatna épp az alap <code>Exception</code> osztályból is), de helyesnek érződik.
+<li>A kivételek osztályok. A &#8222;tartományon kívüli érték&#8221; hiba egy fajta értékhiba&nbsp;&ndash;&nbsp;az argumentum értéke kívül esik az elfogadható tartományon. Így ez a kivétel a beépített <code>ValueError</code> (értékhiba) kivételből származik. Ez nem kötelező (származhatna épp az alap <code>Exception</code> osztályból is), de helyesnek érződik.
 <li>A kivételek valójában nem csinálnak semmit, de legalább egy sor kell ahhoz, hogy osztályként lehessen kezelni. A <code>pass</code> hívása egész pontosan semmit sem csinál, de ez egy sor Python kód, így megvan az osztály.
 </ol>
 <p>Most futtassuk újra a tesztcsomagot.
@@ -313,7 +313,7 @@ Ran 2 tests in 0.016s
 FAILED (failures=1)</samp></pre>
 <ol>
 <li>A teszt még mindig nem sikeres, de már nem is ad vissza hibát. Csak sikertelen, ez már haladás! Ez azt jelenti, hogy az <code>assertRaises()</code> metódus ez alkalommal sikeres volt, és az egységtesztelő keretrendszer ténylegesen tesztelte a <code>to_roman()</code> függvényt.
-<li>Természetesen a <code>to_roman()</code> függvény még mindig nem dobja az imént definiált <code>OutOfRangeError</code> kivételt, mert még nem írtad meg az ehhez szükséges kódot. Kitűnő hír! Ez azt jelenti, hogy ez egy érvényes teszteset&nbsp;&mdash;&nbsp;sikertelen, mielőtt megírnád a kódot, amely átmegy rajta.
+<li>Természetesen a <code>to_roman()</code> függvény még mindig nem dobja az imént definiált <code>OutOfRangeError</code> kivételt, mert még nem írtad meg az ehhez szükséges kódot. Kitűnő hír! Ez azt jelenti, hogy ez egy érvényes teszteset&nbsp;&ndash;&nbsp;sikertelen, mielőtt megírnád a kódot, amely átmegy rajta.
 </ol>
 <p>Itt az ideje megírni a kódot, amely átmegy a teszten.
 <p class=d>[<a href=examples/roman2.py>a <code>roman2.py</code> letöltése</a>]
