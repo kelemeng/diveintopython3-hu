@@ -15,7 +15,7 @@ class=u>&#8227;</span> <a href=table-of-contents.html#iterators>Ugorj fejest a P
 <p id=level>Nehézségi szint: <span class=u title=közepes>&#x2666;&#x2666;&#x2666;&#x2662;&#x2662;</span>
 <h1>Osztályok és iterátorok</h1>
 <blockquote class=q>
-<p><span class=u>&#x275D;</span> A kelet kelet és a nyugat nyugat, és e kettő soha nem találkozhat. <span class=u>&#x275E;</span><br>&mdash; <a href=http://en.wikiquote.org/wiki/Rudyard_Kipling>Rudyard Kipling</a>
+<p><span class=u>&#x275D;</span> A kelet kelet és a nyugat nyugat, és e kettő soha nem találkozhat. <span class=u>&#x275E;</span><br>&ndash; <a href=http://en.wikiquote.org/wiki/Rudyard_Kipling>Rudyard Kipling</a>
 </blockquote>
 <p id=toc>&nbsp;
 <h2 id=divingin>Ugorj fejest</h2>
@@ -81,7 +81,7 @@ class=u>&#8227;</span> <a href=table-of-contents.html#iterators>Ugorj fejest a P
 <a>    def __init__(self, max):                                      <span class=u>&#x2461;</span></a></code></pre>
 <ol>
 <li>Az osztályok rendelkezhetnek (és kell is rendelkezniük) <code>docstring</code>-ekkel is, mint a modulok és függvények.
-<li>Az <code>__init__()</code> metódus az osztály minden példányának létrehozása után azonnal meghívásra kerül. Csábító &nbsp;&mdash;&nbsp;de technikailag helytelen&nbsp;&mdash;&nbsp; lenne ezt az osztály „konstruktorának” nevezni. Csábító, mert úgy néz ki, mint egy C++ konstruktor (megállapodás szerint az osztályhoz először az <code>__init__()</code> metódus kerül definiálásra), úgy is működik (az osztály új példányában ez az elsőként lefutó kód), és még úgy is hangzik. De ez tévedés, mert az objektum már kész van, amikor az <code>__init__()</code> metódus meghívásra kerül, és már rendelkezel érvényes hivatkozással az osztály új példányára.
+<li>Az <code>__init__()</code> metódus az osztály minden példányának létrehozása után azonnal meghívásra kerül. Csábító &nbsp;&ndash;&nbsp;de technikailag helytelen&nbsp;&ndash;&nbsp; lenne ezt az osztály „konstruktorának” nevezni. Csábító, mert úgy néz ki, mint egy C++ konstruktor (megállapodás szerint az osztályhoz először az <code>__init__()</code> metódus kerül definiálásra), úgy is működik (az osztály új példányában ez az elsőként lefutó kód), és még úgy is hangzik. De ez tévedés, mert az objektum már kész van, amikor az <code>__init__()</code> metódus meghívásra kerül, és már rendelkezel érvényes hivatkozással az osztály új példányára.
 </ol>
 
 <p>Minden osztálymetódus első argumentuma, beleértve az <code>__init__()</code> metódust is, mindig egy hivatkozás az osztály aktuális példányára. Megállapodás szerint ennek az argumentumnak a neve <var>self</var>. Ez az argumentum tölti ki a <abbr>C++</abbr> vagy Java <code>this</code> foglalt szavának szerepét, de a <var>self</var> nem foglalt szó a Pythonban, csupán elnevezési megállapodás. Ezzel együtt ne nevezd másnak, csak <var>self</var>-nek; ez egy nagyon erős megállapodás.
@@ -295,7 +295,7 @@ rules = LazyRules()</code></pre>
 <a>        return self           <span class=u>&#x2461;</span></a>
 </code></pre>
 <ol>
-<li>Az <code>__iter__()</code> metódus meghívásra kerül minden alkalommal, amikor valami&nbsp;&mdash;&nbsp;mondjuk egy <code>for</code> ciklus&nbsp;&mdash;&nbsp;meghívja az <code>iter(rules)</code> metódust.
+<li>Az <code>__iter__()</code> metódus meghívásra kerül minden alkalommal, amikor valami&nbsp;&ndash;&nbsp;mondjuk egy <code>for</code> ciklus&nbsp;&ndash;&nbsp;meghívja az <code>iter(rules)</code> metódust.
 <li>Az egyetlen dolog, amit minden <code>__iter__()</code> metódusnak meg kell tennie, az egy iterátor visszaadása. Ebben az esetben a <var>self</var>-et adja vissza, ami azt jelzi, hogy ez az osztály definiál egy <code>__next__()</code> metódust, amely elvégzi az értékek visszaadását az iteráció során.
 </ol>
 
@@ -309,7 +309,7 @@ rules = LazyRules()</code></pre>
 <a>        self.cache.append(funcs)                        <span class=u>&#x2462;</span></a>
         return funcs</code></pre>
 <ol>
-<li>A <code>__next__()</code> metódus meghívásra kerül, amikor valami&nbsp;&mdash;&nbsp;mondjuk egy <code>for</code> ciklus&nbsp;&mdash;&nbsp;meghívja a <code>next(rules)</code>-t. Ez a metódus csak akkor nyeri el értelmét, ha visszafelé haladva kezdjük megfejteni. Tegyünk így.
+<li>A <code>__next__()</code> metódus meghívásra kerül, amikor valami&nbsp;&ndash;&nbsp;mondjuk egy <code>for</code> ciklus&nbsp;&ndash;&nbsp;meghívja a <code>next(rules)</code>-t. Ez a metódus csak akkor nyeri el értelmét, ha visszafelé haladva kezdjük megfejteni. Tegyünk így.
 <li>A függvény utolsó része mindenképp ismerős kell legyen. A <code>build_match_and_apply_functions()</code> függvény nem változott, ugyanaz mint volt.
 <li>Az egyetlen különbség, hogy a (<var>funcs</var> tuple-ben tárolt) illesztési és alkalmazási függvények visszaadása előtt ezeket elmentjük a <code>self.cache</code>-ben.
 </ol>
@@ -347,7 +347,7 @@ rules = LazyRules()</code></pre>
         .</code></pre>
 <ol>
 <li>A <code>self.cache</code> az egyes szabályok illesztéséhez és alkalmazásához szükséges függvények listája lesz. (Ha másnak nem, <em>ennek</em> ismerősen kell hangzania!) A <code>self.cache_index</code> nyilvántartja, hogy melyik gyorsítótárazott elemet kell legközelebb visszaadni. Ha még nem ürítettük ki a gyorsítótárat (<i>azaz</i> ha a <code>self.cache</code> hossza nagyobb, mint a <code>self.cache_index</code>), akkor találat van a gyorsítótárban! Hurrá! Visszaadhatjuk az illesztési és alkalmazási függvényeket a gyorsítótárból, azok nulláról való felépítése helyett.
-<li>Másrészről, ha nincs találat a gyorsítótárból, <em>és</em> a fájlobjektum le lett zárva (ami megtörténhet, a metódus későbbi részében, ahogy az előző kóddarabban láthattad), akkor nincs mit tenni. Ha a fájl le van zárva, akkor kimerítettük&nbsp;&mdash;&nbsp;már beolvastuk a mintafájl összes sorát, valamint felépítettük és gyorsítótáraztuk az illesztési és alkalmazási függvényeket minden mintához. A fájl kimerült, a gyorsítótár kimerült, én is kimerültem. Várjunk csak? Maradj még, már majdnem kész vagyunk.
+<li>Másrészről, ha nincs találat a gyorsítótárból, <em>és</em> a fájlobjektum le lett zárva (ami megtörténhet, a metódus későbbi részében, ahogy az előző kóddarabban láthattad), akkor nincs mit tenni. Ha a fájl le van zárva, akkor kimerítettük&nbsp;&ndash;&nbsp;már beolvastuk a mintafájl összes sorát, valamint felépítettük és gyorsítótáraztuk az illesztési és alkalmazási függvényeket minden mintához. A fájl kimerült, a gyorsítótár kimerült, én is kimerültem. Várjunk csak? Maradj még, már majdnem kész vagyunk.
 </ol>
 
 <p>Összegezve a következők történnek:
@@ -359,7 +359,7 @@ rules = LazyRules()</code></pre>
 <li>Tegyük fel továbbá, hogy a hívó <em>újra</em> meghívja a <code>plural()</code> függvényt, hogy egy másik szót is többes számba tegyen. A <code>plural()</code> függvény <code>for</code> ciklusa meghívja az <code>iter(rules)</code>-t, ami visszaállítja a gyorsítótár indexét, de nem állítja vissza a nyitott fájlobjektumot.
 <li>Az első futása során a <code>for</code> ciklus lekér egy értéket a <var>rules</var> objektumtól, amely meghívja a <code>__next__()</code> metódusát. Ez alkalommal azonban a gyorsítótárban már van egy illesztési és alkalmazási függvénypár, amely megfelel a mintafájl első sorában lévő mintáknak. Mivel ezek az előző szó többes számba tétele során már felépítésre és gyorsítótárazásra kerültek, a gyorsítótárból lesznek lekérve. A gyorsítótár indexe nő, a megnyitott fájlhoz semmi nem nyúl hozzá.
 
-<li>Tegyük fel, hogy a legelső szabály most <em>nem</em> illeszkedik. Így a <code>for</code> ciklus újra lefut, és újabb értéket kér a <var>rules</var> objektumtól. Ez másodszor is meghívja a <code>__next__()</code> metódust. Ez alkalommal a gyorsítótár kimerült&nbsp;&mdash;&nbsp;csak egy elemet tartalmazott, és most egy másodikat kérünk&nbsp;&mdash;&nbsp;így a <code>__next__()</code> metódus folytatódik. Így beolvas egy újabb sort a nyitott fájlból, felépíti az illesztési és alkalmazási függvényeket, és gyorsítótárazza az eredményt.
+<li>Tegyük fel, hogy a legelső szabály most <em>nem</em> illeszkedik. Így a <code>for</code> ciklus újra lefut, és újabb értéket kér a <var>rules</var> objektumtól. Ez másodszor is meghívja a <code>__next__()</code> metódust. Ez alkalommal a gyorsítótár kimerült&nbsp;&ndash;&nbsp;csak egy elemet tartalmazott, és most egy másodikat kérünk&nbsp;&ndash;&nbsp;így a <code>__next__()</code> metódus folytatódik. Így beolvas egy újabb sort a nyitott fájlból, felépíti az illesztési és alkalmazási függvényeket, és gyorsítótárazza az eredményt.
 <li>Ez az olvasás-felépítés-gyorsítótárazás folyamat addig folytatódik, amíg a mintafájlból olvasott szabályok nem illeszkednek a többes számba tenni próbált szóra. Ha a fájl vége előtt találunk egy illeszkedő szabályt, akkor egyszerűen használjuk azt és leállunk, a fájl pedig továbbra is nyitva marad. A fájlmutató ott marad, ahol az olvasást leállítottuk, a következő <code>readline()</code> parancsra várakozva. Ezalatt a gyorsítótár már több elemet tartalmaz, és ha a program újra elkezdődik, és megpróbál egy új szót többes számba tenni, akkor a gyorsítótár minden elemét végigpróbálja, mielőtt beolvasná a következő sort a mintafájlból.
 </ul>
 
