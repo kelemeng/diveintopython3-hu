@@ -20,7 +20,7 @@ h2,.i>li{clear:both}
 <p id=level>Nehézségi szint: <span class=u title=újonc>&#x2666;&#x2662;&#x2662;&#x2662;&#x2662;</span>
 <h1>A Python telepítése</h1>
 <blockquote class=q>
-<p><span class=u>&#x275D;</span> <i lang=la>Tempora mutantur nos et mutamur in illis.</i> (Az idők változnak, és mi változunk velük.) <span class=u>&#x275E;</span><br>&mdash; régi római közmondás
+<p><span class=u>&#x275D;</span> <i lang=la>Tempora mutantur nos et mutamur in illis.</i> (Az idők változnak, és mi változunk velük.) <span class=u>&#x275E;</span><br>&ndash; régi római közmondás
 </blockquote>
 <p id=toc>&nbsp;
 <h2 id=divingin>Ugorj fejest</h2>
@@ -72,7 +72,7 @@ href=#other>Telepítés más rendszerekre</a> részre.]
 
 <p>A Windows manapság két architektúrát támogat: ezek a 32 bites és 64
 bites. Természetesen számos különböző <i>verzió</i> létezik a
-Windowsból&nbsp;&mdash;&nbsp;XP, Vista, Windows 7&nbsp;&mdash;&nbsp;de a
+Windowsból&nbsp;&ndash;&nbsp;XP, Vista, Windows 7&nbsp;&ndash;&nbsp;de a
 Python mindegyiken fut. A fontosabb megkülönböztetés a 32 bit és 64 bit
 közt van. Ha nem tudod, milyen architektúrád van, akkor az valószínűleg 32
 bites.
@@ -83,7 +83,7 @@ oldalt, és töltsd le az architektúrának megfelelő Python 3 Windows
 telepítőt. A lehetőségek valahogy így néznek ki:
 
 <ul>
-<li><b>Python 3.2.2 Windows x86 MSI Installer</b> (Windows binary&nbsp;&mdash;&nbsp;does not include source)
+<li><b>Python 3.2.2 Windows x86 MSI Installer</b> (Windows binary&nbsp;&ndash;&nbsp;does not include source)
 <li><b>Python 3.2.2 Windows X86-64 MSI Installer</b> (Windows AMD64 / Intel 64 / X86-64 binary [1] -- does not include source)
 </ul>
 
@@ -342,44 +342,58 @@ legegyszerűbb módja a <code>Szoftverközpont</code> ikon az
 <code>Indítón</code>.
 <ol class=i>
 <li>
-<p class='ss nm'><img src=i/ubu-install-0-software-center.png width=850 height=530 alt='[Szoftverközpont: a Canonical által karbantartott alkalmazások]'>
+<p class='ss nm'><img src=i/ubu-install-0-add-remove-programs.png width=920 height=473 alt='[Szoftverközpont: a Canonical által karbantartott alkalmazások]'>
 <p>A <code>Szoftverközpont</code> indításakor előre kiválasztott,
 különböző kategóriákban lévő alkalmazások listáját jeleníti meg. Néhány
-már telepítve van, a legtöbb nincs.
+már telepítve van, a legtöbb nincs. Mivel a tároló több, mint 10,000
+alkalmazást tartalmaz, különböző szűrőkkel szűkítheted a megjelenített
+alkalmazások körét. Az alapértelmezett szűrő a &#8222;Canonical által
+karbantartott alkalmazások&#8221;, amely a Canonical, az Ubuntu Linuxot
+létrehozó és karbantartó cég által hivatalosan támogatott alkalmazások egy
+kisebb halmaza.
 <li>
-<li>
-<p class='ss nm'><img src=i/ubu-install-2-search-python-3.png width=854 height=536 alt='[Szoftverközpont: a Python 3 keresése]'>
-<p>Használd a jobb felső Keresés mezőt a <kbd>python3</kbd> megkeresésére.
+<p class='ss nm'><img src=i/ubu-install-1-all-open-source-applications.png width=920 height=473 alt='[Szoftverközpont: az összes nyílt forrású alkalmazás]'>
+<p>A Python 3 xxx ez törlendőxxx is not maintained by Canonical, so the first
+step is to
+drop down this filter menu and select &#8222;All Open Source applications.&#8221;
 
 <li>
-<p class='ss nm'><img src=i/ubu-install-3-install-python3.png width=853 height=531 alt='[Szoftverközpont: válaszd ki a Python 3.2 csomagot]'>
-<p>Az alkalmazások listája leszűkült a <kbd>Python 3-ra</kbd>. Két
-csomagra lesz szükséged. Az első a <code>python3</code>. Ez magát a Python értelmezőt tartalmazza.
+<p class='ss nm'><img src=i/ubu-install-2-search-python-3.png width=920 height=473 alt='[Szoftverközpont: a Python 3 keresése]'>
+<p>Használd a jobb felső Keresés mezőt a <kbd>Python 3</kbd> megkeresésére.
+
 <li>
-<p class='ss nm'><img src=i/ubu-install-4-install-idle.png width=852 height=534 alt='[Szoftverközpont: válaszd ki az IDLE for Python 3.2 csomagot]'>
+<p class='ss nm'><img src=i/ubu-install-3-select-python-3.png width=920 height=473 alt='[Szoftverközpont: válaszd ki a Python 3.2 csomagot]'>
+<p>Az alkalmazások listája leszűkült a <kbd>Python 3-at</kbd>. Két
+csomagra lesz szükséged. Az első a <code>Python (v3.2)</code>. Ez magát a Python értelmezőt tartalmazza.
+<li>
+<p class='ss nm'><img src=i/ubu-install-4-select-idle.png width=920 height=473 alt='[Szoftverközpont: válaszd ki az IDLE for Python 3.2 csomagot]'>
 <p>A második csomag is közvetlenül a közelben van:
 <code>IDLE (a Python-3.2 használatával)</code>. Ez egy grafikus Python
 Shell, amelyet a könyvben mindenütt használni fogsz.
 <p>A két csomag bejelölése után nyomd meg a <code>Változtatások végrehajtása</code> gombot.
 <li>
-<p class='ss nm'><img src=i/ubu-install-5-apply-changes.png width=640 height=246 alt='[Szoftverközpont: hitelesítés a szoftver telepítéséhez]'>
-<p>A <code>Szoftverközpont</code> bekéri a rendszergazdai jelszót.
+<p class='ss nm'><img src=i/ubu-install-5-apply-changes.png width=635 height=364 alt='[Szoftverközpont: módosítás alkalmazása]'>
+<p>A csomagkezelő bekéri a rendszergazdai jelszót.
 <p>Nyomd meg a <code>Hitelesítés</code> gombot a folytatáshoz.
 <li>
-<p class='ss nm'><img src=i/ubu-install-6-install-progress.png width=855 height=538 alt='[Szoftverközpont: letöltési folyamatjelző]'>
-<p>A <code>Szoftverközpont</code> a <code>Telepítés</code> gomb felett, illetve az <code>Állapot</code> eszköztárgomb alatt megjelenít egy folyamatjelzőt, mialatt letölti a
-szükséges csomagokat a Canonical internetes tárolójából, és telepíti azokat.
+<p class='ss nm'><img src=i/ubu-install-6-download-progress.png width=287 height=211 alt='[Szoftverközpont: letöltési folyamatjelző]'>
+<p>A csomagkezelő megjelenít egy folyamatjelzőt, mialatt letölti a
+szükséges csomagokat a Canonical internetes tárolójából.
 <li>
+<p class='ss nm'><img src=i/ubu-install-7-install-progress.png width=486 height=258 alt='[Szoftverközpont: telepítési folyamatjelző]'>
+<p>A csomagok letöltése után a csomagkezelő automatikusan megkezdi a
+telepítésüket.
+
 <li>
-<p class='ss nm'><img src=i/ubu-install-8-success.png width=909 height=526 alt='[Szoftverközpont: az új alkalmazások telepítve]'>
-<p>Ha minden jól ment, akkor a <code>Szoftverközpont</code> egy zöld pipát 
-jelenít meg a frissen telepített alkalmazás ikonjának jobb alsó sarkában. 
-Ekkor a telepítéssel kész vagy, bezárhatod a <code>Szoftverközpontot</code>.
+<p class='ss nm'><img src=i/ubu-install-8-success.png width=591 height=296 alt='[Szoftverközpont: az új alkalmazások telepítve]'>
+<p>Ha minden jól ment, akkor a csomagkezelő visszatér a csomagok
+oldalára.xxx
+Most már bezárhatod a Szoftverközpontot.
 <p>A Python Shellt a Dashból, a Fejlesztés alkalmazáskategória alatt, az
 <abbr>IDLE</abbr> kiválasztásával, vagy a keresőmezőbe való begépelésével
 érheted el.
 <li>
-<p class='ss nm'><img src=i/ubu-interactive-shell.png width=653 height=501 alt='[Linux Python Shell, grafikus interaktív parancsértelmező Pythonhoz]'>
+<p class='ss nm'><img src=i/ubu-interactive-shell.png width=679 height=687 alt='[Linux Python Shell, grafikus interaktív parancsértelmező Pythonhoz]'>
 <p>A Python Shellben fogod a legtöbb időt eltölteni a Python
 felfedezésével. A könyv példái feltételezik, hogy el tudsz jutni a Python
 Shellbe.
@@ -442,9 +456,9 @@ eredmény természetesen <samp class=pp>2</samp>.
 </pre>
 
 <p>Elég egyszerű, ugye? De a Python Shellben egy csomó minden mást is
-csinálhatsz. Ha bármikor elakadsz&nbsp;&mdash;&nbsp;nem emlékszel egy
+csinálhatsz. Ha bármikor elakadsz&nbsp;&ndash;&nbsp;nem emlékszel egy
 parancsra, vagy hogy egy adott függvény milyen argumentumokat
-vár&nbsp;&mdash;&nbsp;akkor interaktív segítségét kérhetsz a Python
+vár&nbsp;&ndash;&nbsp;akkor interaktív segítségét kérhetsz a Python
 Shellben. Írd be a <kbd>help</kbd> parancsot, és nyomd meg az <kbd>ENTER</kbd>-t.
 
 <pre class='nd screen'>
@@ -479,8 +493,8 @@ such as "spam", type "modules spam".
 <p>Figyeld meg, hogy a prompt hogyan változik: <samp class=p>>>></samp> ->
 <samp class=p>help></samp>. Ez emlékeztet, hogy az interaktív súgó
 módban vagy. Most megadhatsz egy tetszőleges kulcsszót, parancsot,
-modulnevet, függvénynevet&nbsp;&mdash;&nbsp;gyakorlatilag bármit, amit a
-Python megért&nbsp;&mdash;&nbsp;és elolvashatod a dokumentációját (angolul).
+modulnevet, függvénynevet&nbsp;&ndash;&nbsp;gyakorlatilag bármit, amit a
+Python megért&nbsp;&ndash;&nbsp;és elolvashatod a dokumentációját (angolul).
 <pre class=screen>
 <a><samp class=p>help> </samp><kbd class=pp>print</kbd>                                                                 <span class=u>&#x2460;</span></a>
 <samp>Help on built-in function print in module builtins:
