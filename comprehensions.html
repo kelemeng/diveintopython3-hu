@@ -15,7 +15,7 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
 <p id=level>Nehézségi szint: <span class=u title=kezdő>&#x2666;&#x2666;&#x2662;&#x2662;&#x2662;</span>
 <h1>Feldolgozók</h1>
 <blockquote class=q>
-<p><span class=u>&#x275D;</span>Képzeletünk a végsőkig van feszítve, nem azért, hogy irodalmi, nem létező dolgokat képzeljünk el, hanem hogy megértsük a valóban létezőket. <span class=u>&#x275E;</span><br>&mdash; <a href=http://en.wikiquote.org/wiki/Richard_Feynman>Richard Feynman</a>
+<p><span class=u>&#x275D;</span>Képzeletünk a végsőkig van feszítve, nem azért, hogy irodalmi, nem létező dolgokat képzeljünk el, hanem hogy megértsük a valóban létezőket. <span class=u>&#x275E;</span><br>&ndash; <a href=http://en.wikiquote.org/wiki/Richard_Feynman>Richard Feynman</a>
 </blockquote>
 <p id=toc>&nbsp;
 <h2 id=divingin>Ugorj fejest</h2>
@@ -25,7 +25,7 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
 
 <h2 id=os>Fájlok és könyvtárak kezelése</h2>
 
-<p>A Python 3 tartalmaz egy <code>os</code> nevű modult, amely az &#8222;operating system&#8221; (operációs rendszer) rövidítése. Az <a href=http://docs.python.org/3.1/library/os.html><code>os</code> modul</a> rengeteg függvényt tartalmaz, amelyekkel információk kérhetők a helyi könyvtárakról, fájlokról, folyamatokról és környezeti változókról&nbsp;&mdash;&nbsp;és egyes esetekben ezek kezelhetők is. A Python mindent megtesz azért, hogy egy egységesített <abbr>API</abbr>-t kínáljon <a href=installing-python.html>minden támogatott operációs rendszeren</a>, így programjaid bármely számítógépen a lehető legkevesebb platformspecifikus kóddal futhatnak.
+<p>A Python 3 tartalmaz egy <code>os</code> nevű modult, amely az &#8222;operating system&#8221; (operációs rendszer) rövidítése. Az <a href=http://docs.python.org/3.1/library/os.html><code>os</code> modul</a> rengeteg függvényt tartalmaz, amelyekkel információk kérhetők a helyi könyvtárakról, fájlokról, folyamatokról és környezeti változókról&nbsp;&ndash;&nbsp;és egyes esetekben ezek kezelhetők is. A Python mindent megtesz azért, hogy egy egységesített <abbr>API</abbr>-t kínáljon <a href=installing-python.html>minden támogatott operációs rendszeren</a>, így programjaid bármely számítógépen a lehető legkevesebb platformspecifikus kóddal futhatnak.
 <h3 id=getcwd>Az aktuális munkakönyvtár</h3>
 
 <p>Ha kezdő vagy a Pythonban, akkor rengeteg időt fogsz eltölteni <a href=installing-python.html#idle>a Python Shellben</a>. Ebben a könyvben a következőhöz hasonló példákat fogsz látni:
@@ -181,7 +181,7 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
 
 <h3 id=abspath>Abszolút útvonalnevek összeállítása</h3>
 
-<p>Az <a href=#osstat>előző szakaszban</a> a <code>glob.glob()</code> függvény relatív útvonalnevek listáját adta vissza. Az első példa olyan útvonalneveket tartalmaz, mint az <code>'examples\feed.xml'</code>, és a második példa még rövidebbeket, mint a <code>'romantest1.py'</code>. Amíg ugyanabban az aktuális munkakönyvtárban maradsz, ezek a relatív útvonalnevek működni fognak a fájlok megnyitásakor vagy a metaadatok lekérésekor. Ha azonban abszolút&nbsp;&mdash;&nbsp;<i>azaz</i> a könyvtárneveket egészen a gyökérkönyvtárig vagy a meghajtó betűjelig tartalmazó&nbsp;&mdash;&nbsp;útvonalnevet szeretnél összeállítani, akkor az <code>os.path.realpath()</code> függvényt kell használnod.
+<p>Az <a href=#osstat>előző szakaszban</a> a <code>glob.glob()</code> függvény relatív útvonalnevek listáját adta vissza. Az első példa olyan útvonalneveket tartalmaz, mint az <code>'examples\feed.xml'</code>, és a második példa még rövidebbeket, mint a <code>'romantest1.py'</code>. Amíg ugyanabban az aktuális munkakönyvtárban maradsz, ezek a relatív útvonalnevek működni fognak a fájlok megnyitásakor vagy a metaadatok lekérésekor. Ha azonban abszolút&nbsp;&ndash;&nbsp;<i>azaz</i> a könyvtárneveket egészen a gyökérkönyvtárig vagy a meghajtó betűjelig tartalmazó&nbsp;&ndash;&nbsp;útvonalnevet szeretnél összeállítani, akkor az <code>os.path.realpath()</code> függvényt kell használnod.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>import os</kbd>
 <samp class=p>>>> </samp><kbd class=pp>print(os.getcwd())</kbd>
@@ -244,7 +244,7 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
 <li>Egy lista szűréséhez felvehetsz egy <code>if</code> kifejezést a listafeldolgozó végére. Az <code>if</code> kulcsszó utáni kifejezés kiértékelődik a lista minden egyes elemére. Ha a kifejezés <code>True</code>-ra értékelődik ki, akkor a kimenet tartalmazni fogja az elemet. Ez a listafeldolgozó megnézi az aktuális könyvtár összes <code>.py</code> fájlját, és az <code>if</code> kifejezés annak alapján szűri ezt a listát, hogy az egyes fájlok mérete nagyobb-e <code>6000</code> bájtnál. Hat ilyen fájl van, így a listafeldolgozó hat fájlnévből álló listát ad vissza.
 </ol>
 
-<p>A listafeldolgozók az eddigi példákban egyszerű kifejezéseket mutattak be&nbsp;&mdash;&nbsp;egy szám konstanssal szorzása, egy függvény hívása, vagy egyszerűen az eredeti listaelem visszaadása (szűrés után). De a listafeldolgozó összetettségének nincs korlátja.
+<p>A listafeldolgozók az eddigi példákban egyszerű kifejezéseket mutattak be&nbsp;&ndash;&nbsp;egy szám konstanssal szorzása, egy függvény hívása, vagy egyszerűen az eredeti listaelem visszaadása (szűrés után). De a listafeldolgozó összetettségének nincs korlátja.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>import os, glob</kbd>
@@ -360,13 +360,13 @@ TypeError: unhashable type: 'list'</samp></pre>
 <h2 id=furtherreading>További olvasnivaló</h2>
 <ul>
 <li><a href=http://docs.python.org/3.1/library/os.html>Az <code>os</code> modul</a>
-<li><a href=http://www.doughellmann.com/PyMOTW/os/><code>os</code>&nbsp;&mdash;&nbsp;Portable access to operating system specific features</a>
+<li><a href=http://www.doughellmann.com/PyMOTW/os/><code>os</code>&nbsp;&ndash;&nbsp;Portable access to operating system specific features</a>
 <li><a href=http://docs.python.org/3.1/library/os.path.html>Az <code>os.path</code> modul</a>
-<li><a href=http://www.doughellmann.com/PyMOTW/ospath/><code>os.path</code>&nbsp;&mdash;&nbsp;Platform-independent manipulation of file names</a>
+<li><a href=http://www.doughellmann.com/PyMOTW/ospath/><code>os.path</code>&nbsp;&ndash;&nbsp;Platform-independent manipulation of file names</a>
 <li><a href=http://docs.python.org/3.1/library/glob.html>A <code>glob</code> modul</a>
-<li><a href=http://www.doughellmann.com/PyMOTW/glob/><code>glob</code>&nbsp;&mdash;&nbsp;Filename pattern matching</a>
+<li><a href=http://www.doughellmann.com/PyMOTW/glob/><code>glob</code>&nbsp;&ndash;&nbsp;Filename pattern matching</a>
 <li><a href=http://docs.python.org/3.1/library/time.html>A <code>time</code> modul</a>
-<li><a href=http://www.doughellmann.com/PyMOTW/time/><code>time</code>&nbsp;&mdash;&nbsp;Functions for manipulating clock time</a>
+<li><a href=http://www.doughellmann.com/PyMOTW/time/><code>time</code>&nbsp;&ndash;&nbsp;Functions for manipulating clock time</a>
 <li><a href=http://docs.python.org/3.1/tutorial/datastructures.html#list-comprehensions>Listafeldolgozók</a>
 <li><a href=http://docs.python.org/3.1/tutorial/datastructures.html#nested-list-comprehensions>Beágyazott listafeldolgozók</a>
 <li><a href=http://docs.python.org/3.1/tutorial/datastructures.html#looping-techniques>Ciklus módszerek</a>
