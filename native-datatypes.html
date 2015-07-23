@@ -14,7 +14,7 @@ body{counter-reset:h1 2}
 <p id=level>Nehézségi szint: <span class=u title=kezdő>&#x2666;&#x2666;&#x2662;&#x2662;&#x2662;</span>
 <h1>Natív adattípusok</h1>
 <blockquote class=q>
-<p><span class=u>&#x275D;</span> A csoda minden filozófia alapja, a vizsgálódás a fejlődésük, a tudatlanság a végük. <span class=u>&#x275E;</span><br>&mdash; Michel de Montaigne
+<p><span class=u>&#x275D;</span> A csoda minden filozófia alapja, a vizsgálódás a fejlődésük, a tudatlanság a végük. <span class=u>&#x275E;</span><br>&ndash; Michel de Montaigne
 </blockquote>
 <p id=toc>&nbsp;
 <h2 id=divingin>Ugorj fejest</h2>
@@ -47,8 +47,8 @@ van</a>, <a href=your-first-python-program.html#docstrings>a függvényeknek
 <code>docstring-jeik</code></a> <i class=baa>stb.</i> Az osztályokról az
 <a href=iterators.html>Osztályok és iterátorok</a> fejezetben, a fájlokról
 pedig a <a href=files.html>Fájlok</a> fejezetben fogsz többet megtudni.
-<p>A karakterláncok és bájtok elég fontosak&nbsp;&mdash;&nbsp;és elég
-bonyolultak&nbsp;&mdash;&nbsp;hogy saját fejezetet kapjanak. Előbb
+<p>A karakterláncok és bájtok elég fontosak&nbsp;&ndash;&nbsp;és elég
+bonyolultak&nbsp;&ndash;&nbsp;hogy saját fejezetet kapjanak. Előbb
 nézzük a többit.
 <p class=a>&#x2042;
 
@@ -427,8 +427,8 @@ méretkorlát (az elérhető memórián kívül). Ha azonban a memóriahasznála
 fontos szempont, akkor tudnod kell, hogy a listaösszefűzés egy második
 listát hoz létre a memóriában. Ebben az esetben az új lista azonnal
 hozzárendelődik a meglévő <var>a_list</var> változóhoz. Így ez a kódsor
-igazából egy kétlépéses folyamat&nbsp;&mdash;&nbsp;összefűzés, majd
-hozzárendelés&nbsp;&mdash;&nbsp;amely (ideiglenesen) rengeteg memóriát tud
+igazából egy kétlépéses folyamat&nbsp;&ndash;&nbsp;összefűzés, majd
+hozzárendelés&nbsp;&ndash;&nbsp;amely (ideiglenesen) rengeteg memóriát tud
 használni, ha nagy listákkal dolgozol.
 <li>Egy lista tetszőleges adattípusú elemeket tartalmazhat, és egy adott
 lista elemeinek nem kell azonos típusúaknak lenniük. Ez a lista egy
@@ -1054,7 +1054,7 @@ KeyError: 'pop from an empty set'</samp></pre>
 <samp class=p>>>> </samp><kbd class=pp>b_set.issuperset(a_set)</kbd>
 <samp class=pp>False</samp></pre>
 <ol>
-<li>Az <var>a_set</var> a <var>b_set</var> <dfn>részhalmaza</dfn>&nbsp;&mdash;&nbsp;az <var>a_set</var> minden eleme a <var>b_set</var>-nek is eleme.
+<li>Az <var>a_set</var> a <var>b_set</var> <dfn>részhalmaza</dfn>&nbsp;&ndash;&nbsp;az <var>a_set</var> minden eleme a <var>b_set</var>-nek is eleme.
 <li>A kérdést megfordítva a <var>b_set</var> az <var>a_set</var> <dfn>szülőhalmazaxxx</dfn>, mert az <var>a_set</var> elemei a<var>b_set</var>-nek is elemei.
 <li>Amint hozzáadsz egy olyan értéket az <var>a_set</var>-hez, amely nincs a <var>b_set</var>-ben, mindkét teszt <code>False</code> értéket ad vissza.
 </ol>
@@ -1134,7 +1134,7 @@ KeyError: 'db.diveintopython3.org'</samp></pre>
 <li>Bármikor hozzáadhatsz új kulcs-érték párokat. Ez a szintaxis azonos a meglévő értékek módosításához használttal.
 <li>Az új szótárelem (kulcs: <code>'felhasználó'</code>, érték: <code>'mark'</code>) középen jelenik meg. Tulajdonképpen az csak véletlen volt, hogy az első példában az elemek sorrendben jelentek meg, ugyanannyira véletlen, hogy most nem sorrendben jelennek meg.
 <li>Egy érték meglévő szótárkulcshoz rendelése egyszerűen lecseréli a régi értéket az újra.
-<li>Vajon ez megváltoztatja a <code>felhasználó</code> kulcs értékét "mark"-ra? Nem! Nézd meg jobban a kulcsot&nbsp;&mdash;&nbsp;az egy nagy <kbd>F</kbd> a <kbd>"Felhasználó"</kbd>-ban. A szótárkulcsok megkülönböztetik a kis- és nagybetűket, így ez az utasítás egy új kulcs-érték párt hoz létre, nem pedig egy meglévőt ír felül. Számodra hasonlónak tűnhetnek, de Python szempontjából teljesen különbözők.
+<li>Vajon ez megváltoztatja a <code>felhasználó</code> kulcs értékét "mark"-ra? Nem! Nézd meg jobban a kulcsot&nbsp;&ndash;&nbsp;az egy nagy <kbd>F</kbd> a <kbd>"Felhasználó"</kbd>-ban. A szótárkulcsok megkülönböztetik a kis- és nagybetűket, így ez az utasítás egy új kulcs-érték párt hoz létre, nem pedig egy meglévőt ír felül. Számodra hasonlónak tűnhetnek, de Python szempontjából teljesen különbözők.
 </ol>
 <h3 id=mixed-value-dictionaries>Vegyes értékű szótárak</h3>
 <p>A szótárak nem csupán karakterláncokat tárolhatnak. A szótárértékek tetszőleges adattípusúak lehetnek, beleértve az egész és logikai értékeket, tetszőleges objektumokat vagy akár más szótárakat is. Ezen túl egy szótáron belül az értékeknek nem kell azonos típusúaknak lenniük, szükség szerint keverhetők. A használható szótárkulcstípusok köre korlátozottabb, de a kulcsok lehetnek karakterláncok, egészek és még néhány egyéb típusúak. Egy szótáron belül a kulcsok adattípusai szintén keverhetők.
