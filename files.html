@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <meta charset=utf-8>
-<title>Files - Dive Into Python 3</title>
+<title>Fájlok - Ugorj fejest a Python 3-ba</title>
 <!--[if IE]><script src=j/html5.js></script><![endif]-->
 <link rel=stylesheet href=dip3.css>
 <style>
@@ -11,43 +11,44 @@ mark{display:inline}
 <link rel=stylesheet media=print href=print.css>
 <meta name=viewport content='initial-scale=1.0'>
 <form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:l5eihuescdw><input type=hidden name=ie value=UTF-8>&nbsp;<input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
-<p>You are here: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#files>Dive Into Python 3</a> <span class=u>&#8227;</span>
-<p id=level>Difficulty level: <span class=u title=intermediate>&#x2666;&#x2666;&#x2666;&#x2662;&#x2662;</span>
-<h1>Files</h1>
+<p>Itt vagy: <a href=index.html>Kezdőlap</a> <span
+class=u>&#8227;</span> <a href=table-of-contents.html#files>Ugorj fejest a Python 3-ba</a> <span class=u>&#8227;</span>
+<p id=level>Nehézségi szint: <span class=u title=közepes>&#x2666;&#x2666;&#x2666;&#x2662;&#x2662;</span>
+<h1>Fájlok</h1>
 <blockquote class=q>
-<p><span class=u>&#x275D;</span> A nine mile walk is no joke, especially in the rain. <span class=u>&#x275E;</span><br>&mdash; Harry Kemelman, <cite>The Nine Mile Walk</cite>
+<p><span class=u>&#x275D;</span> Egy kilenc mérföldes séta nem vicc, különösen nem az esőben. <span class=u>&#x275E;</span><br>&ndash; Harry Kemelman, <cite>The Nine Mile Walk</cite>
 </blockquote>
 <p id=toc>&nbsp;
-<h2 id=divingin>Diving In</h2>
-<p class=f>My Windows laptop had 38,493 files before I installed a single application. Installing Python 3 added almost 3,000 files to that total. Files are the primary storage paradigm of every major operating system; the concept is so ingrained that most people would have trouble <a href=http://en.wikipedia.org/wiki/Computer_file#History>imagining an alternative</a>. Your computer is, metaphorically speaking, drowning in files.
+<h2 id=divingin>Ugorj fejest</h2>
+<p class=f>A windowsos laptopomon 38 493 fájl volt, mielőtt egyetlen alkalmazást is telepítettem volna. A Python 3 telepítése majdnem 3 000 fájlt adott ehhez a számhoz. A fájlok minden jelentős operációs rendszer elsődleges tárolási paradigmáját jelentik, a fogalom annyira be van égve, hogy egyeseknek gondot okoz elképzelni <a href=http://en.wikipedia.org/wiki/Computer_file#History>az alternatívákat</a>. A számítógéped képletesen szólva fuldoklik a fájlokban.
 
-<h2 id=reading>Reading From Text Files</h2>
+<h2 id=reading>Olvasás szövegfájlokból</h2>
 
-<p>Before you can read from a file, you need to open it. Opening a file in Python couldn&#8217;t be easier:
+<p>Mielőtt olvashatnál egy fájlból, meg kell azt nyitnod. A fájlok Pythonból való megnyitása nem is lehetne egyszerűbb:
 
-<pre class='nd pp'><code>a_file = open('examples/chinese.txt', encoding='utf-8')</code></pre>
+<pre class='nd pp'><code>egy_fájl = open('examples/chinese.txt', encoding='utf-8')</code></pre>
 
-<p>Python has a built-in <code>open()</code> function, which takes a filename as an argument. Here the filename is <code class=pp>'examples/chinese.txt'</code>. There are five interesting things about this filename:
+<p>A Python rendelkezik egy beépített <code>open()</code> függvénnyel, amely egy fájlnevet vár argumentumként. A fájlnév itt az <code class=pp>'examples/chinese.txt'</code>. A fájlnévvel kapcsolatban öt édekességet figyelhetünk meg:
 
 <ol>
-<li>It&#8217;s not just the name of a file; it&#8217;s a combination of a directory path and a filename. A hypothetical file-opening function could have taken two arguments&nbsp;&mdash;&nbsp;a directory path and a filename&nbsp;&mdash;&nbsp;but the <code>open()</code> function only takes one. In Python, whenever you need a &#8220;filename,&#8221; you can include some or all of a directory path as well.
-<li>The directory path uses a forward slash, but I didn&#8217;t say what operating system I was using. Windows uses backward slashes to denote subdirectories, while Mac OS X and Linux use forward slashes. But in Python, forward slashes always Just Work, even on Windows.
-<li>The directory path does not begin with a slash or a drive letter, so it is called a <i>relative path</i>. Relative to what, you might ask? Patience, grasshopper.
-<li>It&#8217;s a string. All modern operating systems (even Windows!) use Unicode to store the names of files and directories. Python 3 fully supports non-<abbr>ASCII</abbr> pathnames.
-<li>It doesn&#8217;t need to be on your local disk. You might have a network drive mounted. That &#8220;file&#8221; might be a figment of <a href=http://en.wikipedia.org/wiki/Filesystem_in_Userspace>an entirely virtual filesystem</a>. If your computer considers it a file and can access it as a file, Python can open it.
+<li>Nem egyszerűen egy fájl neve, hanem egy könyvtárútvonal és egy fájlnév kombinációja. Egy elméletben elképzelhető fájlmegnyitó függvény várhatna két argumentumot&nbsp;&ndash;&nbsp;egy könyvtárútvonalat és egy fájlnevet&nbsp;&ndash;&nbsp;de az <code>open()</code> függvény csak egyet vár. A Pythonban amikor egy &#8222;fájlnévre&#8221; van szükség, megadhatod egy könyvtárútvonal egy részét vagy egészét is.
+<li>A könyvtárútvonal normál osztásjelet használ, de nem mondtam meg, melyik operációs rendszert használom. A Windows fordított osztásjelet használ az alkönyvtárak jelzésére, míg a Mac OS X és a Linux normál osztásjelet. De Pythonban a normál osztásjelek Csak Működnek(TM), még Windows alatt is.
+<li>A könyvtárútvonal nem osztásjellel vagy meghajtó betűjellel kezdődik, így a <i>relatív útvonalnak</i> nevezzük. Relatív? Mihez képest? Türelem, prücsök.
+<li>Ez egy karakterlánc. Minden korszerű operációs rendszer (még a Windows is!) Unicode-ot használ a fájlok és könyvtárak neveinek tárolására. A Python 3 teljesen támogatja a nem <abbr>ASCII</abbr> útvonalneveket.
+<li>Nem kell a helyi lemezeden lennie. Lehet egy csatolt hálózati meghajtón is. A &#8222;fájl&#8221; lehet, hogy csak egy <a href=http://en.wikipedia.org/wiki/Filesystem_in_Userspace>teljesen virtuális fájlrendszer</a> képzeletében létezik. Ha a számítógéped fájlnak tekinti, és el tudja érni fájlként, akkor a Python meg tudja nyitni.
 </ol>
 
-<p>But that call to the <code>open()</code> function didn&#8217;t stop at the filename. There&#8217;s another argument, called <code>encoding</code>. Oh dear, <a href=strings.html#boring-stuff>that sounds dreadfully familiar</a>.
+<p>Azonban az <code>open()</code> függvény hívása nem állt meg a fájlnévnél. Van még egy argumentum, amelynek neve <code>encoding</code> (kódolás). Jaj ne, <a href=strings.html#boring-stuff>ez félelmetesen ismerősen hangzik</a>.
 
-<h3 id=encoding>Character Encoding Rears Its Ugly Head</h3>
+<h3 id=encoding>A karakterkódolás kidugja ronda fejét</h3>
 
-<p>Bytes are bytes; <a href=strings.html#byte-arrays>characters are an abstraction</a>. A string is a sequence of Unicode characters. But a file on disk is not a sequence of Unicode characters; a file on disk is a sequence of bytes. So if you read a &#8220;text file&#8221; from disk, how does Python convert that sequence of bytes into a sequence of characters? It decodes the bytes according to a specific character encoding algorithm and returns a sequence of Unicode characters (otherwise known as a string).
+<p>A bájtok bájtok, a <a href=strings.html#byte-arrays>karakterek absztrakciók</a>. A karakterlánc Unicode karakterek sorozata. De egy lemezen lévő fájl nem Unicode karakterek sorozata, a lemezen lévő fájl bájtok sorozata. De hogyan konvertálja a Python a bájtsorozatot karakterek sorozatává, amikor beolvasol egy &#8222;szövegfájlt&#8221; a lemezről? A bájtokat egy adott karakterkódolási algoritmus szerint dekódolja, és visszaadja Unicode karakterek egy sorozatát (más néven egy karakterláncot).
 
 <pre>
-# This example was created on Windows. Other platforms may
-# behave differently, for reasons outlined below.
-<samp class=p>>>> </samp><kbd class=pp>file = open('examples/chinese.txt')</kbd>
-<samp class=p>>>> </samp><kbd class=pp>a_string = file.read()</kbd>
+# Ez a példa Windowson készült. Más operációs rendszerek
+# másképp viselkedhetnek, a lentebb vázolt okokból.
+<samp class=p>>>> </samp><kbd class=pp>fájl = open('examples/chinese.txt')</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_karakterlánc = fájl.read()</kbd>
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;stdin>", line 1, in &lt;module>
   File "C:\Python31\lib\encodings\cp1252.py", line 23, in decode
@@ -55,200 +56,194 @@ mark{display:inline}
 UnicodeDecodeError: 'charmap' codec can't decode byte 0x8f in position 28: character maps to &lt;undefined></samp>
 <samp class=p>>>> </samp></pre>
 
-<aside>The default encoding is platform-dependent.</aside>
+<aside>Az alapértelmezett kódolás platformfüggő.</aside>
 
-<p>What just happened? You didn&#8217;t specify a character encoding, so Python is forced to use the default encoding. What&#8217;s the default encoding? If you look closely at the traceback, you can see that it&#8217;s dying in <code>cp1252.py</code>, meaning that Python is using CP-1252 as the default encoding here. (CP-1252 is a common encoding on computers running Microsoft Windows.) The CP-1252 character set doesn&#8217;t support the characters that are in this file, so the read fails with an ugly <code>UnicodeDecodeError</code>.
+<p>Mi történt? Nem adtál meg karakterkódolást, így a Pythonnak az alapértelmezett kódolást kell használnia. Mi az alapértelmezett kódolás? Ha alaposan megnézed a nyomkövetést, láthatod, hogy a <code>cp1252.py</code> fájlban keletkezik a kivétel, vagyis a Python alapértelmezett kódolása itt a CP-1252. (A CP-1252 egy gyakori kódolás a Microsoft Windowst futtató számítógépeken.) A CP-1252 karakterkészlet nem támogatja a fájlban lévő karaktereket, így az olvasás egy ronda <code>UnicodeDecodeError</code> kivétellel meghiúsul.
 
-<p>But wait, it&#8217;s worse than that! The default encoding is <em>platform-dependent</em>, so this code <em>might</em> work on your computer (if your default encoding is <abbr>UTF-8</abbr>), but then it will fail when you distribute it to someone else (whose default encoding is different, like CP-1252).
+<p>De várj, a helyzet ennél is rosszabb! Az alapértelmezett kódolás <em>platformfüggő</em>, így ez a kód akár <em>működhet</em> is a számítógépeden (ha az alapértelmezett kódolásod <abbr>UTF-8</abbr>), de hibát okoz, ha odaadod valaki másnak (akinek az alapértelmezett kódolása eltérő, mint például a CP-1252).
 
 <blockquote class=note>
-<p><span class=u>&#x261E;</span>If you need to get the default character encoding, import the <code>locale</code> module and call <code>locale.getpreferredencoding()</code>. On my Windows laptop, it returns <code>'cp1252'</code>, but on my Linux box upstairs, it returns <code>'UTF8'</code>. I can&#8217;t even maintain consistency in my own house! Your results may be different (even on Windows) depending on which version of your operating system you have installed and how your regional/language settings are configured. This is why it&#8217;s so important to specify the encoding every time you open a file.
-
+<p><span class=u>&#x261E;</span>Ha meg szeretnéd kapni az alapértelmezett karakterkódolást, akkor importáld a <code>locale</code> modult, és hívd meg a <code>locale.getpreferredencoding()</code> metódust. A windowsos laptopomon ez a <code>'cp1252'</code> értéket adja vissza, de az emeleten lévő linuxos gépemen az <code>'UTF8'</code> értéket. Még a saját házamban sem tudok rendet tartani! A te eredményeid eltérhetnek (még Windowson is) az operációs rendszer telepített verziójától és a területi/nyelvi beállításaidtól függően. Ezért annyira fontos megadni a kódolást minden alkalommal, amikor megnyitsz egy fájlt.
 </blockquote>
 
-<h3 id=file-objects>Stream Objects</h3>
+<h3 id=file-objects>Adatfolyam-objektumok</h3>
 
-<p>So far, all we know is that Python has a built-in function called <code>open()</code>. The <code>open()</code> function returns a <i>stream object</i>, which has methods and attributes for getting information about and manipulating a stream of characters.
+<p>Egyelőre azt tudjuk, hogy a Python rendelkezik egy beépített, <code>open()</code> nevű függvénnyel. Az <code>open()</code> függvény egy <i>adatfolyam objektumot</i> ad vissza, amely rendelkezik a karakterek folyamának kezelésére és az azzal kapcsolatos információk lekérésére szolgáló metódusokkal és  attribútumokkal.
 
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_file = open('examples/chinese.txt', encoding='utf-8')</kbd>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.name</kbd>                                              <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_fájl = open('examples/chinese.txt', encoding='utf-8')</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.name</kbd>                                              <span class=u>&#x2460;</span></a>
 <samp class=pp>'examples/chinese.txt'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.encoding</kbd>                                          <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.encoding</kbd>                                          <span class=u>&#x2461;</span></a>
 <samp class=pp>'utf-8'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.mode</kbd>                                              <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.mode</kbd>                                              <span class=u>&#x2462;</span></a>
 <samp class=pp>'r'</samp></pre>
 <ol>
-<li>The <code>name</code> attribute reflects the name you passed in to the <code>open()</code> function when you opened the file. It is not normalized to an absolute pathname.
-<li>Likewise, <code>encoding</code> attribute reflects the encoding you passed in to the <code>open()</code> function. If you didn&#8217;t specify the encoding when you opened the file (bad developer!) then the <code>encoding</code> attribute will reflect <code>locale.getpreferredencoding()</code>.
-<li>The <code>mode</code> attribute tells you in which mode the file was opened. You can pass an optional <var>mode</var> parameter to the <code>open()</code> function. You didn&#8217;t specify a mode when you opened this file, so Python defaults to <code>'r'</code>, which means &#8220;open for reading only, in text mode.&#8221; As you&#8217;ll see later in this chapter, the file mode serves several purposes; different modes let you write to a file, append to a file, or open a file in binary mode (in which you deal with bytes instead of strings).
-</ol>
+<li>A <code>name</code> attribútum az <code>open()</code> függvénynek a fájl megnyitásakor átadott nevet tükrözi. Ez nincs abszolút útvonalnévvé normalizálva.
+<li>Hasonlóképpen az <code>encoding</code> attribútum az <code>open()</code> függvénynek a fájl megnyitásakor átadott kódolást tükrözi. Ha nem adtad meg a kódolást a fájl megnyitásakor (rossz fejlesztő!), akkor az <code>encoding</code> attribútum a <code>locale.getpreferredencoding()</code> értékét fogja tükrözni.
+<li>A <code>mode</code> attribútum megadja, hogy milyen módban lett megnyitva a fájl. Az <code>open()</code> függvénynek átadhatsz egy elhagyható <var>mode</var> paramétert is. Nem adtál meg módot a fájl megnyitásakor, így a Python alapértelmezésben az <code>'r'</code>, azaz &#8222;megnyitás csak olvasásra, szöveges módban &#8221; módot használja. Ahogyan majd később ebben a fejezetben látni fogod, a fájl módja több célt szolgál, a különböző módok lehetővé teszik a fájlba írást, fájlhoz fűzést, vagy fájl megnyitását bináris módban (amikor szövegek helyett bájtokat kezelsz). </ol>
 
 <blockquote class=note>
-<p><span class=u>&#x261E;</span>The <a href=http://docs.python.org/3.1/library/io.html#module-interface>documentation for the <code>open()</code> function</a> lists all the possible file modes.
+<p><span class=u>&#x261E;</span>Az <a href=http://docs.python.org/3.1/library/io.html#module-interface><code>open()</code> függvény dokumentációja</a> felsorolja az összes lehetséges fájlmódot.
 </blockquote>
 
-<h3 id=read>Reading Data From A Text File</h3>
+<h3 id=read>Adatok olvasása szövegfájlból</h3>
 
-<p>After you open a file for reading, you&#8217;ll probably want to read from it at some point.
+<p>Miután megnyitottál egy fájlt olvasásra, előbb-utóbb olvasni akarsz majd belőle.
 
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_file = open('examples/chinese.txt', encoding='utf-8')</kbd>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.read()</kbd>                                            <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_fájl = open('examples/chinese.txt', encoding='utf-8')</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.read()</kbd>                                            <span class=u>&#x2460;</span></a>
 <samp class=pp>'Dive Into Python 是为有经验的程序员编写的一本 Python 书。\n'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.read()</kbd>                                            <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.read()</kbd>                                            <span class=u>&#x2461;</span></a>
 <samp class=pp>''</samp></pre>
 <ol>
-<li>Once you open a file (with the correct encoding), reading from it is just a matter of calling the stream object&#8217;s <code>read()</code> method. The result is a string.
-<li>Perhaps somewhat surprisingly, reading the file again does not raise an exception. Python does not consider reading past end-of-file to be an error; it simply returns an empty string.
+<li>Miután megnyitottál egy fájlt (a megfelelő kódolással), az olvasás csupán az adatfolyam objektum <code>read()</code> metódusának hívásából áll. Az eredmény egy karakterlánc.
+<li>Talán némiképp meglepő, de a fájl ismételt olvasása nem dob kivételt. A Python nem tekinti a fájl vége utáni olvasást hibának, ilyenkor egyszerűen egy üres karakterláncot ad vissza.
 </ol>
 
-<aside>Always specify an <code>encoding</code> parameter when you open a file.</aside>
+<aside>Mindig add meg az <code>encoding</code> paramétert fájlok megnyitásakor.</aside>
 
-<p>What if you want to re-read a file?
+<p>Mi van, ha újra akarod olvasni a fájlt?
 
 <pre class=screen>
-# continued from the previous example
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.read()</kbd>                      <span class=u>&#x2460;</span></a>
+# az előző példa folytatása
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.read()</kbd>                      <span class=u>&#x2460;</span></a>
 <samp class=pp>''</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.seek(0)</kbd>                     <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.seek(0)</kbd>                     <span class=u>&#x2461;</span></a>
 <samp class=pp>0</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.read(16)</kbd>                    <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.read(16)</kbd>                    <span class=u>&#x2462;</span></a>
 <samp class=pp>'Dive Into Python'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.read(1)</kbd>                     <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.read(1)</kbd>                     <span class=u>&#x2463;</span></a>
 <samp class=pp>' '</samp>
-<samp class=p>>>> </samp><kbd class=pp>a_file.read(1)</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_fájl.read(1)</kbd>
 <samp class=pp>'是'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.tell()</kbd>                      <span class=u>&#x2464;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.tell()</kbd>                      <span class=u>&#x2464;</span></a>
 <samp class=pp>20</samp></pre>
 <ol>
-<li>Since you&#8217;re still at the end of the file, further calls to the stream object&#8217;s <code>read()</code> method simply return an empty string.
-<li>The <code>seek()</code> method moves to a specific byte position in a file.
-<li>The <code>read()</code> method can take an optional parameter, the number of characters to read.
-<li>If you like, you can even read one character at a time.
+<li>Mivel még mindig a fájl végén vagy, az adatfolyam objektum <code>read()</code> metódusának további hívásai egyszerűen egy üres karakterláncot adnak vissza.
+<li>A <code>seek()</code> metódus egy adott bájtpozícióra lép a fájlban.
+<li>A <code>read()</code> metódus egy elhagyható paramétert vár, a beolvasandó karakterek számát.
+<li>Ha szeretnéd, egyszerre akár egy bájtot is beolvashatsz.
 <li>16 + 1 + 1 = &hellip; 20?
 </ol>
 
-<p>Let&#8217;s try that again.
+<p>Fussunk neki ennek még egyszer
 
 <pre class=screen>
-# continued from the previous example
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.seek(17)</kbd>                    <span class=u>&#x2460;</span></a>
+# az előző példa folytatása
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.seek(17)</kbd>                    <span class=u>&#x2460;</span></a>
 <samp class=pp>17</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.read(1)</kbd>                     <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.read(1)</kbd>                     <span class=u>&#x2461;</span></a>
 <samp class=pp>'是'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.tell()</kbd>                      <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.tell()</kbd>                      <span class=u>&#x2462;</span></a>
 <samp class=pp>20</samp></pre>
 <ol>
-<li>Move to the 17<sup>th</sup> byte.
-<li>Read one character.
-<li>Now you&#8217;re on the 20<sup>th</sup> byte.
+<li>Mozgás a 17. bájtra.
+<li>Egy karakter beolvasása.
+<li>Most a 20. bájton vagy.
 </ol>
 
-<p>Do you see it yet? The <code>seek()</code> and <code>tell()</code> methods always count <em>bytes</em>, but since you opened this file as text, the <code>read()</code> method counts <em>characters</em>. Chinese characters <a href=strings.html#boring-stuff>require multiple bytes to encode in <abbr>UTF-8</abbr></a>. The English characters in the file only require one byte each, so you might be misled into thinking that the <code>seek()</code> and <code>read()</code> methods are counting the same thing. But that&#8217;s only true for some characters.
+<p>Látod már? A <code>seek()</code> és <code>tell()</code> metódusok mindig <em>bájtokat</em> számolnak, de mivel a fájlt szövegként nyitottad meg, a <code>read()</code> metódus <em>karaktereket</em> számol. A kínai karakterek <a href=strings.html#boring-stuff>több bájtot igényelnek az <abbr>UTF-8</abbr> kódoláshoz</a>. A fájlban lévő angol karakterek egyenként csak egy bájtot igényelnek, így azt hiheted, hogy a <code>seek()</code> és a <code>read()</code> metódusok ugyanazt számolják. De ez csak néhány karakterre igaz.
 
-<p>But wait, it gets worse!
+<p>De várj, lesz ez még rosszabb is!
 
 <pre class=screen>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.seek(18)</kbd>                         <span class=u>&#x2460;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.seek(18)</kbd>                         <span class=u>&#x2460;</span></a>
 <samp class=pp>18</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.read(1)</kbd>                          <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.read(1)</kbd>                          <span class=u>&#x2461;</span></a>
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;pyshell#12>", line 1, in &lt;module>
-    a_file.read(1)
+    egy_fájl.read(1)
   File "C:\Python31\lib\codecs.py", line 300, in decode
     (result, consumed) = self._buffer_decode(data, self.errors, final)
 UnicodeDecodeError: 'utf8' codec can't decode byte 0x98 in position 0: unexpected code byte</samp></pre>
 <ol>
-<li>Move to the 18<sup>th</sup> byte and try to read one character.
-<li>Why does this fail? Because there isn&#8217;t a character at the 18<sup>th</sup> byte. The nearest character starts at the 17<sup>th</sup> byte (and goes for three bytes). Trying to read a character from the middle will fail with a <code>UnicodeDecodeError</code>.
+<li>Lépjünk a 18. bájtra, és próbáljunk meg egy karaktert beolvasni.
+<li>Miért nem sikerül ez? Mert nincs karakter a 18. bájtnál. A legközelebbi karakter a 17. bájtnál kezdődik (és három bájton át folytatódik). Egy karakter olvasása a közepéről sikertelen lesz, és <code>UnicodeDecodeError</code> kivételt dob.
 </ol>
 
-<h3 id=close>Closing Files</h3>
+<h3 id=close>Fájlok bezárása</h3>
 
-<p>Open files consume system resources, and depending on the file mode, other programs may not be able to access them. It&#8217;s important to close files as soon as you&#8217;re finished with them.
+<p>A nyitott fájlok erőforrásokat fogyasztanak, és a fájl módjától függően más programok esetleg nem tudják elérni azokat. Fontos a fájlokat azonnal bezárni, amint végeztél a feldolgozásukkal.
 
 <pre class='nd screen'>
-# continued from the previous example
-<samp class=p>>>> </samp><kbd class=pp>a_file.close()</kbd></pre>
+# folytatás az előző példából
+<samp class=p>>>> </samp><kbd class=pp>egy_fájl.close()</kbd></pre>
 
-<p>Well <em>that</em> was anticlimactic.
+<p>Hát <em>ez</em> nem volt túl izgalmas.
 
-<p>The stream object <var>a_file</var> still exists; calling its <code>close()</code> method doesn&#8217;t destroy the object itself. But it&#8217;s not terribly useful.
+<p>Az <var>egy_fájl</var> nevű adatfolyam-objektum továbbra is létezik, a <code>close()</code> metódusának meghívása nem semmisíti meg magát az objektumot. De azért így nem túl hasznos.
 
 <pre class=screen>
-# continued from the previous example
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.read()</kbd>                           <span class=u>&#x2460;</span></a>
+# az előző példa folytatása
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.read()</kbd>                           <span class=u>&#x2460;</span></a>
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;pyshell#24>", line 1, in &lt;module>
     a_file.read()
 ValueError: I/O operation on closed file.</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.seek(0)</kbd>                          <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.seek(0)</kbd>                          <span class=u>&#x2461;</span></a>
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;pyshell#25>", line 1, in &lt;module>
     a_file.seek(0)
 ValueError: I/O operation on closed file.</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.tell()</kbd>                           <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.tell()</kbd>                           <span class=u>&#x2462;</span></a>
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;pyshell#26>", line 1, in &lt;module>
     a_file.tell()
 ValueError: I/O operation on closed file.</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.close()</kbd>                          <span class=u>&#x2463;</span></a>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.closed</kbd>                           <span class=u>&#x2464;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.close()</kbd>                          <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.closed</kbd>                           <span class=u>&#x2464;</span></a>
 <samp class=pp>True</samp></pre>
 <ol>
-<li>You can&#8217;t read from a closed file; that raises an <code>IOError</code> exception.
-<li>You can&#8217;t seek in a closed file either.
-<li>There&#8217;s no current position in a closed file, so the <code>tell()</code> method also fails.
-<li>Perhaps surprisingly, calling the <code>close()</code> method on a stream object whose file has been closed does <em>not</em> raise an exception. It&#8217;s just a no-op.
-<li>Closed stream objects do have one useful attribute: the <code>closed</code> attribute will confirm that the file is closed.
+<li>Megpróbálhatsz olvasni egy bezárt fájlból, de ez <code>IOError</code> kivételt okoz.
+<li>A bezárt fájlban nem tudsz pozicionálni sem.
+<li>A bezárt fájlban nincs aktuális pozíció, így a <code>tell()</code> metódus hívása is meghiúsul.
+<li>Talán meglepő, hogy a <code>close()</code> metódus hívása egy olyan adatfolyam-objektumon, amely fájlja be lett zárva, <em>nem</em> okoz kivételt. Egyszerűen nem csinál semmit.
+<li>A bezárt adatfolyam-objektumoknak egy hasznos attribútumuk van: a <code>closed</code> attribútum megerősíti, hogy a fájl be van zárva.
 </ol>
 
-<h3 id=with>Closing Files Automatically</h3>
+<h3 id=with>Fájlok automatikus bezárása</h3>
 
-<aside><code>try..finally</code> is good. <code>with</code> is better.</aside>
+<aside>A <code>try..finally</code> jó. A <code>with</code> még jobb.</aside>
 
-<p>Stream objects have an explicit <code>close()</code> method, but what happens if your code has a bug and crashes before you call <code>close()</code>? That file could theoretically stay open for much longer than necessary. While you&#8217;re debugging on your local computer, that&#8217;s not a big deal. On a production server, maybe it is.
+<p>Az adatfolyam-objektumok rendelkeznek explicit <code>close()</code> metódussal, de mi történik, ha a kódod hibás, és még a <code>close()</code> hívása előtt összeomlik? Az a fájl elméletileg sokkal tovább is nyitva maradhat, mint szükséges. Amíg a helyi számítógépen keresel hibát, ez nem nagy ügy. Egy éles szerveren már talán.
 
-<p>Python 2 had a solution for this: the <code>try..finally</code> block. That still works in Python 3, and you may see it in other people&#8217;s code or in older code that was <a href=case-study-porting-chardet-to-python-3.html>ported to Python 3</a>. But Python 2.6 introduced a cleaner solution, which is now the preferred solution in Python 3: the <code>with</code> statement.
+<p>A Python 2-nek volt erre egy megoldása: a <code>try..finally</code> blokk. Ez továbbra is működik Python 3-ban, és láthatod is mások kódjában, vagy olyan kódban, amit <a href=case-study-porting-chardet-to-python-3.html>Python 3-ra portoltak</a>. De a Python 2.6 bevezetett egy tisztább megoldást, amit a Python 3-ban előnyben részesítenek: a <code>with</code> utasítást.
+<pre class='nd pp'><code>with open('examples/chinese.txt', encoding='utf-8') as egy_fájl:
+    egy_fájl.seek(17)
+    egy_karakter = egy_fájl.read(1)
+    print(egy_karakter)</code></pre>
 
-<pre class='nd pp'><code>with open('examples/chinese.txt', encoding='utf-8') as a_file:
-    a_file.seek(17)
-    a_character = a_file.read(1)
-    print(a_character)</code></pre>
+<p>Ez a kód meghívja az <code>open()</code> metódust, de soha nem jívja meg az <code>egy_fájl.close()</code>-t. A <code>with</code> utasítás kódblokkot kezd, mint egy <code>if</code> utasítás, vagy <code>for</code> ciklus. Ezen a kódblokkon belül az <var>egy_fájl</var> változót úgy használhatod, mint az <code>open()</code> által visszaadott adatfolyam-objektumot. Az összes normális adatfolyam-objektum metódus rendelkezésre áll &nbsp;&ndash;&nbsp;<code>seek()</code>, <code>read()</code>, amit csak akarsz. Amikor a <code>with</code> blokknak vége, a <em>Python automatikusan meghívja az <code>egy_fájl.close()</code>-t</em>.
 
-<p>This code calls <code>open()</code>, but it never calls <code>a_file.close()</code>. The <code>with</code> statement starts a code block, like an <code>if</code> statement or a <code>for</code> loop. Inside this code block, you can use the variable <var>a_file</var> as the stream object returned from the call to <code>open()</code>. All the regular stream object methods are available&nbsp;&mdash;&nbsp;<code>seek()</code>, <code>read()</code>, whatever you need. When the <code>with</code> block ends, <em>Python calls <code>a_file.close()</code> automatically</em>.
-
-<p>Here&#8217;s the kicker: no matter how or when you exit the <code>with</code> block, Python will close that file&hellip; even if you &#8220;exit&#8221; it via an unhandled exception. That&#8217;s right, even if your code raises an exception and your entire program comes to a screeching halt, that file will get closed. Guaranteed.
-
-<blockquote class=note>
-<p><span class=u>&#x261E;</span>In technical terms, the <code>with</code> statement creates a <dfn>runtime context</dfn>. In these examples, the stream object acts as a <dfn>context manager</dfn>. Python creates the stream object <var>a_file</var> and tells it that it is entering a runtime context. When the <code>with</code> code block is completed, Python tells the stream object that it is exiting the runtime context, and the stream object calls its own <code>close()</code> method. See <a href=special-method-names.html#context-managers>Appendix B, &#8220;Classes That Can Be Used in a <code>with</code> Block&#8221;</a> for details.
-</blockquote>
-
-<p>There&#8217;s nothing file-specific about the <code>with</code> statement; it&#8217;s just a generic framework for creating runtime contexts and telling objects that they&#8217;re entering and exiting a runtime context. If the object in question is a stream object, then it does useful file-like things (like closing the file automatically). But that behavior is defined in the stream object, not in the <code>with</code> statement. There are lots of other ways to use context managers that have nothing to do with files. You can even create your own, as you&#8217;ll see later in this chapter.
-
-<h3 id=for>Reading Data One Line At A Time</h3>
-
-<p>A &#8220;line&#8221; of a text file is just what you think it is&nbsp;&mdash;&nbsp;you type a few words and press <kbd>ENTER</kbd>, and now you&#8217;re on a new line. A line of text is a sequence of characters delimited by&hellip; what exactly? Well, it&#8217;s complicated, because text files can use several different characters to mark the end of a line. Every operating system has its own convention. Some use a carriage return character, others use a line feed character, and some use both characters at the end of every line.
-
-<p>Now breathe a sigh of relief, because <em>Python handles line endings automatically</em> by default. If you say, &#8220;I want to read this text file one line at a time,&#8221; Python will figure out which kind of line ending the text file uses and and it will all Just Work.
+<p>Itt a trükk: nem számít, hogyan vagy mikor lépsz ki a <code>with</code> blokkból, a Python bezárja a fájlt&hellip; még ha egy nem kezelt kivételen át is &#8222;lépsz ki&#8221; belőle. Így van: még ha a kódod kivételt is dob, és az egész program csikorogva leáll, a fájl be lesz zárva. Garantáltan.
 
 <blockquote class=note>
-<p><span class=u>&#x261E;</span>If you need fine-grained control over what&#8217;s considered a line ending, you can pass the optional <code>newline</code> parameter to the <code>open()</code> function. See <a href=http://docs.python.org/3.1/library/io.html#module-interface>the <code>open()</code> function documentation</a> for all the gory details.
+<p><span class=u>&#x261E;</span>Technikailag a <code>with</code> utasítás egy <dfn>futási kontextust</dfn> hoz létre. Ezekben a példákban az adatfolyam-objektum <dfn>kontextuskezelőként</dfn> működik. A Python létrehozza az <var>egy_fájl</var> nevű adatfolyam-objektumot, és közli vele, hogy most belép egy futási kontextusba. Amikor a <code>with</code> kódblokk befejeződött, a Python közli az adatfolyam-objektummal, hogy most kilép a futási kontextusból, és az adatfolyam-objektum meghívja a saját <code>close()</code> metódusát. Lásd a <a href=special-method-names.html#context-managers>B függelék, &#8222;A <code>with</code> blokkban használható osztályok&#8221;</a> szakaszt a részletekért.
 </blockquote>
 
-<p>So, how do you actually do it? Read a file one line at a time, that is. It&#8217;s so simple, it&#8217;s beautiful.
+<p>Nincs semmi fájlspecifikus a <code>with</code> utasításban; ez egy általános keretrendszer futási kontextusok létrehozására, és annak közlésére objektumokkal, hogy épp belépnek egy futási kontextusba vagy kilépnek abból. Ha a kérdéses objektum egy adatfolyam-objektum, akkor ez hasznos fájlközeli dolgokat csinál (például automatikusan bezárja a fájlt). De ez a viselkedés az adatfolyam-objektumban van meghatározva, nem a <code>with</code> utasításban. A kontextuskezelők használatára rengeteg más mód is van, a fájloktól függetlenül. Akár sajátot is létrehozhatsz, ahogyan majd a fejezet későbbi részében látni fogod.
+<h3 id=for>Adatok olvasása soronként</h3>
 
-<p class=d>[<a href=examples/oneline.py>download <code>oneline.py</code></a>]
+<p>A szövegfájlok egy &#8222;sora&#8221; pontosan az, aminek elképzeled&nbsp;&ndash;&nbsp;beírsz pár szót, és megnyomod az <kbd>ENTER</kbd>-t, és máris egy új sorban vagy. Egy szövegsor karakterek sorozata, amiket elválaszt egy&hellip; mi is pontosan? Nos, ez bonyolult, mert a szövegfájlok több különböző karaktert is használhatnak a sor végének jelzésére. Minden operációs rendszernek megvan a saját megállapodása. Néhány a kocsivissza karaktert használja, mások a soremelés karaktert, és néhány mindkettőt elhelyezi minden sor végén.
+<p>Lélegezz fel, mert a <em>Python alapértelmezésben automatikusan kezeli a sorvégeket</em>. Ha azt mondod, &#8222;Soronként be akarom olvasni ezt a szövegfájlt,I want&#8221; akkor a Python kitalálja, milyen sorvégződést használ a fájl, és innentől minden Csak Működik.
+<blockquote class=note>
+<p><span class=u>&#x261E;</span>Ha részletesebben szeretnéd befolyásolni, hogy mi számít sorvégnek, akkor átadhatod a <code>newline</code> paramétert az <code>open()</code> függvénynek. A véres részletekért lásd <a href=http://docs.python.org/3.1/library/io.html#module-interface>az <code>open()</code> függvény dokumentációját</a>.
+</blockquote>
+
+<p>Nos, akkor valójában hogy csinálod? Mármint a fájl soronkénti beolvasását. Olyan egyszerű, hogy gyönyörű.
+
+<p class=d>[<a href=examples/oneline.py>az <code>oneline.py</code> letöltése</a>]
 <pre class=pp><code>line_number = 0
-<a>with open('examples/favorite-people.txt', encoding='utf-8') as a_file:  <span class=u>&#x2460;</span></a>
-<a>    for a_line in a_file:                                               <span class=u>&#x2461;</span></a>
-        line_number += 1
-<a>        print('{:>4} {}'.format(line_number, a_line.rstrip()))          <span class=u>&#x2462;</span></a></code></pre>
+<a>with open('examples/favorite-people.txt', encoding='utf-8') as egy_fájl:   <span class=u>&#x2460;</span></a>
+<a>    for egy_sor in egy_fájl:                                               <span class=u>&#x2461;</span></a>
+        sorszám += 1
+<a>        print('{:>4} {}'.format(sorszám, egy_sor.rstrip()))                <span class=u>&#x2462;</span></a></code></pre>
 <ol>
-<li>Using <a href=#with>the <code>with</code> pattern</a>, you safely open the file and let Python close it for you.
-<li>To read a file one line at a time, use a <code>for</code> loop. That&#8217;s it. Besides having explicit methods like <code>read()</code>, <em>the stream object is also an <a href=iterators.html>iterator</a></em> which spits out a single line every time you ask for a value.
-<li>Using <a href=strings.html#formatting-strings>the <code>format()</code> string method</a>, you can print out the line number and the line itself. The format specifier <code>{:>4}</code> means &#8220;print this argument right-justified within 4 spaces.&#8221; The <var>a_line</var> variable contains the complete line, carriage returns and all. The <code>rstrip()</code> string method removes the trailing whitespace, including the carriage return characters.
+<li>A <a href=#with><code>with</code> minta használatával</a> biztonságosan megnyitod a fájlt, és hagyod, hogy Python bezárja helyetted.
+<li>Egy fájl soronkénti beolvasásához használj <code>for</code> ciklust. Ennyi. Azon kívül, hogy a <code>read()</code>-hez hasonló explicit metódusai vannak, <em>az adatfolyam-objektum egyben <a href=iterators.html>iterátor</a> is</em>, ami minden értékkéréskor egy sort ad vissza.
+<li>A <a href=strings.html#formatting-strings><code>format()</code> karakterlánc-metódus</a> használatával kiírathatod a sorszámot és magát a sort is. A <code>{:>4}</code> formátumleíró azt jelenti: &#8222;írd ki ezt az argumentumot jobbra igazítva 4 szóközön belül.&#8221; Az <var>egy_sor</var> változó tartalmazza az egész sort, a kocsivissza karakterekkel együtt. Az <code>rstrip()</code> karakterlánc-metódus eltávolítja a záró üres helyeket, beleértve a kocsivissza karaktereket is.
 </ol>
 
 <pre class='screen cmdline'>
@@ -265,203 +260,200 @@ ValueError: I/O operation on closed file.</samp>
   10 Lizzie</samp></pre>
 
 <blockquote class=pf>
-<p>Did you get this error?
+<p>Ezt a hibát kaptad?
 <pre class='nd screen'>
-<samp class=p>you@localhost:~/diveintopython3$ </samp><kbd class=pp>python3 examples/oneline.py</kbd>
+<samp class=p>te@localhost:~/diveintopython3$ </samp><kbd class=pp>python3 examples/oneline.py</kbd>
 <samp class=traceback>Traceback (most recent call last):
   File "examples/oneline.py", line 4, in &lt;module>
     print('{:>4} {}'.format(line_number, a_line.rstrip()))
 ValueError: zero length field name in format</samp></pre>
-<p>If so, you&#8217;re probably using Python 3.0. You should really upgrade to Python 3.1.
-<p>Python 3.0 supported string formatting, but only with <a href=strings.html#formatting-strings>explicitly numbered format specifiers</a>. Python 3.1 allows you to omit the argument indexes in your format specifiers. Here is the Python 3.0-compatible version for comparison:
-<pre class='pp nd'><code>print('{<mark>0</mark>:>4} {<mark>1</mark>}'.format(line_number, a_line.rstrip()))</code></pre>
+<p>Ha igen, akkor valószínűleg a Python 3.0-át használod. Komolyan frissítened kellene legalább Python 3.1-re.
+<p>A Python 3.0 támogatta a karakterlánc-formázást, de csak <a href=strings.html#formatting-strings>expliciten számozottformátumleírókkal</a>. A Python 3.1 lehetővé teszi az argumentumindexek kihagyását a formátumleírókban. Összehasonlításul itt a Python 3.0-kompatibilis verzió:
+<pre class='pp nd'><code>print('{<mark>0</mark>:>4} {<mark>1</mark>}'.format(sorszám, egy_sor.rstrip()))</code></pre>
 </blockquote>
 
 <p class=a>&#x2042;
 
-<h2 id=writing>Writing to Text Files</h2>
+<h2 id=writing>Írás szövegfájlokba</h2>
 
-<aside>Just open a file and start writing.</aside>
+<aside>Csak nyiss meg egy fájlt, és kezdj el írni.</aside>
 
-<p>You can write to files in much the same way that you read from them. First you open a file and get a stream object, then you use methods on the stream object to write data to the file, then you close the file.
+<p>A fájlokba nagyjából ugyanúgy írhatsz, ahogy olvasod azokat. Először megnyitsz egy fájlt, és kapsz egy adatfolyam-objektumot, aztán metódusokat használsz az adatfolyam-objektumon, hogy adatokat írj a fájlba, majd bezárod a fájlt.
 
-<p>To open a file for writing, use the <code>open()</code> function and specify the write mode. There are two file modes for writing:
+<p>Egy fájl írásra való megnyitásához használd az <code>open()</code> függvényt, és add meg az írás módot. Két fájlmód használható az íráshoz:
 
 <ul>
-<li>&#8220;Write&#8221; mode will overwrite the file. Pass <code>mode='w'</code> to the <code>open()</code> function.
-<li>&#8220;Append&#8221; mode will add data to the end of the file. Pass <code>mode='a'</code> to the <code>open()</code> function.
+<li>Az &#8222;írás&#8221; mód felülírja a fájlt. Add át a <code>mode='w'</code> paramétert az <code>open()</code> függvénynek.
+<li>A &#8222;hozzáfűzés&#8221; mód a fájl végéhez fog adatokat adni. Add át a <code>mode='a'</code> paramétert az <code>open()</code> függvénynek.
 </ul>
 
-<p>Either mode will create the file automatically if it doesn&#8217;t already exist, so there&#8217;s never a need for any sort of fiddly &#8220;if the file doesn&#8217;t exist yet, create a new empty file just so you can open it for the first time&#8221; function. Just open a file and start writing.
+<p>Mindkét mód automatikusan létrehozza a fájlt, ha még nem létezik, így nincs szükség semmi szöszmötölős &#8222;ha a fájl még nem létezik, akkor hozz létre egy új fájlt csak hogy először megnyithasd&#8221; függvényre. Csak nyisd meg a fájlt, és kezdd írni.
 
-<p>You should always close a file as soon as you&#8217;re done writing to it, to release the file handle and ensure that the data is actually written to disk. As with reading data from a file, you can call the stream object&#8217;s <code>close()</code> method, or you can use the <code>with</code> statement and let Python close the file for you. I bet you can guess which technique I recommend.
+<p>Mindig zárd be a fájlokat, amint végeztél az írásukkal, hogy felszabadítsd a fájlhivatkozást, és biztosítsd, hogy az adatok valójában kiírásra kerülnek a háttértárra. Ahogyan az adatok fájlból olvasásakor, itt is meghívhatod az adatfolyam-objektum <code>close()</code> metódusát, vagy használhatod a <code>with</code> utasítást, és rábízhatod a fájl bezárását a Pythonra. Fogadni mernék, hogy kitalálod, melyik módszert javaslom.
 
 <pre class=screen>
-<a><samp class=p>>>> </samp><kbd class=pp>with open('test.log', mode='w', encoding='utf-8') as a_file:</kbd>  <span class=u>&#x2460;</span></a>
-<a><samp class=p>... </samp><kbd class=pp>    a_file.write('test succeeded')</kbd>                            <span class=u>&#x2461;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>with open('test.log', encoding='utf-8') as a_file:</kbd>
-<samp class=p>... </samp><kbd class=pp>    print(a_file.read())</kbd>                              
-<samp class=pp>test succeeded</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>with open('test.log', mode='a', encoding='utf-8') as a_file:</kbd>  <span class=u>&#x2462;</span></a>
-<samp class=p>... </samp><kbd class=pp>    a_file.write('and again')</kbd>
-<samp class=p>>>> </samp><kbd class=pp>with open('test.log', encoding='utf-8') as a_file:</kbd>
-<samp class=p>... </samp><kbd class=pp>    print(a_file.read())</kbd>                              
-<a><samp class=pp>test succeededand again</samp>                                           <span class=u>&#x2463;</span></a></pre>
+<a><samp class=p>>>> </samp><kbd class=pp>with open('teszt.log', mode='w', encoding='utf-8') as egy_fájl:</kbd>  <span class=u>&#x2460;</span></a>
+<a><samp class=p>... </samp><kbd class=pp>    egy_fájl.write('a teszt sikerült')</kbd>                            <span class=u>&#x2461;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>with open('teszt.log', encoding='utf-8') as egy_fájl:</kbd>
+<samp class=p>... </samp><kbd class=pp>    print(egy_fájl.read())</kbd>
+<samp class=pp>a teszt sikerült</samp>
+<a><samp class=p>>>> </samp><kbd class=pp>with open('teszt.log', mode='a', encoding='utf-8') as egy_fájl:</kbd>  <span class=u>&#x2462;</span></a>
+<samp class=p>... </samp><kbd class=pp>    a_file.write('és újra')</kbd>
+<samp class=p>>>> </samp><kbd class=pp>with open('teszt.log', encoding='utf-8') as egy_fájl:</kbd>
+<samp class=p>... </samp><kbd class=pp>    print(egy_fájl.read())</kbd>
+<a><samp class=pp>a teszt sikerültés újra</samp>                                           <span class=u>&#x2463;</span></a></pre>
 <ol>
-<li>You start boldly by creating the new file <code>test.log</code> (or overwriting the existing file), and opening the file for writing. The <code>mode='w'</code> parameter means open the file for writing. Yes, that&#8217;s all as dangerous as it sounds. I hope you didn&#8217;t care about the previous contents of that file (if any), because that data is gone now.
-<li>You can add data to the newly opened file with the <code>write()</code> method of the stream object returned by the <code>open()</code> function. After the <code>with</code> block ends, Python automatically closes the file.
-<li>That was so fun, let&#8217;s do it again. But this time, with <code>mode='a'</code> to append to the file instead of overwriting it. Appending will <em>never</em> harm the existing contents of the file.
-<li>Both the original line you wrote and the second line you appended are now in the file <code>test.log</code>. Also note that neither carriage returns nor line feeds are included. Since you didn&#8217;t write them explicitly to the file either time, the file doesn&#8217;t include them. You can write a carriage return with the <code>'\r'</code> character, and/or a line feed with the <code>'\n'</code> character. Since you didn&#8217;t do either, everything you wrote to the file ended up on one line.
+<li>Bátran kezdesz a <code>teszt.log</code> nevű új fájl létrehozásával (vagy a meglévő fájl felülírásával), és a fájl írásra megnyitásával. A <code>mode='w'</code> paraméter azt jelenti, hogy írásra nyitod meg a fájlt. Igen, ez tényleg olyan veszélyes, mint amilyennek hangzik. Remélem, nem érdekelt annak a fájlnak a tartalma (ha volt), mert azok az adatok már elvesztek.
+<li>Az <code>open()</code> függvény által visszaadott adatfolyam-objektum <code>write()</code> metódusával adhatsz adatokat az újonnan megnyitott fájlhoz. A<code>with</code> blokk végén a Python automatikusan bezárja a fájlt.
+<li>Ez olyan jó móka volt, csináljuk meg újra. De most a <code>mode='a'</code> használatával, hogy hozzáfűzzünk a fájlhoz a felülírása helyett. A hozzáfűzés<em>soha</em> nem bántja a fájl meglévő tartalmát.
+<li>Mind az eredetileg kiírt sor, mind a hozzáfűzött második most a <code>teszt.log</code> fájlban van. Vedd észre, hogy sem kocsivissza, sem soremelés karakterek nincsenek. Mivel nem írtál ki explicit módon ilyeneket egyik alkalommal sem, a fájl nem tartalmaz egyet sem. Kocsivissza karaktert a <code>'\r'</code> sorozat használatával, soremelést pedig a <code>'\n'</code> sorozattal írhatsz. Mivel egyiket sem tetted, a fájlba írt minden szöveg egy sorba került.
 </ol>
 
-<h3 id=encoding-again>Character Encoding Again</h3>
+<h3 id=encoding-again>Karakterkódolás megint</h3>
 
-<p>Did you notice the <code>encoding</code> parameter that got passed in to the <code>open()</code> function while you were <a href=#writing>opening a file for writing</a>? It&#8217;s important; don&#8217;t ever leave it out! As you saw in the beginning of this chapter, files don&#8217;t contain <i>strings</i>, they contain <i>bytes</i>. Reading a &#8220;string&#8221; from a text file only works because you told Python what encoding to use to read a stream of bytes and convert it to a string. Writing text to a file presents the same problem in reverse. You can&#8217;t write characters to a file; <a href=strings.html#byte-arrays>characters are an abstraction</a>. In order to write to the file, Python needs to know how to convert your string into a sequence of bytes. The only way to be sure it&#8217;s performing the correct conversion is to specify the <code>encoding</code> parameter when you open the file for writing.
+<p>Észrevetted az <code>encoding</code> paramétert, amit az <code>open()</code> függvény kapott, miközben <a href=#writing>megnyitottál egy fájlt írásra</a>? Ez fontos, soha ne hagyd ki! Ahogyan a fejezet elején láttad, a fájlok nem <i>karakterláncokat</i> tartalmaznak, hanem<i>bájtokat</i>. A &#8222;karakterlánc&#8221; szövegfájlból olvasása csak azért működik, mert megmondtad a Pythonnak, hogy milyen kódolást használjon a bájtok sorozatának olvasásához, és karakterlánccá konvertálásához. A szöveg fájlba írása ugyanazt a problémát veti fel, csak fordítva. Nem írhatsz karaktereket egy fájlba,<a href=strings.html#byte-arrays>a karakterek absztrakciók</a>. Ahhoz, hogy fájlba írhasd őket, a Pythonnak tudnia kell, hogyan konvertálja a karakterláncodat bájtok sorozatává. Egyetlen módszer van a helyes konverzió végrehajtására: az <code>encoding</code> paraméter megadása a fájl írásra való megnyitásakor.
 
 <p class=a>&#x2042;
 
-<h2 id=binary>Binary Files</h2>
+<h2 id=binary>Bináris fájlok</h2>
 
-<p class=ss><img src=examples/beauregard.jpg alt='my dog Beauregard' width=100 height=100>
+<p class=ss><img src=examples/beauregard.jpg alt='a kutyám, Beauregard' width=100 height=100>
 
-<p>Not all files contain text. Some of them contain pictures of my dog.
+<p>Nem minden fájl tartalmaz szöveget. Néhány a kutyám képét tartalmazza.
 
 <pre class=screen>
-<a><samp class=p>>>> </samp><kbd class=pp>an_image = open('examples/beauregard.jpg', mode='rb')</kbd>                <span class=u>&#x2460;</span></a>
-<a><samp class=p>>>> </samp><kbd class=pp>an_image.mode</kbd>                                                        <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_kép = open('examples/beauregard.jpg', mode='rb')</kbd>                <span class=u>&#x2460;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_kép.mode</kbd>                                                        <span class=u>&#x2461;</span></a>
 <samp class=pp>'rb'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>an_image.name</kbd>                                                        <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_kép.name</kbd>                                                        <span class=u>&#x2462;</span></a>
 <samp class=pp>'examples/beauregard.jpg'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>an_image.encoding</kbd>                                                    <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_kép.encoding</kbd>                                                    <span class=u>&#x2463;</span></a>
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;stdin>", line 1, in &lt;module>
 AttributeError: '_io.BufferedReader' object has no attribute 'encoding'</samp></pre>
 <ol>
-<li>Opening a file in binary mode is simple but subtle. The only difference from opening it in text mode is that the <code>mode</code> parameter contains a <code>'b'</code> character.
-<li>The stream object you get from opening a file in binary mode has many of the same attributes, including <code>mode</code>, which reflects the <code>mode</code> parameter you passed into the <code>open()</code> function.
-<li>Binary stream objects also have a <code>name</code> attribute, just like text stream objects.
-<li>Here&#8217;s one difference, though: a binary stream object has no <code>encoding</code> attribute. That makes sense, right? You&#8217;re reading (or writing) bytes, not strings, so there&#8217;s no conversion for Python to do. What you get out of a binary file is exactly what you put into it, no conversion necessary.
+<li>A fájlok bináris módban való megnyitása egyszerű, de xxxészrevétlen. Az egyetlen különbség a szöveg módban való megnyitáshoz képest, hogy a <code>mode</code> paraméter tartalmaz egy <code>'b'</code> karaktert.
+<li>A fájl bináris módban való megnyitásakor kapott adatfolyam-objektumnak sok attribútuma ugyanolyan, beleértve a <code>mode</code>-ot, ami az <code>open()</code> függvénynek átadott <code>mode</code> paramétert tükrözi.
+<li>A bináris adatfolyam-objektumoknak van <code>name</code> attribútumuk is, ahogyan a szöveges adatfolyam-objektumoknak.
+<li>Van itt azért egy különbség: a bináris adatfolyam-objektumnak nincs <code>encoding</code> attribútuma. Logikus, nem? Bájtokat, és nem karakterláncokat olvasol (vagy írsz), így nem kell a Pythonnak konverziót végeznie. Amit egy bináris fájlba teszel, pontosan azt veszed ki, nincs szükség konverzióra.
 </ol>
 
-<p>Did I mention you&#8217;re reading bytes? Oh yes you are.
+<p>Említettem, hogy bájtokat olvasol? Ó, igen, azokat.
 
 <pre class=screen>
-# continued from the previous example
-<samp class=p>>>> </samp><kbd class=pp>an_image.tell()</kbd>
+# folytatás az előző példából
+<samp class=p>>>> </samp><kbd class=pp>egy_kép.tell()</kbd>
 <samp class=pp>0</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>data = an_image.read(3)</kbd>  <span class=u>&#x2460;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>data</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>adat = egy_kép.read(3)</kbd>  <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>adat</kbd>
 <samp class=pp>b'\xff\xd8\xff'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>type(data)</kbd>               <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>type(adat)</kbd>               <span class=u>&#x2461;</span></a>
 <samp class=pp>&lt;class 'bytes'></samp>
-<a><samp class=p>>>> </samp><kbd class=pp>an_image.tell()</kbd>          <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_kép.tell()</kbd>          <span class=u>&#x2462;</span></a>
 <samp class=pp>3</samp>
-<samp class=p>>>> </samp><kbd class=pp>an_image.seek(0)</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_kép.seek(0)</kbd>
 <samp class=pp>0</samp>
-<samp class=p>>>> </samp><kbd class=pp>data = an_image.read()</kbd>
-<samp class=p>>>> </samp><kbd class=pp>len(data)</kbd>
+<samp class=p>>>> </samp><kbd class=pp>adat = egy_kép.read()</kbd>
+<samp class=p>>>> </samp><kbd class=pp>len(adat)</kbd>
 <samp class=pp>3150</samp></pre>
 <ol>
-<li>Like text files, you can read binary files a little bit at a time. But there&#8217;s a crucial difference&hellip;
-<li>&hellip;you&#8217;re reading bytes, not strings. Since you opened the file in binary mode, the <code>read()</code> method takes <em>the number of bytes to read</em>, not the number of characters.
-<li>That means that there&#8217;s never <a href=#read>an unexpected mismatch</a> between the number you passed into the <code>read()</code> method and the position index you get out of the <code>tell()</code> method. The <code>read()</code> method reads bytes, and the <code>seek()</code> and <code>tell()</code> methods track the number of bytes read. For binary files, they&#8217;ll always agree.
+<li>A szövegfájlokhoz hasonlóan a bináris fájlok is beolvashatók egyszerre kis darabokban. De van egy alapvető különbség&hellip;
+<li>&hellip;bájtokat olvasol, nem karakterláncokat. Mivel a fájlt bináris módban nyitottad meg, a <code>read()</code> metódus a<em>beolvasandó bájtok számát</em> várja, nem a karakterek számát.
+<li>Ez azt jelenti, hogy soha nincs <a href=#read>váratlan eltérés</a> a <code>read()</code> metódusnak átadott szám és a <code>tell()</code> metódus által visszaadott pozícióindex között. A <code>read()</code> metódus bájtokat olvas, és a <code>seek()</code> és <code>tell()</code> metódusok a beolvasott bájtok számát tartják nyilván. A bináris fájlok esetén ezek mindig megegyeznek.
 </ol>
 
 <p class=a>&#x2042;
 
-<h2 id=file-like-objects>Stream Objects From Non-File Sources</h2>
+<h2 id=file-like-objects>Adatfolyam-objektumok nem fájl forrásokból</h2>
 
-<aside>To read from a fake file, just call <code>read()</code>.</aside>
+<aside>Egy hamis fájlból olvasáshoz csak hívd meg a <code>read()</code> metódust.</aside>
 
-<p>Imagine you&#8217;re writing a library, and one of your library functions is going to read some data from a file. The function could simply take a filename as a string, go open the file for reading, read it, and close it before exiting. But you shouldn&#8217;t do that. Instead, your <abbr>API</abbr> should take <em>an arbitrary stream object</em>.
+<p>Képzeld el, hogy egy függvénytárat írsz, és a függvénytárad egyik függvénye adatokat fog olvasni egy fájlból. A függvény egyszerűen várhat egy fájlnevet karakterláncként, megnyithatja a fájlt olvasásra, és bezárhatja kilépés előtt. De ne csináld ezt. Ehelyett az <abbr>API</abbr>-d várhat <em>egy tetszőleges adatfolyam-objektumot</em>.
 
-<p>In the simplest case, a stream object is anything with a <code>read()</code> method which takes an optional <var>size</var> parameter and returns a string. When called with no <var>size</var> parameter, the <code>read()</code> method should read everything there is to read from the input source and return all the data as a single value. When called with a <var>size</var> parameter, it reads that much from the input source and returns that much data. When called again, it picks up where it left off and returns the next chunk of data.
+<p>A legegyszerűbb esetben az adatfolyam-objektum bármi lehet, ha rendelkezik egy <code>read()</code> metódussal, ami egy elhagyható <var>size</var> paramétert vár, és visszaad egy karakterláncot. Amikor <var>size</var> paraméter nélkül hívják, a <code>read()</code> metódus be kell olvasson mindent a bemeneti forrásból, és vissza kell adnia az összes adatot egyetlen értékként. Amikor <var>size</var> paraméterrel hívják, annyit olvas a bemeneti forrásból, és annyi adatot ad vissza. Ha újra meghívják, ott folytatja, ahol abbahagyta, és visszaadja a következő adatdarabot.
 
-<p>That sounds exactly like the stream object you get from opening a real file. The difference is that <em>you&#8217;re not limiting yourself to real files</em>. The input source that&#8217;s being &#8220;read&#8221; could be anything: a web page, a string in memory, even the output of another program. As long as your functions take a stream object and simply call the object&#8217;s <code>read()</code> method, you can handle any input source that acts like a file, without specific code to handle each kind of input.
+<p>Ez pontosan úgy hangzik, mint a valódi fájl megnyitásakor kapott adatfolyam-objektum. A különbség, hogy <em>nem korlátozod magad valódi fájlokra</em>. Az &#8222;olvasott&#8221; bemeneti forrás bármi lehet: egy weboldal, egy karakterlánc a memóriában, akár egy másik program kimenete is. Amíg a függvényeid egy adatfolyam-objektumot várnak, és egyszerűen meghívják az objektum <code>read()</code> metódusát, tetszőleges bemeneti forrást kezelhetsz, ami fájlként viselkedik, a különböző bemenettípusokat külön-külön kezelő kód nélkül.
 
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_string = 'PapayaWhip is the new black.'</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_karakterlánc = 'PapayaWhip is the new black.'</kbd>
 <a><samp class=p>>>> </samp><kbd class=pp>import io</kbd>                                  <span class=u>&#x2460;</span></a>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file = io.StringIO(a_string)</kbd>             <span class=u>&#x2461;</span></a>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.read()</kbd>                              <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl = io.StringIO(egy_karakterlánc)</kbd>   <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.read()</kbd>                              <span class=u>&#x2462;</span></a>
 <samp class=pp>'PapayaWhip is the new black.'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.read()</kbd>                              <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.read()</kbd>                              <span class=u>&#x2463;</span></a>
 <samp class=pp>''</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.seek(0)</kbd>                             <span class=u>&#x2464;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.seek(0)</kbd>                             <span class=u>&#x2464;</span></a>
 <samp class=pp>0</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_file.read(10)</kbd>                            <span class=u>&#x2465;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_fájl.read(10)</kbd>                            <span class=u>&#x2465;</span></a>
 <samp class=pp>'PapayaWhip'</samp>
-<samp class=p>>>> </samp><kbd class=pp>a_file.tell()</kbd>                       
+<samp class=p>>>> </samp><kbd class=pp>egy_fájl.tell()</kbd>
 <samp class=pp>10</samp>
-<samp class=p>>>> </samp><kbd class=pp>a_file.seek(18)</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_fájl.seek(18)</kbd>
 <samp class=pp>18</samp>
-<samp class=p>>>> </samp><kbd class=pp>a_file.read()</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_fájl.read()</kbd>
 <samp class=pp>'new black.'</samp></pre>
 <ol>
-<li>The <code>io</code> module defines the <code>StringIO</code> class that you can use to treat a string in memory as a file.
-<li>To create a stream object out of a string, create an instance of the <code>io.StringIO()</code> class and pass it the string you want to use as your &#8220;file&#8221; data. Now you have a stream object, and you can do all sorts of stream-like things with it.
-<li>Calling the <code>read()</code> method &#8220;reads&#8221; the entire &#8220;file,&#8221; which in the case of a <code>StringIO</code> object simply returns the original string.
-<li>Just like a real file, calling the <code>read()</code> method again returns an empty string.
-<li>You can explicitly seek to the beginning of the string, just like seeking through a real file, by using the <code>seek()</code> method of the <code>StringIO</code> object.
-<li>You can also read the string in chunks, by passing a <var>size</var> parameter to the <code>read()</code> method.
+<li>Az <code>io</code> modul definiálja a <code>StringIO</code> osztályt, amelyet egy memóriabeli karakterlánc fájlként kezelésére használhatsz.
+<li>A karakterláncból adatfolyam-objektum létrehozásához példányosítsd az <code>io.StringIO()</code> osztályt, és add át neki a &#8222;fájladatként&#8221; használandó karakterláncot. Most már van egy adatfolyam-objektumod, és mindenféle adatfolyam-szerű dolgot csinálhatsz vele.
+<li>A <code>read()</code> metódus hívása &#8222;beolvassa&#8221; az egész &#8222;fájlt,&#8221; ami a <code>StringIO</code> objektum esetén egyszerűen visszaadja az eredeti karakterláncot.
+<li>Ahogyan egy valódi fájlnál, a <code>read()</code> metódus ismételt hívása üres karakterláncot ad vissza.
+<li>Expliciten a karakterlánc elejére pozicionálhatsz, ahogyan egy valódi fájlban pozicionálnál, a<code>StringIO</code> objektum <code>seek()</code> metódusnak használatával.
+<li>A karakterláncot darabonként is beolvashatod, a <var>size</var> paraméter átadásával a <code>read()</code> metódusnak.
 </ol>
 
 <blockquote class=note>
-<p><span class=u>&#x261E;</span><code>io.StringIO</code> lets you treat a string as a text file. There&#8217;s also a <code>io.BytesIO</code> class, which lets you treat a byte array as a binary file.
-</blockquote>
+<p>Az <span class=u>&#x261E;</span><code>io.StringIO</code> lehetővé teszi egy karakterlánc szövegfájlként kezelését. Létezik egy <code>io.BytesIO</code> osztály is, ami lehetővé teszi egy bájttömb bináris fájlként kezelését. </blockquote>
 
-<h3 id=gzip>Handling Compressed Files</h3>
+<h3 id=gzip>Tömörített fájlok kezelése</h3>
 
-<p>The Python standard library contains modules that support reading and writing compressed files. There are a number of different compression schemes; the two most popular on non-Windows systems are <a href=http://docs.python.org/3.1/library/gzip.html>gzip</a> and <a href=http://docs.python.org/3.1/library/bz2.html>bzip2</a>. (You may have also encountered <a href=http://docs.python.org/3.1/library/zipfile.html>PKZIP archives</a> and <a href=http://docs.python.org/3.1/library/tarfile.html>GNU Tar archives</a>. Python has modules for those, too.)
+<p>A Python szabványos függvénytára tartalmaz a tömörített fájlok olvasását és írását támogató modulokat. Számos különböző tömörítési eljárás létezik, a két legnépszerűbb nem Windows rendszereken a <a href=http://docs.python.org/3.1/library/gzip.html>gzip</a> és <a href=http://docs.python.org/3.1/library/bz2.html>bzip2</a>. (Találkozhattál <a href=http://docs.python.org/3.1/library/zipfile.html>PKZIP archívumokkal</a> és <a href=http://docs.python.org/3.1/library/tarfile.html>GNU Tar archívumokkal</a> is. A Python rendelkezik modulokkal ezekhez is.)
 
-<p>The <code>gzip</code> module lets you create a stream object for reading or writing a gzip-compressed file. The stream object it gives you supports the <code>read()</code> method (if you opened it for reading) or the <code>write()</code> method (if you opened it for writing). That means you can use the methods you&#8217;ve already learned for regular files to <em>directly read or write a gzip-compressed file</em>, without creating a temporary file to store the decompressed data.
+<p>A <code>gzip</code> modul lehetővé teszi gzip-pel tömörített fájl olvasásához vagy írásához használható adatfolyam-objektum létrehozását. Az általa visszaadott adatfolyam-objektum támogatja a <code>read()</code> metódust (ha olvasásra nyitottad meg), vagy a <code>write()</code> metódust (ha írásra nyitottad meg). Ez azt jelenti, hogy használhatod a normális fájlokhoz megismert metódusokat <em>gzip-pel tömörített fájl közvetlen olvasására vagy írására</em>, anélkül, hogy ideiglenes fájlt kellene létrehoznod a kibontott adatok tárolásához.
 
-<p>As an added bonus, it supports the <code>with</code> statement too, so you can let Python automatically close your gzip-compressed file when you&#8217;re done with it.
+<p>További extraként támogatja a <code>with</code> utasítást is, így hagyhatod, hogy a Python automatikusan bezárja a gzip-pel tömörített fájlodat, ha végeztél vele.
 
 <pre class='nd screen cmdline'>
-<samp class=p>you@localhost:~$ </samp><kbd>python3</kbd>
+<samp class=p>te@localhost:~$ </samp><kbd>python3</kbd>
 
 <samp class=p>>>> </samp><kbd class=pp>import gzip</kbd>
-<a><samp class=p>>>> </samp><kbd class=pp>with gzip.open('out.log.gz', mode='wb') as z_file:</kbd>                                      <span class=u>&#x2460;</span></a>
-<samp class=p>... </samp><kbd class=pp>  z_file.write('A nine mile walk is no joke, especially in the rain.'.encode('utf-8'))</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>with gzip.open('out.log.gz', mode='wb') as z_fájl:</kbd>                                      <span class=u>&#x2460;</span></a>
+<samp class=p>... </samp><kbd class=pp>  z_fájl.write('Egy kilenc mérföldes séta nem vicc, különösen nem az esőben.'.encode('utf-8'))</kbd>
 <samp class=p>... </samp>
 <samp class=p>>>> </samp><kbd class=pp>exit()</kbd>
 
-<a><samp class=p>you@localhost:~$ </samp><kbd>ls -l out.log.gz</kbd>                                                           <span class=u>&#x2461;</span></a>
+<a><samp class=p>te@localhost:~$ </samp><kbd>ls -l out.log.gz</kbd>                                                           <span class=u>&#x2461;</span></a>
 <samp>-rw-r--r--  1 mark mark    79 2009-07-19 14:29 out.log.gz</samp>
-<a><samp class=p>you@localhost:~$ </samp><kbd>gunzip out.log.gz</kbd>                                                          <span class=u>&#x2462;</span></a>
-<a><samp class=p>you@localhost:~$ </samp><kbd>cat out.log</kbd>                                                                <span class=u>&#x2463;</span></a>
-<samp>A nine mile walk is no joke, especially in the rain.</samp></pre>
+<a><samp class=p>te@localhost:~$ </samp><kbd>gunzip out.log.gz</kbd>                                                          <span class=u>&#x2462;</span></a>
+<a><samp class=p>te@localhost:~$ </samp><kbd>cat out.log</kbd>                                                                <span class=u>&#x2463;</span></a>
+<samp>Egy kilenc mérföldes séta nem vicc, különösen nem az esőben.</samp></pre>
 <ol>
-<li>You should always open gzipped files in binary mode. (Note the <code>'b'</code> character in the <code>mode</code> argument.)
-<li>I constructed this example on Linux. If you&#8217;re not familiar with the command line, this command is showing the &#8220;long listing&#8221; of the gzip-compressed file you just created in the Python Shell. This listing shows that the file exists (good), and that it is 79 bytes long. That&#8217;s actually larger than the string you started with! The gzip file format includes a fixed-length header that contains some metadata about the file, so it&#8217;s inefficient for extremely small files.
-<li>The <code>gunzip</code> command (pronounced &#8220;gee-unzip&#8221;) decompresses the file and stores the contents in a new file named the same as the compressed file but without the <code>.gz</code> file extension.
-<li>The <code>cat</code> command displays the contents of a file. This file contains the string you originally wrote directly to the compressed file <code>out.log.gz</code> from within the Python Shell.
+<li>A gzip-pel tömörített fájlokat mindig bináris módban kell megnyitni. (Vedd észre a <code>'b'</code> karaktert a <code>mode</code> argumentumban.)
+<li>Ezt a példát Linuxon állítottam elő. Ha nem ismered a parancssort: ez a parancs a Python parancsértelmezőben létrehozott, gzip-pel tömörített fájl &#8222;hosszú kiírását&#8221; jeleníti meg. Ez a kiírás megmutatja, hogy a fájl létezik (jó), és hogy 79xxx bájt hosszú. Ez valójában hosszabb, mint az a karakterlánc, amivel indultunk! A gzip fájlformátum tartalmaz egy rögzített hosszúságú fejlécet, ami néhány metaadatot tartalmaz a fájlról, így nagyon kis fájlok esetén nem hatékony.
+<li>A <code>gunzip</code> parancs (ejtsd: &#8222;gé-unzip&#8221;) kibontja a fájlt, és a tartalmát egy új fájlban tárolja, aminek ugyanaz lesz a neve, mint a tömörített fájlnak, de a <code>.gz</code> fájlkiterjesztés nélkül.
+<li>A <code>cat</code> parancs megjeleníti egy fájl tartalmát. Ez a fájl tartalmazza azt a karakterláncot, amit eredetileg közvetlenül az <code>out.log.gz</code> fájlba írtál a Python parancsértelmezőben.
 </ol>
 
 <blockquote class=pf>
-<p>Did you get this error?
+<p>Ezt a hibát kaptad?
 <pre class='nd screen'>
-<samp class=p>>>> </samp><kbd class=pp>with gzip.open('out.log.gz', mode='wb') as z_file:</kbd>
-<samp class=p>... </samp><kbd class=pp>        z_file.write('A nine mile walk is no joke, especially in the rain.'.encode('utf-8'))</kbd>
+<samp class=p>>>> </samp><kbd class=pp>with gzip.open('out.log.gz', mode='wb') as z_fájl:</kbd>
+<samp class=p>... </samp><kbd class=pp>        z_fájl.write('Egy kilenc mérföldes séta nem vicc, különösen nem az esőben.'.encode('utf-8'))</kbd>
 <samp class=p>... </samp>
 <samp class=traceback>Traceback (most recent call last):
  File "&lt;stdin>", line 1, in &lt;module>
 AttributeError: 'GzipFile' object has no attribute '__exit__'</samp></pre>
-<p>If so, you&#8217;re probably using Python 3.0. You should really upgrade to Python 3.1.
-<p>Python 3.0 had a <code>gzip</code> module, but it did not support using a gzipped-file object as a context manager. Python 3.1 added the ability to use gzipped-file objects in a <code>with</code> statement.
-</blockquote>
+<p>Ha igen, akkor valószínűleg a Python 3.0-át használod. Komolyan frissítened kellene legalább Python 3.1-re.
+<p>A Python 3.0 rendelkezett egy <code>gzip</code> modullal, de nem támogatta a gzip-pel tömörített fájl objektum kontextuskezelőként való használatát. A Python 3.1 már képes a gzip-pel tömörített fájl objektumok használatára <code>with</code> utasításban. </blockquote>
 
 <p class=a>&#x2042;
 
-<h2 id=stdio>Standard Input, Output, and Error</h2>
+<h2 id=stdio>Szabványos bemenet, kimenet és hibakimenet</h2>
 
 <aside><code>sys.stdin</code>, <code>sys.stdout</code>, <code>sys.stderr</code>.</aside>
 
-<p>Command-line gurus are already familiar with the concept of standard input, standard output, and standard error. This section is for the rest of you.
+<p>A parancssori guruknak már ismerős a szabványos bemenet, szabványos kimenet és szabványos hibakimenet fogalma. Ez a szakasz a többieknek szól.
 
-<p>Standard output and standard error (commonly abbreviated <code>stdout</code> and <code>stderr</code>) are pipes that are built into every <abbr>UNIX</abbr>-like system, including Mac OS X and Linux. When you call the <code>print()</code> function, the thing you&#8217;re printing is sent to the <code>stdout</code> pipe. When your program crashes and prints out a traceback, it goes to the <code>stderr</code> pipe. By default, both of these pipes are just connected to the terminal window where you are working; when your program prints something, you see the output in your terminal window, and when a program crashes, you see the traceback in your terminal window too. In the graphical Python Shell, the <code>stdout</code> and <code>stderr</code> pipes default to your &#8220;Interactive Window&#8221;.
-
+<p>A szabványos kimenet és a szabványos hibakimenet (gyakran <code>stdout</code> és <code>stderr</code> rövidítésekkel használják) olyan adatcsatornák, amik minden  <abbr>UNIX</abbr>-szerű rendszerbe be vannak építve, beleértve a Mac OS X-et és Linuxot. Amikor a <code>print()</code> függvényt hívod, a kiírt dolog az  <code>stdout</code> adatcsatornába kerül. Amikor a programod összeomlik, és nyomkövetést ír ki, az az <code>stderr</code> adatcsatornába kerül. Alapértelmezésben ez a két adatcsatorna egyaránt arra a terminálablakra van irányítva, amiben dolgozol, amikor a programod kiír valamit, a kimenetet a terminálablakban látod, és amikor a program összeomlik, az is a terminálablakban jeleníti meg a nyomkövetést. A grafikus Python parancsértelmezőben az <code>stdout</code> és <code>stderr</code> adatcsatornák alapértelmezésben az &#8222;interaktív ablakba&#8221; vannak irányítva.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>for i in range(3):</kbd>
 <a><samp class=p>... </samp><kbd class=pp>    print('PapayaWhip')</kbd>                <span class=u>&#x2460;</span></a>
@@ -476,12 +468,12 @@ PapayaWhip</samp>
 <a><samp class=p>... </samp><kbd class=pp>    l = sys.stderr.write('new black')</kbd>  <span class=u>&#x2462;</span></a>
 <samp>new blacknew blacknew black</samp></pre>
 <ol>
-<li>The <code>print()</code> function, in a loop. Nothing surprising here.
-<li><code>stdout</code> is defined in the <code>sys</code> module, and it is a <a href=#file-like-objects>stream object</a>. Calling its <code>write()</code> function will print out whatever string you give it, then return the length of the output. In fact, this is what the <code>print</code> function really does; it adds a carriage return to the end of the string you&#8217;re printing, and calls <code>sys.stdout.write</code>.
-<li>In the simplest case, <code>sys.stdout</code> and <code>sys.stderr</code> send their output to the same place: the Python <abbr>IDE</abbr> (if you&#8217;re in one), or the terminal (if you&#8217;re running Python from the command line). Like standard output, standard error does not add carriage returns for you. If you want carriage returns, you&#8217;ll need to write carriage return characters.
+<li>A <code>print()</code> függvény, ciklusban. Semmi meglepő.
+<li>Az <code>stdout</code> a <code>sys</code> modulban van definiálva, és ez egy <a href=#file-like-objects>adatfolyam-objektum</a>. A <code>write()</code> függvényének meghívása kiírja a neki átadott tetszőleges karakterláncot, majd visszaadja a kimenet hosszát. Valójában ez az, amit a <code>print</code> függvény ténylegesen csinál; hozzáad egy kocsivissza karaktert a kiírandó karakterlánc végéhez, és meghívja a <code>sys.stdout.write</code>-ot.
+<li>A legegyszerűbb esetben a <code>sys.stdout</code> és a <code>sys.stderr</code> a kimenetüket ugyanoda küldik: a Python <abbr>IDE</abbr>-nek (ha ezt használod) vagy a terminálnak (ha a Pythont a parancssorból futtatod). A szabványos kimenethez hasonlóan a szabványos hibakimenet sem ad kocsivissza karaktereket a szöveghez. Ha kocsivissza karaktereket akarsz, akkor kocsivissza karaktereket kell írnod.
 </ol>
 
-<p><code>sys.stdout</code> and <code>sys.stderr</code> are stream objects, but they are write-only. Attempting to call their <code>read()</code> method will always raise an <code>IOError</code>.
+<p>A <code>sys.stdout</code> és <code>sys.stderr</code> adatfolyam-objektumok, de csak írhatók. A <code>read()</code> metódusuk hívására tett kísérlet mindig <code>IOError</code> kivételt dob.
 
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>import sys</kbd>
@@ -490,116 +482,114 @@ PapayaWhip</samp>
   File "&lt;stdin>", line 1, in &lt;module>
 IOError: not readable</samp></pre>
 
-<h3 id=redirect>Redirecting Standard Output</h3>
+<h3 id=redirect>A szabványos kimenet átirányítása</h3>
 
-<p><code>sys.stdout</code> and <code>sys.stderr</code> are stream objects, albeit ones that only support writing. But they&#8217;re not constants; they&#8217;re variables. That means you can assign them a new value&nbsp;&mdash;&nbsp;any other stream object&nbsp;&mdash;&nbsp;to redirect their output.
-
-<p class=d>[<a href=examples/stdout.py>download <code>stdout.py</code></a>]
+<p>A <code>sys.stdout</code> és <code>sys.stderr</code> adatfolyam-objektumok, noha csak az írást támogatják. De nem konstansok, hanem változók. Ez azt jelenti, hogy új értéket rendelhetsz hozzájuk&nbsp;&ndash;&nbsp;bármely másik adatfolyam-objektumot&nbsp;&ndash;&nbsp;hogy az irányítsa át a kimenetét.
+<p class=d>[<a href=examples/stdout.py>az <code>stdout.py</code> letöltése</a>]
 <pre class=pp><code>import sys
 
 class RedirectStdoutTo:
-    def __init__(self, out_new):
-        self.out_new = out_new
+    def __init__(self, ki_új):
+        self.ki_új = ki_új
 
     def __enter__(self):
-        self.out_old = sys.stdout
-        sys.stdout = self.out_new
+        self.ki_régi = sys.stdout
+        sys.stdout = self.ki_új
 
     def __exit__(self, *args):
-        sys.stdout = self.out_old
+        sys.stdout = self.ki_új
 
 print('A')
-with open('out.log', mode='w', encoding='utf-8') as a_file, RedirectStdoutTo(a_file):
+with open('out.log', mode='w', encoding='utf-8') as egy_fájl, RedirectStdoutTo(egy_fájl):
     print('B')
 print('C')</code></pre>
 
-<p>Check this out:
+<p>Nézd csak:
 
 <pre class='nd screen cmdline'>
-<samp class=p>you@localhost:~/diveintopython3/examples$ </samp><kbd>python3 stdout.py</kbd>
+<samp class=p>te@localhost:~/diveintopython3/examples$ </samp><kbd>python3 stdout.py</kbd>
 <samp>A
 C</samp>
-<samp class=p>you@localhost:~/diveintopython3/examples$ </samp><kbd>cat out.log</kbd>
+<samp class=p>te@localhost:~/diveintopython3/examples$ </samp><kbd>cat out.log</kbd>
 <samp>B</samp></pre>
 
 <blockquote class=pf>
-<p>Did you get this error?
+<p>Ezt a hibát kaptad?
 <pre class='nd screen'>
-<samp class=p>you@localhost:~/diveintopython3/examples$ </samp><kbd class=pp>python3 stdout.py</kbd>
+<samp class=p>te@localhost:~/diveintopython3/examples$ </samp><kbd class=pp>python3 stdout.py</kbd>
 <samp class=traceback>  File "stdout.py", line 15
-    with open('out.log', mode='w', encoding='utf-8') as a_file, RedirectStdoutTo(a_file):
-                                                              ^
+    with open('out.log', mode='w', encoding='utf-8') as egy_fájl, RedirectStdoutTo(egy_fájl):
+                                                                ^
 SyntaxError: invalid syntax</samp></pre>
-<p>If so, you&#8217;re probably using Python 3.0. You should really upgrade to Python 3.1.
-<p>Python 3.0 supported the <code>with</code> statement, but each statement can only use one context manager. Python 3.1 allows you to chain multiple context managers in a single <code>with</code> statement.
+<p>Ha igen, akkor valószínűleg a Python 3.0-át használod. Komolyan frissítened kellene legalább Python 3.1-re.
+<p>A Python 3.0 támogatta a <code>with</code> utasítást, de minden utasítás csak egy kontextuskezelőt tud használni. A Python 3.1 lehetővé teszi több kontextuskezelő összekötését egyetlen <code>with</code> utasításban.
 </blockquote>
 
-<p>Let&#8217;s take the last part first.
+<p>Vegyük először az utolsó részt.
 
 <pre class=pp><code>print('A')
-with open('out.log', mode='w', encoding='utf-8') as a_file, RedirectStdoutTo(a_file):
+with open('out.log', mode='w', encoding='utf-8') as egy_fájl, RedirectStdoutTo(egy_fájl):
     print('B')
 print('C')</code></pre>
 
-<p>That&#8217;s a complicated <code>with</code> statement. Let me rewrite it as something more recognizable.
+<p>Ez egy bonyolult <code>with</code> utasítás. Hadd írjam át valami felismerhetőbbre.
 
-<pre class=pp><code>with open('out.log', mode='w', encoding='utf-8') as a_file:
-    with RedirectStdoutTo(a_file):
+<pre class=pp><code>with open('out.log', mode='w', encoding='utf-8') as egy_fájl:
+    with RedirectStdoutTo(egy_fájl):
         print('B')</code></pre>
 
-<p>As the rewrite shows, you actually have <em>two</em> <code>with</code> statements, one nested within the scope of the other. The &#8220;outer&#8221; <code>with</code> statement should be familiar by now: it opens a <abbr>UTF-8</abbr>-encoded text file named <code>out.log</code> for writing and assigns the stream object to a variable named <var>a_file</var>. But that&#8217;s not the only thing odd here. 
-<pre class='nd pp'><code>with RedirectStdoutTo(a_file):</code></pre>
+<p>Ahogyan az újraírás mutatja, valójában <em>két</em> <code>with</code> utasításunk van, az egyik beágyazva a másik hatókörébe. A &#8222;külső&#8221; <code>with</code> utasításnak mostanra ismerősnek kell lennie: megnyit egy <abbr>UTF-8</abbr>-kódolású, <code>out.log</code> nevű fájlt írásra, és az adatfolyam-objektumot hozzárendeli az <var>egy_fájl</var> nevű változóhoz. De itt nem ez az egyetlen fura dolog.
+<pre class='nd pp'><code>with RedirectStdoutTo(egy_fájl):</code></pre>
 
-<p>Where&#8217;s the <code>as</code> clause? The <code>with</code> statement doesn&#8217;t actually require one. Just like you can call a function and ignore its return value, you can have a <code>with</code> statement that doesn&#8217;t assign the <code>with</code> context to a variable. In this case, you&#8217;re only interested in the side effects of the <code>RedirectStdoutTo</code> context.
+<p>Hol van az <code>as</code> kulcsszó? Valójában a <code>with</code> utasítás nem igényli. Mint ahogy meghívsz egy függvényt, és figyelmen kívül hagyod a visszatérési értékét, ugyanúgy használhatsz olyan <code>with</code> utasítást, ami nem rendeli a <code>with</code> kontextust változóhoz. Ebben az esetben csak a <code>RedirectStdoutTo</code> kontextus mellékhatásai érdekelnek.
 
-<p>What are those side effects? Take a look inside the <code>RedirectStdoutTo</code> class. This class is a custom <a href=special-method-names.html#context-managers>context manager</a>. Any class can be a context manager by defining two <a href=iterators.html#a-fibonacci-iterator>special methods</a>: <code>__enter__()</code> and <code>__exit__()</code>.
+<p>Mik ezek a mellékhatások? Vessünk egy pillantást a <code>RedirectStdoutTo</code> osztályra. Ez az osztály egy egyéni <a href=special-method-names.html#context-managers>kontextuskezelő</a>. Bármely osztály lehet kontextuskezelő, ezen két <a href=iterators.html#a-fibonacci-iterator>speciális metódus</a> definiálásával: <code>__enter__()</code> és <code>__exit__()</code>.
 
 <pre class=pp><code>class RedirectStdoutTo:
-<a>    def __init__(self, out_new):    <span class=u>&#x2460;</span></a>
-        self.out_new = out_new
+<a>    def __init__(self, ki_új):    <span class=u>&#x2460;</span></a>
+        self.ki_új = ki_új
 
 <a>    def __enter__(self):            <span class=u>&#x2461;</span></a>
-        self.out_old = sys.stdout
-        sys.stdout = self.out_new
+        self.ki_régi = sys.stdout
+        sys.stdout = self.ki_új
 
 <a>    def __exit__(self, *args):      <span class=u>&#x2462;</span></a>
-        sys.stdout = self.out_old</code></pre>
+        sys.stdout = self.ki_régi</code></pre>
 <ol>
-<li>The <code>__init__()</code> method is called immediately after an instance is created. It takes one parameter, the stream object that you want to use as standard output for the life of the context. This method just saves the stream object in an instance variable so other methods can use it later.
-<li>The <code>__enter__()</code> method is a <a href=iterators.html#a-fibonacci-iterator>special class method</a>; Python calls it when entering a context (<i>i.e.</i> at the beginning of the <code>with</code> statement). This method saves the current value of <code>sys.stdout</code> in <var>self.out_old</var>, then redirects standard output by assigning <var>self.out_new</var> to <var>sys.stdout</var>.
-<li>The <code>__exit__()</code> method is another special class method; Python calls it when exiting the context (<i>i.e.</i> at the end of the <code>with</code> statement). This method restores standard output to its original value by assigning the saved <var>self.out_old</var> value to <var>sys.stdout</var>.
+<li>Az <code>__init__()</code> metódus a példány létrehozása után azonnal meghívásra kerül. Egy paramétert vár, a kontextus élete során szabványos kimenetként használni kívánt adatfolyam-objektumot. Ez a metódus egyszerűen egy példányváltozóban menti az adatfolyam-objektumot, hogy később más metódusok is használhassák.
+<li>Az <code>__enter__()</code> metódus egy <a href=iterators.html#a-fibonacci-iterator>speciális osztálymetódus</a>. A Python akkor hívja meg, amikor belép a kontextusba (<i>azaz</i> a <code>with</code> utasítás elején). Ez a metódus elmenti a <code>sys.stdout</code> aktuális értékét a <var>self.ki_régi</var> változóba, majd átirányítja a szabványos kimenetet a <var>self.ki_új</var> hozzárendelésével a <var>sys.stdout</var>-hoz.
+<li>Az <code>__exit__()</code> metódus egy másik speciális osztálymetódus. A Python a kontextusból való kilépéskor hívja meg (<i>azaz</i> a <code>with</code> utasítás végén). Ez a metódus visszaállítja a szabványos kimenetet az eredeti értékére az elmentett <var>self.ki_régi</var> hozzárendelésével a <var>sys.stdout</var>-hoz.
 </ol>
 
-<p>Putting it all together:
+<p>Összegezve:
 
 <pre class=pp><code>
-<a>print('A')                                                                             <span class=u>&#x2460;</span></a>
-<a>with open('out.log', mode='w', encoding='utf-8') as a_file, RedirectStdoutTo(a_file):  <span class=u>&#x2461;</span></a>
-<a>    print('B')                                                                         <span class=u>&#x2462;</span></a>
-<a>print('C')                                                                             <span class=u>&#x2463;</span></a></code></pre>
+<a>print('A')                                                                               <span class=u>&#x2460;</span></a>
+<a>with open('out.log', mode='w', encoding='utf-8') as egy_fájl, RedirectStdoutTo(a_file):  <span class=u>&#x2461;</span></a>
+<a>    print('B')                                                                           <span class=u>&#x2462;</span></a>
+<a>print('C')                                                                               <span class=u>&#x2463;</span></a></code></pre>
 <ol>
-<li>This will print to the <abbr>IDE</abbr> &#8220;Interactive Window&#8221; (or the terminal, if running the script from the command line).
-<li>This <a href=#with><code>with</code> statement</a> takes <em>a comma-separated list of contexts</em>. The comma-separated list acts like a series of nested <code>with</code> blocks. The first context listed is the &#8220;outer&#8221; block; the last one listed is the &#8220;inner&#8221; block. The first context opens a file; the second context redirects <code>sys.stdout</code> to the stream object that was created in the first context.
-<li>Because this <code>print()</code> function is executed with the context created by the <code>with</code> statement, it will not print to the screen; it will write to the file <code>out.log</code>.
-<li>The <code>with</code> code block is over. Python has told each context manager to do whatever it is they do upon exiting a context. The context managers form a last-in-first-out stack. Upon exiting, the second context changed <code>sys.stdout</code> back to its original value, then the first context closed the file named <code>out.log</code>. Since standard output has been restored to its original value, calling the <code>print()</code> function will once again print to the screen.
+<li>Ez az <abbr>IDE</abbr>-be &#8222;interaktív ablakba&#8221; (vagy a terminálba, ha a parancssorból futtatod a parancsfájlt) fog írni.
+<li>Ez a <a href=#with><code>with</code> utasítás</a> <em>kontextusok vesszőkkel elválasztott listáját</em> várja. A vesszőkkel elválasztott lista egymásba ágyazott <code>with</code> blokkok sorozataként működik. Az elsőként felsorolt kontextus a &#8222;külső&#8221; blokk, az utolsóként felsorolt a &#8222;belső&#8221; blokk. Az első kontextus megnyit egy fájlt, a második kontextus átirányítja a <code>sys.stdout</code>-ot az első kontextusban létrehozott adatfolyam-objektumra.
+<li>Mivel ez a <code>print()</code> függvény a <code>with</code> utasítással létrehozott kontextussal kerül végrehajtásra, nem a képernyőre fog írni, hanem az <code>out.log</code> fájlba.
+<li>A <code>with</code> kódblokknak vége van. A Python közölte minden egyes kontextuskezelővel, hogy tegyék meg azt, amit a kontextusból kilépéskor szoktak. A kontextuskezelők egy utolsó-be, első-ki (LIFO) vermet alkotnak. Kilépéskor a második kontextus visszaállította a <code>sys.stdout</code>-ot az eredeti értékére,  majd az első kontextus bezárta az <code>out.log</code> nevű fájlt. Mivel a szabványos kimenet vissza lett állítva az eredeti értékére, a <code>print()</code> függvény hívása újra a képernyőre fog írni.
 </ol>
 
-<p>Redirecting standard error works exactly the same way, using <code>sys.stderr</code> instead of <code>sys.stdout</code>.
-
+<p>A szabványos hibakimenet átirányítása pontosan ugyanígy működik, a <code>sys.stderr</code>-t használva a <code>sys.stdout</code> helyett.
 <p class=a>&#x2042;
 
-<h2 id=furtherreading>Further Reading</h2>
+<h2 id=furtherreading>További olvasnivaló</h2>
 
 <ul>
-<li><a href=http://docs.python.org/py3k/tutorial/inputoutput.html#reading-and-writing-files>Reading and writing files</a> in the Python.org tutorial
-<li><a href=http://docs.python.org/3.1/library/io.html><code>io</code> module</a>
-<li><a href=http://docs.python.org/3.1/library/stdtypes.html#file-objects>Stream objects</a>
-<li><a href=http://docs.python.org/3.1/library/stdtypes.html#context-manager-types>Context manager types</a>
-<li><a href=http://docs.python.org/3.1/library/sys.html#sys.stdout><code>sys.stdout</code> and <code>sys.stderr</code></a>
-<li><a href=http://en.wikipedia.org/wiki/Filesystem_in_Userspace><abbr>FUSE</abbr> on Wikipedia</a>
+<li><a href=http://docs.python.org/py3k/tutorial/inputoutput.html#reading-and-writing-files>Fájlok olvasása és írása</a> a Python.org ismertetőben
+<li><a href=http://docs.python.org/3.1/library/io.html>Az <code>io</code> modul</a>
+<li><a href=http://docs.python.org/3.1/library/stdtypes.html#file-objects>Adatfolyam-objektumok</a>
+<li><a href=http://docs.python.org/3.1/library/stdtypes.html#context-manager-types>Kontextuskezelő-típusok</a>
+<li><a href=http://docs.python.org/3.1/library/sys.html#sys.stdout><code>sys.stdout</code> és <code>sys.stderr</code></a>
+<li><a href=http://en.wikipedia.org/wiki/Filesystem_in_Userspace><abbr>FUSE</abbr> a Wikipédián</a>
 </ul>
 
-<p class=v><a href=refactoring.html rel=prev title='back to &#8220;Refactoring&#8221;'><span class=u>&#x261C;</span></a> <a href=xml.html rel=next title='onward to &#8220;XML&#8221;'><span class=u>&#x261E;</span></a>
+<p class=v><a href=refactoring.html rel=prev title='vissza az &#8222;Átdolgozásra&#8221;'><span class=u>&#x261C;</span></a> <a href=xml.html rel=next title='előre az &#8222;XML-re&#8221;'><span class=u>&#x261E;</span></a>
 
 <p class=c>&copy; 2001&ndash;11 <a href=about.html>Mark Pilgrim</a>
 <script src=j/jquery.js></script>
