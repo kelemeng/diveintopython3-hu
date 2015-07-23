@@ -15,7 +15,7 @@ class=u>&#8227;</span> <a href=table-of-contents.html#refactoring>Ugorj fejest a
 <p id=level>Nehézségi szint: <span class=u title=advanced>&#x2666;&#x2666;&#x2666;&#x2666;&#x2662;</span>
 <h1>Átdolgozás</h1>
 <blockquote class=q>
-<p><span class=u>&#x275D;</span> Miután valaki rengeteg és még annál is több hangot játszott le, a művészet megkoronázásaként az egyszerűség emelkedik ki. <span class=u>&#x275E;</span><br>&mdash; <a href=http://en.wikiquote.org/wiki/Fr%C3%A9d%C3%A9ric_Chopin>Fr&eacute;d&eacute;ric Chopin</a>
+<p><span class=u>&#x275D;</span> Miután valaki rengeteg és még annál is több hangot játszott le, a művészet megkoronázásaként az egyszerűség emelkedik ki. <span class=u>&#x275E;</span><br>&ndash; <a href=http://en.wikiquote.org/wiki/Fr%C3%A9d%C3%A9ric_Chopin>Fr&eacute;d&eacute;ric Chopin</a>
 </blockquote>
 <p id=toc>&nbsp;
 <h2 id=divingin>Ugorj fejest</h2>
@@ -299,7 +299,7 @@ Ran 12 tests in 0.203s
 
 <p>Válasz: csak 5000 van belőlük, miért nem készítesz egy kikeresési táblát? Ez az ötlet egyre jobbá válik, amikor rájössz, hogy <em>egyáltalán nem kell reguláris kifejezéseket használnod</em>. Az egészek római számokká alakításához használandó kikeresési tábla felépítése során felépítheted a fordított kikeresési táblát is a római számok egészekké alakításához. Mire ellenőrizned kell, hogy egy tetszőleges karakterlánc érvényes római szám-e, már összegyűjtötted az összes érvényes római számot. Az &#8222;ellenőrzés&#8221; egyetlen szótári kikereséssé egyszerűsödött.
 
-<p>A legjobb pedig, hogy már van egy teljes sorozat egységteszted. Megváltoztathatod a modul kódjának több, mint felét, de az egységtesztek ugyanazok maradnak. Ez azt jelenti, hogy bebizonyíthatod&nbsp;&mdash;&nbsp;magadnak és másoknak&nbsp;&mdash;&nbsp; is, hogy az új kód ugyanolyan jól működik, mint az eredeti.
+<p>A legjobb pedig, hogy már van egy teljes sorozat egységteszted. Megváltoztathatod a modul kódjának több, mint felét, de az egységtesztek ugyanazok maradnak. Ez azt jelenti, hogy bebizonyíthatod&nbsp;&ndash;&nbsp;magadnak és másoknak&nbsp;&ndash;&nbsp; is, hogy az új kód ugyanolyan jól működik, mint az eredeti.
 
 <p class=d>[<a href=examples/roman10.py>a <code>roman10.py</code> letöltése</a>]
 <pre class=pp><code>class OutOfRangeError(ValueError): pass
@@ -390,7 +390,7 @@ def build_lookup_tables():
 <a>        to_roman_table.append(roman_numeral)       <span class=u>&#x2462;</span></a>
         from_roman_table[roman_numeral] = integer</code></pre>
 <ol>
-<li>Ez egy okosan megírt kódrészlet&hellip; talán túl okosan is. A <code>to_roman()</code> függvény fentebb van definiálva: kikeresi az értékeket a táblában, és visszaadja azokat. De a <code>build_lookup_tables()</code> függvény átdefiniálja a <code>to_roman()</code> függvényt, hogy valójában csináljon is valamit (mint a korábbi példák, mielőtt elkezdtél volna kikeresési táblát használni). A <code>build_lookup_tables()</code> függvényen belül a <code>to_roman()</code> hívása ezt az átdefiniált verziót fogja meghívni. Amikor a <code>build_lookup_tables()</code> függvény kilép, az átdefiniált verzió eltűnik&nbsp;&mdash;&nbsp;az csak a <code>build_lookup_tables()</code> függvény helyi hatókörében van definiálva.
+<li>Ez egy okosan megírt kódrészlet&hellip; talán túl okosan is. A <code>to_roman()</code> függvény fentebb van definiálva: kikeresi az értékeket a táblában, és visszaadja azokat. De a <code>build_lookup_tables()</code> függvény átdefiniálja a <code>to_roman()</code> függvényt, hogy valójában csináljon is valamit (mint a korábbi példák, mielőtt elkezdtél volna kikeresési táblát használni). A <code>build_lookup_tables()</code> függvényen belül a <code>to_roman()</code> hívása ezt az átdefiniált verziót fogja meghívni. Amikor a <code>build_lookup_tables()</code> függvény kilép, az átdefiniált verzió eltűnik&nbsp;&ndash;&nbsp;az csak a <code>build_lookup_tables()</code> függvény helyi hatókörében van definiálva.
 <li>Ez a kódsor meghívja az átdefiniált <code>to_roman()</code> függvényt, amely valójában kiszámítja a római számot.
 <li>Miután megvan az eredmény (az átdefiniált <code>to_roman()</code> függvényből), felveszed az egészet és a római számos megfelelőjét mindkét kikeresési táblába.
 </ol>
