@@ -15,11 +15,11 @@ class=u>&#8227;</span> <a href=table-of-contents.html#generators>Ugorj fejest a 
 <p id=level>Nehézségi szint: <span class=u title=közepes>&#x2666;&#x2666;&#x2666;&#x2662;&#x2662;</span>
 <h1>Closure-ök és generátorok</h1>
 <blockquote class=q>
-<p><span class=u>&#x275D;</span> Az én írásom imbolygó. Jó írás, de imbolyog, és a betűk rossz helyre kerülnek. <span class=u>&#x275E;</span><br>&mdash; Micimackó
+<p><span class=u>&#x275D;</span> Az én írásom imbolygó. Jó írás, de imbolyog, és a betűk rossz helyre kerülnek. <span class=u>&#x275E;</span><br>&ndash; Micimackó
 </blockquote>
 <p id=toc>&nbsp;
 <h2 id=divingin>Ugorj fejest</h2>
-<p class=f>Egy könyvtáros és egy angoltanár fiaként felnőve mindig is lenyűgöztek a nyelvek. Nem a programozási nyelvek. Na jó, a programozási nyelvek is, de a természetes nyelvek. Vegyük az angolt. Az angol egy skizofrén nyelv, amely szavakat kölcsönöz a németből, franciából, spanyolból és latinból (hogy csak párat említsek). Valójában a &#8222;kölcsönöz&#8221; nem is a jó szó, a &#8222;rablás&#8221; sokkal jellemzőbb. Vagy talán az &#8222;asszimilál&#8221;&nbsp;&mdash;&nbsp;mint a Borg. Igen, ez lesz az.
+<p class=f>Egy könyvtáros és egy angoltanár fiaként felnőve mindig is lenyűgöztek a nyelvek. Nem a programozási nyelvek. Na jó, a programozási nyelvek is, de a természetes nyelvek. Vegyük az angolt. Az angol egy skizofrén nyelv, amely szavakat kölcsönöz a németből, franciából, spanyolból és latinból (hogy csak párat említsek). Valójában a &#8222;kölcsönöz&#8221; nem is a jó szó, a &#8222;rablás&#8221; sokkal jellemzőbb. Vagy talán az &#8222;asszimilál&#8221;&nbsp;&ndash;&nbsp;mint a Borg. Igen, ez lesz az.
 <p class=c><code>Itt a Borg. Nyelvi és etimológiai sajátosságaikat a miénkhez adjuk. Az ellenállás hasztalan.</code>
 <p>Ebben a fejezetben a többesszámú angol főnevekről fogsz tanulni. Továbbá függvényeket visszaadó függvényekről, további reguláris kifejezésekről és generátorokról. De előbb hadd beszéljek az többesszámú angol főnevek felépítéséről. (Ha még nem olvastad <a href=regular-expressions.html>a reguláris kifejezésekről szóló fejezetet</a>, akkor itt az ideje. Ez a fejezet feltételezi, hogy megérted a reguláris kifejezések alapjait, és gyorsan belemerül a speciálisabb felhasználási módokba.)
 <p>Ha angolul beszélő országban nőttél fel, vagy az iskolában tanultál angolt, akkor valószínűleg tisztában vagy az alapvető szabályokkal:
@@ -169,7 +169,7 @@ def többes(főnév):
 </ol>
 
 <aside>A &#8222;szabályok&#8221; változó függvénypárok sorozata.</aside>
-<p>Ez a módszer azért működik, mert <a href=your-first-python-program.html#everythingisanobject>Pythonban minden objektum</a>, beleértve a függvényeket is. A <var>szabályok</var> adatszerkezet függvényeket tartalmaz&nbsp;&mdash;&nbsp;nem függvényneveket, hanem tényleges függvényobjektumokat. Amikor a <code>for</code> ciklusban értékként átadásra kerülnek, akkor a <var>matches_rule</var> és az <var>apply_rule</var> tényleges, meghívható függvényekké válnak. A <code>for</code> ciklus első ismétlésében ez egyenértékű a <code>matches_sxz(főnév)</code> hívásával, és ha ez találatot ad vissza, akkor az <code>apply_sxz(noun)</code> hívásával.
+<p>Ez a módszer azért működik, mert <a href=your-first-python-program.html#everythingisanobject>Pythonban minden objektum</a>, beleértve a függvényeket is. A <var>szabályok</var> adatszerkezet függvényeket tartalmaz&nbsp;&ndash;&nbsp;nem függvényneveket, hanem tényleges függvényobjektumokat. Amikor a <code>for</code> ciklusban értékként átadásra kerülnek, akkor a <var>matches_rule</var> és az <var>apply_rule</var> tényleges, meghívható függvényekké válnak. A <code>for</code> ciklus első ismétlésében ez egyenértékű a <code>matches_sxz(főnév)</code> hívásával, és ha ez találatot ad vissza, akkor az <code>apply_sxz(noun)</code> hívásával.
 <p>Ha ez a további absztrakciós szint bonyolult, akkor próbáld meg lebontani a függvényt az azonosság megértéséhez. A teljes <code>for</code> ciklus azonos a következővel:
 
 <pre class='nd pp'><code>
@@ -391,7 +391,7 @@ def plural(noun, rules_filename='plural5-rules.txt'):
 </ol>
 
 <p>Mit nyertél a 4. lépéshez képest? Indítási időt. Amikor a 4. lépésben importáltad a <code>plural4</code> modult, az beolvasta a teljes mintafájlt, és felépítette az összes lehetséges szabály listáját, mielőtt akár csak gondolhattál volna a <code>plural()</code> függvény hívására. A generátorokkal mindent lustán csinálhatsz: beolvashatod az első szabályt, létrehozhatod a függvényeket és kipróbálhatod azokat, és ha ez sikeres, akkor nem is olvasod be a fájl többi részét, és újabb függvényeket sem hozol létre.
-<p>Mit vesztettél? Teljesítményt! A <code>plural()</code> függvény minden hívásakor a <code>rules()</code> generátor újraindul az elejétől&nbsp;&mdash;&nbsp;azaz újra megnyitja a mintafájlt, és soronként beolvassa az elejétől.
+<p>Mit vesztettél? Teljesítményt! A <code>plural()</code> függvény minden hívásakor a <code>rules()</code> generátor újraindul az elejétől&nbsp;&ndash;&nbsp;azaz újra megnyitja a mintafájlt, és soronként beolvassa az elejétől.
 
 <p>Mi lenne, ha egyszerre tudnád kihasználni a két módszer előnyeit: minimális indítási költség (ne hajtson végre kódot az <code>import</code> hívásakor), <em>és</em> maximális teljesítmény (ne építse fel ugyanazokat a függvényeket újra és újra). Ja, és továbbra is önálló fájlban szeretnéd tartani a szabályokat (mert a kód az kód, az adat az adat), hogy soha ne kelljen kétszer beolvasnod ugyanazt a sort.
 
