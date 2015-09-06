@@ -14,14 +14,16 @@ body{counter-reset:h1 2}
 <p id=level>Nehézségi szint: <span class=u title=kezdő>&#x2666;&#x2666;&#x2662;&#x2662;&#x2662;</span>
 <h1>Natív adattípusok</h1>
 <blockquote class=q>
-<p><span class=u>&#x275D;</span> A csoda minden filozófia alapja, a vizsgálódás a fejlődésük, a tudatlanság a végük. <span class=u>&#x275E;</span><br>&ndash; Michel de Montaigne
+<p><span class=u>&#x275D;</span> A csoda minden filozófia alapja, a vizsgálódás
+a fejlődésük, a tudatlanság a végük. <span class=u>&#x275E;</span><br>&ndash; Michel de Montaigne
 </blockquote>
 <p id=toc>&nbsp;
 <h2 id=divingin>Ugorj fejest</h2>
-<p class=f>Adattípusok. Tedd félre <a href=your-first-python-program.html>az első Python programod</a> egy
-percre, és beszéljünk az adattípusokról. Pythonban <a href=your-first-python-program.html#declaringfunctions>minden értéknek van
-adattípusa</a>, de nem kell deklarálnod a változók adattípusát. Hogy
-működik ez? Az egyes változóknak eredetileg adott érték alapján a Python
+<p class=f>Adattípusok. Tedd félre <a href=your-first-python-program.html>az
+első Python programod</a> egy percre, és beszéljünk az adattípusokról. 
+Pythonban <a href=your-first-python-program.html#declaringfunctions>minden
+értéknek van adattípusa</a>, de nem kell deklarálnod a változók adattípusát. 
+Hogy működik ez? Az egyes változóknak eredetileg adott érték alapján a Python
 meghatározza annak értékét, és nyilvántartja azt.
 <p>A Python sok natív adattípussal rendelkezik. A fontosak az alábbiak:
 <ol>
@@ -329,96 +331,97 @@ tárolni, és dinamikusan tud bővülni az új elemek hozzáadásakor.
 <p>A listák létrehozása egyszerű: tedd szögletes zárójelbe az értékek
 vesszőkkel elválasztott listáját.
 <pre class=screen>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list = ['a', 'b', 'mpilgrim', 'z', 'example']</kbd>  <span class=u>&#x2460;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista = ['a', 'b', 'mpilgrim', 'z', 'example']</kbd>  <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista</kbd>
 <samp class=pp>['a', 'b', 'mpilgrim', 'z', 'example']</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list[0]</kbd>                                        <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista[0]</kbd>                                        <span class=u>&#x2461;</span></a>
 <samp class=pp>'a'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list[4]</kbd>                                        <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista[4]</kbd>                                        <span class=u>&#x2462;</span></a>
 <samp class=pp>'example'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list[-1]</kbd>                                       <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista[-1]</kbd>                                       <span class=u>&#x2463;</span></a>
 <samp class=pp>'example'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list[-3]</kbd>                                       <span class=u>&#x2464;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista[-3]</kbd>                                       <span class=u>&#x2464;</span></a>
 <samp class=pp>'mpilgrim'</samp></pre>
 <ol>
 <li>Először egy öt elemű listát adsz meg. Ne feledd, hogy ezek megtartják
 az eredeti sorrendjüket. Ez nem véletlen. A lista elemek rendezett
 halmaza.
-<li>A lista használható nullával kezdődően indexelt tömbként. A nem üres lista első eleme mindig <code>a_list[0]</code>.
-<li>Ezen öt elemű lista utolsó eleme az <code>a_list[4]</code>, mert a
+<li>A lista használható nullával kezdődően indexelt tömbként. A nem üres lista
+első eleme mindig <code>egy_lista[0]</code>.
+<li>Ezen öt elemű lista utolsó eleme az <code>egy_lista[4]</code>, mert a
 listaelemek indexelése mindig nullától kezdődik.
 <li>A negatív index az elemeket a lista végétől visszafelé számolva éri
-el. A nem üres lista utolsó eleme mindig az <code>a_list[-1]</code>.
+el. A nem üres lista utolsó eleme mindig az <code>egy_lista[-1]</code>.
 <li>Ha negatív index zavaró, akkor képzeld el így:
-<code>a_list[-<var>n</var>] == a_list[len(a_list) - <var>n</var>]</code>. 
-Ebben a listában <code>a_list[-3] == a_list[5 - 3] == a_list[2]</code>.
+<code>egy_lista[-<var>n</var>] == egy_lista[len(egy_lista) - <var>n</var>]</code>. 
+Ebben a listában <code>egy_lista[-3] == egy_lista[5 - 3] == egy_lista[2]</code>.
 </ol>
 <h3 id=slicinglists>Lista szeletelése</h3>
-<aside>Az a_list[0] az a_list első eleme.</aside>
+<aside>Az egy_lista[0] az egy_lista első eleme.</aside>
 <p>Miután definiáltál egy listát, bármely részét megkaphatod új listaként. Ezt
 a lista <i>szeletelésének</i> nevezzük.
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista</kbd>
 <samp class=pp>['a', 'b', 'mpilgrim', 'z', 'example']</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list[1:3]</kbd>            <span class=u>&#x2460;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista[1:3]</kbd>            <span class=u>&#x2460;</span></a>
 <samp class=pp>['b', 'mpilgrim']</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list[1:-1]</kbd>           <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista[1:-1]</kbd>           <span class=u>&#x2461;</span></a>
 <samp class=pp>['b', 'mpilgrim', 'z']</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list[0:3]</kbd>            <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista[0:3]</kbd>            <span class=u>&#x2462;</span></a>
 <samp class=pp>['a', 'b', 'mpilgrim']</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list[:3]</kbd>             <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista[:3]</kbd>             <span class=u>&#x2463;</span></a>
 <samp class=pp>['a', 'b', 'mpilgrim']</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list[3:]</kbd>             <span class=u>&#x2464;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista[3:]</kbd>             <span class=u>&#x2464;</span></a>
 <samp class=pp>['z', 'example']</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list[:]</kbd>              <span class=u>&#x2465;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista[:]</kbd>              <span class=u>&#x2465;</span></a>
 <samp class=pp>['a', 'b', 'mpilgrim', 'z', 'example']</samp></pre>
 <ol>
 <li>Egy lista &#8222;szeletnek&#8221; nevezett bármely részét megkaphatod
 két index megadásával. A visszatérési érték egy új lista, amely a lista
 minden elemét tartalmazza az első szeletindextől (ebben az esetben
-<code>a_list[1]</code>) kezdve a második szeletindexig (ebben az esetben
-<code>a_list[3]</code>), de azt nem beleértve.
+<code>egy_lista[1]</code>) kezdve a második szeletindexig (ebben az esetben
+<code>egy_lista[3]</code>), de azt nem beleértve.
 <li>A szeletelés akkor is működik, ha az egyik vagy mindkét szeletindex
 negatív. Ha ez segít, akkor így is tekintheted: a listát balról jobbra
 olvasva az első szeletindex megadja az első elemet, amit akarsz, a második
 szeletindex pedig megadja az első elemet, amit már nem akarsz. A
 visszatérési érték a kettő között minden.
-<li>A listák indexelése nullától kezdődik, így az <code>a_list[0:3]</code>
-a lista első három elemét adja vissza az <code>a_list[0]</code> elemtől az
-<code>a_list[3]</code> elemig, de az utóbbit már nem tartalmazza.
+<li>A listák indexelése nullától kezdődik, így az <code>egy_lista[0:3]</code>
+a lista első három elemét adja vissza az <code>egy_lista[0]</code> elemtől az
+<code>egy_lista[3]</code> elemig, de az utóbbit már nem tartalmazza.
 <li>Ha a bal oldali szeletindex a 0, akkor kihagyható, és a Python a 0-t
-feltételezi. Így az <code>a_list[:3]</code> ugyanaz, mint az
-<code>a_list[0:3]</code> mert a kezdő 0-t a Python feltételezi.
+feltételezi. Így az <code>egy_lista[:3]</code> ugyanaz, mint az
+<code>egy_lista[0:3]</code> mert a kezdő 0-t a Python feltételezi.
 <li>Hasonlóan, ha a jobb oldali szeletindex az utolsó elem indexe, akkor
-kihagyható. Így az <code>a_list[3:]</code> ugyanaz, mint az
-<code>a_list[3:5]</code>, mert ez a lista öt elemű. Van itt egy kellemes
-szimmetria. Ebben az öt elemű listában az <code>a_list[:3]</code>
-visszaadja az első 3 elemet, az <code>a_list[3:]</code> pedig az utolsó
-két elemet. Tulajdonképpen az <code>a_list[:<var>n</var>]</code>
+kihagyható. Így az <code>egy_lista[3:]</code> ugyanaz, mint az
+<code>egy_lista[3:5]</code>, mert ez a lista öt elemű. Van itt egy kellemes
+szimmetria. Ebben az öt elemű listában az <code>egy_lista[:3]</code>
+visszaadja az első 3 elemet, az <code>egy_lista[3:]</code> pedig az utolsó
+két elemet. Tulajdonképpen az <code>egy_lista[:<var>n</var>]</code>
 mindig az első <var>n</var> elemet adja vissza, az
-<code>a_list[<var>n</var>:]</code> pedig a többit, a lista hosszától
+<code>egy_lista[<var>n</var>:]</code> pedig a többit, a lista hosszától
 függetlenül.
 <li>Ha mindkét szeletindex kimarad, akkor a lista minden elemét
 tartalmazni fogja az új lista. De ez nem azonos az eredeti
-<var>a_list</var> változóval. Ez egy új lista, amely ugyanazokkal az
-elemekkel rendelkezik. Az <code>a_list[:]</code> a lista teljes
+<var>egy_lista</var> változóval. Ez egy új lista, amely ugyanazokkal az
+elemekkel rendelkezik. Az <code>egy_lista[:]</code> a lista teljes
 lemásolására használható.
 </ol>
 <h3 id=extendinglists>Elemek felvétele a listába</h3>
 <p>Négy módon lehet elemeket felvenni a listába.
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_list = ['a']</kbd>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list = a_list + [2.0, 3]</kbd>    <span class=u>&#x2460;</span></a>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list</kbd>                        <span class=u>&#x2461;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista = ['a']</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista = egy_lista + [2.0, 3]</kbd>    <span class=u>&#x2460;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista</kbd>                        <span class=u>&#x2461;</span></a>
 <samp class=pp>['a', 2.0, 3]</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list.append(True)</kbd>           <span class=u>&#x2462;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista.append(True)</kbd>           <span class=u>&#x2462;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista</kbd>
 <samp class=pp>['a', 2.0, 3, True]</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list.extend(['négy', '&Omega;'])</kbd>  <span class=u>&#x2463;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista.extend(['négy', '&Omega;'])</kbd>  <span class=u>&#x2463;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista</kbd>
 <samp class=pp>['a', 2.0, 3, True, 'négy', '&Omega;']</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list.insert(0, '&Omega;')</kbd>         <span class=u>&#x2464;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista.insert(0, '&Omega;')</kbd>         <span class=u>&#x2464;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista</kbd>
 <samp class=pp>['&Omega;', 'a', 2.0, 3, True, 'négy', '&Omega;']</samp></pre>
 <ol>
 <li>A <code>+</code> operátor összefűzi a listákat, ezzel létrehozva egy
@@ -426,7 +429,7 @@ lemásolására használható.
 méretkorlát (az elérhető memórián kívül). Ha azonban a memóriahasználat
 fontos szempont, akkor tudnod kell, hogy a listaösszefűzés egy második
 listát hoz létre a memóriában. Ebben az esetben az új lista azonnal
-hozzárendelődik a meglévő <var>a_list</var> változóhoz. Így ez a kódsor
+hozzárendelődik a meglévő <var>egy_lista</var> változóhoz. Így ez a kódsor
 igazából egy kétlépéses folyamat&nbsp;&ndash;&nbsp;összefűzés, majd
 hozzárendelés&nbsp;&ndash;&nbsp;amely (ideiglenesen) rengeteg memóriát tud
 használni, ha nagy listákkal dolgozol.
@@ -444,11 +447,11 @@ argumentum minden elemét hozzáfűzi az eredeti listához.
 első argumentum a lista első olyan elemének indexe, amely ki lesz mozdítva
 a pozícójából. A lista elemeinek nem kell egyedieknek lenniük, most például
 két külön <code>'&Omega;'</code> értékű elem van a listában: az első elem
-(<code>a_list[0]</code>) és az utolsó elem (<code>a_list[6]</code>).
+(<code>egy_lista[0]</code>) és az utolsó elem (<code>egy_lista[6]</code>).
 </ol>
 
 <blockquote class='note compare perl'>
-<p><span class=u>&#x261E;</span>Az <code><var>a_list</var>.insert(0,
+<p><span class=u>&#x261E;</span>Az <code><var>egy_lista</var>.insert(0,
 <var>érték</var>)</code> olyan, mint az <code>unshift()</code> függvény
 Perlben. Felvesz egy elemet a lista elejére, és az összes többi elem
 indexe megnő eggyel, hogy helyet csináljanak az új elemnek.
@@ -457,25 +460,25 @@ indexe megnő eggyel, hogy helyet csináljanak az új elemnek.
 <p>Nézzük meg közelebbről az <code>append()</code> és <code>extend()</code> közti különbséget.
 
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_list = ['a', 'b', 'c']</kbd>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list.extend(['d', 'e', 'f'])</kbd>  <span class=u>&#x2460;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista = ['a', 'b', 'c']</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista.extend(['d', 'e', 'f'])</kbd>  <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista</kbd>
 <samp class=pp>['a', 'b', 'c', 'd', 'e', 'f']</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>len(a_list)</kbd>                     <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>len(egy_lista)</kbd>                     <span class=u>&#x2461;</span></a>
 <samp class=pp>6</samp>
-<samp class=p>>>> </samp><kbd class=pp>a_list[-1]</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista[-1]</kbd>
 <samp class=pp>'f'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list.append(['g', 'h', 'i'])</kbd>  <span class=u>&#x2462;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista.append(['g', 'h', 'i'])</kbd>  <span class=u>&#x2462;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista</kbd>
 <samp class=pp>['a', 'b', 'c', 'd', 'e', 'f', ['g', 'h', 'i']]</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>len(a_list)</kbd>                     <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>len(egy_lista)</kbd>                     <span class=u>&#x2463;</span></a>
 <samp class=pp>7</samp>
-<samp class=p>>>> </samp><kbd class=pp>a_list[-1]</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista[-1]</kbd>
 <samp class=pp>['g', 'h', 'i']</samp></pre>
 <ol>
 <li>Az <code>extend()</code> metódus egyetlen argumentumot vár, amely
 mindig egy lista, és ennek a listának minden elemét hozzáfűzi az
-<var>a_list</var> listához.
+<var>egy_lista</var> listához.
 <li>Ha egy három elemű listával indulsz, és kiterjeszted egy újabb három
 elemet tartalmazó listával, akkor egy hat elemű listát kapsz.
 <li>Másrészt, az <code>append()</code> metódus egyetlen argumentumot
@@ -490,18 +493,18 @@ kapod.
 </ol>
 <h3 id=searchinglists>Értékek keresése egy listában</h3>
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_list = ['a', 'b', 'új', 'mpilgrim', 'új']</kbd>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list.count('új')</kbd>        <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista = ['a', 'b', 'új', 'mpilgrim', 'új']</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista.count('új')</kbd>        <span class=u>&#x2460;</span></a>
 <samp class=pp>2</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>'új' in a_list</kbd>            <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>'új' in egy_lista</kbd>            <span class=u>&#x2461;</span></a>
 <samp class=pp>True</samp>
-<samp class=p>>>> </samp><kbd class=pp>'c' in a_list</kbd>
+<samp class=p>>>> </samp><kbd class=pp>'c' in egy_lista</kbd>
 <samp class=pp>False</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list.index('mpilgrim')</kbd>  <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista.index('mpilgrim')</kbd>  <span class=u>&#x2462;</span></a>
 <samp class=pp>3</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list.index('új')</kbd>        <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista.index('új')</kbd>        <span class=u>&#x2463;</span></a>
 <samp class=pp>2</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list.index('c')</kbd>         <span class=u>&#x2464;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista.index('c')</kbd>         <span class=u>&#x2464;</span></a>
 <samp class=traceback>Traceback (innermost last):
   File "&lt;interactive input>", line 1, in ?
 ValueError: list.index(x): x not in list</samp></pre>
@@ -522,7 +525,7 @@ keresés kezdő indexét, sőt egy elhagyható harmadik argumentumot is, a
 keresés befejező indexét (mindkettő nullától kezdődik).
 <li>Az <code>index()</code> metódus az érték <em>első</em> előfordulását
 találja meg a listában. Ebben az esetben az <code>'új'</code> kétszer
-fordul elő a listában, az <code>a_list[2]</code> és <code>a_list[4]</code>
+fordul elő a listában, az <code>egy_lista[2]</code> és <code>egy_lista[4]</code>
 elemekként, de az <code>index()</code> metódus csak az első előfordulás
 indexét adja vissza.
 <li>Ahogy azt <em>nem</em> várnád, ha az elem nem található meg a
@@ -548,13 +551,13 @@ részt már láttad. Az elemek listából való eltávolítására is számos
 különböző módszer van.
 
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_list = ['a', 'b', 'új', 'mpilgrim', 'új']</kbd>
-<samp class=p>>>> </samp><kbd class=pp>a_list[1]</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista = ['a', 'b', 'új', 'mpilgrim', 'új']</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista[1]</kbd>
 <samp class=pp>'b'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>del a_list[1]</kbd>         <span class=u>&#x2460;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>del egy_lista[1]</kbd>         <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista</kbd>
 <samp class=pp>['a', 'új', 'mpilgrim', 'új']</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list[1]</kbd>             <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista[1]</kbd>             <span class=u>&#x2461;</span></a>
 <samp class=pp>'új'</samp></pre>
 <ol>
 <li>A lista adott elemének törlésére a <code><dfn>del</dfn></code>
@@ -569,13 +572,13 @@ kitöltéséhez&#8221;.
 eltávolíthatod.
 
 <pre class=screen>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list.remove('új')</kbd>  <span class=u>&#x2460;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista.remove('új')</kbd>  <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista</kbd>
 <samp class=pp>['a', 'mpilgrim', 'új']</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list.remove('új')</kbd>  <span class=u>&#x2461;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista.remove('új')</kbd>  <span class=u>&#x2461;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista</kbd>
 <samp class=pp>['a', 'mpilgrim']</samp>
-<samp class=p>>>> </samp><kbd class=pp>a_list.remove('új')</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista.remove('új')</kbd>
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;stdin>", line 1, in &lt;module>
 ValueError: list.remove(x): x not in list</samp></pre>
@@ -596,20 +599,20 @@ eltávolítani.
 metódus egy újabb lehetőség <a href=#removingfromlists>elemek
 eltávolítására egy listából</a>, de van benne egy csavar.
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_list = ['a', 'b', 'új', 'mpilgrim']</kbd>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list.pop()</kbd>   <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista = ['a', 'b', 'új', 'mpilgrim']</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista.pop()</kbd>   <span class=u>&#x2460;</span></a>
 <samp class=pp>'mpilgrim'</samp>
-<samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista</kbd>
 <samp class=pp>['a', 'b', 'új']</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list.pop(1)</kbd>  <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista.pop(1)</kbd>  <span class=u>&#x2461;</span></a>
 <samp class=pp>'b'</samp>
-<samp class=p>>>> </samp><kbd class=pp>a_list</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista</kbd>
 <samp class=pp>['a', 'új']</samp>
-<samp class=p>>>> </samp><kbd class=pp>a_list.pop()</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista.pop()</kbd>
 <samp class=pp>'új'</samp>
-<samp class=p>>>> </samp><kbd class=pp>a_list.pop()</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista.pop()</kbd>
 <samp class=pp>'a'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list.pop()</kbd>   <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista.pop()</kbd>   <span class=u>&#x2462;</span></a>
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;stdin>", line 1, in &lt;module>
 IndexError: pop from empty list</samp></pre>
@@ -630,7 +633,7 @@ argumentumok nélküli hívása olyan, mint a <code>pop()</code> függvény
 Perlben. Eltávolítja a lista utolsó elemét, és visszaadja az eltávolított
 elem értékét. A Perl egy másik, <code>shift()</code> nevű függvénnyel is
 rendelkezik, amely eltávolítja az első elemet, és visszaadja az értékét.
-Pythonban ez egyenlő az <code><var>a_list</var>.pop(0)</code> hívással.
+Pythonban ez egyenlő az <code><var>egy_lista</var>.pop(0)</code> hívással.
 </blockquote>
 
 <h3 id=lists-in-a-boolean-context>Listák logikai kontextusban</h3>
@@ -659,8 +662,9 @@ utasításokban használhatsz listákat is. <pre class=screen>
 
 <h2 id=tuples>Ennesek</h2>
 
-<p>Az <dfn>ennes</dfn> (angolul és a hívásokban tuple - a ford.) egy megváltoztathatatlan lista. Az ennes létrehozása után semmilyen módon sem módosítható.
-
+<p>Az <dfn>ennes</dfn> (angolul és a hívásokban tuple - a ford.) egy
+megváltoztathatatlan lista. Az ennes létrehozása után semmilyen módon sem
+módosítható.
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>egy_ennes = ("a", "b", "mpilgrim", "z", "példa")</kbd>    <span class=u>&#x2460;</span></a>
 <samp class=p>>>> </samp><kbd class=pp>egy_ennes</kbd>
@@ -808,7 +812,8 @@ hozzárendeléséhez használhatod.
 <ol>
 <li>A beépített <code>range()</code> függvény egészek sorozatát állítja
 elő. (Technikailag a <code>range()</code> függvény egy <a
-href=iterators.html>iterátort</a> ad vissza, nem pedig listát vagy ennest, de erről a különbségről később fogsz tanulni.) A
+href=iterators.html>iterátort</a> ad vissza, nem pedig listát vagy ennest, de
+erről a különbségről később fogsz tanulni.) A
 <var>HÉTFŐ</var>, <var>KEDD</var>, <var>SZERDA</var>,
 <var>CSÜTÖRTÖK</var>, <var>PÉNTEK</var>, <var>SZOMBAT</var> és
 <var>VASÁRNAP</var> a definiált változók. (Ez a példa a
@@ -838,13 +843,13 @@ halmazműveleteket, mint az unió, metszet és különbség.
 <p>Kezdjük az elején. Egy halmazt létrehozni könnyű.
 
 <pre class=screen>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set = {1}</kbd>     <span class=u>&#x2460;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_set</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz = {1}</kbd>     <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz</kbd>
 <samp class=pp>{1}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>type(a_set)</kbd>     <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>type(egy_halmaz)</kbd>     <span class=u>&#x2461;</span></a>
 <samp class=pp>&lt;class 'set'></samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set = {1, 2}</kbd>  <span class=u>&#x2462;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_set</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz = {1, 2}</kbd>  <span class=u>&#x2462;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz</kbd>
 <samp class=pp>{1, 2}</samp></pre>
 <ol>
 <li>Egy egy értékkel rendelkező halmaz létrehozásához tedd az értéket
@@ -859,134 +864,168 @@ az értékeket, és tedd az egészet kapcsos zárójelek közé.
 <p>Halmazt egy <a href=#lists>listából</a> is létrehozhatsz.
 
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_list = ['a', 'b', 'mpilgrim', True, False, 42]</kbd>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set = set(a_list)</kbd>                           <span class=u>&#x2460;</span></a>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set</kbd>                                         <span class=u>&#x2461;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista = ['a', 'b', 'mpilgrim', True, False, 42]</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz = set(egy_lista)</kbd>                           <span class=u>&#x2460;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz</kbd>                                         <span class=u>&#x2461;</span></a>
 <samp class=pp>{'a', False, 'b', True, 'mpilgrim', 42}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list</kbd>                                        <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista</kbd>                                        <span class=u>&#x2462;</span></a>
 <samp class=pp>['a', 'b', 'mpilgrim', True, False, 42]</samp></pre>
 <ol>
-<li>Egy listából halmaz létrehozásához használd a <code>set()</code> függvényt. (Azok a pedánsok, akik ismerik a halmazok megvalósítását, rá fognak mutatni, hogy ez valójában nem függvényhívás, hanem egy osztály példányosítása. <em>Megígérem</em>, hogy a könyv hátralévő részeiben meg fogod ismerni a különbséget. Egyelőre elég annyi, hogy a <code>set()</code> függvényszerűen működik, és egy halmazt ad vissza.)
-<li>Ahogyan azt korábban említettem, egy halmaz tetszőleges adattípusú értékeket
-tartalmazhat. Ahogyan még korábban említettem, a halmazok <em>rendezetlenek</em>. Ez a halmaz nem emlékszik a létrehozásához használt lista eredeti sorrendjére. Ha elemeket adsz a halmazhoz, az nem fog emlékezni a hozzáadás sorrendjére.
+<li>Egy listából halmaz létrehozásához használd a <code>set()</code> függvényt. 
+(Azok a pedánsok, akik ismerik a halmazok megvalósítását, rá fognak mutatni,
+hogy ez valójában nem függvényhívás, hanem egy osztály példányosítása. 
+<em>Megígérem</em>, hogy a könyv hátralévő részeiben meg fogod ismerni a
+különbséget. Egyelőre elég annyi, hogy a <code>set()</code> függvényszerűen
+működik, és egy halmazt ad vissza.)
+<li>Ahogyan azt korábban említettem, egy halmaz tetszőleges adattípusú
+értékeket tartalmazhat. Ahogyan még korábban említettem, a halmazok
+<em>rendezetlenek</em>. Ez a halmaz nem emlékszik a létrehozásához használt
+lista eredeti sorrendjére. Ha elemeket adsz a halmazhoz, az nem fog emlékezni a
+hozzáadás sorrendjére.
 <li>Az eredeti lista változatlan.
 </ol>
 
 <p id=emptyset>Még nincsenek értékeid? Nem gond. Létrehozhatsz üres halmazt is.
 
 <pre class=screen>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set = set()</kbd>    <span class=u>&#x2460;</span></a>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set</kbd>            <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz = set()</kbd>    <span class=u>&#x2460;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz</kbd>            <span class=u>&#x2461;</span></a>
 <samp class=pp>set()</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>type(a_set)</kbd>      <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>type(egy_halmaz)</kbd>      <span class=u>&#x2462;</span></a>
 <samp class=pp>&lt;class 'set'></samp>
-<a><samp class=p>>>> </samp><kbd class=pp>len(a_set)</kbd>       <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>len(egy_halmaz)</kbd>       <span class=u>&#x2463;</span></a>
 <samp class=pp>0</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>not_sure = {}</kbd>    <span class=u>&#x2464;</span></a>
 <samp class=p>>>> </samp><kbd class=pp>type(not_sure)</kbd>
 <samp class=pp>&lt;class 'dict'></samp></pre>
 <ol>
 <li>Üres halmaz létrehozásához hívd meg a <code>set()</code> függvényt argumentumok nélkül.
-<li>Az üres halmaz kiírt ábrázolása egy kicsit furcsán néz ki. Talán ezt vártad: <code>{}</code>? Az egy üres szótárat jelölne, nem pedig egy üres halmazt. A szótárakkal a fejezet későbbi részében fogsz megismerkedni.
+<li>Az üres halmaz kiírt ábrázolása egy kicsit furcsán néz ki. Talán ezt
+vártad: <code>{}</code>? Az egy üres szótárat jelölne, nem pedig egy üres
+halmazt. A szótárakkal a fejezet későbbi részében fogsz megismerkedni.
 <li>A furcsa kiírt ábrázolás ellenére <em>ez</em> egy halmaz&hellip;
 <li>&hellip;és ennek a halmaznak nincsenek elemei.
-<li>A Python 2-ből áthozott örökség miatt nem hozhatsz létre üres halmazt két kapcsos zárójellel. Az egy üres szótárat hozna létre, nem pedig egy üres halmazt.
+<li>A Python 2-ből áthozott örökség miatt nem hozhatsz létre üres halmazt két
+kapcsos zárójellel. Az egy üres szótárat hozna létre, nem pedig egy üres halmazt.
 </ol>
 
 <h3 id=modifying-sets>Halmaz módosítása</h3>
 
-<p>Meglévő halmazhoz két különböző módon adhatsz értékeket: az <code>add()</code> és az <code>update()</code> metódusokkal.
-
+<p>Meglévő halmazhoz két különböző módon adhatsz értékeket: az
+<code>add()</code> és az <code>update()</code> metódusokkal.
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_set = {1, 2}</kbd>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set.add(4)</kbd>  <span class=u>&#x2460;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_set</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz = {1, 2}</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz.add(4)</kbd>  <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz</kbd>
 <samp class=pp>{1, 2, 4}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>len(a_set)</kbd>    <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>len(egy_halmaz)</kbd>    <span class=u>&#x2461;</span></a>
 <samp class=pp>3</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set.add(1)</kbd>  <span class=u>&#x2462;</span></a>
-<samp class=pp>>>> </samp><kbd class=pp>a_set</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz.add(1)</kbd>  <span class=u>&#x2462;</span></a>
+<samp class=pp>>>> </samp><kbd class=pp>egy_halmaz</kbd>
 <samp class=pp>{1, 2, 4}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>len(a_set)</kbd>    <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>len(egy_halmaz)</kbd>    <span class=u>&#x2463;</span></a>
 <samp class=pp>3</samp></pre>
 <ol>
-<li>Az <code>add()</code> metódus egyetlen argumentumot vár, amely tetszőleges adattípusú lehet, és az adott értéket hozzáadja a halmazhoz.
+<li>Az <code>add()</code> metódus egyetlen argumentumot vár, amely tetszőleges
+adattípusú lehet, és az adott értéket hozzáadja a halmazhoz.
 <li>Ez a halmaz most 3 elemmel rendelkezik.
-<li>A halmazok <em>egyedi értékek</em> kupacai. Ha egy már létező értéket próbálsz hozzáadni, akkor nem történik semmi. Nem fog kivételt dobni, csak nem csinál semmit.
+<li>A halmazok <em>egyedi értékek</em> kupacai. Ha egy már létező értéket
+próbálsz hozzáadni, akkor nem történik semmi. Nem fog kivételt dobni, csak nem
+csinál semmit.
 <li>A halmaznak <em>továbbra is</em> 3 eleme van.
 </ol>
 
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_set = {1, 2, 3}</kbd>
-<samp class=p>>>> </samp><kbd class=pp>a_set</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz = {1, 2, 3}</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz</kbd>
 <samp class=pp>{1, 2, 3}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set.update({2, 4, 6})</kbd>                       <span class=u>&#x2460;</span></a>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set</kbd>                                         <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz.update({2, 4, 6})</kbd>                       <span class=u>&#x2460;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz</kbd>                                         <span class=u>&#x2461;</span></a>
 <samp class=pp>{1, 2, 3, 4, 6}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set.update({3, 6, 9}, {1, 2, 3, 5, 8, 13})</kbd>  <span class=u>&#x2462;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_set</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz.update({3, 6, 9}, {1, 2, 3, 5, 8, 13})</kbd>  <span class=u>&#x2462;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz</kbd>
 <samp class=pp>{1, 2, 3, 4, 5, 6, 8, 9, 13}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set.update([10, 20, 30])</kbd>                    <span class=u>&#x2463;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_set</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz.update([10, 20, 30])</kbd>                    <span class=u>&#x2463;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz</kbd>
 <samp class=pp>{1, 2, 3, 4, 5, 6, 8, 9, 10, 13, 20, 30}</samp></pre>
 <ol>
-<li>Az <code>update()</code> metódus egy argumentumot vár, egy halmazt, és minden elemét hozzáadja az eredeti halmazhoz. Olyan, mintha a halmaz minden egyes elemére meghívtad volna az <code>add()</code> metódust.
-<li>A többször szereplő értékek figyelmen kívül maradnak, mivel a halmazok egy értéket csak egyszer tartalmazhatnak.
-<li>Az <code>update()</code> metódust ténylegesen tetszőleges számú argumentummal hívhatod meg. Két halmazzal hívva az <code>update()</code> metódus az egyes halmazok összes elemét hozzáadja az eredeti halmazhoz (a többször szereplő értékek eldobásával).
-<li>Az <code>update()</code> metódus számos különböző adattípus objektumait képes kezelni, beleértve a listákat is. Egy listával hívva az <code>update()</code> metódus a lista összes elemét hozzáadja az eredeti halmazhoz.
+<li>Az <code>update()</code> metódus egy argumentumot vár, egy halmazt, és
+minden elemét hozzáadja az eredeti halmazhoz. Olyan, mintha a halmaz minden
+egyes elemére meghívtad volna az <code>add()</code> metódust.
+<li>A többször szereplő értékek figyelmen kívül maradnak, mivel a halmazok egy
+értéket csak egyszer tartalmazhatnak.
+<li>Az <code>update()</code> metódust ténylegesen tetszőleges számú
+argumentummal hívhatod meg. Két halmazzal hívva az <code>update()</code>
+metódus az egyes halmazok összes elemét hozzáadja az eredeti halmazhoz (a
+többször szereplő értékek eldobásával).
+<li>Az <code>update()</code> metódus számos különböző adattípus objektumait
+képes kezelni, beleértve a listákat is. Egy listával hívva az
+<code>update()</code> metódus a lista összes elemét hozzáadja az eredeti
+halmazhoz.
 </ol>
 
 <h3 id=removing-from-sets>Elemek eltávolítása a halmazból</h3>
 
-<p>Három módon távolíthatsz el egyedi értékeket a halmazból. Az első kettő, a <code>discard()</code> és <code>remove()</code> között egy apró különbség van.
-
+<p>Három módon távolíthatsz el egyedi értékeket a halmazból. Az első kettő, a
+<code>discard()</code> és <code>remove()</code> között egy apró különbség van.
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_set = {1, 3, 6, 10, 15, 21, 28, 36, 45}</kbd>
-<samp class=p>>>> </samp><kbd class=pp>a_set</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz = {1, 3, 6, 10, 15, 21, 28, 36,
+45}</kbd> <samp class=p>>>> </samp><kbd class=pp>egy_halmaz</kbd>
 <samp class=pp>{1, 3, 36, 6, 10, 45, 15, 21, 28}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set.discard(10)</kbd>                        <span class=u>&#x2460;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_set</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz.discard(10)</kbd>                        <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz</kbd>
 <samp class=pp>{1, 3, 36, 6, 45, 15, 21, 28}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set.discard(10)</kbd>                        <span class=u>&#x2461;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_set</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz.discard(10)</kbd>                        <span class=u>&#x2461;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz</kbd>
 <samp class=pp>{1, 3, 36, 6, 45, 15, 21, 28}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set.remove(21)</kbd>                         <span class=u>&#x2462;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_set</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz.remove(21)</kbd>                         <span class=u>&#x2462;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz</kbd>
 <samp class=pp>{1, 3, 36, 6, 45, 15, 28}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set.remove(21)</kbd>                         <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz.remove(21)</kbd>                         <span class=u>&#x2463;</span></a>
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;stdin>", line 1, in &lt;module>
 KeyError: 21</samp></pre>
 <ol>
-<li>A <code>discard()</code> metódus egyetlen értéket vár argumentumként, és eltávolítja azt az értéket a halmazból.
-<li>Ha a <code>discard()</code> metódust a halmazban nem létező értékkel hívod, akkor nem csinál semmi. Nem fog kivételt dobni, csak nem csinál semmit.
-<li>A <code>discard()</code> metódus is egyetlen értéket vár argumentumként, és szintén eltávolítja azt az értéket a halmazból.
-<li>Itt a különbség: ha az érték nem létezik a halmazban, akkor a <code>remove()</code> metódus egy <code>KeyError</code> kivételt dob.
+<li>A <code>discard()</code> metódus egyetlen értéket vár argumentumként, és
+eltávolítja azt az értéket a halmazból.
+<li>Ha a <code>discard()</code> metódust a halmazban nem létező értékkel hívod,
+akkor nem csinál semmi. Nem fog kivételt dobni, csak nem csinál semmit.
+<li>A <code>discard()</code> metódus is egyetlen értéket vár argumentumként, és
+szintén eltávolítja azt az értéket a halmazból.
+<li>Itt a különbség: ha az érték nem létezik a halmazban, akkor a
+<code>remove()</code> metódus egy <code>KeyError</code> kivételt dob.
 </ol>
 
 <p>A listákhoz hasonlóan a halmazoknak is van <code>pop()</code> metódusuk.
 
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_set = {1, 3, 6, 10, 15, 21, 28, 36, 45}</kbd>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set.pop()</kbd>                                <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz = {1, 3, 6, 10, 15, 21, 28, 36, 45}</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz.pop()</kbd>                                <span class=u>&#x2460;</span></a>
 <samp class=pp>1</samp>
-<samp class=p>>>> </samp><kbd class=pp>a_set.pop()</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz.pop()</kbd>
 <samp class=pp>3</samp>
-<samp class=p>>>> </samp><kbd class=pp>a_set.pop()</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz.pop()</kbd>
 <samp class=pp>36</samp>
-<samp class=p>>>> </samp><kbd class=pp>a_set</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz</kbd>
 <samp class=pp>{6, 10, 45, 15, 21, 28}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set.clear()</kbd>                              <span class=u>&#x2461;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_set</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz.clear()</kbd>                              <span class=u>&#x2461;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz</kbd>
 <samp class=pp>set()</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set.pop()</kbd>                                <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz.pop()</kbd>                                <span class=u>&#x2462;</span></a>
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;stdin>", line 1, in &lt;module>
 KeyError: 'pop from an empty set'</samp></pre>
 <ol>
-<li>A <code>pop()</code> metódus egyetlen értéket távolít el a halmazból, és visszaadja az értéket. Mivel azonban a halmazok rendezetlenek, nincs &#8222;utolsó&#8221; értékük, így nincs lehetőség az eltávolított érték befolyásolására. Teljesen tetszőleges.
-<li>A <code>clear()</code> metódus <em>minden</em> értéket eltávolít a halmazból, és egy üres halmazt hagy. Ez egyenértékű az <code>a_set = set()</code> hívással, amely egy új üres halmazt hoz létre, és az <var>a_set</var> változó korábbi értékét felülírja.
-<li>Üres halmazból nem lehet értéket kivenni a pop() metódussal, ez egy <code>KeyError</code> kivételt dob.
+<li>A <code>pop()</code> metódus egyetlen értéket távolít el a halmazból, és
+visszaadja az értéket. Mivel azonban a halmazok rendezetlenek, nincs
+&#8222;utolsó&#8221; értékük, így nincs lehetőség az eltávolított érték
+befolyásolására. Teljesen tetszőleges.
+<li>A <code>clear()</code> metódus <em>minden</em> értéket eltávolít a
+halmazból, és egy üres halmazt hagy. Ez egyenértékű az <code>egy_halmaz =
+set()</code> hívással, amely egy új üres halmazt hoz létre, és az
+<var>egy_halmaz</var> változó korábbi értékét felülírja.
+<li>Üres halmazból nem lehet értéket kivenni a pop() metódussal, ez egy
+<code>KeyError</code> kivételt dob.
 </ol>
 
 <h3 id=common-set-operations>Általános halmazműveletek</h3>
@@ -994,68 +1033,86 @@ KeyError: 'pop from an empty set'</samp></pre>
 <p>A Python <code>set</code> típusa számos általános halmazműveletet támogat.
 
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_set = {2, 4, 5, 9, 12, 21, 30, 51, 76, 127, 195}</kbd>
-<a><samp class=p>>>> </samp><kbd class=pp>30 in a_set</kbd>                                                     <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz = {2, 4, 5, 9, 12, 21, 30, 51, 76, 127, 195}</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>30 in egy_halmaz</kbd>                                                     <span class=u>&#x2460;</span></a>
 <samp class=pp>True</samp>
-<samp class=p>>>> </samp><kbd class=pp>31 in a_set</kbd>
+<samp class=p>>>> </samp><kbd class=pp>31 in egy_halmaz</kbd>
 <samp class=pp>False</samp>
-<samp class=p>>>> </samp><kbd class=pp>b_set = {1, 2, 3, 5, 6, 8, 9, 12, 15, 17, 18, 21}</kbd>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set.union(b_set)</kbd>                                              <span class=u>&#x2461;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>b_halmaz = {1, 2, 3, 5, 6, 8, 9, 12, 15, 17, 18, 21}</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz.union(b_halmaz)</kbd>                                              <span class=u>&#x2461;</span></a>
 <samp class=pp>{1, 2, 195, 4, 5, 6, 8, 12, 76, 15, 17, 18, 3, 21, 30, 51, 9, 127}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set.intersection(b_set)</kbd>                                       <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz.intersection(b_halmaz)</kbd>                                       <span class=u>&#x2462;</span></a>
 <samp class=pp>{9, 2, 12, 5, 21}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set.difference(b_set)</kbd>                                         <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz.difference(b_halmaz)</kbd>                                         <span class=u>&#x2463;</span></a>
 <samp class=pp>{195, 4, 76, 51, 30, 127}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set.symmetric_difference(b_set)</kbd>                               <span class=u>&#x2464;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz.symmetric_difference(b_halmaz)</kbd>                               <span class=u>&#x2464;</span></a>
 <samp class=pp>{1, 3, 4, 6, 8, 76, 15, 17, 18, 195, 127, 30, 51}</samp></pre>
 <ol>
-<li>Annak teszteléséhez, hogy egy érték eleme-e egy halmaznak, használd az <code>in</code> operátort. Ez ugyanúgy működik, mint a listák esetén.
-<li>Az <code>union()</code> metódus egy új halmazt ad vissza, amely tartalmazza az összes, <em>valamelyik</em> halmazban jelen lévő elemet.
-<li>Az <code>intersection()</code> metódus egy új halmazt ad vissza, amely tartalmazza az összes, <em>mindkét</em> halmazban jelen lévő elemet.
-<li>A <code>difference()</code> metódus egy új halmazt ad vissza, amely tartalmazza az <var>a_set</var> halmazban jelen lévő, de a <var>b_set</var> halmazban jelen nem lévő elemet.
-<li>A <code>symmetric_difference()</code> metódus egy új halmazt ad vissza, amely tartalmazza az összes, <em>pontosan egy</em> halmazban jelen lévő elemet.
+<li>Annak teszteléséhez, hogy egy érték eleme-e egy halmaznak, használd az
+<code>in</code> operátort. Ez ugyanúgy működik, mint a listák esetén.
+<li>Az <code>union()</code> metódus egy új halmazt ad vissza, amely tartalmazza
+az összes, <em>valamelyik</em> halmazban jelen lévő elemet.
+<li>Az <code>intersection()</code> metódus egy új halmazt ad vissza, amely
+tartalmazza az összes, <em>mindkét</em> halmazban jelen lévő elemet.
+<li>A <code>difference()</code> metódus egy új halmazt ad vissza, amely
+tartalmazza az <var>egy_halmaz</var> halmazban jelen lévő, de a <var>b_halmaz</var>
+halmazban jelen nem lévő elemet.
+<li>A <code>symmetric_difference()</code> metódus egy új halmazt ad vissza,
+amely tartalmazza az összes, <em>pontosan egy</em> halmazban jelen lévő elemet.
 </ol>
 
 <p>Ezen metódusok közül három szimmetrikus.
 
 <pre class=screen>
 # az előző példa folytatása
-<a><samp class=p>>>> </samp><kbd class=pp>b_set.symmetric_difference(a_set)</kbd>                                       <span class=u>&#x2460;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>b_halmaz.symmetric_difference(egy_halmaz)</kbd>                                       <span class=u>&#x2460;</span></a>
 <samp class=pp>{3, 1, 195, 4, 6, 8, 76, 15, 17, 18, 51, 30, 127}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>b_set.symmetric_difference(a_set) == a_set.symmetric_difference(b_set)</kbd>  <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>b_halmaz.symmetric_difference(egy_halmaz) == egy_halmaz.symmetric_difference(b_halmaz)</kbd>  <span class=u>&#x2461;</span></a>
 <samp class=pp>True</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>b_set.union(a_set) == a_set.union(b_set)</kbd>                                <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>b_halmaz.union(egy_halmaz) == egy_halmaz.union(b_halmaz)</kbd>                                <span class=u>&#x2462;</span></a>
 <samp class=pp>True</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>b_set.intersection(a_set) == a_set.intersection(b_set)</kbd>                  <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>b_halmaz.intersection(egy_halmaz) == egy_halmaz.intersection(b_halmaz)</kbd>                  <span class=u>&#x2463;</span></a>
 <samp class=pp>True</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>b_set.difference(a_set) == a_set.difference(b_set)</kbd>                      <span class=u>&#x2464;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>b_halmaz.difference(egy_halmaz) == egy_halmaz.difference(b_halmaz)</kbd>                      <span class=u>&#x2464;</span></a>
 <samp class=pp>False</samp></pre>
 <ol>
-<li>Az <var>a_set</var> szimmetrikus különbsége a <var>b_set</var>-től eltérőnek <em>tűnik</em> a <var>b_set</var> és az <var>a_set</var> szimmetrikus különbségétől, de ne feledd, a halmazok rendezetlenek. Bármely két halmaz, amelyek ugyanazokat az elemeket tartalmazzák (és egyikben sincs több), egyenlőnek számít.
-<li>Itt pontosan ez történik. Ne hagyd, hogy a Python Shell becsapjon a halmazok kiírt ábrázolásával. Ugyanazokat az értékeket tartalmazzák, emiatt egyenlők.
+<li>Az <var>egy_halmaz</var> szimmetrikus különbsége a <var>b_halmaz</var>-tól
+eltérőnek <em>tűnik</em> a <var>b_halmaz</var> és az <var>egy_halmaz</var>
+szimmetrikus különbségétől, de ne feledd, a halmazok rendezetlenek. Bármely két
+halmaz, amelyek ugyanazokat az elemeket tartalmazzák (és egyikben sincs több),
+egyenlőnek számít.
+<li>Itt pontosan ez történik. Ne hagyd, hogy a Python Shell becsapjon a
+halmazok kiírt ábrázolásával. Ugyanazokat az értékeket tartalmazzák, emiatt
+egyenlők.
 <li>Két halmaz uniója is szimmetrikus.
 <li>Két halmaz metszete is szimmetrikus.
-<li>Két halmaz különbsége nem szimmetrikus. Ennek van értelme, hasonló egy szám kivonásához egy másik számból. Az operandusok sorrendje számít.
+<li>Két halmaz különbsége nem szimmetrikus. Ennek van értelme, hasonló egy szám
+kivonásához egy másik számból. Az operandusok sorrendje számít.
 </ol>
 
 <p>Végül néhány, a halmazokkal kapcsolatos kérdés.
 
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_set = {1, 2, 3}</kbd>
-<samp class=p>>>> </samp><kbd class=pp>b_set = {1, 2, 3, 4}</kbd>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set.issubset(b_set)</kbd>    <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz = {1, 2, 3}</kbd>
+<samp class=p>>>> </samp><kbd class=pp>b_halmaz = {1, 2, 3, 4}</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz.issubset(b_halmaz)</kbd>    <span class=u>&#x2460;</span></a>
 <samp class=pp>True</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>b_set.issuperset(a_set)</kbd>  <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>b_halmaz.issuperset(egy_halmaz)</kbd>  <span class=u>&#x2461;</span></a>
 <samp class=pp>True</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_set.add(5)</kbd>             <span class=u>&#x2462;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_set.issubset(b_set)</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_halmaz.add(5)</kbd>             <span class=u>&#x2462;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz.issubset(b_halmaz)</kbd>
 <samp class=pp>False</samp>
-<samp class=p>>>> </samp><kbd class=pp>b_set.issuperset(a_set)</kbd>
+<samp class=p>>>> </samp><kbd class=pp>b_halmaz.issuperset(egy_halmaz)</kbd>
 <samp class=pp>False</samp></pre>
 <ol>
-<li>Az <var>a_set</var> a <var>b_set</var> <dfn>részhalmaza</dfn>&nbsp;&ndash;&nbsp;az <var>a_set</var> minden eleme a <var>b_set</var>-nek is eleme.
-<li>A kérdést megfordítva a <var>b_set</var> az <var>a_set</var> <dfn>szülőhalmazaxxx</dfn>, mert az <var>a_set</var> elemei a<var>b_set</var>-nek is elemei.
-<li>Amint hozzáadsz egy olyan értéket az <var>a_set</var>-hez, amely nincs a <var>b_set</var>-ben, mindkét teszt <code>False</code> értéket ad vissza.
+<li>Az <var>egy_halmaz</var> a <var>b_halmaz</var>
+<dfn>részhalmaza</dfn>&nbsp;&ndash;&nbsp;az <var>egy_halmaz</var> minden eleme
+a <var>b_halmaz</var>-nak is eleme.
+<li>A kérdést megfordítva a <var>b_halmaz</var> az <var>egy_halmaz</var>
+<dfn>szülőhalmaza</dfn>, mert az <var>egy_halmaz</var> elemei
+a <var>b_halmaz</var>-nak is elemei.
+<li>Amint hozzáadsz egy olyan értéket az <var>egy_halmaz</var>-hoz, amely nincs a
+<var>b_halmaz</var>-ban, mindkét teszt <code>False</code> értéket ad vissza.
 </ol>
 
 <h3 id=sets-in-a-boolean-context>Halmazok logikai kontextusban</h3>
@@ -1084,7 +1141,10 @@ utasításokban használhatsz halmazokat is. <pre class=screen>
 
 <h2 id=dictionaries>Szótárak</h2>
 
-<p>A <dfn>szótár</dfn> kulcs-érték párok rendezetlen halmaza. Amikor a szótárhoz hozzáadsz egy kulcsot, akkor a kulcs értékét is meg kell adnod. (Az érték később bármikor módosítható.) A Python szótárak az ismert kulcsú értékek lekérésére vannak optimalizálva, de ez nem működik fordítva.
+<p>A <dfn>szótár</dfn> kulcs-érték párok rendezetlen halmaza. Amikor a
+szótárhoz hozzáadsz egy kulcsot, akkor a kulcs értékét is meg kell adnod. (Az
+érték később bármikor módosítható.) A Python szótárak az ismert kulcsú értékek
+lekérésére vannak optimalizálva, de ez nem működik fordítva.
 <blockquote class='note compare perl5'>
 <p><span class=u>&#x261E;</span>A szótár Pythonban olyan, mint egy hash
 Perl 5-ben. Perl 5-ben a hasheket tároló változók a <code>%</code>
@@ -1092,88 +1152,124 @@ karakterrel kezdődnek. Pythonban a változók tetszőleges nevűek lehetnek,
 és a Python maga tartja nyilván az adattípust.
 </blockquote>
 <h3 id=creating-dictionaries>Szótár létrehozása</h3>
-<p>Egy szótárat létrehozni könnyű. A szintaxis hasonló a <a href=#sets>halmazokhoz</a>, de értékek helyett kulcs-érték párok vannak. A meglévő szótárból az értékeket a kulcsuk alapján keresheted ki.
+<p>Egy szótárat létrehozni könnyű. A szintaxis hasonló a <a
+href=#sets>halmazokhoz</a>, de értékek helyett kulcs-érték párok vannak. A
+meglévő szótárból az értékeket a kulcsuk alapján keresheted ki.
 <pre class=screen>
-<a><samp class=p>>>> </samp><kbd class=pp>a_dict = {'kiszolgáló': 'db.diveintopython3.org', 'adatbázis': 'mysql'}</kbd>  <span class=u>&#x2460;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_dict</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_szótár = {'kiszolgáló': 'db.diveintopython3.org', 'adatbázis': 'mysql'}</kbd>  <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_szótár</kbd>
 <samp class=pp>{'server': 'db.diveintopython3.org', 'database': 'mysql'}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_dict['kiszolgáló']</kbd>                                                     <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_szótár['kiszolgáló']</kbd>                                                     <span class=u>&#x2461;</span></a>
 'db.diveintopython3.org'
-<a><samp class=p>>>> </samp><kbd class=pp>a_dict['adatbázis']</kbd>                                                      <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_szótár['adatbázis']</kbd>                                                      <span class=u>&#x2462;</span></a>
 'mysql'
-<a><samp class=p>>>> </samp><kbd class=pp>a_dict['db.diveintopython3.org']</kbd>                                         <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_szótár['db.diveintopython3.org']</kbd>                                         <span class=u>&#x2463;</span></a>
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;stdin>", line 1, in &lt;module>
 KeyError: 'db.diveintopython3.org'</samp></pre>
 <ol>
-<li>Első lépésként létrehozol egy két elemű szótárat, és az <var>a_dict</var> változóhoz rendeled. Minden elem egy kulcs-érték pár, és az elemek halmaza kapcsos zárójelek közt van.
-<li>A <code>'kiszolgáló'</code> egy kulcs, és a hozzá tartozó érték, amelyre <code>a_dict['kiszolgáló']</code> formában hivatkozhatsz, a<code>'db.diveintopython3.org'</code>.
-<li>Az <code>'adatbázis'</code> egy kulcs, és a hozzá tartozó érték, amelyre <code>a_dict['adatbázis']</code> formában hivatkozhatsz, a<code>'mysql'</code>.
-<li>Az értékeket lekérheted kulcs alapján, de a kulcsokat nem kérheted le érték alapján. Emiatt az <code>a_dict['kiszolgáló']</code> visszatérési értéke<code>'db.diveintopython3.org'</code>, de az <code>a_dict['db.diveintopython3.org']</code> kivételt dob, mert a <code>'db.diveintopython3.org'</code> nem egy kulcs.
+<li>Első lépésként létrehozol egy két elemű szótárat, és az <var>egy_szótár</var>
+változóhoz rendeled. Minden elem egy kulcs-érték pár, és az elemek halmaza
+kapcsos zárójelek közt van.
+<li>A <code>'kiszolgáló'</code> egy kulcs, és a hozzá tartozó érték, amelyre
+<code>egy_szótár['kiszolgáló']</code> formában hivatkozhatsz,
+a <code>'db.diveintopython3.org'</code>.
+<li>Az <code>'adatbázis'</code> egy kulcs, és a hozzá tartozó érték, amelyre
+<code>egy_szótár['adatbázis']</code> formában hivatkozhatsz, a <code>'mysql'</code>.
+<li>Az értékeket lekérheted kulcs alapján, de a kulcsokat nem kérheted le érték
+alapján. Emiatt az <code>egy_szótár['kiszolgáló']</code> visszatérési
+értéke<code>'db.diveintopython3.org'</code>, de az
+<code>egy_szótár['db.diveintopython3.org']</code> kivételt dob, mert a
+<code>'db.diveintopython3.org'</code> nem egy kulcs.
 </ol>
 <h3 id=modifying-dictionaries>Szótár módosítása</h3>
-<p>A szótáraknak nincs előre meghatározott méretkorlátjuk. Bármikor hozzáadhatsz új kulcs-érték párokat egy szótárhoz, vagy módosíthatod egy meglévő kulcs értékét. Az előző példa folyatása:
+<p>A szótáraknak nincs előre meghatározott méretkorlátjuk. Bármikor
+hozzáadhatsz új kulcs-érték párokat egy szótárhoz, vagy módosíthatod egy
+meglévő kulcs értékét. Az előző példa folytatása:
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_dict</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_szótár</kbd>
 <samp class=pp>{'kiszolgáló': 'db.diveintopython3.org', 'adatbázis': 'mysql'}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_dict['database'] = 'blog'</kbd>         <span class=u>&#x2460;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_dict</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_szótár['database'] = 'blog'</kbd>         <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_szótár</kbd>
 <samp class=pp>{'kiszolgáló': 'db.diveintopython3.org', 'adatbázis': 'blog'}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_dict['felhasználó'] = 'mark'</kbd>      <span class=u>&#x2461;</span></a>
-<a><samp class=p>>>> </samp><kbd class=pp>a_dict</kbd>                              <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_szótár['felhasználó'] = 'mark'</kbd>      <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_szótár</kbd>                              <span class=u>&#x2462;</span></a>
 <samp class=pp>{'kiszolgáló': 'db.diveintopython3.org', 'felhasználó': 'mark', 'adatbázis': 'blog'}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_dict['felhasználó'] = 'dora'</kbd>      <span class=u>&#x2463;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_dict</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_szótár['felhasználó'] = 'dora'</kbd>      <span class=u>&#x2463;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_szótár</kbd>
 <samp class=pp>{'kiszolgáló': 'db.diveintopython3.org', 'felhasználó': 'dora', 'adatbázis': 'blog'}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_dict['Felhasználó'] = 'mark'</kbd>      <span class=u>&#x2464;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_dict</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_szótár['Felhasználó'] = 'mark'</kbd>      <span class=u>&#x2464;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_szótár</kbd>
 <samp class=pp>{'Felhasználó': 'mark', 'kiszolgáló': 'db.diveintopython3.org', 'felhasználó': 'dora', 'adatbázis': 'blog'}</samp></pre>
 <ol>
-<li>A szótárban nem lehetnek többször szereplő kulcsok. Egy érték meglévő kulcshoz rendelése törli a régi értéket.
-<li>Bármikor hozzáadhatsz új kulcs-érték párokat. Ez a szintaxis azonos a meglévő értékek módosításához használttal.
-<li>Az új szótárelem (kulcs: <code>'felhasználó'</code>, érték: <code>'mark'</code>) középen jelenik meg. Tulajdonképpen az csak véletlen volt, hogy az első példában az elemek sorrendben jelentek meg, ugyanannyira véletlen, hogy most nem sorrendben jelennek meg.
+<li>A szótárban nem lehetnek többször szereplő kulcsok. Egy érték meglévő
+kulcshoz rendelése törli a régi értéket.
+<li>Bármikor hozzáadhatsz új kulcs-érték párokat. Ez a szintaxis azonos a
+meglévő értékek módosításához használttal.
+<li>Az új szótárelem (kulcs: <code>'felhasználó'</code>, érték:
+<code>'mark'</code>) középen jelenik meg. Tulajdonképpen az csak véletlen volt,
+hogy az első példában az elemek sorrendben jelentek meg, ugyanannyira véletlen,
+hogy most nem sorrendben jelennek meg.
 <li>Egy érték meglévő szótárkulcshoz rendelése egyszerűen lecseréli a régi értéket az újra.
-<li>Vajon ez megváltoztatja a <code>felhasználó</code> kulcs értékét "mark"-ra? Nem! Nézd meg jobban a kulcsot&nbsp;&ndash;&nbsp;az egy nagy <kbd>F</kbd> a <kbd>"Felhasználó"</kbd>-ban. A szótárkulcsok megkülönböztetik a kis- és nagybetűket, így ez az utasítás egy új kulcs-érték párt hoz létre, nem pedig egy meglévőt ír felül. Számodra hasonlónak tűnhetnek, de Python szempontjából teljesen különbözők.
+<li>Vajon ez megváltoztatja a <code>felhasználó</code> kulcs értékét "mark"-ra? Nem! 
+Nézd meg jobban a kulcsot&nbsp;&ndash;&nbsp;az egy nagy <kbd>F</kbd> a
+<kbd>"Felhasználó"</kbd>-ban. A szótárkulcsok megkülönböztetik a kis- és
+nagybetűket, így ez az utasítás egy új kulcs-érték párt hoz létre, nem pedig
+egy meglévőt ír felül. Számodra hasonlónak tűnhetnek, de Python szempontjából
+teljesen különbözők.
 </ol>
 <h3 id=mixed-value-dictionaries>Vegyes értékű szótárak</h3>
-<p>A szótárak nem csupán karakterláncokat tárolhatnak. A szótárértékek tetszőleges adattípusúak lehetnek, beleértve az egész és logikai értékeket, tetszőleges objektumokat vagy akár más szótárakat is. Ezen túl egy szótáron belül az értékeknek nem kell azonos típusúaknak lenniük, szükség szerint keverhetők. A használható szótárkulcstípusok köre korlátozottabb, de a kulcsok lehetnek karakterláncok, egészek és még néhány egyéb típusúak. Egy szótáron belül a kulcsok adattípusai szintén keverhetők.
-<p>Tulajdonképpen már láttál egy nem-karakterlánc kulcsokat és értékeket tartalmazó szótárat az <a href=your-first-python-program.html#divingin>első Python programodban</a>.
+<p>A szótárak nem csupán karakterláncokat tárolhatnak. A szótárértékek
+tetszőleges adattípusúak lehetnek, beleértve az egész és logikai értékeket,
+tetszőleges objektumokat vagy akár más szótárakat is. Ezen túl egy szótáron
+belül az értékeknek nem kell azonos típusúaknak lenniük, szükség szerint
+keverhetők. A használható szótárkulcstípusok köre korlátozottabb, de a kulcsok
+lehetnek karakterláncok, egészek és még néhány egyéb típusúak. Egy szótáron
+belül a kulcsok adattípusai szintén keverhetők.
+<p>Tulajdonképpen már láttál egy nem-karakterlánc kulcsokat és értékeket
+tartalmazó szótárat az <a href=your-first-python-program.html#divingin>első
+Python programodban</a>.
 <pre class='nd pp'><code>SUFFIXES = {1000: ['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
             1024: ['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']}</code></pre>
 <p>Szedjük ezt szét az interaktív parancsértelmezőben.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>SUFFIXES = {1000: ['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],</kbd>
 <samp class=p>... </samp><kbd class=pp>            1024: ['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']}</kbd>
-<a><samp class=p>>>> </samp><kbd class=pp>len(SUFFIXES)</kbd>      <span class=u>&#x2460;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>len(UTÓTAGOK)</kbd>      <span class=u>&#x2460;</span></a>
 <samp class=pp>2</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>1000 in SUFFIXES</kbd>   <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>1000 in UTÓTAGOK</kbd>   <span class=u>&#x2461;</span></a>
 <samp class=pp>True</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>SUFFIXES[1000]</kbd>     <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>UTÓTAGOK[1000]</kbd>     <span class=u>&#x2462;</span></a>
 <samp class=pp>['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>SUFFIXES[1024]</kbd>     <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>UTÓTAGOK[1024]</kbd>     <span class=u>&#x2463;</span></a>
 <samp class=pp>['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>SUFFIXES[1000][3]</kbd>  <span class=u>&#x2464;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>UTÓTAGOK[1000][3]</kbd>  <span class=u>&#x2464;</span></a>
 <samp class=pp>'TB'</samp></pre>
 <ol>
-<li>A <a href=#lists>listákhoz</a> és <a href=#sets>halmazokhoz</a> hasonlóan a <code>len()</code> függvény megadja a kulcsok számát a szótárban.
-<li>A listákhoz és halmazokhoz hasonlóan az <code>in</code> operátorral tesztelheted, hogy egy adott kulcs szerepel-e a szótárban.
-<li>Az <code>1000</code> egy <em>kulcs</em> a <code>SUFFIXES</code> szótárban, az értéke egy nyolc elemet (pontosabban nyolc karakterláncot) tartalmazó lista.
-<li>Hasonlóképpen az <code>1024</code> is egy kulcs a <code>SUFFIXES</code> szótárba, az értéke szintén egy nyolc elemet tartalmazó lista.
-<li>Mivel a <code>SUFFIXES[1000]</code> egy lista, az elemeit a 0-tól kezdődő indexük alapján elérheted.
+<li>A <a href=#lists>listákhoz</a> és <a href=#sets>halmazokhoz</a> hasonlóan a
+<code>len()</code> függvény megadja a kulcsok számát a szótárban.
+<li>A listákhoz és halmazokhoz hasonlóan az <code>in</code> operátorral
+tesztelheted, hogy egy adott kulcs szerepel-e a szótárban.
+<li>Az <code>1000</code> egy <em>kulcs</em> a <code>UTÓTAGOK</code> szótárban,
+az értéke egy nyolc elemet (pontosabban nyolc karakterláncot) tartalmazó lista.
+<li>Hasonlóképpen az <code>1024</code> is egy kulcs a <code>UTÓTAGOK</code>
+szótárba, az értéke szintén egy nyolc elemet tartalmazó lista.
+<li>Mivel a <code>UTÓTAGOK[1000]</code> egy lista, az elemeit a 0-tól kezdődő
+indexük alapján elérheted.
 </ol>
 <h3 id=dictionaries-in-a-boolean-context>Szótárak logikai kontextusban</h3>
 <aside>Az üres szótárak hamisak, minden más szótár igaz.</aside>
 <p><a href=#booleans>Logikai kontextusban</a>, például <code>if</code>
 utasításokban használhatsz szótárakat is. <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>def is_it_true(valami):</kbd>
+<samp class=p>>>> </samp><kbd class=pp>def igaz_e(valami):</kbd>
 <samp class=p>... </samp><kbd class=pp>  if valami:</kbd>
 <samp class=p>... </samp><kbd class=pp>    print("igen, ez igaz")</kbd>
 <samp class=p>... </samp><kbd class=pp>  else:</kbd>
 <samp class=p>... </samp><kbd class=pp>    print("nem, ez hamis")</kbd>
 <samp class=p>...</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>is_it_true({})</kbd>             <span class=u>&#x2460;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>igaz_e({})</kbd>             <span class=u>&#x2460;</span></a>
 <samp>nem, ez hamis</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>is_it_true({'a': 1})</kbd>       <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>igaz_e({'a': 1})</kbd>       <span class=u>&#x2461;</span></a>
 <samp>igen, ez igaz</samp></pre>
 <ol>
 <li>Logikai kontextusban az üres szótár hamis.
@@ -1182,8 +1278,15 @@ utasításokban használhatsz szótárakat is. <pre class=screen>
 <p class=a>&#x2042;
 
 <h2 id=none><code>None</code></h2>
-<p>A <code><dfn>None</dfn></code> egy speciális konstans Pythonban. Ez egy <dfn>null</dfn> érték. A <code>None</code> nem ugyanaz, mint a <code>False</code>. A <code>None</code> nem 0. A <code>None</code> nem egy üres karakterlánc. A <code>None</code> összehasonlítása bármivel, ami nem <code>None</code> mindig <code>False</code> értéket ad.
-<p>A <code>None</code> az egyetlen nullérték. Saját adattípussal rendelkezik (<code>NoneType</code>). A <code>None</code> bármely változóhoz hozzárendelhető, de nem hozhatsz létre más <code>NoneType</code> objektumokat. Minden változó, amely értéke <code>None</code>, egyenlő egymással.
+<p>A <code><dfn>None</dfn></code> egy speciális konstans Pythonban. Ez egy
+<dfn>null</dfn> érték. A <code>None</code> nem ugyanaz, mint a
+<code>False</code>. A <code>None</code> nem 0. A <code>None</code> nem egy üres
+karakterlánc. A <code>None</code> összehasonlítása bármivel, ami nem
+<code>None</code> mindig <code>False</code> értéket ad.
+<p>A <code>None</code> az egyetlen nullérték. Saját adattípussal rendelkezik
+(<code>NoneType</code>). A <code>None</code> bármely változóhoz
+hozzárendelhető, de nem hozhatsz létre más <code>NoneType</code> objektumokat. 
+Minden változó, amely értéke <code>None</code>, egyenlő egymással.
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>type(None)</kbd>
 <samp class=pp>&lt;class 'NoneType'></samp>
@@ -1203,17 +1306,18 @@ utasításokban használhatsz szótárakat is. <pre class=screen>
 <samp class=pp>True</samp>
 </pre>
 <h3 id=none-in-a-boolean-context><code>None</code> logikai kontextusban</h3>
-<p>A <a href=#booleans>logikai kontextusokban</a> a <code>None</code> hamis és a <code>not None</code> igaz.
+<p>A <a href=#booleans>logikai kontextusokban</a> a <code>None</code> hamis és
+a <code>not None</code> igaz.
 <pre class='nd screen'>
-<samp class=p>>>> </samp><kbd class=pp>def is_it_true(valami):</kbd>
+<samp class=p>>>> </samp><kbd class=pp>def igaz_e(valami):</kbd>
 <samp class=p>... </samp><kbd class=pp>  if valami:</kbd>
 <samp class=p>... </samp><kbd class=pp>    print("igen, ez igaz")</kbd>
 <samp class=p>... </samp><kbd class=pp>  else:</kbd>
 <samp class=p>... </samp><kbd class=pp>    print("nem, ez hamis")</kbd>
 <samp class=p>...</samp>
-<samp class=p>>>> </samp><kbd class=pp>is_it_true(None)</kbd>
+<samp class=p>>>> </samp><kbd class=pp>igaz_e(None)</kbd>
 <samp>nem, ez hamis</samp>
-<samp class=p>>>> </samp><kbd class=pp>is_it_true(not None)</kbd>
+<samp class=p>>>> </samp><kbd class=pp>igaz_e(not None)</kbd>
 <samp>igen, ez igaz</samp></pre>
 <p class=a>&#x2042;
 
@@ -1229,7 +1333,11 @@ utasításokban használhatsz szótárakat is. <pre class=screen>
 <li><a href=http://www.python.org/dev/peps/pep-0237/><abbr>PEP</abbr> 237: Unifying Long Integers and Integers</a>
 <li><a href=http://www.python.org/dev/peps/pep-0238/><abbr>PEP</abbr> 238: Changing the Division Operator</a>
 </ul>
-<p class=v><a href=your-first-python-program.html rel=prev title='vissza &#8222;Az első Python programod&#8221; fejezetre'><span class=u>&#x261C;</span></a> <a href=comprehensions.html rel=next title='előre az &#8222;Összehasonlítások&#8221; fejezetre'><span class=u>&#x261E;</span></a>
+<p class=v><a href=your-first-python-program.html rel=prev title='vissza
+&#8222;Az első Python programod&#8221; fejezetre'><span
+class=u>&#x261C;</span></a> <a href=comprehensions.html rel=next
+title='előre az &#8222;Összehasonlítások&#8221; fejezetre'><span
+class=u>&#x261E;</span></a>
 <p class=c>&copy; 2001&ndash;11 <a href=about.html>Mark Pilgrim</a>
 <script src=j/jquery.js></script>
 <script src=j/prettify.js></script>

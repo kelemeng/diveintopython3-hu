@@ -15,21 +15,39 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
 <p id=level>Nehézségi szint: <span class=u title=kezdő>&#x2666;&#x2666;&#x2662;&#x2662;&#x2662;</span>
 <h1>Feldolgozók</h1>
 <blockquote class=q>
-<p><span class=u>&#x275D;</span>Képzeletünk a végsőkig van feszítve, nem azért, hogy irodalmi, nem létező dolgokat képzeljünk el, hanem hogy megértsük a valóban létezőket. <span class=u>&#x275E;</span><br>&ndash; <a href=http://en.wikiquote.org/wiki/Richard_Feynman>Richard Feynman</a>
+<p><span class=u>&#x275D;</span>Képzeletünk a végsőkig van feszítve, nem azért,
+hogy irodalmi, nem létező dolgokat képzeljünk el, hanem hogy megértsük a
+valóban létezőket. <span class=u>&#x275E;</span><br>&ndash; <a href=http://en.wikiquote.org/wiki/Richard_Feynman>Richard Feynman</a>
 </blockquote>
 <p id=toc>&nbsp;
 <h2 id=divingin>Ugorj fejest</h2>
-<p class=f>Minden programozási nyelvnek van egy szolgáltatása, egy bonyolult dolog, amelyet szándékosan egyszerűvé tesz. Ha más nyelvet használsz, könnyen lemaradhatsz róla, mert a régi nyelv nem tette azt a dolgot egyszerűvé (mert inkább valami mást tett egyszerűvé). Ez a fejezet elmagyarázza a listafeldolgozókat, szótárfeldolgozókat és halmazfeldolgozókat: három kapcsolódó fogalom, amelyek egy nagyon hatékony módszer köré csoportosulnak. De előbb tegyünk egy kis kitérőt két modulra, amelyek segíteni fognak a helyi fájlrendszeren való navigációban.
-
+<p class=f>Minden programozási nyelvnek van egy szolgáltatása, egy bonyolult
+dolog, amelyet szándékosan egyszerűvé tesz. Ha más nyelvet használsz, könnyen
+lemaradhatsz róla, mert a régi nyelv nem tette azt a dolgot egyszerűvé (mert
+inkább valami mást tett egyszerűvé). Ez a fejezet elmagyarázza a
+listafeldolgozókat, szótárfeldolgozókat és halmazfeldolgozókat: három
+kapcsolódó fogalom, amelyek egy nagyon hatékony módszer köré csoportosulnak. De
+előbb tegyünk egy kis kitérőt két modulra, amelyek segíteni fognak a helyi
+fájlrendszeren való navigációban.
 <p class=a>&#x2042;
 
 <h2 id=os>Fájlok és könyvtárak kezelése</h2>
 
-<p>A Python 3 tartalmaz egy <code>os</code> nevű modult, amely az &#8222;operating system&#8221; (operációs rendszer) rövidítése. Az <a href=http://docs.python.org/3.1/library/os.html><code>os</code> modul</a> rengeteg függvényt tartalmaz, amelyekkel információk kérhetők a helyi könyvtárakról, fájlokról, folyamatokról és környezeti változókról&nbsp;&ndash;&nbsp;és egyes esetekben ezek kezelhetők is. A Python mindent megtesz azért, hogy egy egységesített <abbr>API</abbr>-t kínáljon <a href=installing-python.html>minden támogatott operációs rendszeren</a>, így programjaid bármely számítógépen a lehető legkevesebb platformspecifikus kóddal futhatnak.
+<p>A Python 3 tartalmaz egy <code>os</code> nevű modult, amely az
+&#8222;operating system&#8221; (operációs rendszer) rövidítése. Az <a
+href=http://docs.python.org/3.1/library/os.html><code>os</code> modul</a>
+rengeteg függvényt tartalmaz, amelyekkel információk kérhetők a helyi
+könyvtárakról, fájlokról, folyamatokról és környezeti
+változókról&nbsp;&ndash;&nbsp;és egyes esetekben ezek kezelhetők is. A Python
+mindent megtesz azért, hogy egy egységesített <abbr>API</abbr>-t kínáljon <a
+href=installing-python.html>minden támogatott operációs rendszeren</a>, így
+programjaid bármely számítógépen a lehető legkevesebb platformspecifikus kóddal
+futhatnak.
 <h3 id=getcwd>Az aktuális munkakönyvtár</h3>
 
-<p>Ha kezdő vagy a Pythonban, akkor rengeteg időt fogsz eltölteni <a href=installing-python.html#idle>a Python Shellben</a>. Ebben a könyvben a következőhöz hasonló példákat fogsz látni:
-
+<p>Ha kezdő vagy a Pythonban, akkor rengeteg időt fogsz eltölteni <a
+href=installing-python.html#idle>a Python Shellben</a>. Ebben a könyvben a
+következőhöz hasonló példákat fogsz látni:
 <ol>
 <li>Importáld az egyik modult az <a href=examples/><code>examples</code> mappából</a>
 <li>Hívj meg egy függvényt abban a modulban
@@ -38,16 +56,23 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
 
 <aside>Mindig van aktuális munkakönyvtár.</aside>
 
-<p>Ha nem ismered az aktuális munkakönyvtárat, akkor az első lépés valószínűleg meghiúsul egy <code>ImportError</code> kivétellel. Miért? Mert a Python a példa modult <a href=your-first-python-program.html#importsearchpath>az importálás keresési útvonalán</a> fogja keresni, de nem fogja megtalálni, mert az <code>examples</code> mappa nem a keresési útvonal egyik könyvtára. Ennek megoldásához a következő két lehetőség egyikét használhatod:
-
+<p>Ha nem ismered az aktuális munkakönyvtárat, akkor az első lépés valószínűleg
+meghiúsul egy <code>ImportError</code> kivétellel. Miért? Mert a Python a példa
+modult <a href=your-first-python-program.html#importsearchpath>az importálás
+keresési útvonalán</a> fogja keresni, de nem fogja megtalálni, mert az
+<code>examples</code> mappa nem a keresési útvonal egyik könyvtára. Ennek
+megoldásához a következő két lehetőség egyikét használhatod:
 <ol>
 <li>Add az <code>examples</code> mappát az importálás keresési útvonalához
 <li>Váltsd át az aktuális munkakönyvtárat az <code>examples</code> mappára
 </ol>
 
-<p>Az aktuális munkakönyvtár egy láthatatlan tulajdonság, amelyet a Python mindig a memóriában tárol. Mindig van aktuális munkakönyvtár, akár a Python Shellben vagy, akár egy Python parancsfájlt futtatsz a parancssorból, akár egy Python <abbr>CGI</abbr> parancsfájlt futtatsz egy webkiszolgálón.
-<p>Az <code>os</code> modul két függvényt tartalmaz az aktuális munkakönyvtár kezeléséhez.
-
+<p>Az aktuális munkakönyvtár egy láthatatlan tulajdonság, amelyet a Python
+mindig a memóriában tárol. Mindig van aktuális munkakönyvtár, akár a Python
+Shellben vagy, akár egy Python parancsfájlt futtatsz a parancssorból, akár egy
+Python <abbr>CGI</abbr> parancsfájlt futtatsz egy webkiszolgálón.
+<p>Az <code>os</code> modul két függvényt tartalmaz az aktuális munkakönyvtár
+kezeléséhez.
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>import os</kbd>                                            <span class=u>&#x2460;</span></a>
 <a><samp class=p>>>> </samp><kbd class=pp>print(os.getcwd())</kbd>                                   <span class=u>&#x2461;</span></a>
@@ -57,14 +82,24 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
 <samp>C:\Users\pilgrim\diveintopython3\examples</samp></pre>
 <ol>
 <li>Az <code>os</code> modul a Python része: bármikor, bárhol importálhatod.
-<li>Az <code>os.getcwd()</code> függvény használatával lekérdezheted az aktuális munkakönyvtárat. Ha a grafikus Python Shellt futtatod, akkor az aktuális munkakönyvtár az, ahonnan a Python Shell végrehajtható. Windowson ez attól függ, hogy hová telepítetted a Pythont; az alapértelmezett könyvtár a <code>c:\Python32</code>. Ha a Python Shellt a parancssorból futtatod, akkor az aktuális munkakönyvtár az, ahol a <code>python3</code> elindításakor álltál.
-<li>Az <code>os.chdir()</code> függvény használatával megváltoztathatod az aktuális munkakönyvtárat. <li>Amikor az <code>os.chdir()</code> függvényt meghívtam, akkor egy Linux-stílusú útvonalnevet használtam (osztásjel, meghajtó betűjel nélkül) noha épp Windowst használtam. Ez az egyik olyan hely, ahol a Python megpróbálja eltüntetni az operációs rendszerek közti különbségeket.
+<li>Az <code>os.getcwd()</code> függvény használatával lekérdezheted az
+aktuális munkakönyvtárat. Ha a grafikus Python Shellt futtatod, akkor az
+aktuális munkakönyvtár az, ahonnan a Python Shell végrehajtható. Windowson ez
+attól függ, hogy hová telepítetted a Pythont; az alapértelmezett könyvtár a
+<code>c:\Python32</code>. Ha a Python Shellt a parancssorból futtatod, akkor az
+aktuális munkakönyvtár az, ahol a <code>python3</code> elindításakor álltál.
+<li>Az <code>os.chdir()</code> függvény használatával megváltoztathatod az
+aktuális munkakönyvtárat. <li>Amikor az <code>os.chdir()</code> függvényt
+meghívtam, akkor egy Linux-stílusú útvonalnevet használtam (osztásjel, meghajtó
+betűjel nélkül) noha épp Windowst használtam. Ez az egyik olyan hely, ahol a
+Python megpróbálja eltüntetni az operációs rendszerek közti különbségeket.
 </ol>
 
 <h3 id=ospath>Fájlnevek és könyvtárnevek kezelése</h3>
 
-<p>Ha már a könyvtáraknál vagyunk, szeretném bemutatni az <code>os.path</code> modult. Az <code>os.path</code> fájlnevek és könyvtárnevek kezelésére szolgáló függvényneveket tartalmaz.
-
+<p>Ha már a könyvtáraknál vagyunk, szeretném bemutatni az <code>os.path</code>
+modult. Az <code>os.path</code> fájlnevek és könyvtárnevek kezelésére szolgáló
+függvényneveket tartalmaz.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>import os</kbd>
 <a><samp class=p>>>> </samp><kbd class=pp>print(os.path.join('/Users/pilgrim/diveintopython3/examples/', 'humansize.py'))</kbd>              <span class=u>&#x2460;</span></a>
@@ -76,13 +111,33 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
 <a><samp class=p>>>> </samp><kbd class=pp>print(os.path.join(os.path.expanduser('~'), 'diveintopython3', 'examples', 'humansize.py'))</kbd>  <span class=u>&#x2463;</span></a>
 <samp>c:\Users\pilgrim\diveintopython3\examples\humansize.py</samp></pre>
 <ol>
-<li>Az <code>os.path.join()</code> függvény legalább egy részleges útvonalnévből készít egy útvonalnevet. Ebben az esetben egyszerűen összefűzi a karakterláncokat.
-<li>Ebben a kevésbé triviális esetben az <code>os.path.join()</code> függvény egy extra osztásjelet ad az útvonalnévhez a fájlnévhez fűzés előtt. Ez egy fordított törtvonal az osztásjel helyett, mert a példa Windowson készült. Ha ezt a példát Linuxon vagy Mac OS X-en hajtod végre, akkor ehelyett egy osztásjelet kapsz. Ne vacakolj az osztásjelekkel, mindig használd az <code>os.path.join()</code> függvényt, és a Python megoldja.
-<li>Az <code>os.path.expanduser()</code> függvény kiterjeszti az aktuális felhasználó saját könyvtárának ábrázolására <code>~</code> jelet használó útvonalnevet. Ez minden platformon működik, ahol a felhasználók rendelkeznek saját könyvtárral, beleértve a Linux, Mac OS X és Windows rendszereket. A visszaadott útvonal nem rendelkezik záró osztásjellel, de az <code>os.path.join()</code> függvényt ez nem zavarja.
-<li>Ezen módszerek kombinálásával egyszerűen összeállíthatsz a felhasználó saját könyvtárában lévő könyvtárakra és fájlokra mutató útvonalneveket. Az <code>os.path.join()</code> függvény tetszőleges számú argumentumot képes feldolgozni. Rettenetesen megörültem, amikor ezt felfedeztem, mivel az egyik kis hülye függvényem az <code>addSlashIfNecessary()</code>, amelyet mindig meg kell írnom a szerszámos ládám egy új nyelven való kialakításakor. <em>Ne írd meg</em> ezt a kis hülye függvényt Pythonban, ezt a problémát okos emberek már megoldották helyetted.
+<li>Az <code>os.path.join()</code> függvény legalább egy részleges
+útvonalnévből készít egy útvonalnevet. Ebben az esetben egyszerűen összefűzi a
+karakterláncokat.
+<li>Ebben a kevésbé triviális esetben az <code>os.path.join()</code> függvény
+egy extra osztásjelet ad az útvonalnévhez a fájlnévhez fűzés előtt. Ez egy
+fordított törtvonal az osztásjel helyett, mert a példa Windowson készült. Ha
+ezt a példát Linuxon vagy Mac OS X-en hajtod végre, akkor ehelyett egy
+osztásjelet kapsz. Ne vacakolj az osztásjelekkel, mindig használd az
+<code>os.path.join()</code> függvényt, és a Python megoldja.
+<li>Az <code>os.path.expanduser()</code> függvény kiterjeszti az aktuális
+felhasználó saját könyvtárának ábrázolására <code>~</code> jelet használó
+útvonalnevet. Ez minden platformon működik, ahol a felhasználók rendelkeznek
+saját könyvtárral, beleértve a Linux, Mac OS X és Windows rendszereket. A
+visszaadott útvonal nem rendelkezik záró osztásjellel, de az
+<code>os.path.join()</code> függvényt ez nem zavarja.
+<li>Ezen módszerek kombinálásával egyszerűen összeállíthatsz a felhasználó
+saját könyvtárában lévő könyvtárakra és fájlokra mutató útvonalneveket. Az
+<code>os.path.join()</code> függvény tetszőleges számú argumentumot képes
+feldolgozni. Rettenetesen megörültem, amikor ezt felfedeztem, mivel az egyik
+kis hülye függvényem az <code>addSlashIfNecessary()</code>, amelyet mindig meg
+kell írnom a szerszámos ládám egy új nyelven való kialakításakor. <em>Ne írd
+meg</em> ezt a kis hülye függvényt Pythonban, ezt a problémát okos emberek már
+megoldották helyetted.
 </ol>
 
-<p>Az <code>os.path</code> függvényeket tartalmaz a teljes útvonalnevek, könyvtárnevek és fájlnevek felosztására az azokat alkotó részekre.
+<p>Az <code>os.path</code> függvényeket tartalmaz a teljes útvonalnevek,
+könyvtárnevek és fájlnevek felosztására az azokat alkotó részekre.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>útvonal = '/Users/pilgrim/diveintopython3/examples/humansize.py'</kbd>
 <a><samp class=p>>>> </samp><kbd class=pp>os.path.split(útvonal)</kbd>                                          <span class=u>&#x2460;</span></a>
@@ -98,17 +153,32 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
 <samp class=p>>>> </samp><kbd class=pp>kiterjesztés</kbd>
 <samp class=pp>'.py'</samp></pre>
 <ol>
-<li>A <code>split</code> függvény feloszt egy teljes útvonalnevet, és visszaad egy, az útvonalat és a fájlnevet tartalmazó ennest.
-<li>Emlékszel, amikor azt mondtam, hogy egy függvényből több érték visszaadására használhatsz <a href=native-datatypes.html#multivar>többváltozós értékadást</a>? Az <code>os.path.split()</code> függvény pontosan ezt csinálja. A <code>split</code> függvény visszatérési értékét egy két változót tartalmazó enneshezrendeli. Minden változó a visszaadott ennes megfelelő elemének értékét kapja.
-<li>Az első változó, a <var>kvtnév</var> megkapja az <code>os.path.split()</code> által visszaadott ennes első elemének értékét, a fájl útvonalát.
-<li>A második változó, a <var>fájlnév</var> megkapja az <code>os.path.split()</code> által visszaadott ennes második elemének értékét, a fájl nevét.
-<li>Az <code>os.path</code> tartalmazza az <code>os.path.splitext()</code> függvényt is, amely feloszt egy fájlnevet, és visszaadja a fájlnevet és a fájlkiterjesztést tartalmazó ennest. Ugyanezzel a módszerrel ezeket is önálló változókhoz rendelheted.
+<li>A <code>split</code> függvény feloszt egy teljes útvonalnevet, és visszaad
+egy, az útvonalat és a fájlnevet tartalmazó ennest.
+<li>Emlékszel, amikor azt mondtam, hogy egy függvényből több érték
+visszaadására használhatsz <a href=native-datatypes.html#multivar>többváltozós
+értékadást</a>? Az <code>os.path.split()</code> függvény pontosan ezt csinálja. 
+A <code>split</code> függvény visszatérési értékét egy két változót tartalmazó
+enneshezrendeli. Minden változó a visszaadott ennes megfelelő elemének értékét
+kapja.
+<li>Az első változó, a <var>kvtnév</var> megkapja az
+<code>os.path.split()</code> által visszaadott ennes első elemének értékét, a
+fájl útvonalát.
+<li>A második változó, a <var>fájlnév</var> megkapja az
+<code>os.path.split()</code> által visszaadott ennes második elemének értékét,
+a fájl nevét.
+<li>Az <code>os.path</code> tartalmazza az <code>os.path.splitext()</code>
+függvényt is, amely feloszt egy fájlnevet, és visszaadja a fájlnevet és a
+fájlkiterjesztést tartalmazó ennest. Ugyanezzel a módszerrel ezeket is önálló
+változókhoz rendelheted.
 </ol>
 
 <h3 id=glob>Könyvtárak felsorolása</h3>
 
-<p>A <code>glob</code> modul a szabványos Python függvénytár másik eszköze. Egyszerű módszert nyújt egy könyvtár tartalmának lekérésére a programodból, és a parancssor használata során már remélhetőleg megszokott helyettesítő karaktereket használja.
-
+<p>A <code>glob</code> modul a szabványos Python függvénytár másik eszköze. 
+Egyszerű módszert nyújt egy könyvtár tartalmának lekérésére a programodból, és
+a parancssor használata során már remélhetőleg megszokott helyettesítő
+karaktereket használja.
 <aside>A <code>glob</code> modul shell-szerű helyettesítő karaktereket használ.</aside>
 
 <pre class=screen>
@@ -138,33 +208,57 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
  'romantest8.py',
  'romantest9.py']</samp></pre>
 <ol>
-<li>A <code>glob</code> modul egy helyettesítő karaktert tartalmazó karakterláncot vár, és visszaadja az arra illeszkedő összes fájl és könyvtár elérési útját. Ebben a példában a karakterlánc a könyvtár elérési útja, plusz a &#8222;<code>*.xml</code>&#8221;, amely az <code>examples</code> alkönyvtárban lévő összes <code>.xml</code> fájlra illeszkedik.
-<li>Most váltsd át az aktuális munkakönyvtárat az <code>examples</code> alkönyvtárra. Az <code>os.chdir()</code> függvény elfogad relatív útvonalneveket is.
-<li>A glob mintába több helyettesítő karakter is felvehető. Ez a példa megtalálja az aktuális munkakönyvtár összes <code>.py</code> kiterjesztésű, és a<code>test</code> szót a fájlnevükben bárhol tartalmazó fájlját.
+<li>A <code>glob</code> modul egy helyettesítő karaktert tartalmazó
+karakterláncot vár, és visszaadja az arra illeszkedő összes fájl és könyvtár
+elérési útját. Ebben a példában a karakterlánc a könyvtár elérési útja, plusz a
+&#8222;<code>*.xml</code>&#8221;, amely az <code>examples</code> alkönyvtárban
+lévő összes <code>.xml</code> fájlra illeszkedik.
+<li>Most váltsd át az aktuális munkakönyvtárat az <code>examples</code>
+alkönyvtárra. Az <code>os.chdir()</code> függvény elfogad relatív
+útvonalneveket is.
+<li>A glob mintába több helyettesítő karakter is felvehető. Ez a példa
+megtalálja az aktuális munkakönyvtár összes <code>.py</code> kiterjesztésű, és
+a<code>test</code> szót a fájlnevükben bárhol tartalmazó fájlját.
 </ol>
 
 <h3 id=osstat>Fájlmetaadatok lekérése</h3>
 
-<p>Minden korszerű fájlrendszer tárol metaadatokat a fájlokról: létrehozás dátuma, legutóbbi módosítás dátuma, fájlméret és így tovább. A Python egységes <abbr>API</abbr>-t biztosít ezen metaadatok eléréséhez. A fájlt nem kell megnyitnod, csak a fájlnévre van szükséged.
-
+<p>Minden korszerű fájlrendszer tárol metaadatokat a fájlokról: létrehozás
+dátuma, legutóbbi módosítás dátuma, fájlméret és így tovább. A Python egységes
+<abbr>API</abbr>-t biztosít ezen metaadatok eléréséhez. A fájlt nem kell
+megnyitnod, csak a fájlnévre van szükséged.
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>import os</kbd>
-<a><samp class=p>>>> </samp><kbd class=pp>print(os.getcwd())</kbd>                 <span class=u>&#x2460;</span></a>
-<samp class=pp>c:\Users\pilgrim\diveintopython3\examples</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>metadata = os.stat('feed.xml')</kbd>     <span class=u>&#x2461;</span></a>
-<a><samp class=p>>>> </samp><kbd class=pp>metadata.st_mtime</kbd>                  <span class=u>&#x2462;</span></a>
-<samp class=pp>1247520344.9537716</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>import time</kbd>                        <span class=u>&#x2463;</span></a>
-<a><samp class=p>>>> </samp><kbd class=pp>time.localtime(metadata.st_mtime)</kbd>  <span class=u>&#x2464;</span></a>
-<samp class=pp>time.struct_time(tm_year=2009, tm_mon=7, tm_mday=13, tm_hour=17,
+<samp class=p>>>> </samp><kbd class=pp>import os</kbd> <a><samp class=p>>>>
+</samp><kbd class=pp>print(os.getcwd())</kbd>                 <span
+class=u>&#x2460;</span></a> <samp
+class=pp>c:\Users\pilgrim\diveintopython3\examples</samp> <a><samp class=p>>>>
+</samp><kbd class=pp>metadata = os.stat('feed.xml')</kbd>     <span
+class=u>&#x2461;</span></a> <a><samp class=p>>>> </samp><kbd
+class=pp>metadata.st_mtime</kbd>                  <span
+class=u>&#x2462;</span></a> <samp class=pp>1247520344.9537716</samp> <a><samp
+class=p>>>> </samp><kbd class=pp>import time</kbd>                        <span
+class=u>&#x2463;</span></a> <a><samp class=p>>>> </samp><kbd
+class=pp>time.localtime(metadata.st_mtime)</kbd>  <span
+class=u>&#x2464;</span></a> <samp class=pp>time.struct_time(tm_year=2009,
+tm_mon=7, tm_mday=13, tm_hour=17,
   tm_min=25, tm_sec=44, tm_wday=0, tm_yday=194, tm_isdst=1)</samp>
 </pre>
 <ol>
 <li>Az aktuális munkakönyvtár az <code>examples</code> mappa.
-<li>A <code>feed.xml</code> egy fájl az <code>examples</code> mappában. Az <code>os.stat()</code> függvény hívása egy olyan objektumot ad vissza, amely számos különböző típusú metaadatot tartalmaz a fájlról.
-<li>Az <code>st_mtime</code> a módosítás ideje, de egy nem különösebben hasznos formátumban van. (Technikailag ez az Epoch, azaz 1970. január 1. első másodperce óta eltelt másodpercek száma. Komolyan.)
-<li>A <code>time</code> modul a szabványos Python függvénytár része. A különböző időábrázolások közti átalakításhoz, az időértékek karakterláncokká formázásához és az időzónák kezeléséhez használható függvényeket tartalmaz.
-<li>A <code>time.localtime()</code> függvény átalakít egy időértéket az Epoch-óta-eltelt-másodpercek formátumról (ezt az <code>os.stat()</code> függvény által visszaadott <code>st_mtime</code> tulajdonság tartalmazza) a sokkal hasznosabb év, hónap, nap, óra, perc, másodperc stb. formátumra. Ezt a fájlt utoljára 2009. július 13-án, délután 5.25 körül módosították utoljára.
+<li>A <code>feed.xml</code> egy fájl az <code>examples</code> mappában. Az
+<code>os.stat()</code> függvény hívása egy olyan objektumot ad vissza, amely
+számos különböző típusú metaadatot tartalmaz a fájlról.
+<li>Az <code>st_mtime</code> a módosítás ideje, de egy nem különösebben hasznos
+formátumban van. (Technikailag ez az Epoch, azaz 1970. január 1. első
+másodperce óta eltelt másodpercek száma. Komolyan.)
+<li>A <code>time</code> modul a szabványos Python függvénytár része. A
+különböző időábrázolások közti átalakításhoz, az időértékek karakterláncokká
+formázásához és az időzónák kezeléséhez használható függvényeket tartalmaz.
+<li>A <code>time.localtime()</code> függvény átalakít egy időértéket az
+Epoch-óta-eltelt-másodpercek formátumról (ezt az <code>os.stat()</code>
+függvény által visszaadott <code>st_mtime</code> tulajdonság tartalmazza) a
+sokkal hasznosabb év, hónap, nap, óra, perc, másodperc stb. formátumra. Ezt a
+fájlt utoljára 2009. július 13-án, délután 5.25 körül módosították utoljára.
 </ol>
 
 <pre class=screen>
@@ -175,13 +269,26 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
 <a><samp class=p>>>> </samp><kbd class=pp>humansize.approximate_size(metadata.st_size)</kbd>  <span class=u>&#x2461;</span></a>
 <samp class=pp>'3.0 KiB'</samp></pre>
 <ol>
-<li>Az <code>os.stat()</code> függvény visszaadja a fájl méretét is, az <code>st_size</code> tulajdonságban. A <code>feed.xml</code> fájl <code>3070</code> bájt.
-<li>Az <code>st_size</code> tulajdonságot átadhatod az <a href=your-first-python-program.html#divingin><code>approximate_size()</code> függvénynek</a>.
+<li>Az <code>os.stat()</code> függvény visszaadja a fájl méretét is, az
+<code>st_size</code> tulajdonságban. A <code>feed.xml</code> fájl
+<code>3070</code> bájt.
+<li>Az <code>st_size</code> tulajdonságot átadhatod az <a
+href=your-first-python-program.html#divingin><code>approximate_size()</code>
+függvénynek</a>.
 </ol>
 
 <h3 id=abspath>Abszolút útvonalnevek összeállítása</h3>
 
-<p>Az <a href=#osstat>előző szakaszban</a> a <code>glob.glob()</code> függvény relatív útvonalnevek listáját adta vissza. Az első példa olyan útvonalneveket tartalmaz, mint az <code>'examples\feed.xml'</code>, és a második példa még rövidebbeket, mint a <code>'romantest1.py'</code>. Amíg ugyanabban az aktuális munkakönyvtárban maradsz, ezek a relatív útvonalnevek működni fognak a fájlok megnyitásakor vagy a metaadatok lekérésekor. Ha azonban abszolút&nbsp;&ndash;&nbsp;<i>azaz</i> a könyvtárneveket egészen a gyökérkönyvtárig vagy a meghajtó betűjelig tartalmazó&nbsp;&ndash;&nbsp;útvonalnevet szeretnél összeállítani, akkor az <code>os.path.realpath()</code> függvényt kell használnod.
+<p>Az <a href=#osstat>előző szakaszban</a> a <code>glob.glob()</code> függvény
+relatív útvonalnevek listáját adta vissza. Az első példa olyan útvonalneveket
+tartalmaz, mint az <code>'examples\feed.xml'</code>, és a második példa még
+rövidebbeket, mint a <code>'romantest1.py'</code>. Amíg ugyanabban az aktuális
+munkakönyvtárban maradsz, ezek a relatív útvonalnevek működni fognak a fájlok
+megnyitásakor vagy a metaadatok lekérésekor. Ha azonban
+abszolút&nbsp;&ndash;&nbsp;<i>azaz</i> a könyvtárneveket egészen a
+gyökérkönyvtárig vagy a meghajtó betűjelig
+tartalmazó&nbsp;&ndash;&nbsp;útvonalnevet szeretnél összeállítani, akkor az
+<code>os.path.realpath()</code> függvényt kell használnod.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>import os</kbd>
 <samp class=p>>>> </samp><kbd class=pp>print(os.getcwd())</kbd>
@@ -195,25 +302,32 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
 
 <aside>Listafeldolgozóban tetszőleges Python kifejezést használhatsz.</aside>
 
-<p>A <dfn>listafeldolgozó</dfn> használatával tömören le lehet képezni egy listát egy másik listára egy függvény alkalmazásával a lista minden egyes elemére.
-
+<p>A <dfn>listafeldolgozó</dfn> használatával tömören le lehet képezni egy
+listát egy másik listára egy függvény alkalmazásával a lista minden egyes
+elemére.
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_list = [1, 9, 8, 4]</kbd>
-<a><samp class=p>>>> </samp><kbd class=pp>[elem * 2 for elem in a_list]</kbd>           <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_lista = [1, 9, 8, 4]</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>[elem * 2 for elem in egy_lista]</kbd>           <span class=u>&#x2460;</span></a>
 <samp class=pp>[2, 18, 16, 8]</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list</kbd>                                  <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista</kbd>                                  <span class=u>&#x2461;</span></a>
 <samp class=pp>[1, 9, 8, 4]</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_list = [elem * 2 for elem in a_list]</kbd>  <span class=u>&#x2462;</span></a>
-<samp class=p>>>> </samp><kbd>a_list</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_lista = [elem * 2 for elem in egy_lista]</kbd>  <span class=u>&#x2462;</span></a>
+<samp class=p>>>> </samp><kbd>egy_lista</kbd>
 <samp class=pp>[2, 18, 16, 8]</samp></pre>
 <ol>
-<li>Az értelmezéshez nézd jobbról balra. Az <var>a_list</var> a leképezett lista. A Python parancsértelmező elemenként végigjárja az <var>a_list</var> listát, az egyes elemek értékét pedig ideiglenesen az <var>elem</var> változóhoz rendeli. A Python ezután alkalmazza az <code><var>elem</var> * 2</code> függvényt, és az eredményt hozzáfűzi a visszaadott listához.
+<li>Az értelmezéshez nézd jobbról balra. Az <var>egy_lista</var> a leképezett
+lista. A Python parancsértelmező elemenként végigjárja az <var>egy_lista</var>
+listát, az egyes elemek értékét pedig ideiglenesen az <var>elem</var>
+változóhoz rendeli. A Python ezután alkalmazza az <code><var>elem</var> *
+2</code> függvényt, és az eredményt hozzáfűzi a visszaadott listához.
 <li>A listafeldolgozó új listát hoz létre; az eredetit nem módosítja.
-<li>A listafeldolgozó eredményét biztonságos hozzárendelni a leképezett változóhoz. A Python az új listát a memóriában állítja össze, és amikor a listafeldolgozó kész, akkor rendeli az eredményt az eredeti változóhoz.
+<li>A listafeldolgozó eredményét biztonságos hozzárendelni a leképezett
+változóhoz. A Python az új listát a memóriában állítja össze, és amikor a
+listafeldolgozó kész, akkor rendeli az eredményt az eredeti változóhoz.
 </ol>
 
-<p>Listafeldolgozóban tetszőleges Python kifejezést használhatsz, beleértve az <code>os</code> modul fájlok és könyvtárak kezelésére szolgáló függvényeit is.
-
+<p>Listafeldolgozóban tetszőleges Python kifejezést használhatsz, beleértve az
+<code>os</code> modul fájlok és könyvtárak kezelésére szolgáló függvényeit is.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>import os, glob</kbd>
 <a><samp class=p>>>> </samp><kbd class=pp>glob.glob('*.xml')</kbd>                                 <span class=u>&#x2460;</span></a>
@@ -224,12 +338,14 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
  'c:\\Users\\pilgrim\\diveintopython3\\examples\\feed.xml']</samp>
 </pre>
 <ol>
-<li>Ez visszaadja az aktuális munkakönyvtárban lévő összes <code>.xml</code> fájl listáját.
-<li>Ez a listafeldolgozó veszi az <code>.xml</code> fájlok előbbi listáját, és átalakítja azt teljes útvonalnevek listájává.
+<li>Ez visszaadja az aktuális munkakönyvtárban lévő összes <code>.xml</code>
+fájl listáját.
+<li>Ez a listafeldolgozó veszi az <code>.xml</code> fájlok előbbi listáját, és
+átalakítja azt teljes útvonalnevek listájává.
 </ol>
 
-<p>A listafeldolgozók szűrni is tudják az elemeket, ezáltal az eredeti listánál rövidebb eredményt előállítva.
-
+<p>A listafeldolgozók szűrni is tudják az elemeket, ezáltal az eredeti listánál
+rövidebb eredményt előállítva.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>import os, glob</kbd>
 <a><samp class=p>>>> </samp><kbd class=pp>[f for f in glob.glob('*.py') if os.stat(f).st_size > 6000]</kbd>  <span class=u>&#x2460;</span></a>
@@ -241,11 +357,20 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
  'romantest9.py']</samp>
 </pre>
 <ol>
-<li>Egy lista szűréséhez felvehetsz egy <code>if</code> kifejezést a listafeldolgozó végére. Az <code>if</code> kulcsszó utáni kifejezés kiértékelődik a lista minden egyes elemére. Ha a kifejezés <code>True</code>-ra értékelődik ki, akkor a kimenet tartalmazni fogja az elemet. Ez a listafeldolgozó megnézi az aktuális könyvtár összes <code>.py</code> fájlját, és az <code>if</code> kifejezés annak alapján szűri ezt a listát, hogy az egyes fájlok mérete nagyobb-e <code>6000</code> bájtnál. Hat ilyen fájl van, így a listafeldolgozó hat fájlnévből álló listát ad vissza.
+<li>Egy lista szűréséhez felvehetsz egy <code>if</code> kifejezést a
+listafeldolgozó végére. Az <code>if</code> kulcsszó utáni kifejezés
+kiértékelődik a lista minden egyes elemére. Ha a kifejezés <code>True</code>-ra
+értékelődik ki, akkor a kimenet tartalmazni fogja az elemet. Ez a
+listafeldolgozó megnézi az aktuális könyvtár összes <code>.py</code> fájlját,
+és az <code>if</code> kifejezés annak alapján szűri ezt a listát, hogy az egyes
+fájlok mérete nagyobb-e <code>6000</code> bájtnál. Hat ilyen fájl van, így a
+listafeldolgozó hat fájlnévből álló listát ad vissza.
 </ol>
 
-<p>A listafeldolgozók az eddigi példákban egyszerű kifejezéseket mutattak be&nbsp;&ndash;&nbsp;egy szám konstanssal szorzása, egy függvény hívása, vagy egyszerűen az eredeti listaelem visszaadása (szűrés után). De a listafeldolgozó összetettségének nincs korlátja.
-
+<p>A listafeldolgozók az eddigi példákban egyszerű kifejezéseket mutattak
+be&nbsp;&ndash;&nbsp;egy szám konstanssal szorzása, egy függvény hívása, vagy
+egyszerűen az eredeti listaelem visszaadása (szűrés után). De a listafeldolgozó
+összetettségének nincs korlátja.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>import os, glob</kbd>
 <a><samp class=p>>>> </samp><kbd class=pp>[(os.stat(f).st_size, os.path.realpath(f)) for f in glob.glob('*.xml')]</kbd>            <span class=u>&#x2460;</span></a>
@@ -258,16 +383,22 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
  ('3.3 KiB', 'feed-ns0.xml'),
  ('3.0 KiB', 'feed.xml')]</samp></pre>
 <ol>
-<li>Ez a listafeldolgozó megtalálja az összes <code>.xml</code> fájlt az aktuális munkakönyvtárban, lekéri az egyes fájlok méretét (az <code>os.stat()</code> függvény hívásával), és összeállít egy ennest a fájlok méretéből és az abszolút elérési útjukból (az <code>os.path.realpath()</code> függvény hívásával).
-<li>Ez a feldolgozó az előzőre épít, és meghívja az <a href=your-first-python-program.html#divingin><code>approximate_size()</code> függvényt</a> az egyes <code>.xml</code> fájlok fájlméretével.
+<li>Ez a listafeldolgozó megtalálja az összes <code>.xml</code> fájlt az
+aktuális munkakönyvtárban, lekéri az egyes fájlok méretét (az
+<code>os.stat()</code> függvény hívásával), és összeállít egy ennest a fájlok
+méretéből és az abszolút elérési útjukból (az <code>os.path.realpath()</code>
+függvény hívásával).
+<li>Ez a feldolgozó az előzőre épít, és meghívja az <a
+href=your-first-python-program.html#divingin><code>approximate_size()</code>
+függvényt</a> az egyes <code>.xml</code> fájlok fájlméretével.
 </ol>
 
 <p class=a>&#x2042;
 
 <h2 id=dictionarycomprehension>Szótárfeldolgozók</h2>
 
-<p>A <dfn>szótárfeldolgozó</dfn> olyan, mint a listafeldolgozó, csak lista helyett szótárat állít elő.
-
+<p>A <dfn>szótárfeldolgozó</dfn> olyan, mint a listafeldolgozó, csak lista
+helyett szótárat állít elő.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>import os, glob</kbd>
 <a><samp class=p>>>> </samp><kbd class=pp>metadata = [(f, os.stat(f)) for f in glob.glob('*test*.py')]</kbd>    <span class=u>&#x2460;</span></a>
@@ -287,16 +418,31 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
 <a><samp class=p>>>> </samp><kbd class=pp>metadata_dict['alphameticstest.py'].st_size</kbd>                     <span class=u>&#x2465;</span></a>
 <samp class=pp>2509</samp></pre>
 <ol>
-<li>Ez még nem szótárfeldolgozó, hanem egy <a href=#listcomprehension>listafeldolgozó</a>. Megtalálja az összes <code>.py</code> fájlt, amelyek neve tartalmazza a <code>test</code> szót, majd összeállít egy ennest a fájlok neveiből és metaadataiból (amelyeket az <code>os.stat()</code> függvény ad vissza).
+<li>Ez még nem szótárfeldolgozó, hanem egy <a
+href=#listcomprehension>listafeldolgozó</a>. Megtalálja az összes
+<code>.py</code> fájlt, amelyek neve tartalmazza a <code>test</code> szót, majd
+összeállít egy ennest a fájlok neveiből és metaadataiból (amelyeket az
+<code>os.stat()</code> függvény ad vissza).
 <li>Az eredményül kapott lista minden eleme egy ennes.
-<li>Ez egy szótárfeldolgozó. A szintaxis hasonló a listafeldolgozókéhoz, két különbséggel. Először is, kapcsos és nem szögletes zárójelek közt áll. Másodszor, minden elemhez egy kifejezés helyett két, kettősponttal elválsztott kifejezést tartalmaz. A kettőspont előtti kifejezés (ebben a példában az <code>f</code>) a szótár kulcsa, a kettőspont utáni kifejezés (ebben a példában az <code>os.stat(f)</code>) az érték.
+<li>Ez egy szótárfeldolgozó. A szintaxis hasonló a listafeldolgozókéhoz, két
+különbséggel. Először is, kapcsos és nem szögletes zárójelek közt áll. 
+Másodszor, minden elemhez egy kifejezés helyett két, kettősponttal elválsztott
+kifejezést tartalmaz. A kettőspont előtti kifejezés (ebben a példában az
+<code>f</code>) a szótár kulcsa, a kettőspont utáni kifejezés (ebben a példában
+az <code>os.stat(f)</code>) az érték.
 <li>A szótárfeldolgozó szótárat ad vissza.
-<li>Ennek a szótárnak a kulcsai a <code>glob.glob('*test*.py')</code> által visszaadott fájlnevek.
-<li>Az egyes kulcsokhoz tartozó érték az <code>os.stat()</code> függvény visszatérési értéke. Ez azt jelenti, hogy egy fájl a neve alapján &#8222;kikereshető&#8221; a szótárból a metaadatainak eléréséhez. Az egyik ilyen metaadat az <code>st_size</code>, a fájlméret. Az <code>alphameticstest.py</code> fájl <code>2509</code> bájt hosszú.
+<li>Ennek a szótárnak a kulcsai a <code>glob.glob('*test*.py')</code> által
+visszaadott fájlnevek.
+<li>Az egyes kulcsokhoz tartozó érték az <code>os.stat()</code> függvény
+visszatérési értéke. Ez azt jelenti, hogy egy fájl a neve alapján
+&#8222;kikereshető&#8221; a szótárból a metaadatainak eléréséhez. Az egyik
+ilyen metaadat az <code>st_size</code>, a fájlméret. Az
+<code>alphameticstest.py</code> fájl <code>2509</code> bájt hosszú.
 </ol>
 
-<p>A listafeldolgozóhoz hasonlóan a szótárfeldolgozóhoz hozzáadhatsz egy <code>if</code> kifejezést a bemeneti sorozat szűréséhez egy minden elemmel együtt kiértékelésre kerülő kifejezéssel.
-
+<p>A listafeldolgozóhoz hasonlóan a szótárfeldolgozóhoz hozzáadhatsz egy
+<code>if</code> kifejezést a bemeneti sorozat szűréséhez egy minden elemmel
+együtt kiértékelésre kerülő kifejezéssel.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>import os, glob, humansize</kbd>
 <a><samp class=p>>>> </samp><kbd class=pp>metadata_dict = {f:os.stat(f) for f in glob.glob('*')}</kbd>                                  <span class=u>&#x2460;</span></a>
@@ -307,26 +453,37 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
 <a><samp class=p>>>> </samp><kbd class=pp>humansize_dict['romantest9']</kbd>                                                            <span class=u>&#x2463;</span></a>
 <samp class=pp>'6.5 KiB'</samp></pre>
 <ol>
-<li>Ez a szótárfeldolgozó létrehozza az aktuális munkakönyvtár fájljainak listáját, (<code>glob.glob('*')</code>), lekéri az egyes fájlok metaadatait (<code>os.stat(f)</code>), és összeállít egy szótárat, amelynek kulcsai a fájlnevek, értékei pedig az egyes fájlok metaadatai.
-<li>Ez a szótárfeldolgozó az előző feldolgozóra épül, kiválogatja a <code>6000</code> bájtnál nagyobb fájlokat (<code>if meta.st_size > 6000</code>), és a kapott listát használja egy szótár összeállítására, amelynek kulcsai a kiterjesztés nélküli fájlnevek (<code>os.path.splitext(f)[0]</code>), értékei pedig az egyes fájlok becsült méretei (<code>humansize.approximate_size(meta.st_size)</code>).
-<li>Ahogyan az előző példában láthattad, hat ilyen fájl van, emiatt ebben a szótárban is hat elem van.
-<li>Az egyes kulcsok értéke az <code>approximate_size()</code> függvény által visszaadott karakterlánc.
+<li>Ez a szótárfeldolgozó létrehozza az aktuális munkakönyvtár fájljainak
+listáját, (<code>glob.glob('*')</code>), lekéri az egyes fájlok metaadatait
+(<code>os.stat(f)</code>), és összeállít egy szótárat, amelynek kulcsai a
+fájlnevek, értékei pedig az egyes fájlok metaadatai.
+<li>Ez a szótárfeldolgozó az előző feldolgozóra épül, kiválogatja a
+<code>6000</code> bájtnál nagyobb fájlokat (<code>if meta.st_size >
+6000</code>), és a kapott listát használja egy szótár összeállítására, amelynek
+kulcsai a kiterjesztés nélküli fájlnevek (<code>os.path.splitext(f)[0]</code>),
+értékei pedig az egyes fájlok becsült méretei
+(<code>humansize.approximate_size(meta.st_size)</code>).
+<li>Ahogyan az előző példában láthattad, hat ilyen fájl van, emiatt ebben a
+szótárban is hat elem van.
+<li>Az egyes kulcsok értéke az <code>approximate_size()</code> függvény által
+visszaadott karakterlánc.
 </ol>
 
 <h3 id=stupiddicttricks>További menő dolgok szótárfeldolgozókkal</h3>
 
-<p>Itt egy szótárfeldolgozókkal kapcsolatos trükk, ami egyszer még jól jöhet: egy szótár kulcsainak és értékeinek felcserélése.
-
+<p>Itt egy szótárfeldolgozókkal kapcsolatos trükk, ami egyszer még jól jöhet:
+egy szótár kulcsainak és értékeinek felcserélése.
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_dict = {'a': 1, 'b': 2, 'c': 3}</kbd>
-<samp class=p>>>> </samp><kbd class=pp>{érték:kulcs for kulcs, érték in a_dict.items()}</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_szótár = {'a': 1, 'b': 2, 'c': 3}</kbd>
+<samp class=p>>>> </samp><kbd class=pp>{érték:kulcs for kulcs, érték in egy_szótár.items()}</kbd>
 <samp class=pp>{1: 'a', 2: 'b', 3: 'c'}</samp></pre>
 
-<p>Természetesen ez csak akkor működik, ha a szótár értékei megváltoztathatatlanok, például karakterláncok vagy ennesek. Ha ezt egy listákat tartalmazó szótárral próbálod meg, az látványosan nem fog sikerülni.
-
+<p>Természetesen ez csak akkor működik, ha a szótár értékei
+megváltoztathatatlanok, például karakterláncok vagy ennesek. Ha ezt egy
+listákat tartalmazó szótárral próbálod meg, az látványosan nem fog sikerülni.
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_dict = {'a': [1, 2, 3], 'b': 4, 'c': 5}</kbd>
-<samp class=p>>>> </samp><kbd class=pp>{érték:kulcs for kulcs, érték in a_dict.items()}</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_szótár = {'a': [1, 2, 3], 'b': 4, 'c': 5}</kbd>
+<samp class=p>>>> </samp><kbd class=pp>{érték:kulcs for kulcs, érték in egy_szótár.items()}</kbd>
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;stdin>", line 1, in &lt;module>
   File "&lt;stdin>", line 1, in &lt;dictcomp>
@@ -336,23 +493,28 @@ TypeError: unhashable type: 'list'</samp></pre>
 
 <h2 id=setcomprehension>Halmazfeldolgozók</h2>
 
-<p>Ne hagyjuk ki a halmazokat se, ezeknek is van saját feldolgozószintaxisuk, amely nagyon hasonlít a szótárfeldolgozók szintaxisához. Az egyetlen különbség, hogy a halmazok csak értékeket tartalmaznak kulcs:érték párok helyett.
-
+<p>Ne hagyjuk ki a halmazokat se, ezeknek is van saját feldolgozószintaxisuk,
+amely nagyon hasonlít a szótárfeldolgozók szintaxisához. Az egyetlen különbség,
+hogy a halmazok csak értékeket tartalmaznak kulcs:érték párok helyett.
 <pre class=screen>
-<samp class=p>>>> </samp><kbd class=pp>a_set = set(range(10))</kbd>
-<samp class=p>>>> </samp><kbd class=pp>a_set</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz = set(range(10))</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_halmaz</kbd>
 <samp class=pp>{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>{x ** 2 for x in a_set}</kbd>           <span class=u>&#x2460;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>{x ** 2 for x in egy_halmaz}</kbd>           <span class=u>&#x2460;</span></a>
 <samp class=pp>{0, 1, 4, 81, 64, 9, 16, 49, 25, 36}</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>{x for x in a_set if x % 2 == 0}</kbd>  <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>{x for x in egy_halmaz if x % 2 == 0}</kbd>  <span class=u>&#x2461;</span></a>
 <samp class=pp>{0, 8, 2, 4, 6}</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>{2**x for x in range(10)}</kbd>         <span class=u>&#x2462;</span></a>
 <samp class=pp>{32, 1, 2, 4, 8, 64, 128, 256, 16, 512}</samp>
 </pre>
 <ol>
-<li>A halmazfeldolgozók bemenete lehet egy halmaz. Ez a halmazfeldolgozó kiszámítja a <code>0</code> és <code>9</code> közti számok négyzetét.
-<li>A listafeldolgozókhoz és szótárfeldolgozókhoz hasonlóan a halmazfeldolgozók is tartalmazhatnak egy <code>if</code> kifejezést az egyes elemek szűréséhez azok visszaadása előtt az eredmény halmazba.
-<li>A halmazfeldolgozók bemenete nem csak halmaz lehet, tetszőleges sorozatot is elfogadnak.
+<li>A halmazfeldolgozók bemenete lehet egy halmaz. Ez a halmazfeldolgozó
+kiszámítja a <code>0</code> és <code>9</code> közti számok négyzetét.
+<li>A listafeldolgozókhoz és szótárfeldolgozókhoz hasonlóan a halmazfeldolgozók
+is tartalmazhatnak egy <code>if</code> kifejezést az egyes elemek szűréséhez
+azok visszaadása előtt az eredmény halmazba.
+<li>A halmazfeldolgozók bemenete nem csak halmaz lehet, tetszőleges sorozatot
+is elfogadnak.
 </ol>
 
 <p class=a>&#x2042;
@@ -371,7 +533,10 @@ TypeError: unhashable type: 'list'</samp></pre>
 <li><a href=http://docs.python.org/3.1/tutorial/datastructures.html#nested-list-comprehensions>Beágyazott listafeldolgozók</a>
 <li><a href=http://docs.python.org/3.1/tutorial/datastructures.html#looping-techniques>Ciklus módszerek</a>
 </ul>
-<p class=v><a href=native-datatypes.html rel=prev title='vissza a &#8222;Natív adattípusok&#8221; fejezetre'><span class=u>&#x261C;</span></a> <a href=strings.html rel=next title='előre a &#8222;Karakterláncok&#8221; fejezetre'><span class=u>&#x261E;</span></a>
+<p class=v><a href=native-datatypes.html rel=prev title='vissza a
+&#8222;Natív adattípusok&#8221; fejezetre'><span
+class=u>&#x261C;</span></a> <a href=strings.html rel=next title='előre a
+&#8222;Karakterláncok&#8221; fejezetre'><span class=u>&#x261E;</span></a>
 <p class=c>&copy; 2001&ndash;11 <a href=about.html>Mark Pilgrim</a>
 <script src=j/jquery.js></script>
 <script src=j/prettify.js></script>

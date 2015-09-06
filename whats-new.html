@@ -22,32 +22,90 @@ class=u>&#8227;</span>
 <p id=toc>&nbsp;
 <h2 id=divingin><i>avagy</i> &#8222;a negatív szint&#8221;</h2>
 
-<p class=f>Már Python programozó vagy? Elolvastad az eredeti <a href=http://diveintopython.org/>Dive Into Python</a> könyvet? Papíron is megvan? (Ha igen, köszönöm!) Készen állsz fejest ugrani a Python 3-ba? &hellip; Ha igen, olvass tovább. (Ha ezek egyike sem igaz, akkor inkább <a href=installing-python.html>kezdd az elején</a>.)
+<p class=f>Már Python programozó vagy? Elolvastad az eredeti <a
+href=http://diveintopython.org/>Dive Into Python</a> könyvet? Papíron is
+megvan? (Ha igen, köszönöm!) Készen állsz fejest ugrani a Python 3-ba? &hellip;
+Ha igen, olvass tovább. (Ha ezek egyike sem igaz, akkor inkább <a
+href=installing-python.html>kezdd az elején</a>.)
 
-<p>A Python 3 tartalmaz egy <code>2to3</code> parancsfájlt. Tanuld meg. Szeresd. Használd. <a href=porting-code-to-python-3-with-2to3.html>A kód Python 3-ba
-konvertálása a <code>2to3</code> használatával</a> fejezet a <code>2to3</code> eszközzel automatikusan javítható dolgok referenciája. Mivel ezek zöme szintaxisváltozás, jó kiindulópont a Python 3 szintaxisváltozásainak megismeréséhez. (A <code>print</code> mostantól függvény, az <code>`x`</code> nem működik <i class=baa>stb.</i>)
+<p>A Python 3 tartalmaz egy <code>2to3</code> parancsfájlt. Tanuld meg. Szeresd. Használd. 
+<a href=porting-code-to-python-3-with-2to3.html>A kód Python 3-ba konvertálása
+a <code>2to3</code> használatával</a> fejezet a <code>2to3</code> eszközzel
+automatikusan javítható dolgok referenciája. Mivel ezek zöme szintaxisváltozás,
+jó kiindulópont a Python 3 szintaxisváltozásainak megismeréséhez. (A
+<code>print</code> mostantól függvény, az <code>`x`</code> nem működik <i
+class=baa>stb.</i>)
 
-<p>Az <a href=case-study-porting-chardet-to-python-3.html>Esettanulmány: a <code>chardet</code> Python 3-a portolása</a> dokumentálja a (végül sikeres) erőfeszítéseimet egy nem triviális programkönyvtár Python 2-ről Python 3-ra portolására. Talán segít, talán nem. A tanulási görbe viszonylag meredek, mivel nagyjából meg kell értened a programkönyvtár működését, így megértheted, hogy miért romlott el, és hogyan javítottam ki. A hibák jó részét a karakterláncok okozzák. Ha már itt tartunk&hellip;
-<p>Karakterláncok. Jaj. Hol kezdjem? A Python 2-ben voltak &#8222;karakterláncok&#8221; és &#8222;Unicode karakterláncok&#8221;. A Python 3-ban &#8222;bájtok&#8221; és &#8222;karakterláncok&#8221; vannak. Ez minden, mostantól minden karakterlánc Unicode karakterlánc, és ha egy kupac bájttal akarsz dolgozni, akkor használd az új <code>bájt</code> típust. A Python 3 <em>soha</em> nem fog implicit módon konvertálni a karakterláncok és bájtok között, így ha nem vagy biztos benne, hogy adott pillanatban épp melyiket kezeled, akkor a kód majdnem biztosan hibásan fog működni. További részletekért olvasd el a <a href=strings.html>Karakterláncok fejezetet</a>. 
+<p>Az <a href=case-study-porting-chardet-to-python-3.html>Esettanulmány: a
+<code>chardet</code> Python 3-a portolása</a> dokumentálja a (végül sikeres)
+erőfeszítéseimet egy nem triviális programkönyvtár Python 2-ről Python 3-ra
+portolására. Talán segít, talán nem. A tanulási görbe viszonylag meredek, mivel
+nagyjából meg kell értened a programkönyvtár működését, így megértheted, hogy
+miért romlott el, és hogyan javítottam ki. A hibák jó részét a karakterláncok
+okozzák. Ha már itt tartunk&hellip;
+<p>Karakterláncok. Jaj. Hol kezdjem? A Python 2-ben voltak
+&#8222;karakterláncok&#8221; és &#8222;Unicode karakterláncok&#8221;. A Python
+3-ban &#8222;bájtok&#8221; és &#8222;karakterláncok&#8221; vannak. Ez minden,
+mostantól minden karakterlánc Unicode karakterlánc, és ha egy kupac bájttal
+akarsz dolgozni, akkor használd az új <code>bájt</code> típust. A Python 3
+<em>soha</em> nem fog implicit módon konvertálni a karakterláncok és bájtok
+között, így ha nem vagy biztos benne, hogy adott pillanatban épp melyiket
+kezeled, akkor a kód majdnem biztosan hibásan fog működni. További részletekért
+olvasd el a <a href=strings.html>Karakterláncok fejezetet</a>. 
 
 <p>A bájtok vs. karakterláncok probléma a könyvben újra és újra előkerül.
 <ul>
-<li>A <a href=files.html>Fájlok</a> fejezetben megtanulod a különbséget a fájlok &#8222;bináris&#8221; és &#8222;szöveges&#8221; módban való olvasása között. A fájlok szöveges módban való olvasása (és írása!) egy <code>kódolás</code> paramétert igényel. Egyes szövegfájlmetódusok a karaktereket számolják, míg más metódusok a bájtokat. Ha a kódod feltételezi, hogy egy karakter == egy bájt, akkor az <em>nem</em> fog működni a több bájtos karakterekkel.
-<li>A <a href=http-web-services.html><abbr>HTTP</abbr> webszolgáltatások</a> fejezetben a <code>httplib2</code> modul fejléceket és adatokat fog letölteni <abbr>HTTP</abbr> protokollon. A
-<abbr>HTTP</abbr> fejlécek karakterláncokként kerülnek visszaadásra, de a <abbr>HTTP</abbr> törzs bájtokként.
-<li>A <a href=serializing.html>Python objektumok szerializálása</a> fejezetben megtanulod, hogy a <code>pickle</code> modul Python 3-ban miért definiál a Python 2-vel visszafelé inkompatibilis új adatformátumot (tipp: a bájtok és karakterláncok miatt.) A Python 3 ezen kívül támogatja az
-objektumok szerializálását <abbr>JSON</abbr>-ból és -ba, amely nem is rendelkezik <code>bájt</code> típussal. Megmutatom, hogy ez hogyan kerülhető meg.
-<li>Az <a href=case-study-porting-chardet-to-python-3.html>Esettanulmány: a <code>chardet</code> Python 3-ra portolása</a> fejezet egy hatalmas, bájtokat és karakterláncokat tartalmazó kavarodás.
+<li>A <a href=files.html>Fájlok</a> fejezetben megtanulod a különbséget a
+fájlok &#8222;bináris&#8221; és &#8222;szöveges&#8221; módban való olvasása
+között. A fájlok szöveges módban való olvasása (és írása!) egy
+<code>kódolás</code> paramétert igényel. Egyes szövegfájlmetódusok a
+karaktereket számolják, míg más metódusok a bájtokat. Ha a kódod feltételezi,
+hogy egy karakter == egy bájt, akkor az <em>nem</em> fog működni a több bájtos
+karakterekkel.
+<li>A <a href=http-web-services.html><abbr>HTTP</abbr> webszolgáltatások</a>
+fejezetben a <code>httplib2</code> modul fejléceket és adatokat fog letölteni
+<abbr>HTTP</abbr> protokollon. A <abbr>HTTP</abbr> fejlécek karakterláncokként
+kerülnek visszaadásra, de a <abbr>HTTP</abbr> törzs bájtokként.
+<li>A <a href=serializing.html>Python objektumok szerializálása</a> fejezetben
+megtanulod, hogy a <code>pickle</code> modul Python 3-ban miért definiál a
+Python 2-vel visszafelé inkompatibilis új adatformátumot (tipp: a bájtok és
+karakterláncok miatt.) A Python 3 ezen kívül támogatja az objektumok
+szerializálását <abbr>JSON</abbr>-ból és -ba, amely nem is rendelkezik
+<code>bájt</code> típussal. Megmutatom, hogy ez hogyan kerülhető meg.
+<li>Az <a href=case-study-porting-chardet-to-python-3.html>Esettanulmány: a
+<code>chardet</code> Python 3-ra portolása</a> fejezet egy hatalmas, bájtokat
+és karakterláncokat tartalmazó kavarodás.
 </ul>
 
-<p>Még ha nem is érdekel a Unicode (majd fog), akkor is olvasd el a <a href=strings.html#formatting-strings>karakterláncok formázása Python 3-ban</a> részt, ami teljesen eltér a Python 2-től.
-
-<p>Az iterátorok mindenütt előfordulnak a Python 3-ban, és sokkal jobban értem azokat, mint öt éve, amikor a &#8222;Dive Into Python&#8221; című könyvet írtam. Neked is meg kell értened ezeket, mert rengeteg függvény, amely a Python 2-ben listákat adott vissza, Python 3-ban iterátorokat fog visszaadni. Az <a href=iterators.html#a-fibonacci-iterator>Iterátorok fejezet második felét</a> és a <a href=advanced-iterators.html#generator-expressions>Speciális iterátorok fejezet második felét</a> mindenképp olvasd el, ez a minimum.
-
-<p>Közkívánatra készítettem egy függeléket a <a href=special-method-names.html>Speciális metódusnevekről</a>, amely nagyjából olyan, mint a <a href=http://www.python.org/doc/3.1/reference/datamodel.html#special-method-names> Python dokumentáció &#8222;Data Model&#8221; (adatmodell) fejezete</a>, csak kicsit több szarkazmussal.
-
-<p>Amikor a &#8222;Dive Into Python&#8221; című könyvet írtam, az összes elérhető XML függvénytár bűn rossz volt. Ezután Fredrik Lundh megírta az <a href=http://effbot.org/zone/element-index.htm>ElementTree</a>-t, ami egyáltalán nem rossz. A Python istenek bölcsen <a href=http://docs.python.org/3.1/library/xml.etree.elementtree.html>beépítették az ElementTree-t a szabványos függvénytárba</a>, és most az <a href=xml.html>új XML fejezetem</a> alapját képezi. Az XML-feldolgozás régi módszerei továbbra is elérhetők, de kerüld őket, mert rosszak!
-
-<p>A Python&nbsp;&ndash;&nbsp;nem a nyelv, hanem a közösség&nbsp;&ndash;&nbsp; újdonsága az olyan kódtárolók megjelenése, mint a <a href=http://pypi.python.org/>The Python Package Index</a> (PyPI). A Python olyan segédprogramokat tartalmaz, amelyekkel a kódod szabványos formátumokba csomagolhatod, és ezeket a csomagokat a PyPI közvetítésével terjesztheted. A részletekért olvasd el a <a href=packaging.html>Python függvénytárak csomagolása</a> fejezetet.
-
+<p>Még ha nem is érdekel a Unicode (majd fog), akkor is olvasd el a <a
+href=strings.html#formatting-strings>karakterláncok formázása Python 3-ban</a>
+részt, ami teljesen eltér a Python 2-től.
+<p>Az iterátorok mindenütt előfordulnak a Python 3-ban, és sokkal jobban értem
+azokat, mint öt éve, amikor a &#8222;Dive Into Python&#8221; című könyvet
+írtam. Neked is meg kell értened ezeket, mert rengeteg függvény, amely a Python
+2-ben listákat adott vissza, Python 3-ban iterátorokat fog visszaadni. Az <a
+href=iterators.html#a-fibonacci-iterator>Iterátorok fejezet második felét</a>
+és a <a href=advanced-iterators.html#generator-expressions>Speciális iterátorok
+fejezet második felét</a> mindenképp olvasd el, ez a minimum.
+<p>Közkívánatra készítettem egy függeléket a <a
+href=special-method-names.html>Speciális metódusnevekről</a>, amely nagyjából
+olyan, mint a <a
+href=http://www.python.org/doc/3.1/reference/datamodel.html#special-method-names>
+Python dokumentáció &#8222;Data Model&#8221; (adatmodell) fejezete</a>, csak
+kicsit több szarkazmussal.
+<p>Amikor a &#8222;Dive Into Python&#8221; című könyvet írtam, az összes
+elérhető XML függvénytár bűn rossz volt. Ezután Fredrik Lundh megírta az <a
+href=http://effbot.org/zone/element-index.htm>ElementTree</a>-t, ami egyáltalán
+nem rossz. A Python istenek bölcsen <a
+href=http://docs.python.org/3.1/library/xml.etree.elementtree.html>beépítették
+az ElementTree-t a szabványos függvénytárba</a>, és most az <a href=xml.html>új
+XML fejezetem</a> alapját képezi. Az XML-feldolgozás régi módszerei továbbra is
+elérhetők, de kerüld őket, mert rosszak!
+<p>A Python&nbsp;&ndash;&nbsp;nem a nyelv, hanem a közösség&nbsp;&ndash;&nbsp;
+újdonsága az olyan kódtárolók megjelenése, mint a <a
+href=http://pypi.python.org/>The Python Package Index</a> (PyPI). A Python
+olyan segédprogramokat tartalmaz, amelyekkel a kódod szabványos formátumokba
+csomagolhatod, és ezeket a csomagokat a PyPI közvetítésével terjesztheted. A
+részletekért olvasd el a <a href=packaging.html>Python függvénytárak
+csomagolása</a> fejezetet.
 <p class=c>&copy; 2001&ndash;11 <a href=about.html>Mark Pilgrim</a>

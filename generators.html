@@ -19,23 +19,57 @@ class=u>&#8227;</span> <a href=table-of-contents.html#generators>Ugorj fejest a 
 </blockquote>
 <p id=toc>&nbsp;
 <h2 id=divingin>Ugorj fejest</h2>
-<p class=f>Egy könyvtáros és egy angoltanár fiaként felnőve mindig is lenyűgöztek a nyelvek. Nem a programozási nyelvek. Na jó, a programozási nyelvek is, de a természetes nyelvek. Vegyük az angolt. Az angol egy skizofrén nyelv, amely szavakat kölcsönöz a németből, franciából, spanyolból és latinból (hogy csak párat említsek). Valójában a &#8222;kölcsönöz&#8221; nem is a jó szó, a &#8222;rablás&#8221; sokkal jellemzőbb. Vagy talán az &#8222;asszimilál&#8221;&nbsp;&ndash;&nbsp;mint a Borg. Igen, ez lesz az.
-<p class=c><code>Itt a Borg. Nyelvi és etimológiai sajátosságaikat a miénkhez adjuk. Az ellenállás hasztalan.</code>
-<p>Ebben a fejezetben a többesszámú angol főnevekről fogsz tanulni. Továbbá függvényeket visszaadó függvényekről, további reguláris kifejezésekről és generátorokról. De előbb hadd beszéljek az többesszámú angol főnevek felépítéséről. (Ha még nem olvastad <a href=regular-expressions.html>a reguláris kifejezésekről szóló fejezetet</a>, akkor itt az ideje. Ez a fejezet feltételezi, hogy megérted a reguláris kifejezések alapjait, és gyorsan belemerül a speciálisabb felhasználási módokba.)
-<p>Ha angolul beszélő országban nőttél fel, vagy az iskolában tanultál angolt, akkor valószínűleg tisztában vagy az alapvető szabályokkal:
+<p class=f>Egy könyvtáros és egy angoltanár fiaként felnőve mindig is
+lenyűgöztek a nyelvek. Nem a programozási nyelvek. Na jó, a programozási
+nyelvek is, de a természetes nyelvek. Vegyük az angolt. Az angol egy skizofrén
+nyelv, amely szavakat kölcsönöz a németből, franciából, spanyolból és latinból
+(hogy csak párat említsek). Valójában a &#8222;kölcsönöz&#8221; nem is a jó
+szó, a &#8222;rablás&#8221; sokkal jellemzőbb. Vagy talán az
+&#8222;asszimilál&#8221;&nbsp;&ndash;&nbsp;mint a Borg. Igen, ez lesz az.
+<p class=c><code>Itt a Borg. Nyelvi és etimológiai sajátosságaikat a miénkhez
+adjuk. Az ellenállás hasztalan.</code>
+<p>Ebben a fejezetben a többesszámú angol főnevekről fogsz tanulni. Továbbá
+függvényeket visszaadó függvényekről, további reguláris kifejezésekről és
+generátorokról. De előbb hadd beszéljek az többesszámú angol főnevek
+felépítéséről. (Ha még nem olvastad <a href=regular-expressions.html>a
+reguláris kifejezésekről szóló fejezetet</a>, akkor itt az ideje. Ez a fejezet
+feltételezi, hogy megérted a reguláris kifejezések alapjait, és gyorsan
+belemerül a speciálisabb felhasználási módokba.)
+<p>Ha angolul beszélő országban nőttél fel, vagy az iskolában tanultál angolt,
+akkor valószínűleg tisztában vagy az alapvető szabályokkal:
 <ul>
-<li>Ha a szó S, X vagy Z betűre végződik, tegyél utána egy ES-t. A <i>bass</i>-ból <i>basses</i> lesz, a <i>fax</i>-ból <i>faxes</i> és a <i>waltz</i>-ból <i>waltzes</i>.
-<li>Ha a szó hangos H-ra végződik, tegyél utána egy ES-t; ha néma H-ra, akkor csak egy S-t tegyél utána. Mi az a hangos H? Egy olyan H, amely más betűkkel kombinálva kiejtésre kerül. Így a <i>coach</i>-ból <i>coaches</i> lesz és a <i>rash</i>-ból <i>rashes</i>, mert a CH és SH kiejtésre kerülnek. De a <i>cheetah</i>-ból <i>cheetahs</i> lesz, mert a H néma.
-<li>Ha egy szó I-ként hangzó Y-ra végződik, akkor az Y-ból IES lesz; ha az Y egy magánhangzóval együtt áll, és emiatt másként ejtjük, akkor csak egy S-t kell hozzátenni. Így a <i>vacancy</i>-ból <i>vacancies</i> lesz, de a <i>day</i>-ből <i>days</i>.
+<li>Ha a szó S, X vagy Z betűre végződik, tegyél utána egy ES-t. A
+<i>bass</i>-ból <i>basses</i> lesz, a <i>fax</i>-ból <i>faxes</i> és a
+<i>waltz</i>-ból <i>waltzes</i>.
+<li>Ha a szó hangos H-ra végződik, tegyél utána egy ES-t; ha néma H-ra, akkor
+csak egy S-t tegyél utána. Mi az a hangos H? Egy olyan H, amely más betűkkel
+kombinálva kiejtésre kerül. Így a <i>coach</i>-ból <i>coaches</i> lesz és a
+<i>rash</i>-ból <i>rashes</i>, mert a CH és SH kiejtésre kerülnek. De a
+<i>cheetah</i>-ból <i>cheetahs</i> lesz, mert a H néma.
+<li>Ha egy szó I-ként hangzó Y-ra végződik, akkor az Y-ból IES lesz; ha az Y
+egy magánhangzóval együtt áll, és emiatt másként ejtjük, akkor csak egy S-t
+kell hozzátenni. Így a <i>vacancy</i>-ból <i>vacancies</i> lesz, de a
+<i>day</i>-ből <i>days</i>.
 <li>Ha semmi más nem segít, akkor tegyél utána egy S-t, és reménykedj.
 </ul>
-<p>(Tudom, rengeteg kivétel van. A <i>man</i>-ből <i>men</i> lesz és a <i>woman</i>-ből <i>women</i>, de a <i>human</i>-ből <i>humans</i>. A <i>mouse</i>-ból <i>mice</i> és a <i>louse</i>-ból <i>lice</i>, de a <i>house</i>-ból <i>houses</i>. A <i>knife</i>-ból <i>knives</i> lesz, és a <i>wife</i>-ból <i>wives</i>, de a <i>lowlife</i>-ból <i>lowlifes</i>. Az olyan szavakba pedig ne is menjünk bele, amelyek megegyeznek a többesszámaikkal, mint  a <i>sheep</i>, <i>deer</i> és <i>haiku</i>.)
+<p>(Tudom, rengeteg kivétel van. A <i>man</i>-ből <i>men</i> lesz és a
+<i>woman</i>-ből <i>women</i>, de a <i>human</i>-ből <i>humans</i>. A
+<i>mouse</i>-ból <i>mice</i> és a <i>louse</i>-ból <i>lice</i>, de a
+<i>house</i>-ból <i>houses</i>. A <i>knife</i>-ból <i>knives</i> lesz, és a
+<i>wife</i>-ból <i>wives</i>, de a <i>lowlife</i>-ból <i>lowlifes</i>. Az olyan
+szavakba pedig ne is menjünk bele, amelyek megegyeznek a többesszámaikkal, mint
+a <i>sheep</i>, <i>deer</i> és <i>haiku</i>.)
 <p>Más nyelvek természetesen teljesen mások.
-<p>Tervezzünk egy Python függvénytárat, amely automatikusan többesszámba teszi az angol főneveket. Csak ezzel a négy szabállyal indulunk, de ne felejtsd el, hogy elkerülhetetlenül szükség lesz továbbiak hozzáadására is.
+<p>Tervezzünk egy Python függvénytárat, amely automatikusan többesszámba teszi
+az angol főneveket. Csak ezzel a négy szabállyal indulunk, de ne felejtsd el,
+hogy elkerülhetetlenül szükség lesz továbbiak hozzáadására is.
 <p class=a>&#x2042;
 
 <h2 id=i-know>Tudom, használjunk reguláris kifejezéseket!</h2>
-<p>Tehát szavakkal állunk szemben, ez legalábbis angolul azt jelenti, hogy karakterek sorozatai vannak előttünk. Vannak szabályaid, amelyek szerint különböző karakterkombinációkat kell keresned, majd különböző dolgokat kell velük csinálnod. Ez a feladat úgy hangzik, mintha a reguláris kifejezésekre szabták volna!
+<p>Tehát szavakkal állunk szemben, ez legalábbis angolul azt jelenti, hogy
+karakterek sorozatai vannak előttünk. Vannak szabályaid, amelyek szerint
+különböző karakterkombinációkat kell keresned, majd különböző dolgokat kell
+velük csinálnod. Ez a feladat úgy hangzik, mintha a reguláris kifejezésekre szabták volna!
 <p class=d>[<a href=examples/plural1.py>a <code>plural1.py</code> letöltése</a>]
 <pre class=pp><code>import re
 
@@ -49,8 +83,16 @@ def többes(főnév):
     else:
         return főnév + 's'</code></pre>
 <ol>
-<li>Ez egy reguláris kifejezés, de olyan szintaxist használ, amilyet a <a href=regular-expressions.html><i>Reguláris kifejezések</i></a> fejezetben nem láttál. A szögletes zárójelek azt jelentik: &#8222;illeszkedjen ezen karakterek közül pontosan egyre.&#8221; Így az <code>[sxz]</code> jelentése &#8222;<code>s</code> vagy <code>x</code> vagy <code>z</code>&#8221;, de csak az egyik. A <code>$</code> már ismerős, a karakterlánc végére illeszkedik. Egyesítve ez a reguláris kifejezés azt teszteli, hogy a <var>főnév</var> <code>s</code>, <code>x</code> vagy <code>z</code> betűre végződik-e.
-<li>Ez a <code>re.sub()</code> függvény reguláris kifejezésekre épülő karakterlánc-helyettesítéseket végez.
+<li>Ez egy reguláris kifejezés, de olyan szintaxist használ, amilyet a <a
+href=regular-expressions.html><i>Reguláris kifejezések</i></a> fejezetben nem
+láttál. A szögletes zárójelek azt jelentik: &#8222;illeszkedjen ezen karakterek
+közül pontosan egyre.&#8221; Így az <code>[sxz]</code> jelentése
+&#8222;<code>s</code> vagy <code>x</code> vagy <code>z</code>&#8221;, de csak
+az egyik. A <code>$</code> már ismerős, a karakterlánc végére illeszkedik. 
+Egyesítve ez a reguláris kifejezés azt teszteli, hogy a <var>főnév</var>
+<code>s</code>, <code>x</code> vagy <code>z</code> betűre végződik-e.
+<li>Ez a <code>re.sub()</code> függvény reguláris kifejezésekre épülő
+karakterlánc-helyettesítéseket végez.
 </ol>
 
 <p>Nézzük meg részletesebben a reguláris kifejezések helyettesítéseit.
@@ -65,10 +107,17 @@ def többes(főnév):
 <a><samp class=p>>>> </samp><kbd class=pp>re.sub('[abc]', 'o', 'caps')</kbd>  <span class=u>&#x2463;</span></a>
 <samp class=pp>'oops'</samp></pre>
 <ol>
-<li>A <code>Mark</code> karakterlánc tartalmaz <code>a</code>, <code>b</code> vagy <code>c</code> betűt? Igen, tartalmaz egy <code>a</code>-t.
-<li>Rendben, most keressük meg az <code>a</code>, <code>b</code> vagy <code>c</code> valamelyikét, és cseréljük le egy <code>o</code>-ra. A <code>Mark</code>-ból <code>Mork</code> lesz.
+<li>A <code>Mark</code> karakterlánc tartalmaz <code>a</code>, <code>b</code>
+vagy <code>c</code> betűt? Igen, tartalmaz egy <code>a</code>-t.
+<li>Rendben, most keressük meg az <code>a</code>, <code>b</code> vagy
+<code>c</code> valamelyikét, és cseréljük le egy <code>o</code>-ra. A
+<code>Mark</code>-ból <code>Mork</code> lesz.
 <li>Ugyanez a függvény a <code>rock</code>-ból <code>rook</code>-ot csinál.
-<li>Azt gondolhatod, hogy ez a <code>caps</code>-ból <code>oaps</code>-ot csinál, de nem. A <code>re.sub</code> <em>minden</em> találatot helyettesít, nem csak a legelsőt. Így ez a reguláris kifejezés a <code>caps</code>-ból <code>oops</code>-ot csinál, mert a <code>c</code> és az <code>a</code> is <code>o</code>-vá változik.
+<li>Azt gondolhatod, hogy ez a <code>caps</code>-ból <code>oaps</code>-ot
+csinál, de nem. A <code>re.sub</code> <em>minden</em> találatot helyettesít,
+nem csak a legelsőt. Így ez a reguláris kifejezés a <code>caps</code>-ból
+<code>oops</code>-ot csinál, mert a <code>c</code> és az <code>a</code> is
+<code>o</code>-vá változik.
 </ol>
 
 <p>Most térjünk vissza a <code>többes()</code> függvényhez&hellip;
@@ -83,9 +132,25 @@ def többes(főnév):
     else:
         return főnév + 's'</code></pre>
 <ol>
-<li>Itt a karakterlánc végét (amely a <code>$</code> jelre illeszkedik) cseréled az <code>es</code> karakterláncra. Más szóval hozzáteszed az <code>es</code>-t a karakterlánchoz. Ugyanezt elérhetnéd karakterláncok összefűzésével is, például így: <code>főnév + 'es'</code>, de minden szabályhoz a reguláris kifejezések használatát választottam, a fejezet későbbi részeiben világossá váló okok miatt.
-<li>Alaposan nézd meg, ez egy másik új variáció. A <code>^</code> a szögletes zárójelen belüli első karakterként valami különlegeset jelent: tagadást. A <code>[^abc]</code> azt jelenti: &#8222;bármely karakter, <em>kivéve</em> az <code>a</code>, <code>b</code> vagy <code>c</code>&#8221;. Így a <code>[^aeioudgkprt]</code> jelentése: bármely karakter, kivéve az <code>a</code>, <code>e</code>, <code>i</code>, <code>o</code>, <code>u</code>, <code>d</code>, <code>g</code>, <code>k</code>, <code>p</code>, <code>r</code> vagy <code>t</code>. Ezután a karaktert egy <code>h</code>, majd a karakterlánc vége kell kövesse. Olyan szavakat keresel, amelyek hallható H-ra végződnek.
-<li>Itt ugyanaz a minta: olyan szavak illeszkednek, amelyek Y-ra végződnek, és az Y előtti karakter <em>nem</em> <code>a</code>, <code>e</code>, <code>i</code>, <code>o</code> vagy <code>u</code>. Olyan szavakat keresel, amelyek I-ként hangzó Y-ra végződnek.
+<li>Itt a karakterlánc végét (amely a <code>$</code> jelre illeszkedik)
+cseréled az <code>es</code> karakterláncra. Más szóval hozzáteszed az
+<code>es</code>-t a karakterlánchoz. Ugyanezt elérhetnéd karakterláncok
+összefűzésével is, például így: <code>főnév + 'es'</code>, de minden szabályhoz
+a reguláris kifejezések használatát választottam, a fejezet későbbi részeiben
+világossá váló okok miatt.
+<li>Alaposan nézd meg, ez egy másik új variáció. A <code>^</code> a szögletes
+zárójelen belüli első karakterként valami különlegeset jelent: tagadást. A
+<code>[^abc]</code> azt jelenti: &#8222;bármely karakter, <em>kivéve</em> az
+<code>a</code>, <code>b</code> vagy <code>c</code>&#8221;. Így a
+<code>[^aeioudgkprt]</code> jelentése: bármely karakter, kivéve az
+<code>a</code>, <code>e</code>, <code>i</code>, <code>o</code>, <code>u</code>,
+<code>d</code>, <code>g</code>, <code>k</code>, <code>p</code>, <code>r</code>
+vagy <code>t</code>. Ezután a karaktert egy <code>h</code>, majd a karakterlánc
+vége kell kövesse. Olyan szavakat keresel, amelyek hallható H-ra végződnek.
+<li>Itt ugyanaz a minta: olyan szavak illeszkednek, amelyek Y-ra végződnek, és
+az Y előtti karakter <em>nem</em> <code>a</code>, <code>e</code>,
+<code>i</code>, <code>o</code> vagy <code>u</code>. Olyan szavakat keresel,
+amelyek I-ként hangzó Y-ra végződnek.
 </ol>
 
 <p>Nézzük meg részletesebben a tagadó reguláris kifejezéseket.
@@ -101,8 +166,13 @@ def többes(főnév):
 <a><samp class=p>>>> </samp><kbd class=pp>re.search('[^aeiou]y$', 'pita')</kbd>     <span class=u>&#x2462;</span></a>
 <samp class=p>>>> </samp></pre>
 <ol>
-<li>A <code>vacancy</code> illeszkedik erre a reguláris kifejezésre, mert <code>cy</code>-ra végződik, és a <code>c</code> nem <code>a</code>, <code>e</code>, <code>i</code>, <code>o</code> vagy <code>u</code>.
-<li>A <code>boy</code> nem illeszkedik, mert <code>oy</code>-ra végződik, és kifejezetten megadtad, hogy az <code>y</code> előtti karakter nem lehet <code>o</code>. A <code>day</code> sem illeszkedik, mert <code>ay</code>-ra végződik.
+<li>A <code>vacancy</code> illeszkedik erre a reguláris kifejezésre, mert
+<code>cy</code>-ra végződik, és a <code>c</code> nem <code>a</code>,
+<code>e</code>, <code>i</code>, <code>o</code> vagy <code>u</code>.
+<li>A <code>boy</code> nem illeszkedik, mert <code>oy</code>-ra végződik, és
+kifejezetten megadtad, hogy az <code>y</code> előtti karakter nem lehet
+<code>o</code>. A <code>day</code> sem illeszkedik, mert <code>ay</code>-ra
+végződik.
 <li>A <code>pita</code> nem illeszkedik, mert nem <code>y</code>-ra végződik.
 </ol>
 <pre class=screen>
@@ -113,17 +183,44 @@ def többes(főnév):
 <a><samp class=p>>>> </samp><kbd class=pp>re.sub('([^aeiou])y$', r'\1ies', 'vacancy')</kbd>  <span class=u>&#x2461;</span></a>
 <samp class=pp>'vacancies'</samp></pre>
 <ol>
-<li>Ez a reguláris kifejezés a <code>vacancy</code>-ből <code>vacancies</code>-t csinál, az <code>agency</code>-ből pedig <code>agencies</code>-t, és pontosan ezt akartad. Ne feledd el, hogy a <code>boy</code>-ból is <code>boies</code>-t csinálna, de a függvényben ez soha nem fog megtörténni, mert előbb a <code>re.search</code> hívásával eldöntötted, hogy végre kell-e hajtani ezt a <code>re.sub</code> hívást.
-<li>Csak mellékesen szeretném felhívni a figyelmed, hogy ezt a két reguláris kifejezést (az egyik a szabály alkalmazhatóságának vizsgálata, a másik a tényleges alkalmazása) egyetlen reguláris kifejezéssé lehet egyesíteni. Az egyesített kifejezés pedig így nézne ki. A zöme ismerős kell legyen: egy megjegyzett csoportot használsz, amelyet az <a href=regular-expressions.html#phonenumbers>Esettanulmány: telefonszámok értelmezése</a> fejezetben ismerhettél meg. A csoport használatával az <code>y</code> előtti karakter kerül megjegyzésre. Ezután a helyettesítési karakterláncban új szintaxist használsz: a <code>\1</code> jelentése: &#8222;hé, az elsőként megjegyzett csoport? Ide tedd.&#8221; Ebben az esetben a <code>c</code>-t jegyzed meg az <code>y</code> előtt; a helyettesítés végrehajtásakor a <code>c</code> a <code>c</code> helyére, az <code>ies</code> az <code>y</code> helyére kerül. (Ha több megjegyzett csoportod is van, akkor használhatod a <code>\2</code> és <code>\3</code> stb. jelöléseket.)
+<li>Ez a reguláris kifejezés a <code>vacancy</code>-ből
+<code>vacancies</code>-t csinál, az <code>agency</code>-ből pedig
+<code>agencies</code>-t, és pontosan ezt akartad. Ne feledd el, hogy a
+<code>boy</code>-ból is <code>boies</code>-t csinálna, de a függvényben ez soha
+nem fog megtörténni, mert előbb a <code>re.search</code> hívásával eldöntötted,
+hogy végre kell-e hajtani ezt a <code>re.sub</code> hívást.
+<li>Csak mellékesen szeretném felhívni a figyelmed, hogy ezt a két reguláris
+kifejezést (az egyik a szabály alkalmazhatóságának vizsgálata, a másik a
+tényleges alkalmazása) egyetlen reguláris kifejezéssé lehet egyesíteni. Az
+egyesített kifejezés pedig így nézne ki. A zöme ismerős kell legyen: egy
+megjegyzett csoportot használsz, amelyet az <a
+href=regular-expressions.html#phonenumbers>Esettanulmány: telefonszámok
+értelmezése</a> fejezetben ismerhettél meg. A csoport használatával az
+<code>y</code> előtti karakter kerül megjegyzésre. Ezután a helyettesítési
+karakterláncban új szintaxist használsz: a <code>\1</code> jelentése:
+&#8222;hé, az elsőként megjegyzett csoport? Ide tedd.&#8221; Ebben az esetben a
+<code>c</code>-t jegyzed meg az <code>y</code> előtt; a helyettesítés
+végrehajtásakor a <code>c</code> a <code>c</code> helyére, az <code>ies</code>
+az <code>y</code> helyére kerül. (Ha több megjegyzett csoportod is van, akkor
+használhatod a <code>\2</code> és <code>\3</code> stb. jelöléseket.)
 </ol>
-<p>A reguláris kifejezések helyettesítései nagyon hatékonyak, és a <code>\1</code> szintaxis csak még hatékonyabbá teszi őket. A teljes művelet egy reguláris kifejezéssé kombinálása azonban sokkal nehezebben olvasható, és nem felel meg a többesszám-szabályokban először leírt módszernek. Eredetileg ilyen szabályokat fektettél le: &#8222;ha a szó S, X vagy Z betűre végződik, tegyél utána egy ES-t&#8221;. Ha megnézed a függvényt, akkor két kódsorod van, amelyek azt mondják: &#8222;ha a szó S, X vagy Z betűre végződik, tegyél utána egy ES-t&#8221;. Ennél sokkal közvetlenebb már nem lehet.
+<p>A reguláris kifejezések helyettesítései nagyon hatékonyak, és a
+<code>\1</code> szintaxis csak még hatékonyabbá teszi őket. A teljes művelet
+egy reguláris kifejezéssé kombinálása azonban sokkal nehezebben olvasható, és
+nem felel meg a többesszám-szabályokban először leírt módszernek. Eredetileg
+ilyen szabályokat fektettél le: &#8222;ha a szó S, X vagy Z betűre végződik,
+tegyél utána egy ES-t&#8221;. Ha megnézed a függvényt, akkor két kódsorod van,
+amelyek azt mondják: &#8222;ha a szó S, X vagy Z betűre végződik, tegyél utána
+egy ES-t&#8221;. Ennél sokkal közvetlenebb már nem lehet.
 
 <p class=a>&#x2042;
 
 <h2 id=a-list-of-functions>Függvények listája</h2>
 
-<p>Most hozzáadunk egy absztrakciós szintet. Egy szabálylista definiálásával kezdted: ha ez van, csináld azt, egyébként lépj a következő szabályra. Ideiglenesen bonyolítsuk meg a program egy részét, hogy egy másik rész egyszerűsíthető legyen.
-
+<p>Most hozzáadunk egy absztrakciós szintet. Egy szabálylista definiálásával
+kezdted: ha ez van, csináld azt, egyébként lépj a következő szabályra. 
+Ideiglenesen bonyolítsuk meg a program egy részét, hogy egy másik rész
+egyszerűsíthető legyen.
 <p class=d>[<a href=examples/plural2.py>a <code>plural2.py</code> letöltése</a>]
 <pre class=pp><code>import re
 
@@ -162,16 +259,42 @@ def többes(főnév):
         if matches_rule(főnév):
             return apply_rule(főnév)</code></pre>
 <ol>
-<li>Most minden illesztési szabályhoz saját függvény tartozik, amely a <code>re.search()</code> függvény hívásának eredményét adja vissza.
-<li>Minden alkalmazási szabályhoz is saját függvény tartozik, amely meghívja a <code>re.sub()</code> függvényt a megfelelő többes számba tevő szabály alkalmazásához.
-<li>Egy több szabályt tartalmazó függvény (<code>többes()</code>) helyett a <code>szabályok</code> nevű adatszerkezetet használjuk, amely függvénypárok sorozatát tartalmazza.
-<li>Mivel a szabályok ki lettek szervezve egy önálló adatszerkezetbe, az új <code>többes()</code> függvény néhány sornyi kódra csökkenthető. Egy <code>for</code> ciklus használatával kettesével veheted ki az illesztési és alkalmazási szabályokat (egy illesztés, egy alkalmazás) a <var>szabályok</var> adatszerkezetből. A <code>for</code> ciklus első ismétlésében a <var>matches_rule</var> értéke <code>match_sxz</code>, az <var>apply_rule</var> értéke pedig <code>apply_sxz</code> lesz. A második ismétlésben (feltételezve, hogy eljut odáig), a <var>matches_rule</var> értéke <code>match_h</code>, az <var>apply_rule</var> értéke <code>apply_h</code> lesz. A függvény garantáltan visszaad valamit, mert az utolsó illesztési szabály (<code>match_default</code>) egyszerűen a <code>True</code> értéket adja vissza, ami azt jelenti, hogy a megegyező alkalmazási szabály (<code>apply_default</code>) mindig felhasználásra kerül.
+<li>Most minden illesztési szabályhoz saját függvény tartozik, amely a
+<code>re.search()</code> függvény hívásának eredményét adja vissza.
+<li>Minden alkalmazási szabályhoz is saját függvény tartozik, amely meghívja a
+<code>re.sub()</code> függvényt a megfelelő többes számba tevő szabály
+alkalmazásához.
+<li>Egy több szabályt tartalmazó függvény (<code>többes()</code>) helyett a
+<code>szabályok</code> nevű adatszerkezetet használjuk, amely függvénypárok
+sorozatát tartalmazza.
+<li>Mivel a szabályok ki lettek szervezve egy önálló adatszerkezetbe, az új
+<code>többes()</code> függvény néhány sornyi kódra csökkenthető. Egy
+<code>for</code> ciklus használatával kettesével veheted ki az illesztési és
+alkalmazási szabályokat (egy illesztés, egy alkalmazás) a <var>szabályok</var>
+adatszerkezetből. A <code>for</code> ciklus első ismétlésében a
+<var>matches_rule</var> értéke <code>match_sxz</code>, az <var>apply_rule</var>
+értéke pedig <code>apply_sxz</code> lesz. A második ismétlésben (feltételezve,
+hogy eljut odáig), a <var>matches_rule</var> értéke <code>match_h</code>, az
+<var>apply_rule</var> értéke <code>apply_h</code> lesz. A függvény garantáltan
+visszaad valamit, mert az utolsó illesztési szabály
+(<code>match_default</code>) egyszerűen a <code>True</code> értéket adja
+vissza, ami azt jelenti, hogy a megegyező alkalmazási szabály
+(<code>apply_default</code>) mindig felhasználásra kerül.
 </ol>
 
 <aside>A &#8222;szabályok&#8221; változó függvénypárok sorozata.</aside>
-<p>Ez a módszer azért működik, mert <a href=your-first-python-program.html#everythingisanobject>Pythonban minden objektum</a>, beleértve a függvényeket is. A <var>szabályok</var> adatszerkezet függvényeket tartalmaz&nbsp;&ndash;&nbsp;nem függvényneveket, hanem tényleges függvényobjektumokat. Amikor a <code>for</code> ciklusban értékként átadásra kerülnek, akkor a <var>matches_rule</var> és az <var>apply_rule</var> tényleges, meghívható függvényekké válnak. A <code>for</code> ciklus első ismétlésében ez egyenértékű a <code>matches_sxz(főnév)</code> hívásával, és ha ez találatot ad vissza, akkor az <code>apply_sxz(noun)</code> hívásával.
-<p>Ha ez a további absztrakciós szint bonyolult, akkor próbáld meg lebontani a függvényt az azonosság megértéséhez. A teljes <code>for</code> ciklus azonos a következővel:
-
+<p>Ez a módszer azért működik, mert <a
+href=your-first-python-program.html#everythingisanobject>Pythonban minden
+objektum</a>, beleértve a függvényeket is. A <var>szabályok</var> adatszerkezet
+függvényeket tartalmaz&nbsp;&ndash;&nbsp;nem függvényneveket, hanem tényleges
+függvényobjektumokat. Amikor a <code>for</code> ciklusban értékként átadásra
+kerülnek, akkor a <var>matches_rule</var> és az <var>apply_rule</var>
+tényleges, meghívható függvényekké válnak. A <code>for</code> ciklus első
+ismétlésében ez egyenértékű a <code>matches_sxz(főnév)</code> hívásával, és ha
+ez találatot ad vissza, akkor az <code>apply_sxz(noun)</code> hívásával.
+<p>Ha ez a további absztrakciós szint bonyolult, akkor próbáld meg lebontani a
+függvényt az azonosság megértéséhez. A teljes <code>for</code> ciklus azonos a
+következővel:
 <pre class='nd pp'><code>
 def többes(főnév):
     if match_sxz(főnév):
@@ -183,8 +306,9 @@ def többes(főnév):
     if match_default(főnév):
         return apply_default(főnév)</code></pre>
 
-<p>Ennek az az előnye, hogy a <code>többes()</code> függvény egyszerűbbé vált. Máshol megadott szabályok sorozatát várja, és általános módon halad rajtuk végig.
-
+<p>Ennek az az előnye, hogy a <code>többes()</code> függvény egyszerűbbé vált. 
+Máshol megadott szabályok sorozatát várja, és általános módon halad rajtuk
+végig.
 <ol>
 <li>Végy egy illesztési szabályt
 <li>Illeszkedik? Akkor hívd meg az alkalmazási szabályt, és add vissza az eredményt.
@@ -193,16 +317,28 @@ def többes(főnév):
 
 <p>A szabályok bárhol megadhatók, tetszőleges módon. A <code>többes()</code> függvényt nem érdekli.
 
-<p>Na most, megérte bevezetni ezt az absztrakciós szintet? Hát, még nem. Fontoljuk meg, hogy mibe kerülne egy új szabályt hozzáadni a függvényhez. Az első példában egy <code>if</code> utasítást kellene hozzáadni a <code>többes()</code> függvényhez. Ebben a második példában két függvény, a <code>match_foo()</code> és az <code>apply_foo()</code> hozzáadása lenne szükséges, majd a <var>szabályok</var> sorozat frissítése annak megadásához, hogy az új illesztés és alkalmazás függvények milyen sorrendben hívandók meg a többi szabályhoz képest.
-
+<p>Na most, megérte bevezetni ezt az absztrakciós szintet? Hát, még nem. 
+Fontoljuk meg, hogy mibe kerülne egy új szabályt hozzáadni a függvényhez. Az
+első példában egy <code>if</code> utasítást kellene hozzáadni a
+<code>többes()</code> függvényhez. Ebben a második példában két függvény, a
+<code>match_foo()</code> és az <code>apply_foo()</code> hozzáadása lenne
+szükséges, majd a <var>szabályok</var> sorozat frissítése annak megadásához,
+hogy az új illesztés és alkalmazás függvények milyen sorrendben hívandók meg a
+többi szabályhoz képest.
 <p>De ez csak egy lépcső a következő szakaszhoz. Haladjunk tovább&hellip;
 
 <p class=a>&#x2042;
 
 <h2 id=a-list-of-patterns>Minták listája</h2>
 
-<p>Igazából nem muszáj külön megnevezett függvényeket megadni minden illesztési és alkalmazási szabályhoz. Ezeket soha nem hívod meg közvetlenül, ugyanis ezeket hozzáadod a <var>rules</var> sorozathoz, és azon keresztül hívod. Továbbá minden függvény egy vagy két mintát követ. Minden illesztési függvény a <code>re.search()</code> metódust hívja, és minden alkalmazási függvény a <code>re.sub()</code> metódust. Szervezzük ki a mintákat, hogy az új szabályok megadása egyszerűbb lehessen.
-
+<p>Igazából nem muszáj külön megnevezett függvényeket megadni minden
+illesztési és alkalmazási szabályhoz. Ezeket soha nem hívod meg
+közvetlenül, ugyanis ezeket hozzáadod a <var>rules</var> sorozathoz,
+és azon keresztül hívod. Továbbá minden függvény egy vagy két mintát
+követ. Minden illesztési függvény a <code>re.search()</code> metódust
+hívja, és minden alkalmazási függvény a <code>re.sub()</code>
+metódust. Szervezzük ki a mintákat, hogy az új szabályok megadása
+egyszerűbb lehessen.
 <p class=d>[<a href=examples/plural3.py>a <code>plural3.py</code> letöltése</a>]
 <pre class=pp><code>import re
 
@@ -213,13 +349,36 @@ def build_match_and_apply_functions(pattern, search, replace):
         return re.sub(search, replace, word)
 <a>    return (matches_rule, apply_rule)                           <span class=u>&#x2462;</span></a></code></pre>
 <ol>
-<li>A <code>build_match_and_apply_functions()</code> egy más függvényeket dinamikusan felépítő függvény. A <var>pattern</var>, <var>search</var> és <var>replace</var> változókat várja, majd definiál egy <code>matches_rule()</code> függvényt, amely meghívja a <code>re.search()</code> metódust a <code>build_match_and_apply_functions()</code> függvénynek átadott <var>pattern</var> változóval, és a felépítendő <code>matches_rule()</code> függvénynek átadott <var>word</var> változóval. Bámulatos, hol tart már a tudomány.
-<li>Az alkalmaz függvény ugyanígy működik. Az alkalmaz függvény egy paramétert vár, és meghívja a <code>re.sub()</code> metódust a <code>build_match_and_apply_functions()</code> függvénynek átadott <var>search</var> és <var>replace</var> változókkal, és a felépítendő <code>apply_rule()</code> függvénynek átadott <var>word</var> változóval. Ezt a módszert, a külső paraméterek értékeinek dinamikus függvényeken belüli felhasználását <em>closure-öknek</em> nevezzük. Lényegében konstansokat definiálsz a felépítendő alkalmaz függvényen belül: egy paramétert vár (<var>word</var>), de aztán ezen és még két másik értéken (<var>search</var> és <var>replace</var>) dolgozik, amelyek az alkalmaz függvény definiálásakor lettek megadva.
-<li>Végül a <code>build_match_and_apply_functions()</code> függvény egy két értékből álló ennest ad vissza: az éppen létrehozott két függvényt. A függvényeken belül definiált konstansok (<var>pattern</var> a <code>matches_rule()</code> függvényen belül, illetve a <var>search</var> és <var>replace</var> az <code>apply_rule()</code> függvényen belül) megmaradnak a függvényekkel, még akkor is, amikor visszatér a <code>build_match_and_apply_functions()</code> függvény. Ez őrülten menő!
+<li>A <code>build_match_and_apply_functions()</code> egy más függvényeket
+dinamikusan felépítő függvény. A <var>pattern</var>, <var>search</var> és
+<var>replace</var> változókat várja, majd definiál egy
+<code>matches_rule()</code> függvényt, amely meghívja a
+<code>re.search()</code> metódust a
+<code>build_match_and_apply_functions()</code> függvénynek átadott
+<var>pattern</var> változóval, és a felépítendő <code>matches_rule()</code>
+függvénynek átadott <var>word</var> változóval. Bámulatos, hol tart már a tudomány.
+<li>Az alkalmaz függvény ugyanígy működik. Az alkalmaz függvény egy paramétert
+vár, és meghívja a <code>re.sub()</code> metódust a
+<code>build_match_and_apply_functions()</code> függvénynek átadott
+<var>search</var> és <var>replace</var> változókkal, és a felépítendő
+<code>apply_rule()</code> függvénynek átadott <var>word</var> változóval. Ezt a
+módszert, a külső paraméterek értékeinek dinamikus függvényeken belüli
+felhasználását <em>closure-öknek</em> nevezzük. Lényegében konstansokat
+definiálsz a felépítendő alkalmaz függvényen belül: egy paramétert vár
+(<var>word</var>), de aztán ezen és még két másik értéken (<var>search</var> és
+<var>replace</var>) dolgozik, amelyek az alkalmaz függvény definiálásakor
+lettek megadva.
+<li>Végül a <code>build_match_and_apply_functions()</code> függvény egy két
+értékből álló ennest ad vissza: az éppen létrehozott két függvényt. A
+függvényeken belül definiált konstansok (<var>pattern</var> a
+<code>matches_rule()</code> függvényen belül, illetve a <var>search</var> és
+<var>replace</var> az <code>apply_rule()</code> függvényen belül) megmaradnak a
+függvényekkel, még akkor is, amikor visszatér a
+<code>build_match_and_apply_functions()</code> függvény. Ez őrülten menő!
 </ol>
 
-<p>Ha ez hihetetlenül zavarosnak is tűnik (ahogy annak lennie is kell, ezek fura dolgok), világosabbá válhat, ha megmutatom hogyan használd.
-
+<p>Ha ez hihetetlenül zavarosnak is tűnik (ahogy annak lennie is kell, ezek
+fura dolgok), világosabbá válhat, ha megmutatom hogyan használd.
 <pre class=pp><code><a>patterns = \                                                        <span class=u>&#x2460;</span></a>
   (
     ('[sxz]$',           '$',  'es'),
@@ -230,28 +389,69 @@ def build_match_and_apply_functions(pattern, search, replace):
 <a>rules = [build_match_and_apply_functions(pattern, search, replace)  <span class=u>&#x2462;</span></a>
          for (pattern, search, replace) in patterns]</code></pre>
 <ol>
-<li>A többes számot előállító &#8222;szabályaink&#8221; most <em>karakterláncok</em> (nem függvények) ennesének enneseként vannak definiálva. Az első karakterlánc minden csoportban az a reguláris kifejezés minta, amelyet a <code>re.search()</code> metódusban használsz a szabály illeszkedésének meghatározásához. A csoportok második és harmadik karakterláncai a keresés és csere kifejezések, amelyeket a <code>re.sub()</code> metódusban használsz a szabály tényleges alkalmazására a főnév többes számúvá tételéhez.
-<li>Itt, a tartalék szabályban egy kis változás van. Az előző példában a <code>match_default()</code> függvény egyszerűen a <code>True</code> értéket adta vissza, amely azt jelentette, hogy a megadott szabályok egyike sem illeszkedett, a kód pedig egy <code>s</code> karaktert illesztett az adott szó végéhez. Ez a példa valami funkcionálisan egyenértékűt tesz. Az utolsó reguláris kifejezés azt ellenőrzi, hogy a szónak vége van-e(a <code>$</code> a karakterlánc végére illeszkedik). Természetesen minden karakterláncnak van vége, még az üres karakterláncnak is, így ez a kifejezés mindig illeszkedik. Így ugyanazt a célt szolgálja, mint a <code>match_default()</code> függvény, amely mindig a <code>True</code> értéket adta vissza: biztosítja, hogy ha több szabály nem illeszkedik, akkor a kód egy <code>s</code> karaktert fűzzön az adott szó végéhez.
-<li>Ez a sor a varázslat. Veszi a karakterláncok sorozatát a <var>patterns</var> ennesből, és ezeket függvények sorozatává alakítja. Hogyan? A karakterláncok &#8222;leképezésével&#8221; a <code>build_match_and_apply_functions()</code> függvényre. Vagyis veszi a karakterlánc-hármasokat, és meghívja a <code>build_match_and_apply_functions()</code> függvényt, argumentumként használva ezt a három karakterláncot. A <code>build_match_and_apply_functions()</code> függvény egy két függvényből álló ennest ad vissza. Ez azt jelenti, hogy a <var>rules</var> lista funkcionálisan egyenértékű lesz az előző példával: ennesek listája, amelyben minden ennes egy függvénypár. Az első függvény az illesztési függvény, amely meghívja a <code>re.search()</code> metódust, a második függvény pedig az alkalmazási függvény, amely a <code>re.sub()</code> metódust hívja meg.
+<li>A többes számot előállító &#8222;szabályaink&#8221; most
+<em>karakterláncok</em> (nem függvények) ennesének enneseként vannak
+definiálva. Az első karakterlánc minden csoportban az a reguláris kifejezés
+minta, amelyet a <code>re.search()</code> metódusban használsz a szabály
+illeszkedésének meghatározásához. A csoportok második és harmadik
+karakterláncai a keresés és csere kifejezések, amelyeket a
+<code>re.sub()</code> metódusban használsz a szabály tényleges alkalmazására a
+főnév többes számúvá tételéhez.
+<li>Itt, a tartalék szabályban egy kis változás van. Az előző példában a
+<code>match_default()</code> függvény egyszerűen a <code>True</code> értéket
+adta vissza, amely azt jelentette, hogy a megadott szabályok egyike sem
+illeszkedett, a kód pedig egy <code>s</code> karaktert illesztett az adott szó
+végéhez. Ez a példa valami funkcionálisan egyenértékűt tesz. Az utolsó
+reguláris kifejezés azt ellenőrzi, hogy a szónak vége van-e(a <code>$</code> a
+karakterlánc végére illeszkedik). Természetesen minden karakterláncnak van
+vége, még az üres karakterláncnak is, így ez a kifejezés mindig illeszkedik. 
+Így ugyanazt a célt szolgálja, mint a <code>match_default()</code> függvény,
+amely mindig a <code>True</code> értéket adta vissza: biztosítja, hogy ha több
+szabály nem illeszkedik, akkor a kód egy <code>s</code> karaktert fűzzön az
+adott szó végéhez.
+<li>Ez a sor a varázslat. Veszi a karakterláncok sorozatát a
+<var>patterns</var> ennesből, és ezeket függvények sorozatává alakítja. Hogyan? 
+A karakterláncok &#8222;leképezésével&#8221; a
+<code>build_match_and_apply_functions()</code> függvényre. Vagyis veszi a
+karakterlánc-hármasokat, és meghívja a
+<code>build_match_and_apply_functions()</code> függvényt, argumentumként
+használva ezt a három karakterláncot. A
+<code>build_match_and_apply_functions()</code> függvény egy két függvényből
+álló ennest ad vissza. Ez azt jelenti, hogy a <var>rules</var> lista
+funkcionálisan egyenértékű lesz az előző példával: ennesek listája, amelyben
+minden ennes egy függvénypár. Az első függvény az illesztési függvény, amely
+meghívja a <code>re.search()</code> metódust, a második függvény pedig az
+alkalmazási függvény, amely a <code>re.sub()</code> metódust hívja meg.
 </ol>
 
-<p>A parancsfájl ezen változatát a fő belépési ponttal, a <code>plural()</code> függvénnyel zárjuk.
-
+<p>A parancsfájl ezen változatát a fő belépési ponttal, a <code>plural()</code>
+függvénnyel zárjuk.
 <pre class=pp><code>def plural(noun):
 <a>    for matches_rule, apply_rule in rules:  <span class=u>&#x2460;</span></a>
         if matches_rule(noun):
             return apply_rule(noun)</code></pre>
 <ol>
-<li>Mivel a <var>rules</var> lista ugyanaz, mint az előző példában (tényleg az), nem érhet meglepetésként, hogy a <code>plural()</code> függvény egyáltalán nem változott. Teljesen általános, a szabályfüggvények listáját várja, és sorban meghívja azokat. A szabályok definiálásának módjával nem foglalkozik. Az előző példában ezek önálló nevesített függvényekként voltak definiálva. Most dinamikusan állnak össze, a <code>build_match_and_apply_functions()</code> függvény kimenetének leképezésével nyers karakterláncok listájára. Nem számít, a <code>plural()</code> függvény ugyanúgy működik.
+<li>Mivel a <var>rules</var> lista ugyanaz, mint az előző példában (tényleg
+az), nem érhet meglepetésként, hogy a <code>plural()</code> függvény egyáltalán
+nem változott. Teljesen általános, a szabályfüggvények listáját várja, és
+sorban meghívja azokat. A szabályok definiálásának módjával nem foglalkozik. Az
+előző példában ezek önálló nevesített függvényekként voltak definiálva. Most
+dinamikusan állnak össze, a <code>build_match_and_apply_functions()</code>
+függvény kimenetének leképezésével nyers karakterláncok listájára. Nem számít,
+a <code>plural()</code> függvény ugyanúgy működik.
 </ol>
 
 <p class=a>&#x2042;
 
 <h2 id=a-file-of-patterns>Minták fájlja</h2>
 
-<p>A többször szereplő kódot felszámoltad, és elég absztrakciót adtál hozzá, így a többes számot előállító szabályok karakterláncok listájában vannak meghatározva. A következő logikus lépés ezen karakterláncok önálló fájlba helyezése, ahol az ezeket használó kódtól függetlenül tarthatók karban.
-
-<p>Elsőként hozzunk létre egy szövegfájlt, amely tartalmazza a kívánt szabályokat. Nem kellenek csicsás adatszerkezetek, csak üres helyekkel elválasztott karakterláncok három oszlopban. Nevezzük <code>plural4-rules.txt</code>-nek.
+<p>A többször szereplő kódot felszámoltad, és elég absztrakciót adtál hozzá,
+így a többes számot előállító szabályok karakterláncok listájában vannak
+meghatározva. A következő logikus lépés ezen karakterláncok önálló fájlba
+helyezése, ahol az ezeket használó kódtól függetlenül tarthatók karban.
+<p>Elsőként hozzunk létre egy szövegfájlt, amely tartalmazza a kívánt
+szabályokat. Nem kellenek csicsás adatszerkezetek, csak üres helyekkel
+elválasztott karakterláncok három oszlopban. Nevezzük <code>plural4-rules.txt</code>-nek.
 
 <p class=d>[<a href=examples/plural4-rules.txt>a <code>plural4-rules.txt</code> letöltése</a>]
 <pre class='nd pp'><code>[sxz]$               $    es
@@ -278,20 +478,54 @@ rules = []
 <a>        rules.append(build_match_and_apply_functions(              <span class=u>&#x2464;</span></a>
                 pattern, search, replace))</code></pre>
 <ol>
-<li>A <code>build_match_and_apply_functions()</code> függvény nem változott. Még mindig closure-öket használsz két függvény dinamikus felépítésére, amelyek a külső függvényben definiált változókat használnak.
-<li>A globális <code>open()</code> függvény megnyit egy fájlt, és visszaad egy fájl objektumot. Ebben az esetben a megnyitott fájl minta karakterláncokat tartalmaz, a főnevek többes számba tételéhez. A <code>with</code> utasítás egy <i>kontextusnak</i> nevezett dolgot hoz létre: amikor a <code>with</code> blokk befejeződik, a Python automatikusan lezárja a fájlt, még ha kivétel is történt a <code>with</code> blokkon belül. A <code>with</code> blokkokról és a fájlobjektumokról a <a href=files.html>Fájlok</a> fejezetben fogsz többet megtudni.
-<li>A <code>for line in &lt;fileobject></code> szerkezet soronként beolvassa az adatokat a megnyitott fájlból, és a szöveget a <var>line</var> változóhoz rendeli. A fájlokból olvasásról a <a href=files.html>Fájlok</a> fejezetben fogsz többet megtudni.
-<li>A fájl minden sora valójában három értéket tartalmaz, ezeket üres hely választja el (tabok vagy szóközök, nem számít). A szétválasztásukhoz használd a <code>split()</code> karakterláncmetódust. A <code>split()</code> metódus első argumentuma a <code>None</code>, amely azt jelenti, hogy &#8222;vágd szét az üres helynél (tab vagy szóköz, nem számít).&#8221; A második argumentum a <code>3</code>, ami azt jelenti, hogy &#8222;vágd szét az üres helynél háromszor, és hagyd békén a sor többi részét.&#8221; Egy ilyen sor: <code>[sxz]$ $ es</code> a következő listává lesz szétvágva: <code>['[sxz]$', '$', 'es']</code>, amely azt jelenti, hogy a <var>pattern</var> értéke <code>'[sxz]$'</code>, a <var>search</var> értéke <code>'$'</code>, a <var>replace</var> értéke pedig <code>'es'</code> lesz. Rengeteg erő van ebben a pici kódsorban!
-<li>Végül átadod a <code>pattern</code>, <code>search</code> és <code>replace</code> változókat a <code>build_match_and_apply_functions()</code> függvénynek, amely függvények ennesét adja vissza. Ezt az ennest a <var>rules</var> listához fűzöd, a <var>rules</var> pedig az illesztés és alkalmazás függvények listáját fogja tárolni, ahogy azokat a <code>plural()</code> függvény várja.
+<li>A <code>build_match_and_apply_functions()</code> függvény nem változott. 
+Még mindig closure-öket használsz két függvény dinamikus felépítésére, amelyek
+a külső függvényben definiált változókat használnak.
+<li>A globális <code>open()</code> függvény megnyit egy fájlt, és visszaad egy
+fájl objektumot. Ebben az esetben a megnyitott fájl minta karakterláncokat
+tartalmaz, a főnevek többes számba tételéhez. A <code>with</code> utasítás egy
+<i>kontextusnak</i> nevezett dolgot hoz létre: amikor a <code>with</code> blokk
+befejeződik, a Python automatikusan lezárja a fájlt, még ha kivétel is történt
+a <code>with</code> blokkon belül. A <code>with</code> blokkokról és a
+fájlobjektumokról a <a href=files.html>Fájlok</a> fejezetben fogsz többet
+megtudni.
+<li>A <code>for line in &lt;fileobject></code> szerkezet soronként beolvassa az
+adatokat a megnyitott fájlból, és a szöveget a <var>line</var> változóhoz
+rendeli. A fájlokból olvasásról a <a href=files.html>Fájlok</a> fejezetben
+fogsz többet megtudni.
+<li>A fájl minden sora valójában három értéket tartalmaz, ezeket üres hely
+választja el (tabok vagy szóközök, nem számít). A szétválasztásukhoz használd a
+<code>split()</code> karakterláncmetódust. A <code>split()</code> metódus első
+argumentuma a <code>None</code>, amely azt jelenti, hogy &#8222;vágd szét az
+üres helynél (tab vagy szóköz, nem számít).&#8221; A második argumentum a
+<code>3</code>, ami azt jelenti, hogy &#8222;vágd szét az üres helynél
+háromszor, és hagyd békén a sor többi részét.&#8221; Egy ilyen sor:
+<code>[sxz]$ $ es</code> a következő listává lesz szétvágva: <code>['[sxz]$',
+'$', 'es']</code>, amely azt jelenti, hogy a <var>pattern</var> értéke
+<code>'[sxz]$'</code>, a <var>search</var> értéke <code>'$'</code>, a
+<var>replace</var> értéke pedig <code>'es'</code> lesz. Rengeteg erő van ebben
+a pici kódsorban!
+<li>Végül átadod a <code>pattern</code>, <code>search</code> és
+<code>replace</code> változókat a
+<code>build_match_and_apply_functions()</code> függvénynek, amely függvények
+ennesét adja vissza. Ezt az ennest a <var>rules</var> listához fűzöd, a
+<var>rules</var> pedig az illesztés és alkalmazás függvények listáját fogja
+tárolni, ahogy azokat a <code>plural()</code> függvény várja.
 </ol>
 
-<p>A fejlődés itt abban áll, hogy teljesen elkülönítetted a többes számot előállító szabályokat egy külső fájlba, így az azt használó kódtól külön lehet karbantartani. A kód kód, az adat adat, az élet szép.
+<p>A fejlődés itt abban áll, hogy teljesen elkülönítetted a többes számot
+előállító szabályokat egy külső fájlba, így az azt használó kódtól külön lehet
+karbantartani. A kód kód, az adat adat, az élet szép.
 
 <p class=a>&#x2042;
 
 <h2 id=generators>Generátorok</h2>
 
-<p>Nem lenne nagyszerű egy olyan általános <code>plural()</code> függvény, amely a szabályok fájlját dolgozza fel? Fogd a szabályokat, keress illeszkedést, alkalmazd a megfelelő átalakítást, menj a következő szabályra. Ez minden, amit a <code>plural()</code> függvénynek muszáj megoldania, és ez minden, amit a <code>plural()</code> függvénynek el kell végeznie.
+<p>Nem lenne nagyszerű egy olyan általános <code>plural()</code> függvény,
+amely a szabályok fájlját dolgozza fel? Fogd a szabályokat, keress
+illeszkedést, alkalmazd a megfelelő átalakítást, menj a következő szabályra. Ez
+minden, amit a <code>plural()</code> függvénynek muszáj megoldania, és ez
+minden, amit a <code>plural()</code> függvénynek el kell végeznie.
 <p class=d>[<a href=examples/plural5.py>a <code>plural5.py</code> letöltése</a>]
 <pre class='nd pp'><code>def rules(rules_filename):
     with open(rules_filename, encoding='utf-8') as pattern_file:
@@ -328,19 +562,46 @@ def plural(noun, rules_filename='plural5-rules.txt'):
 <samp>incrementing x
 4</samp></pre>
 <ol>
-<li>A <code>yield</code> kulcsszó jelenléte a <code>make_counter</code> függvényben azt jelenti, hogy ez nem egy átlagos függvény. Ez egy különleges függvény, amely időről időre értékeket állít elő. Úgy képzelheted el, mint egy folytatható függvényt. A meghívása egy <i>generátort</i> ad vissza, amely az <var>x</var> egymást követő értékeinek előállítására használható.
-<li>A <code>make_counter</code> generátor egy példányának előállításához csak hívd meg, mint bármely függvényt. Ne feledd, hogy ez nem futtatja le ténylegesen a függvény kódját. Ezt abból láthatod, hogy a <code>make_counter()</code> függvény első sora meghívja a <code>print()</code> függvényt, de még semmi sem került kiírásra.
+<li>A <code>yield</code> kulcsszó jelenléte a <code>make_counter</code>
+függvényben azt jelenti, hogy ez nem egy átlagos függvény. Ez egy különleges
+függvény, amely időről időre értékeket állít elő. Úgy képzelheted el, mint egy
+folytatható függvényt. A meghívása egy <i>generátort</i> ad vissza, amely az
+<var>x</var> egymást követő értékeinek előállítására használható.
+<li>A <code>make_counter</code> generátor egy példányának előállításához csak
+hívd meg, mint bármely függvényt. Ne feledd, hogy ez nem futtatja le
+ténylegesen a függvény kódját. Ezt abból láthatod, hogy a
+<code>make_counter()</code> függvény első sora meghívja a <code>print()</code>
+függvényt, de még semmi sem került kiírásra.
 <li>A <code>make_counter()</code> függvény egy generátor objektumot ad vissza.
-<li>A <code>next()</code> függvény egy generátor objektumot vár, és visszaadja a következő értékét. A <code>next()</code> a <var>counter</var> generátorral való első hívásakor végrehajtja a <code>make_counter()</code> kódját az első <code>yield</code> utasításig, majd visszaadja az eredményül kapott értéket. Ebben az esetben ez a <code>2</code> lesz, mert a generátort eredetileg a <code>make_counter(2)</code> hívásával hoztad létre.
-<li>A <code>next()</code> ismételt hívása ugyanazzal a generátor objektummal pontosan ott folytatja a végrehajtást, ahol abbahagyta, és addig folytatja, amíg nem találja meg a következő <code>yield</code> utasítást. Minden változó, helyi állapot stb. mentésre kerül a <code>yield</code> hívásakor, és visszaállításra kerül a <code>next()</code> hívásakor. A végrehajtásra váró következő kódsor a <code>print()</code> függvényt hívja, amely kiírja az <samp>incrementing x</samp> kifejezést. Ezután végrehajtja az <code>x = x + 1</code> utasítást. Majd végighalad újra a <code>while</code> cikluson, és az első dolog, amivel találkozik, az a <code>yield x</code> utasítás, amely elmenti az összes állapotot, és visszaadja az <var>x</var> aktuális értékét (most <code>3</code>).
-<li>A <code>next(counter)</code> újabb hívásakor minden ugyanúgy történik, de most az <var>x</var> értéke <code>4</code>.
+<li>A <code>next()</code> függvény egy generátor objektumot vár, és visszaadja
+a következő értékét. A <code>next()</code> a <var>counter</var> generátorral
+való első hívásakor végrehajtja a <code>make_counter()</code> kódját az első
+<code>yield</code> utasításig, majd visszaadja az eredményül kapott értéket. 
+Ebben az esetben ez a <code>2</code> lesz, mert a generátort eredetileg a
+<code>make_counter(2)</code> hívásával hoztad létre.
+<li>A <code>next()</code> ismételt hívása ugyanazzal a generátor objektummal
+pontosan ott folytatja a végrehajtást, ahol abbahagyta, és addig folytatja,
+amíg nem találja meg a következő <code>yield</code> utasítást. Minden változó,
+helyi állapot stb. mentésre kerül a <code>yield</code> hívásakor, és
+visszaállításra kerül a <code>next()</code> hívásakor. A végrehajtásra váró
+következő kódsor a <code>print()</code> függvényt hívja, amely kiírja az
+<samp>incrementing x</samp> kifejezést. Ezután végrehajtja az <code>x = x +
+1</code> utasítást. Majd végighalad újra a <code>while</code> cikluson, és az
+első dolog, amivel találkozik, az a <code>yield x</code> utasítás, amely
+elmenti az összes állapotot, és visszaadja az <var>x</var> aktuális értékét
+(most <code>3</code>).
+<li>A <code>next(counter)</code> újabb hívásakor minden ugyanúgy történik, de
+most az <var>x</var> értéke <code>4</code>.
 </ol>
 
-<p>Mivel a <code>make_counter</code> egy végtelen ciklust tartalmaz, elméletileg ezt a végtelenségig csinálhatnád, folyamatosan növelné az <var>x</var> értékét és írná ki azt. De nézzük meg inkább a generátorok értelmesebb felhasználási módjait.
-
+<p>Mivel a <code>make_counter</code> egy végtelen ciklust tartalmaz,
+elméletileg ezt a végtelenségig csinálhatnád, folyamatosan növelné az
+<var>x</var> értékét és írná ki azt. De nézzük meg inkább a generátorok
+értelmesebb felhasználási módjait.
 <h3 id=a-fibonacci-generator>Egy Fibonacci generátor</h3>
 
-<aside>A &#8222;yield&#8221; szüneteltet egy függvényt. A &#8222;next()&#8221; ott folytatja, ahol az abbamaradt.</aside>
+<aside>A &#8222;yield&#8221; szünetelteti a függvényt. A &#8222;next()&#8221;
+ott folytatja, ahol az abbamaradt.</aside>
 
 <p class=d>[<a href=examples/fibonacci.py>a <code>fibonacci.py</code> letöltése</a>]
 <pre class=pp><code>def fib(max):
@@ -349,13 +610,25 @@ def plural(noun, rules_filename='plural5-rules.txt'):
 <a>        yield a          <span class=u>&#x2461;</span></a>
 <a>        a, b = b, a + b  <span class=u>&#x2462;</span></a></code></pre>
 <ol>
-<li>A Fibonacci sorozat egy olyan számsorozat, amelyben minden szám az előtte lévő kettő összege. A <code>0</code>-val és <code>1</code>-gyel kezdődik, először lassan, majd egyre gyorsabban növekszik. A sorozat elindításához két változóra van szükséged: az <var>a</var> <code>0</code>-nál kezdődik, a <var>b</var> pedig <code>1</code>-nél.
+<li>A Fibonacci sorozat egy olyan számsorozat, amelyben minden szám az előtte
+lévő kettő összege. A <code>0</code>-val és <code>1</code>-gyel kezdődik,
+először lassan, majd egyre gyorsabban növekszik. A sorozat elindításához két
+változóra van szükséged: az <var>a</var> <code>0</code>-nál kezdődik, a
+<var>b</var> pedig <code>1</code>-nél.
 <li>Az <var>a</var> a sorozat aktuális értéke, így a yield-del visszaadjuk.
-<li>A <var>b</var> a sorozat következő száma, így azt hozzárendeljük az <var>a</var>-hoz, de kiszámoljuk a következő értéket is(<code>a + b</code>) és hozzárendeljük a <var>b</var>-hez későbbi felhasználásra. Ne feledd, hogy ez párhuzamosan történik: ha <var>a</var> = <code>3</code> és <var>b</var> = <code>5</code>, akkor az <code>a, b = b, a + b</code> beállítja az <var>a</var>-t <code>5</code>-re (a <var>b</var> előző értékére) és a <var>b</var>-t <code>8</code>-ra (az <var>a</var> és <var>b</var> előző értékeinek összegére).
+<li>A <var>b</var> a sorozat következő száma, így azt hozzárendeljük az
+<var>a</var>-hoz, de kiszámoljuk a következő értéket is(<code>a + b</code>) és
+hozzárendeljük a <var>b</var>-hez későbbi felhasználásra. Ne feledd, hogy ez
+párhuzamosan történik: ha <var>a</var> = <code>3</code> és <var>b</var> =
+<code>5</code>, akkor az <code>a, b = b, a + b</code> beállítja az
+<var>a</var>-t <code>5</code>-re (a <var>b</var> előző értékére) és a
+<var>b</var>-t <code>8</code>-ra (az <var>a</var> és <var>b</var> előző
+értékeinek összegére).
 </ol>
 
-<p>Így van egy függvényed, amely egymást követő Fibonacci számokat ír ki. Persze, lehetne rekurziót is használni, de így olvashatóbb. Továbbá remekül működik <code>for</code> ciklusokkal.
-
+<p>Így van egy függvényed, amely egymást követő Fibonacci számokat ír ki. 
+Persze, lehetne rekurziót is használni, de így olvashatóbb. Továbbá remekül
+működik <code>for</code> ciklusokkal.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>from fibonacci import fib</kbd>
 <a><samp class=p>>>> </samp><kbd class=pp>for n in fib(1000):</kbd>      <span class=u>&#x2460;</span></a>
@@ -364,15 +637,25 @@ def plural(noun, rules_filename='plural5-rules.txt'):
 <a><samp class=p>>>> </samp><kbd class=pp>list(fib(1000))</kbd>          <span class=u>&#x2462;</span></a>
 <samp class=pp>[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987]</samp></pre>
 <ol>
-<li>A <code>fib()</code>-hez hasonló generátort közvetlenül használhatod egy <code>for</code> ciklusban. A <code>for</code> ciklus automatikusan meghívja a <code>next()</code> függvényt az értékek kinyeréséhez a <code>fib()</code> generátorból, és hozzárendeli azokat a <code>for</code> ciklus indexváltozójához (<var>n</var>).
-<li>A <code>for</code> ciklus minden végrehajtásakor az <var>n</var> új értéket kap a <code>yield</code> utasítástól a <code>fib()</code> generátorban, csak ki kell íratnod. Miután a <code>fib()</code> kifogy a számokból (az <var>a</var> nagyobbá válik, mint a <var>max</var>, amely ebben az esetben <code>1000</code>), akkor a <code>for</code> ciklus kilép.
-<li>Ez egy hasznos sablon: adj át egy generátort a <code>list()</code> függvénynek, és az végigjárja az egész generátort (mint a <code>for</code> ciklus az előző példában), és visszaadja az összes érték listáját.
+<li>A <code>fib()</code>-hez hasonló generátort közvetlenül használhatod egy
+<code>for</code> ciklusban. A <code>for</code> ciklus automatikusan meghívja a
+<code>next()</code> függvényt az értékek kinyeréséhez a <code>fib()</code>
+generátorból, és hozzárendeli azokat a <code>for</code> ciklus
+indexváltozójához (<var>n</var>).
+<li>A <code>for</code> ciklus minden végrehajtásakor az <var>n</var> új értéket
+kap a <code>yield</code> utasítástól a <code>fib()</code> generátorban, csak ki
+kell íratnod. Miután a <code>fib()</code> kifogy a számokból (az <var>a</var>
+nagyobbá válik, mint a <var>max</var>, amely ebben az esetben
+<code>1000</code>), akkor a <code>for</code> ciklus kilép.
+<li>Ez egy hasznos sablon: adj át egy generátort a <code>list()</code>
+függvénynek, és az végigjárja az egész generátort (mint a <code>for</code>
+ciklus az előző példában), és visszaadja az összes érték listáját.
 </ol>
 
 <h3 id=a-plural-rule-generator>Egy többesszámszabály-generátor</h3>
 
-<p>Térjünk vissza a <code>plural5.py</code> programhoz, és nézzük meg, hogyan működik a <code>plural()</code> függvény ezen változata.
-
+<p>Térjünk vissza a <code>plural5.py</code> programhoz, és nézzük meg, hogyan
+működik a <code>plural()</code> függvény ezen változata.
 <pre class=pp><code>def rules(rules_filename):
     with open(rules_filename, encoding='utf-8') as pattern_file:
         for line in pattern_file:
@@ -385,18 +668,47 @@ def plural(noun, rules_filename='plural5-rules.txt'):
             return apply_rule(noun)
     raise ValueError('no matching rule for {0}'.format(noun))</code></pre>
 <ol>
-<li>Itt nincs varázslat. Emlékezz, hogy a szabályfájl sorai három, üres helyekkel elválasztott értéket tartalmaznak, így a <code>line.split(None, 3)</code> használatával kaphatod meg a három &#8222;oszlopot&#8221;, majd három helyi változóhoz rendeled azokat.
-<li><em>Ekkor jön a yield.</em> Mit ad vissza a yield? Két függvényt, amelyeket a korábbi példákban szereplő régi barátunk, a <code>build_match_and_apply_functions()</code> épít fel dinamikusan. Más szavakkal a <code>rules()</code> egy generátor, amely illesztési és alkalmazási függvényeket ad vissza <em>igény szerint</em>.
-<li>Mivel a <code>rules()</code> egy generátor, közvetlenül használhatod egy <code>for</code> ciklusban. A <code>for</code> ciklus első futásakor meghívod a <code>rules()</code> függvényt, amely megnyitja a mintafájlt, beolvassa az első sort, dinamikusan felépít egy illesztési és egy alkalmazási függvényt a sorban lévő mintákból, és a yield használatával visszaadja a dinamikusan felépített függvényeket. A <code>for</code> ciklus második futásakor pontosan ott folytatod, ahol a <code>rules()</code> függvényt abbahagytad (ami a <code>for line in pattern_file</code> ciklus közepén volt). Ez elsőként a (még mindig nyitva lévő) fájl következő sorának beolvasását fogja elvégezni, majd dinamikusan felépít egy újabb illesztési és alkalmazási függvényt a fájl adott sorának mintái alapján, és a yield használatával visszaadja a két függvényt.
+<li>Itt nincs varázslat. Emlékezz, hogy a szabályfájl sorai három, üres
+helyekkel elválasztott értéket tartalmaznak, így a <code>line.split(None,
+3)</code> használatával kaphatod meg a három &#8222;oszlopot&#8221;, majd három
+helyi változóhoz rendeled azokat.
+<li><em>Ekkor jön a yield.</em> Mit ad vissza a yield? Két függvényt, amelyeket
+a korábbi példákban szereplő régi barátunk, a
+<code>build_match_and_apply_functions()</code> épít fel dinamikusan. Más
+szavakkal a <code>rules()</code> egy generátor, amely illesztési és alkalmazási
+függvényeket ad vissza <em>igény szerint</em>.
+<li>Mivel a <code>rules()</code> egy generátor, közvetlenül használhatod egy
+<code>for</code> ciklusban. A <code>for</code> ciklus első futásakor meghívod a
+<code>rules()</code> függvényt, amely megnyitja a mintafájlt, beolvassa az első
+sort, dinamikusan felépít egy illesztési és egy alkalmazási függvényt a sorban
+lévő mintákból, és a yield használatával visszaadja a dinamikusan felépített
+függvényeket. A <code>for</code> ciklus második futásakor pontosan ott
+folytatod, ahol a <code>rules()</code> függvényt abbahagytad (ami a <code>for
+line in pattern_file</code> ciklus közepén volt). Ez elsőként a (még mindig
+nyitva lévő) fájl következő sorának beolvasását fogja elvégezni, majd
+dinamikusan felépít egy újabb illesztési és alkalmazási függvényt a fájl adott
+sorának mintái alapján, és a yield használatával visszaadja a két függvényt.
 </ol>
 
-<p>Mit nyertél a 4. lépéshez képest? Indítási időt. Amikor a 4. lépésben importáltad a <code>plural4</code> modult, az beolvasta a teljes mintafájlt, és felépítette az összes lehetséges szabály listáját, mielőtt akár csak gondolhattál volna a <code>plural()</code> függvény hívására. A generátorokkal mindent lustán csinálhatsz: beolvashatod az első szabályt, létrehozhatod a függvényeket és kipróbálhatod azokat, és ha ez sikeres, akkor nem is olvasod be a fájl többi részét, és újabb függvényeket sem hozol létre.
-<p>Mit vesztettél? Teljesítményt! A <code>plural()</code> függvény minden hívásakor a <code>rules()</code> generátor újraindul az elejétől&nbsp;&ndash;&nbsp;azaz újra megnyitja a mintafájlt, és soronként beolvassa az elejétől.
-
-<p>Mi lenne, ha egyszerre tudnád kihasználni a két módszer előnyeit: minimális indítási költség (ne hajtson végre kódot az <code>import</code> hívásakor), <em>és</em> maximális teljesítmény (ne építse fel ugyanazokat a függvényeket újra és újra). Ja, és továbbra is önálló fájlban szeretnéd tartani a szabályokat (mert a kód az kód, az adat az adat), hogy soha ne kelljen kétszer beolvasnod ugyanazt a sort.
-
-<p>Hogy ezt megtehesd, saját iterátort kell felépítened. De hogy <em>ezt</em> megtehesd, meg kell ismerkedned a Python osztályokkal.
-
+<p>Mit nyertél a 4. lépéshez képest? Indítási időt. Amikor a 4. lépésben
+importáltad a <code>plural4</code> modult, az beolvasta a teljes mintafájlt, és
+felépítette az összes lehetséges szabály listáját, mielőtt akár csak
+gondolhattál volna a <code>plural()</code> függvény hívására. A generátorokkal
+mindent lustán csinálhatsz: beolvashatod az első szabályt, létrehozhatod a
+függvényeket és kipróbálhatod azokat, és ha ez sikeres, akkor nem is olvasod be
+a fájl többi részét, és újabb függvényeket sem hozol létre.
+<p>Mit vesztettél? Teljesítményt! A <code>plural()</code> függvény minden
+hívásakor a <code>rules()</code> generátor újraindul az
+elejétől&nbsp;&ndash;&nbsp;azaz újra megnyitja a mintafájlt, és soronként
+beolvassa az elejétől.
+<p>Mi lenne, ha egyszerre tudnád kihasználni a két módszer előnyeit: minimális
+indítási költség (ne hajtson végre kódot az <code>import</code> hívásakor),
+<em>és</em> maximális teljesítmény (ne építse fel ugyanazokat a függvényeket
+újra és újra). Ja, és továbbra is önálló fájlban szeretnéd tartani a
+szabályokat (mert a kód az kód, az adat az adat), hogy soha ne kelljen kétszer
+beolvasnod ugyanazt a sort.
+<p>Hogy ezt megtehesd, saját iterátort kell felépítened. De hogy <em>ezt</em>
+megtehesd, meg kell ismerkedned a Python osztályokkal.
 <p class=a>&#x2042;
 
 <h2 id=furtherreading>További olvasnivaló</h2>
