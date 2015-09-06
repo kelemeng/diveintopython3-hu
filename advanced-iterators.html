@@ -204,7 +204,7 @@ AssertionError: Csak a 2 nagyon nagy értékeihez</samp></pre>
 <li>Egy generátorkifejezés olyan, mint egy névtelen függvény, amely értékeket ad vissza. Maga a kifejezés úgy néz ki, mint egy <a href=comprehensions.html#listcomprehension>listafeldolgozó</a>, de szögletes zárójelek helyett zárójelek közt van.
 <li>A generátorkifejezés egy&hellip; iterátort ad vissza.
 <li>A <code>next(<var>gen</var>)</code> hívása az iterátorból származó következő értéket adja vissza.
-<li>Ha szeretnéd, végiglépkedhetsz az összes lehetséges értéken, és visszaadhatsz egy tuplet, listát vagy halmazt a generátorkifejezés átadásával a <code>tuple()</code>, <code>list()</code> vagy <code>set()</code> függvénynek. Ezekben az esetekben nincs szükséged extra zárójelekre&nbsp;&ndash;&nbsp;csak add át a &#8222;nyers&#8221; <code>ord(c) for c in unique_characters</code> kifejezést a <code>tuple()</code> függvénynek, és a Python megállapítja, hogy ez egy generátorkifejezés.
+<li>Ha szeretnéd, végiglépkedhetsz az összes lehetséges értéken, és visszaadhatsz egy ennest, listát vagy halmazt a generátorkifejezés átadásával a <code>tuple()</code>, <code>list()</code> vagy <code>set()</code> függvénynek. Ezekben az esetekben nincs szükséged extra zárójelekre&nbsp;&ndash;&nbsp;csak add át a &#8222;nyers&#8221; <code>ord(c) for c in unique_characters</code> kifejezést a <code>tuple()</code> függvénynek, és a Python megállapítja, hogy ez egy generátorkifejezés.
 </ol>
 
 <blockquote class=note>
@@ -384,7 +384,7 @@ Wesley</samp></pre>
 <samp class=pp>[(0, 10), (1, 11), (2, 12), (None, 13)]</samp></pre>
 <ol>
 <li>Az <code>itertools.chain()</code> függvény két iterátort vár, és egy olyan iterátort ad vissza, amely az első elemeit, majd azok után a második elemeit tartalmazza. (Valójában tetszőleges számú iterátort át lehet neki adni, hogy aztán a függvénynek való átadásuk sorrendjében összefűzze azokat.)
-<li>A <code>zip()</code> függvény egy teljesen hétköznapi dolgot tesz, amely azonban különösen hasznosnak fog bizonyulni: tetszőleges számú sorozatot vár, és visszaad egy iterátort, amely az egyes sorozatokból az első, második, harmadik stb. elemeket tartalmazó tuple-kat ad vissza.
+<li>A <code>zip()</code> függvény egy teljesen hétköznapi dolgot tesz, amely azonban különösen hasznosnak fog bizonyulni: tetszőleges számú sorozatot vár, és visszaad egy iterátort, amely az egyes sorozatokból az első, második, harmadik stb. elemeket tartalmazó enneseket ad vissza.
 <li>A <code>zip()</code> függvény a legrövidebb sorozat végén áll meg. A <code>range(10, 14)</code> 4 elemet (10, 11, 12 és 13) tartalmaz, de a <code>range(0, 3)</code> csak hármat, így a <code>zip()</code> függvény egy 3 elemű iterátort ad vissza.
 <li>Másrészről az <code>itertools.zip_longest()</code> függvény a <em>leghosszabb</em> sorozat végén áll meg, <code>None</code> értékeket szúrva be a rövidebb sorozatok vége utáni elemekhez.
 </ol>
@@ -451,8 +451,8 @@ for guess in itertools.permutations(digits, len(characters)):
 <a><samp class=p>>>> </samp><kbd class=pp>'SEND + MORE == MONEY'.translate(translation_table)</kbd>  <span class=u>&#x2463;</span></a>
 <samp class=pp>'9567 + 1085 == 10652'</samp></pre>
 <ol>
-<li>Egy <a href=#generator-expressions>generátorkifejezés</a> használatával gyorsan kiszámítjuk a karakterlánc minden egyes karakterének bájtértékét. A <var>characters</var> tuple a <var>sorted_characters</var> értékét példázza az <code>alphametics.solve()</code> függvényben.
-<li>Egy másik generátorkifejezés használatával gyorsan kiszámítjuk a karakterlánc számjegyeinek bájtértékeit. Az eredményként kapott <var>guess</var> tuple az <code>alphametics.solve()</code> függvényben az <a href=#guess><code>itertools.permutations()</code> függvény</a> által visszaadott formátumú.
+<li>Egy <a href=#generator-expressions>generátorkifejezés</a> használatával gyorsan kiszámítjuk a karakterlánc minden egyes karakterének bájtértékét. A <var>characters</var> ennes a <var>sorted_characters</var> értékét példázza az <code>alphametics.solve()</code> függvényben.
+<li>Egy másik generátorkifejezés használatával gyorsan kiszámítjuk a karakterlánc számjegyeinek bájtértékeit. Az eredményként kapott <var>guess</var> ennes az <code>alphametics.solve()</code> függvényben az <a href=#guess><code>itertools.permutations()</code> függvény</a> által visszaadott formátumú.
 <li>Ezt a fordítási táblát a <a href=#dict-zip><var>characters</var> és <var>guess</var> zip metódussal való egyesítése</a> és az eredményül kapott párok sorozatából egy szótár összeállításával kapjuk. Ez pontosan ugyanaz, mint amit az <code>alphametics.solve()</code> függvény csinál a <code>for</code> cikluson belül.
 <li>Végül átadjuk ezt a fordítási táblát az eredeti feladvány karakterlánc <code>translate()</code> metódusának. Ez a karakterlánc minden betűjét átalakítja a megfelelő számjeggyé (a <var>characters</var> betűi és a <var>guess</var> számjegyei alapján). Az eredmény egy érvényes Python kifejezés, karakterláncként.
 </ol>

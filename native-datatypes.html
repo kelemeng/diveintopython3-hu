@@ -33,7 +33,7 @@ href=http://en.wikipedia.org/wiki/Complex_number>komplex számok</a> is.
 <li>A <b>karakterláncok</b> Unicode karakterek sorozatai, <i>például</i> egy <abbr>HTML</abbr> dokumentum.
 <li>A <b>bájtok</b> és <b>bájttömbök</b>, <i>például</i> egy <abbr>JPEG</abbr> képfájl.
 <li>A <b>listák</b> értékek rendezett sorozatai.
-<li>A <b>tuple</b>-ök értékek rendezett, nem módosítható sorozatai.
+<li>Az <b>ennesek</b> értékek rendezett, nem módosítható sorozatai.
 <li>A <b>halmazok</b> értékek rendezetlen kupacai.
 <li>A <b>szótárak</b> kulcs-érték párok rendezetlen kupacai.
 </ol>
@@ -657,97 +657,97 @@ utasításokban használhatsz listákat is. <pre class=screen>
 
 <p class=a>&#x2042;
 
-<h2 id=tuples>Tuple-ök</h2>
+<h2 id=tuples>Ennesek</h2>
 
-<p>A <dfn>tuple</dfn> egy megváltoztathatatlan lista. A tuple létrehozása után semmilyen módon sem módosítható.
+<p>Az <dfn>ennes</dfn> (angolul és a hívásokban tuple - a ford.) egy megváltoztathatatlan lista. Az ennes létrehozása után semmilyen módon sem módosítható.
 
 <pre class=screen>
-<a><samp class=p>>>> </samp><kbd class=pp>a_tuple = ("a", "b", "mpilgrim", "z", "példa")</kbd>    <span class=u>&#x2460;</span></a>
-<samp class=p>>>> </samp><kbd class=pp>a_tuple</kbd>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_ennes = ("a", "b", "mpilgrim", "z", "példa")</kbd>    <span class=u>&#x2460;</span></a>
+<samp class=p>>>> </samp><kbd class=pp>egy_ennes</kbd>
 <samp class=pp>('a', 'b', 'mpilgrim', 'z', 'példa')</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_tuple[0]</kbd>                                        <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_ennes[0]</kbd>                                        <span class=u>&#x2461;</span></a>
 <samp class=pp>'a'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_tuple[-1]</kbd>                                       <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_ennes[-1]</kbd>                                       <span class=u>&#x2462;</span></a>
 <samp class=pp>'példa'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_tuple[1:3]</kbd>                                      <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_ennes[1:3]</kbd>                                      <span class=u>&#x2463;</span></a>
 <samp class=pp>('b', 'mpilgrim')</samp></pre>
 <ol>
-<li>A tuple ugyanúgy definiálható, mint egy lista, kivéve hogy az elemek
+<li>Az ennes ugyanúgy definiálható, mint egy lista, kivéve hogy az elemek
 halmaza zárójelek és nem szögletes zárójelek közt van.
-<li>Egy tuple elemeinek meghatározott sorrendje van, mint a listák esetén. A
-tuple indexei nullától kezdődnek, mint a listák esetén, így egy nem üres
-tuple első eleme mindig <code>a_tuple[0]</code>.
-<li>A negatív indexek a tuple végétől számítódnak, mint a listák esetén.
+<li>Egy ennes elemeinek meghatározott sorrendje van, mint a listák esetén. Az
+ennes indexei nullától kezdődnek, mint a listák esetén, így egy nem üres
+ennes első eleme mindig <code>egy_ennes[0]</code>.
+<li>A negatív indexek az ennes végétől számítódnak, mint a listák esetén.
 <li>A szeletelés is működik, mint a listák esetén. Lista szeletelésekor
-egy új listát kapsz, tuple szeletelésekor egy új tuple-t.
+egy új listát kapsz, ennes szeletelésekor egy új ennest.
 </ol>
 
-<p>A tuple és a lista közti legnagyobb különbség, hogy a tuple nem
-módosítható. Technikai kifejezéssel élve a tuple-ök
+<p>Az ennes és a lista közti legnagyobb különbség, hogy az ennes nem
+módosítható. Technikai kifejezéssel élve az ennesek
 <dfn>megváltoztathatatlanok</dfn>. Gyakorlati szempontból nincsenek olyan
 metódusaik, amelyek lehetővé tennék a módosításukat. A listák rendelkeznek
 olyan metódusokkal, mint az <code>append()</code>, <code>extend()</code>,
-<code>insert()</code>, <code>remove()</code> és <code>pop()</code>. A
-tuple-ök ezek egyikével sem. A tuple szeletelhető (mert az egy új tuple-t
-hoz létre), és ellenőrizheted, hogy egy tuple tartalmaz-e egy adott
-értéket (mert ez nem változtatja meg a tuple-t), és ez minden.
+<code>insert()</code>, <code>remove()</code> és <code>pop()</code>. Az ennesek
+ ezek egyikével sem. Az ennes szeletelhető (mert az egy új ennest
+hoz létre), és ellenőrizheted, hogy egy ennes tartalmaz-e egy adott
+értéket (mert ez nem változtatja meg az ennest), és ez minden.
 <pre class=screen>
 # az előző példa folytatása
-<samp class=p>>>> </samp><kbd class=pp>a_tuple</kbd>
+<samp class=p>>>> </samp><kbd class=pp>egy_ennes</kbd>
 <samp class=pp>('a', 'b', 'mpilgrim', 'z', 'példa')</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_tuple.append("új")</kbd>                   <span class=u>&#x2460;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_ennes.append("új")</kbd>                   <span class=u>&#x2460;</span></a>
 <samp class=traceback>Traceback (innermost last):
   File "&lt;interactive input>", line 1, in ?
 AttributeError: 'tuple' object has no attribute 'append'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_tuple.remove("z")</kbd>                    <span class=u>&#x2461;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_ennes.remove("z")</kbd>                    <span class=u>&#x2461;</span></a>
 <samp class=traceback>Traceback (innermost last):
   File "&lt;interactive input>", line 1, in ?
 AttributeError: 'tuple' object has no attribute 'remove'</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>a_tuple.index("példa")</kbd>                 <span class=u>&#x2462;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>egy_ennes.index("példa")</kbd>                 <span class=u>&#x2462;</span></a>
 <samp class=pp>4</samp>
-<a><samp class=p>>>> </samp><kbd class=pp>"z" in a_tuple</kbd>                         <span class=u>&#x2463;</span></a>
+<a><samp class=p>>>> </samp><kbd class=pp>"z" in egy_ennes</kbd>                         <span class=u>&#x2463;</span></a>
 <samp class=pp>True</samp>
 </pre>
 <ol>
-<li>Nem adhatsz elemeket a tuple-höz. A tuple-ök nem rendelkeznek
+<li>Nem adhatsz elemeket az enneshez. Az ennesek nem rendelkeznek
 <code>append()</code> vagy <code>extend()</code> metódussal.
-<li>Nem távolíthatsz el elemeket egy tuple-ből. A tuple-ök nem rendelkeznek
+<li>Nem távolíthatsz el elemeket egy ennesből. Az ennesek nem rendelkeznek
 <code>remove()</code> vagy <code>pop()</code> metódussal.
-<li><em>Megkereshetsz</em> elemeket a tuple-ben, mivel ez nem módosítja a tuple-t.
+<li><em>Megkereshetsz</em> elemeket az ennesben, mivel ez nem módosítja az ennest.
 <li>Használhatod az <code>in</code> operátort is egy elem meglétének
-ellenőrzésére a tuple-ben.
+ellenőrzésére az ennesben.
 </ol>
 
-<p>Akkor mire jók a tuple-ök?</p> 
+<p>Akkor mire jók az ennesek?</p> 
 
 <ul> 
-<li>A tuple-ök gyorsabbak a listáknál. Ha értékek konstans halmazát
+<li>Az ennesek gyorsabbak a listáknál. Ha értékek konstans halmazát
 definiálod, és a végighaladáson kívül semmit sem akarsz vele csinálni,
-akkor használj tuple-t a lista helyett.
+akkor használj ennest a lista helyett.
 <li>A kódot biztonságosabbá teszi, ha a nem módosítandó adatokat
-&#8222;írásvédetté&#8221; teszed. A tuple használata lista helyett olyan,
+&#8222;írásvédetté&#8221; teszed. Az ennes használata lista helyett olyan,
 mintha egy közvetett <code>assert</code> utasításod lenne, amely jelzi,
 hogy ezek az adatok konstansak, és külön elhatározás (és egy bizonyos
 függvény) szükséges a felülbírálásához.
-<li>Egyes tuple-ök használhatók szótárkulcsokként (konkrétan olyan tuple-ök,
+<li>Egyes ennesek használhatók szótárkulcsokként (konkrétan olyan ennesek,
 amelyek <i>megváltoztathatatlan</i> értékeket, például karakterláncokat,
-számokat és más tuple-öket tartalmaznak). A listák soha nem használhatók
+számokat és más enneseket tartalmaznak). A listák soha nem használhatók
 szótárkulcsokként, mivel a listák megváltoztathatók.
 </ul>
 
 <blockquote class=note>
-<p><span class=u>&#x261E;</span>A tuple-ök átalakíthatók listákká, és
+<p><span class=u>&#x261E;</span>Az ennesek átalakíthatók listákká, és
 fordítva. A beépített <code>tuple()</code> függvény egy listát vár, és
-visszaad egy tuple-t ugyanazokkal az elemekkel, a <code>list()</code>
-függvény pedig egy tuple-t vár és listát ad vissza. Gyakorlatilag a
+visszaad egy ennest ugyanazokkal az elemekkel, a <code>list()</code>
+függvény pedig egy ennest vár és listát ad vissza. Gyakorlatilag a
 <code>tuple()</code> befagyasztja a listát, a <code>list()</code> pedig
 kiolvasztja.
 </blockquote>
 
-<h3 id=tuples-in-a-boolean-context>Tuple-ök logikai kontextusban</h3>
+<h3 id=tuples-in-a-boolean-context>Ennesek logikai kontextusban</h3>
 
 <p><a href=#booleans>Logikai kontextusban</a>, például <code>if</code>
-utasításokban használhatsz tuple-öket is. <pre class=screen>
+utasításokban használhatsz enneseket is. <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>def is_it_true(valami):</kbd>
 <samp class=p>... </samp><kbd class=pp>  if valami:</kbd>
 <samp class=p>... </samp><kbd class=pp>    print("igen, ez igaz")</kbd>
@@ -765,17 +765,17 @@ utasításokban használhatsz tuple-öket is. <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>type((False,))</kbd>
 <samp class=pp>&lt;class 'tuple'></samp></pre>
 <ol>
-<li>Logikai kontextusban az üres tuple hamis.
-<li>Egy legalább egy elemű tuple igaz.
-<li>Egy legalább egy elemű tuple igaz. Az elemek értéke lényegtelen. De mit csinál ott az a vessző?
-<li>Egy egy elemű tuple létrehozásához vesszőt kell tennie az érték után. 
+<li>Logikai kontextusban az üres ennes hamis.
+<li>Egy legalább egy elemű ennes igaz.
+<li>Egy legalább egy elemű ennes igaz. Az elemek értéke lényegtelen. De mit csinál ott az a vessző?
+<li>Egy egy elemű ennes létrehozásához vesszőt kell tenni az érték után. 
 A vessző nélkül a Python azt feltételezi, hogy egy extra pár zárójelet
-tettél ki, ami ártalmatlan, de nem hoz létre tuple-t.
+tettél ki, ami ártalmatlan, de nem hoz létre ennest.
 </ol>
 
 <h3 id=multivar>Több érték hozzárendelése egyszerre</h3>
 
-<p>Itt egy menő programozási trükk: Pythonban egy tuple használatával
+<p>Itt egy menő programozási trükk: Pythonban egy ennes használatával
 egyszerre több értéket is hozzárendelhetsz változókhoz.
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>v = ('a', 2, True)</kbd>
@@ -787,8 +787,8 @@ egyszerre több értéket is hozzárendelhetsz változókhoz.
 <samp class=p>>>> </samp><kbd class=pp>z</kbd>
 <samp class=pp>True</samp></pre>
 <ol>
-<li>A <var>v</var> egy három elemű tuple, az <code>(x, y, z)</code> pedig
-egy három változót tartalmazó tuple. Az egymáshoz rendelésükkel a
+<li>A <var>v</var> egy három elemű ennes, az <code>(x, y, z)</code> pedig
+egy három változót tartalmazó ennes. Az egymáshoz rendelésükkel a
 <var>v</var> értékei a változókhoz lesznek rendelve, a megadott
 sorrendben.
 </ol>
@@ -808,8 +808,7 @@ hozzárendeléséhez használhatod.
 <ol>
 <li>A beépített <code>range()</code> függvény egészek sorozatát állítja
 elő. (Technikailag a <code>range()</code> függvény egy <a
-href=iterators.html>iterátort</a> ad vissza, nem pedig listát vagy
-tuple-t, de erről a különbségről később fogsz tanulni.) A
+href=iterators.html>iterátort</a> ad vissza, nem pedig listát vagy ennest, de erről a különbségről később fogsz tanulni.) A
 <var>HÉTFŐ</var>, <var>KEDD</var>, <var>SZERDA</var>,
 <var>CSÜTÖRTÖK</var>, <var>PÉNTEK</var>, <var>SZOMBAT</var> és
 <var>VASÁRNAP</var> a definiált változók. (Ez a példa a
@@ -822,7 +821,7 @@ a <var>KEDD</var> <code>1</code> és így tovább.
 
 <p>A több érték hozzárendelése használatával olyan függvényeket építhetsz,
 amelyek több értéket adnak vissza, egyszerűen az értékeket tartalmazó
-tuple visszaadásával. A hívó ezt kezelheti egyetlen tuple-öként vagy
+ennes visszaadásával. A hívó ezt kezelheti egyetlen ennesként, vagy
 értékeket rendelhet az egyes változókhoz. Sok szabványos Python
 függvénytár így tesz, beleértve az <code>os</code> modult, amelyet <a
 href=comprehensions.html#os>a következő fejezetben</a> fogsz megismerni.

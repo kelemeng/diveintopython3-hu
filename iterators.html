@@ -311,7 +311,7 @@ rules = LazyRules()</code></pre>
 <ol>
 <li>A <code>__next__()</code> metódus meghívásra kerül, amikor valami&nbsp;&ndash;&nbsp;mondjuk egy <code>for</code> ciklus&nbsp;&ndash;&nbsp;meghívja a <code>next(rules)</code>-t. Ez a metódus csak akkor nyeri el értelmét, ha visszafelé haladva kezdjük megfejteni. Tegyünk így.
 <li>A függvény utolsó része mindenképp ismerős kell legyen. A <code>build_match_and_apply_functions()</code> függvény nem változott, ugyanaz mint volt.
-<li>Az egyetlen különbség, hogy a (<var>funcs</var> tuple-ben tárolt) illesztési és alkalmazási függvények visszaadása előtt ezeket elmentjük a <code>self.cache</code>-ben.
+<li>Az egyetlen különbség, hogy a (<var>funcs</var> ennesben tárolt) illesztési és alkalmazási függvények visszaadása előtt ezeket elmentjük a <code>self.cache</code>-ben.
 </ol>
 
 <p>Visszafelé haladva&hellip;

@@ -98,11 +98,11 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
 <samp class=p>>>> </samp><kbd class=pp>kiterjesztés</kbd>
 <samp class=pp>'.py'</samp></pre>
 <ol>
-<li>A <code>split</code> függvény feloszt egy teljes útvonalnevet, és visszaad egy, az útvonalat és a fájlnevet tartalmazó tuple-t.
-<li>Emlékszel, amikor azt mondtam, hogy egy függvényből több érték visszaadására használhatsz <a href=native-datatypes.html#multivar>többváltozós értékadást</a>? Az <code>os.path.split()</code> függvény pontosan ezt csinálja. A <code>split</code> függvény visszatérési értékét egy két változót tartalmazó tuple-höz rendeli. Minden változó a visszaadott tuple megfelelő elemének értékét kapja.
-<li>Az első változó, a <var>kvtnév</var> megkapja az <code>os.path.split()</code> által visszaadott tuple első elemének értékét, a fájl útvonalát.
-<li>A második változó, a <var>fájlnév</var> megkapja az <code>os.path.split()</code> által visszaadott tuple második elemének értékét, a fájl nevét.
-<li>Az <code>os.path</code> tartalmazza az <code>os.path.splitext()</code> függvényt is, amely feloszt egy fájlnevet, és visszaadja a fájlnevet és a fájlkiterjesztést tartalmazó tuple-t. Ugyanezzel a módszerrel ezeket is önálló változókhoz rendelheted.
+<li>A <code>split</code> függvény feloszt egy teljes útvonalnevet, és visszaad egy, az útvonalat és a fájlnevet tartalmazó ennest.
+<li>Emlékszel, amikor azt mondtam, hogy egy függvényből több érték visszaadására használhatsz <a href=native-datatypes.html#multivar>többváltozós értékadást</a>? Az <code>os.path.split()</code> függvény pontosan ezt csinálja. A <code>split</code> függvény visszatérési értékét egy két változót tartalmazó enneshezrendeli. Minden változó a visszaadott ennes megfelelő elemének értékét kapja.
+<li>Az első változó, a <var>kvtnév</var> megkapja az <code>os.path.split()</code> által visszaadott ennes első elemének értékét, a fájl útvonalát.
+<li>A második változó, a <var>fájlnév</var> megkapja az <code>os.path.split()</code> által visszaadott ennes második elemének értékét, a fájl nevét.
+<li>Az <code>os.path</code> tartalmazza az <code>os.path.splitext()</code> függvényt is, amely feloszt egy fájlnevet, és visszaadja a fájlnevet és a fájlkiterjesztést tartalmazó ennest. Ugyanezzel a módszerrel ezeket is önálló változókhoz rendelheted.
 </ol>
 
 <h3 id=glob>Könyvtárak felsorolása</h3>
@@ -258,7 +258,7 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
  ('3.3 KiB', 'feed-ns0.xml'),
  ('3.0 KiB', 'feed.xml')]</samp></pre>
 <ol>
-<li>Ez a listafeldolgozó megtalálja az összes <code>.xml</code> fájlt az aktuális munkakönyvtárban, lekéri az egyes fájlok méretét (az <code>os.stat()</code> függvény hívásával), és összeállít egy tuple-t a fájlok méretéből és az abszolút elérési útjukból (az <code>os.path.realpath()</code> függvény hívásával).
+<li>Ez a listafeldolgozó megtalálja az összes <code>.xml</code> fájlt az aktuális munkakönyvtárban, lekéri az egyes fájlok méretét (az <code>os.stat()</code> függvény hívásával), és összeállít egy ennest a fájlok méretéből és az abszolút elérési útjukból (az <code>os.path.realpath()</code> függvény hívásával).
 <li>Ez a feldolgozó az előzőre épít, és meghívja az <a href=your-first-python-program.html#divingin><code>approximate_size()</code> függvényt</a> az egyes <code>.xml</code> fájlok fájlméretével.
 </ol>
 
@@ -287,8 +287,8 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
 <a><samp class=p>>>> </samp><kbd class=pp>metadata_dict['alphameticstest.py'].st_size</kbd>                     <span class=u>&#x2465;</span></a>
 <samp class=pp>2509</samp></pre>
 <ol>
-<li>Ez még nem szótárfeldolgozó, hanem egy <a href=#listcomprehension>listafeldolgozó</a>. Megtalálja az összes <code>.py</code> fájlt, amelyek neve tartalmazza a <code>test</code> szót, majd összeállít egy tuple-t a fájlok neveiből és metaadataiból (amelyeket az <code>os.stat()</code> függvény ad vissza).
-<li>Az eredményül kapott lista minden eleme egy tuple.
+<li>Ez még nem szótárfeldolgozó, hanem egy <a href=#listcomprehension>listafeldolgozó</a>. Megtalálja az összes <code>.py</code> fájlt, amelyek neve tartalmazza a <code>test</code> szót, majd összeállít egy ennest a fájlok neveiből és metaadataiból (amelyeket az <code>os.stat()</code> függvény ad vissza).
+<li>Az eredményül kapott lista minden eleme egy ennes.
 <li>Ez egy szótárfeldolgozó. A szintaxis hasonló a listafeldolgozókéhoz, két különbséggel. Először is, kapcsos és nem szögletes zárójelek közt áll. Másodszor, minden elemhez egy kifejezés helyett két, kettősponttal elválsztott kifejezést tartalmaz. A kettőspont előtti kifejezés (ebben a példában az <code>f</code>) a szótár kulcsa, a kettőspont utáni kifejezés (ebben a példában az <code>os.stat(f)</code>) az érték.
 <li>A szótárfeldolgozó szótárat ad vissza.
 <li>Ennek a szótárnak a kulcsai a <code>glob.glob('*test*.py')</code> által visszaadott fájlnevek.
@@ -322,7 +322,7 @@ class=u>&#8227;</span> <a href=table-of-contents.html#comprehensions>Ugorj fejes
 <samp class=p>>>> </samp><kbd class=pp>{érték:kulcs for kulcs, érték in a_dict.items()}</kbd>
 <samp class=pp>{1: 'a', 2: 'b', 3: 'c'}</samp></pre>
 
-<p>Természetesen ez csak akkor működik, ha a szótár értékei megváltoztathatatlanok, például karakterláncok vagy tuple-k. Ha ezt egy listákat tartalmazó szótárral próbálod meg, az látványosan nem fog sikerülni.
+<p>Természetesen ez csak akkor működik, ha a szótár értékei megváltoztathatatlanok, például karakterláncok vagy ennesek. Ha ezt egy listákat tartalmazó szótárral próbálod meg, az látványosan nem fog sikerülni.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>a_dict = {'a': [1, 2, 3], 'b': 4, 'c': 5}</kbd>
